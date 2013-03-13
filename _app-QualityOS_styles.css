@@ -11,9 +11,35 @@ body {
 	width: 1020px;	
 }
 
-.fontA {}
+.positionRel {position: relative;}
+.positionAbs {position: absolute;}
 
-.fontB {}
+.blackBackground {background-color: #000;}
+
+.fontSize12PX {font-size: 12px;}
+.fontSize14PX {font-size: 14px;}
+.fontSize18PX {font-size: 18px;}
+
+.fontColorWhite {color: #fff;}
+.fontColorBlack {color: #000;}
+.fontColorYellow {color: #fec611;}
+
+.montFont {
+	font-family: Montserrat;
+}
+
+.montFontBold {
+	font-family: Monterrat;
+	font-weight: bold;
+}
+
+.playFont {
+	font-family: "Playfair Display";
+}
+
+.playSCFont {
+	font-family: "Playfair Display SC";
+}
 
 .indentText {
 	text-indent: 35px;
@@ -29,12 +55,22 @@ body {
 }
 
 .form {
-	height: 29px;
-	width: 196px;
-	font-family: "Open Sans";
-	font-weight: bold;
-	font-size: 15px;
+	height: 30px;
+	font-family: "Playfair Display";
+	font-size: 12px;
 	color: #000;
+	border: none;
+}
+
+.button {
+	height: 32px;
+	width: 70px;
+	font-family: "Playfair Display";
+	font-size: 14px;
+	font-variant: small-caps;
+	text-align: center;
+	background-color: #fec611;
+	border: none;
 }
 
 
@@ -46,8 +82,100 @@ PERSISTENT CONTENT
 HEADER
 *************************************************************************************/
 
+.headerContainer {
+	height: 300px;
+	width: 100%;
+}
+
+.headerBarContainer {
+	height: 50px;
+	width: 100%;
+	line-height: 50px;
+}
+
+.headerBarLogin {
+	width: 350px;
+	padding-left: 40px;
+	float: left;
+}
+
+.headerBarCart {
+	width: 235px;
+	padding-left: 200px;
+	float: left;
+}
+
+.headerBarHelp {
+	width: 80px;
+	padding-right: 40px;
+	float: right;
+}
+
+.headerLogo {
+	height: 127px;
+	width: 292px;
+	margin: 0px auto 0px auto;
+	padding: 55px 0px 15px 0px;
+}
+
+.headerNavContainer {
+	height: 50px;
+	width: 940px;
+	margin: 0px auto 0px auto;
+}
+
+.shopContainer {
+	width: 175px;
+	padding-left: 20px;
+	float: left;
+	position: relative;
+}
+
+.shopArrowContainer {
+	width: 17px;
+	padding: 0px 5px 0px 0px;
+	float: left;
+}
+
+#main {
+	height: 40px;
+	width: 40px;
+	line-height: 48px;
+	margin-left: 3px;
+}
+
+.dropdown {
+	height: 17px;
+	width: 11px;
+	position:absolute;
+	top: 17px;
+	overflow: hidden;
+	position: absolute;
+}
 
 
+.shopContainer span {
+	line-height: 50px;
+	position: absolute;
+	top: 0px;
+	left: 44px;
+}
+
+.headerSearchBar {
+	position: absolute;
+	top: 9px;
+	left: 718px;
+	width: 140px;
+
+}
+
+.headerSearchButton {
+	position: absolute;
+	top: 9px;
+	left: 858px;
+	font-size: 14px;
+	padding-bottom: 2px;
+}
 
 
 

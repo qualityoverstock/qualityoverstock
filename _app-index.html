@@ -46,7 +46,11 @@ all css includes need to be after the js that changes the base url.
 css files should be included before any .js file to ensure they are downloaded in parallel
 -->
 <link rel="stylesheet" type="text/css" href="app-quickstart.css" />
+<link rel="stylesheet" type="text/css" href="_app-QualityOS_styles.css" />
 <link rel="stylesheet" type="text/css" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/themes/ui-lightness/jquery-ui.css" />
+<link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Playfair+Display' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Playfair+Display+SC' rel='stylesheet' type='text/css'>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 <script src="resources/jquery.ui.widget.min.js"></script><!-- here so that plugins that may load before the jqueryui lib load without error -->
@@ -63,13 +67,6 @@ app.u.loadScript(app.vars.baseURL+"app-quickstart-init.js");
 </head>
 
 <body>
-<!-- DELETE THIS WHEN YOU GET STARTED -->
-<h1>WELCOME TO QUICKSTART</h1>
-This file is intended to go along with the 10-step tutorial at:
-<a href="https://github.com/zoovy/AnyCommerce-Development/wiki/quickstart">https://github.com/zoovy/AnyCommerce-Development/wiki/quickstart</a>
-<!-- /DELETE THIS WHEN YOU GET STARTED -->
-
-
 
 
 <!-- what is displayed onLoad until the view is loaded -->
@@ -101,14 +98,70 @@ This file is intended to go along with the 10-step tutorial at:
 <div id='appView' class='displayNone'>
 
 <!-- VIEW CONTENT -->
-<!-- leave the appView div, put your your html here ...  -->
-
-	<!--
-	** REMINDER : DO NOT PUT ANY GRAPHICS/CONTENT THAT SHOULD NOT APPEAR ON EVERY PAGE IN THE VIEW (HERE)
-	**				  INSTEAD PUT THEM INTO <div id="homepageTemplate"></div>
-	-->
-	
 <div id='globalMessaging' class='appMessaging'></div><!-- DO NOT REMOVE - used for some high level error handling (usually appears below breadcrumb nav or top bar) -->
+
+<div class='headerContainer montFont fontSize12PX fontColorWhite'>
+
+	<div class='headerBarContainer noPadOrMargin blackBackground'>
+    	<div class='headerBarLogin'>
+        	<span class='playFont fontSize14PX'>Welcome, Guest! </span>
+            <span>(Not you?</span>
+            <span class='montFontBold fontColorYellow pointer' onClick="return showContent('customer',{'show':'myaccount'});"> LOG IN</span>
+            <span>or </span>
+            <span class='montFontBold fontColorYellow pointer' onClick="return showContent('customer',{'show':'newsletter'});">SIGN UP!</span>
+            <span>)</span>
+        </div>
+        <div class='headerBarCart'>
+        	<div class='pointer' onClick="return showContent('cart',{});">
+                <span class='cartItemCount montFontBold'></span>
+                <span> item(s) in your</span>
+                <span class='montFontBold fontColorYellow'> SHOPPING CART</span>
+			</div>
+        </div>
+        <div class='headerBarHelp pointer' onClick="return showContent('company',{'show':'faq'});">NEED HELP?</div>
+    </div>
+    
+    <div class='headerLogo pointer' onClick="return showContent('homepage',{});"><img src="images/QOS_Logo.png"></div>
+    
+    <div class='headerNavContainer playFont fontColorBlack blackBackground'>
+    
+		<div id='main'>
+            <!-- DROP DOWN SCRIPT -->
+            <script type="text/javascript">
+                var showDropdown = function ($tag) {
+                    var $dropdown = $(".dropdown", $tag);
+                    var height = 387;
+                    $dropdown.children().each(function(){
+                        $(this).outerHeight(true);
+                    });
+                    $dropdown.stop().animate({"height":height+"px"}, 1000);
+                }
+                
+                var hideDropdown = function ($tag) {
+                    $(".dropdown", $tag).stop().animate({"height":"0px"}, 1000);
+                }
+            </script>
+                
+            <div class='shopContainer'>
+                <div class='shopArrowContainer dropdown' onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))"><img src="images/SmallYellowRoundDownArrow.png">
+                	<ul class='floatLeft'>
+                    	<li>Categories</li>
+                    </ul>
+                </div>	
+                <span class='fontColorWhite fontSize18PX'>Shop Our Store</span>
+            </div>
+            <div class='findItContainer positionRel'>
+                <form name='headerSearchFrm' action='#' class='productSearchForm' method="get" id="searchFunc">
+                    <input class="search pointer button headerSearchButton" type="submit" value="Search" />
+                    <input type='search' name='KEYWORDS' class="productSearchKeyword handleDefault form headerSearchBar" placeholder="  Find it here..." />
+                </form>
+            </div>
+        </div>
+    </div>
+    
+</div>
+	
+
 
 <!-- These add specific functionality for the app. In most cases, you want to leave them alone. -->
 <div id='appNav'>
@@ -117,6 +170,82 @@ This file is intended to go along with the 10-step tutorial at:
 </div>
 
 <div id='mainContentArea'></div><!-- DO NOT REMOVE - this is where the specific page (ex: homepage, product, category) content is going to go -->
+
+
+<div class='footer'>
+	
+    <div class='upperFooterContainer'>
+    	
+        <div class='stayUpdated'>
+        	<div class='stayUpdatedText'></div>
+            <div class='stayUpdatedFields'></div>
+            <div class='stayUpdatedFields'></div>
+            <div class='stayUpdatedButton'></div>
+        </div>
+        
+        <div class='footerLinksContainer'>
+        	
+            <div class='footerCategories'>
+            	<ul>
+                	<li></li>
+                	<li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+                <ul>
+                	<li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </div>
+            <div class='footerHelp'>
+            	<ul>
+                	<li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </div>
+            <div class='footerMyAccount'>
+            	<ul>
+                	<li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </div>             
+        </div>
+        
+    </div> <!-- end footerCategories -->
+    
+    <div class='lowerFooterContainer'>
+    
+    	<div class='footerLogos'>
+        
+        </div>
+        
+        <div class='footerCopyright'>
+        
+        </div>
+        
+    </div> <!-- end lowerFooterContainer-->
+    
+</div> <!-- end footerContainer -->
 
 
 <!-- ... your html ends -->
@@ -165,7 +294,7 @@ the homepageTemplate template is loaded into mainContentArea by default when the
 <div id='homepageTemplate' class='homeTemplate'>
 	
 
-<ul id="wideSlideshow" class="pics slideshow">
+<ul id="wideSlideshow" class="pics slideshow displayNone">
 		<img src='images/blank.gif' width='712' height='400' data-bind="var: category(%page.banner_slideshow1); format: banner; extension:myRIA; editor:banner; wrap:<li>;" />
 	</ul>
 	
