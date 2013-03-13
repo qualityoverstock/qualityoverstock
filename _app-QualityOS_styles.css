@@ -122,37 +122,46 @@ HEADER
 	height: 50px;
 	width: 940px;
 	margin: 0px auto 0px auto;
+	overflow: show;
 }
 
 .shopContainer {
 	width: 175px;
 	padding-left: 20px;
-	float: left;
 	position: relative;
 }
 
 .shopArrowContainer {
 	width: 17px;
-	padding: 0px 5px 0px 0px;
+	padding: 17px 5px 0px 0px;
 	float: left;
 }
 
-#main {
+/*#main {
 	height: 40px;
 	width: 40px;
-	line-height: 48px;
 	margin-left: 3px;
-}
+}*/
 
 .dropdown {
 	height: 17px;
-	width: 11px;
+	width: 171px;
+	margin: 0px 0px 0px 20px;
 	position:absolute;
 	top: 17px;
 	overflow: hidden;
 	position: absolute;
+	left: -20px;
 }
 
+.dropdown ul {
+	margin-top: 33px;
+	padding-bottom: 3px;
+}
+
+.dropdown li {
+	margin: 10px
+}
 
 .shopContainer span {
 	line-height: 50px;
