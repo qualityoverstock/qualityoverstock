@@ -1,9 +1,7 @@
 @charset "utf-8";
 /* CSS Document */
 
-body {
-	background: white;	
-}
+body {background: white;}
 
 #appPreview, #appView {
 	background: white;
@@ -16,6 +14,7 @@ body {
 
 .blackBackground {background-color: #000;}
 
+.fontSize10PX {font-size: 10px;}
 .fontSize12PX {font-size: 12px;}
 .fontSize14PX {font-size: 14px;}
 .fontSize18PX {font-size: 18px;}
@@ -24,30 +23,18 @@ body {
 .fontColorBlack {color: #000;}
 .fontColorYellow {color: #fec611;}
 
-.montFont {
-	font-family: Montserrat;
-}
-
+.montFont {font-family: Montserrat;}
 .montFontBold {
 	font-family: Monterrat;
 	font-weight: bold;
 }
+.playFont {font-family: "Playfair Display";}
+.playSCFont {font-family: "Playfair Display SC";}
 
-.playFont {
-	font-family: "Playfair Display";
-}
-
-.playSCFont {
-	font-family: "Playfair Display SC";
-}
-
-.indentText {
-	text-indent: 35px;
-}
-
-.centerText {
-		text-align: center;
-}
+.indentText {text-indent: 35px;}
+.centerText {text-align: center;}
+.smallcaps {font-variant: small-caps}
+.kernText {letter-spacing: 2.2px}
 
 .cents {
 	font-size: 50%;
@@ -137,12 +124,6 @@ HEADER
 	float: left;
 }
 
-/*#main {
-	height: 40px;
-	width: 40px;
-	margin-left: 3px;
-}*/
-
 .dropdown {
 	height: 17px;
 	width: 171px;
@@ -160,7 +141,8 @@ HEADER
 }
 
 .dropdown li {
-	margin: 10px
+	margin: 10px;
+	font-variant: small-caps;
 }
 
 .shopContainer span {
@@ -187,8 +169,6 @@ HEADER
 }
 
 
-
-
 /*************************************************************************************
 END HEADER
 *************************************************************************************/
@@ -197,6 +177,71 @@ END HEADER
 /*************************************************************************************
 FOOTER
 *************************************************************************************/
+
+
+.footerContainer {
+	width: 100%;
+	clear: both;
+}
+
+.upperFooterContainer {
+	height: 385px;
+	width: 100%;
+}
+
+.stayUpdatedContainer {
+	height: 50px;
+	width: 710px;
+	margin: 0px auto 0px auto;
+}
+
+.stayUpdatedText {
+	height: 30px;
+	width: 130px;
+	margin: 5px 0px 0px 0px;
+}
+
+.stayUpdatedInputs {
+	margin: 9px 0px 0px 20px;
+}
+
+.footerLinksContainer {
+	height: 320px;
+	width: 100%;
+	background-color: #777c71;
+}
+
+.footerCategories {
+	height: 320px;
+	width: 510px;
+	Background-color: #0F0;
+}
+
+.footerCategories ul {
+	width: 190px;
+}
+
+.footerLinkHead {
+	margin: 10px;
+}
+
+.footerCategories li {
+	margin-left: 30px;
+}
+
+.footerHelpAccount {
+	height: 320px;
+	width: 255px;
+	Background-color: #F0F;
+}
+
+
+
+
+
+
+
+
 
 
 /*************************************************************************************

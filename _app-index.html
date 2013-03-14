@@ -26,7 +26,7 @@ var _gaq = _gaq || {'push':function(){}} //here for testing. REPLACE BEFORE DEPL
 var myCreole;
 
 var app = {vars:{
-	"release":"20130312053700",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+	"release":"20130313052100",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 	"_clientid":"zmvc",
 	"baseURL":"", //used in non-local mode.
 	"testURL":"http://www.gkworld.com/" //used ONLY if protocol is file: (for testing)
@@ -146,14 +146,19 @@ app.u.loadScript(app.vars.baseURL+"app-quickstart-init.js");
                 <div class='shopArrowContainer' onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))"><img src="images/SmallYellowRoundDownArrow.png">
                 	<div class='dropdown'>
                         <ul class='blackBackground playFont fontColorWhite fontSize14PX listStyleNone'>
-                            <li>Categories</li>
-                            <li>Categories</li>
-                            <li>Categories</li>
-                            <li>Categories</li>
-                            <li>Categories</li>
-                            <li>Categories</li>
-                            <li>Categories</li>
-                            <li>Categories</li>
+                            <li>Special Deals</li>
+                            <li>Swarovski</li>
+                            <li>Baccarat</li>
+                            <li>Bake 'N Serve</li>
+                            <li>Lalique</li>
+                            <li>Llardro</li>
+                            <li>Vera Bradley</li>
+                            <li>Versache</li>
+                            <li>Sale Items</li>
+                            <li>New Arrivals</li>
+                            <li>Coming Soon</li>
+                            <li>Retiring 2013</li>
+                            <li>Clearance</li>
                         </ul>
                     </div>
                 </div>	
@@ -181,31 +186,28 @@ app.u.loadScript(app.vars.baseURL+"app-quickstart-init.js");
 <div id='mainContentArea'></div><!-- DO NOT REMOVE - this is where the specific page (ex: homepage, product, category) content is going to go -->
 
 
-<div class='footer'>
+<div class='footerContainer'>
 	
-    <div class='upperFooterContainer'>
+    <div class='upperFooterContainer blackBackground'>
     	
-        <div class='stayUpdated'>
-        	<div class='stayUpdatedText'></div>
-            <div class='stayUpdatedFields'></div>
-            <div class='stayUpdatedFields'></div>
-            <div class='stayUpdatedButton'></div>
+        <div class='stayUpdatedContainer'>
+        	<div class='stayUpdatedText floatLeft fontColorWhite'>
+            	<div class='playFont fontSize18PX smallcaps centerText kernText'>Stay updated</div>
+                <div class='montFont fontSize10PX'>WITH OUR NEWSLETTER</div>
+            </div>
+
+            <form action='#' class='footerFormFrm' id='subscribeFrm' name='subscribeFrm' onSubmit="app.ext.store_crm.u.handleSubscribe('subscribeFrm'); return false">
+                <div class='stayUpdatedInputs floatLeft'><input type='text'  maxlength='50' size='30' name='fullname' class='form' placeholder='  Full Name' /></div>
+                <div class='stayUpdatedInputs floatLeft'><input type='email'  maxlength='50' size='30' name='login' class='form' placeholder='  E-mail Address' /></div>
+                <div class='stayUpdatedInputs floatLeft'><input type='submit' value='Sign Up' class='button smallcaps'></div>
+			</form>
         </div>
         
-        <div class='footerLinksContainer'>
+        <div class='footerLinksContainer floatLeft'>
         	
-            <div class='footerCategories'>
-            	<ul>
-                	<li></li>
-                	<li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                </ul>
-                <ul>
+            <div class='footerCategories floatLeft'>
+            	<ul class='floatLeft'>
+                	<li class='footerLinkHead'>Something</li>
                 	<li></li>
                     <li></li>
                     <li></li>
@@ -214,11 +216,8 @@ app.u.loadScript(app.vars.baseURL+"app-quickstart-init.js");
                     <li></li>
                     <li></li>
                 </ul>
-            </div>
-            <div class='footerHelp'>
-            	<ul>
-                	<li></li>
-                    <li></li>
+                <ul class='floatLeft footerCategoriesRight'>
+                	<li>Something</li>
                     <li></li>
                     <li></li>
                     <li></li>
@@ -227,9 +226,21 @@ app.u.loadScript(app.vars.baseURL+"app-quickstart-init.js");
                     <li></li>
                 </ul>
             </div>
-            <div class='footerMyAccount'>
+            <div class='footerHelpAccount floatLeft'>
             	<ul>
-                	<li></li>
+                	<li class='footerLinkHead'>Something</li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </div>
+            <div class='footerHelpAccount floatLeft'>
+            	<ul>
+                	<li class='footerLinkHead'>Something</li>
                     <li></li>
                     <li></li>
                     <li></li>
