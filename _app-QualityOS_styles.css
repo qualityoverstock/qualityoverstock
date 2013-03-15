@@ -18,6 +18,7 @@ body {background: white;}
 .fontSize12PX {font-size: 12px;}
 .fontSize14PX {font-size: 14px;}
 .fontSize18PX {font-size: 18px;}
+.fontSize24PX {font-size: 24px;}
 
 .fontColorWhite {color: #fff;}
 .fontColorBlack {color: #000;}
@@ -213,29 +214,64 @@ FOOTER
 
 .footerCategories {
 	height: 320px;
-	width: 510px;
-	Background-color: #0F0;
+	width: 475px;
+	padding-left: 19px;
 }
 
-.footerCategories ul {
+.footerLinksContainer ul {
 	width: 190px;
 }
 
-.footerLinkHead {
+.footerLinkHead.playFont {
 	margin: 10px;
 }
 
-.footerCategories li {
+.footerLinkHead.playFont:hover {
+	color: #000;
+}
+
+.footerLinksContainer li {
 	margin-left: 30px;
+	line-height: 29px;
+}
+
+.footerLinksContainer li:hover {
+	color: #fec611;
+}
+
+.footerLink.SecondCol {
+	margin: 49px 0px 0px 30px;
+}
+
+.footerLinkStyle {
+	color: #fff;
+	text-decoration: none;
+}
+
+.footerLinkStyle:hover {
+	color: #fec611;
 }
 
 .footerHelpAccount {
 	height: 320px;
-	width: 255px;
-	Background-color: #F0F;
+	width: 240px;
 }
 
+.lowerFooterContainer {
+	height: 140px;
+	width: 100%;
+}
 
+.footerLogos {
+	height: 65px;
+	width: 515px;
+	margin: 30px auto 30px auto;
+	padding-right: 10px;
+}
+
+.footerLogos img {
+	margin-left: 10px;
+}
 
 
 

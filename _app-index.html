@@ -26,7 +26,7 @@ var _gaq = _gaq || {'push':function(){}} //here for testing. REPLACE BEFORE DEPL
 var myCreole;
 
 var app = {vars:{
-	"release":"20130313052100",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+	"release":"20130315091700",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 	"_clientid":"zmvc",
 	"baseURL":"", //used in non-local mode.
 	"testURL":"http://www.gkworld.com/" //used ONLY if protocol is file: (for testing)
@@ -149,7 +149,7 @@ app.u.loadScript(app.vars.baseURL+"app-quickstart-init.js");
                             <li>Special Deals</li>
                             <li>Swarovski</li>
                             <li>Baccarat</li>
-                            <li>Bake 'N Serve</li>
+                            <li>Bake 'n Serve</li>
                             <li>Lalique</li>
                             <li>Llardro</li>
                             <li>Vera Bradley</li>
@@ -203,64 +203,73 @@ app.u.loadScript(app.vars.baseURL+"app-quickstart-init.js");
 			</form>
         </div>
         
-        <div class='footerLinksContainer floatLeft'>
+        <div class='footerLinksContainer floatLeft fontColorWhite montFont fontSize14PX'>
         	
             <div class='footerCategories floatLeft'>
-            	<ul class='floatLeft'>
-                	<li class='footerLinkHead'>Something</li>
-                	<li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
+            	<ul class='floatLeft listStyleNone'>
+                	<li class='footerLinkHead fontColorBlack playFont fontSize24PX smallcaps'>Categories</li>
+                	<li>Limited Offer</li>
+                    <li>Special Deals</li>
+                    <li>Swarovski</li>
+                    <li>Baccarat</li>
+                    <li>Bake 'n Serve</li>
+                    <li>Lalique</li>
+                    <li>Lladro</li>
                 </ul>
-                <ul class='floatLeft footerCategoriesRight'>
-                	<li>Something</li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                </ul>
-            </div>
-            <div class='footerHelpAccount floatLeft'>
-            	<ul>
-                	<li class='footerLinkHead'>Something</li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
+                <ul class='floatLeft footerCategoriesRight listStyleNone'>
+                	<li class='footerLink SecondCol'>Vera Bradley</li>
+                    <li>Versache</li>
+                    <li>Sale Items</li>
+                    <li>New Arrivals</li>
+                    <li>Coming Soon</li>
+                    <li>Retiring 2013</li>
+                    <li>Clearance</li>
                 </ul>
             </div>
             <div class='footerHelpAccount floatLeft'>
-            	<ul>
-                	<li class='footerLinkHead'>Something</li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
+            	<ul  class='floatLeft listStyleNone'>
+                	<li class='footerLinkHead fontColorBlack playFont fontSize24PX smallcaps'>Need Help?</li>
+                    <li><a href="#!company?show=about" class='bindByAnchor footerLinkStyle' title='About Us'>About Us</a></li>
+                    <li><a href="#!company?show=contact" class='bindByAnchor footerLinkStyle' title='Contact Us'>Contact Us</a></li>
+                    <li><a href="#!company?show=faq" class='bindByAnchor footerLinkStyle' title='Find answers to common inquiries'>FAQs</a></li>
+                    <li><a href="#!company?show=shipping" class='bindByAnchor footerLinkStyle' title='Find info. about how we ship your purchases'>Shipping Policy</a></li>
+                    <li><a href="#!company?show=return" class='bindByAnchor footerLinkStyle' title='Find info. about returning an item'>Return Policy</a></li>
+                    <li><a href="#!company?show=payment" class='bindByAnchor footerLinkStyle' title='Find info. about purchasing items'>Payment Policy</a></li>
+                    <li><a href="#!company?show=privacy" class='bindByAnchor footerLinkStyle' title='Find info. on how this site uses your information'>Privacy Policy</a></li>
+                    <li>Vendor Inquiries</li>
+                </ul>
+            </div>
+            <div class='footerHelpAccount floatLeft listStyleNone'>
+            	<ul  class='floatLeft'>    
+                	<li class='footerLinkHead fontColorBlack playFont fontSize24PX smallcaps'>My Account</li>
+                    <li><a href="#!customer?show=newsletter" class='bindByAnchor footerLinkStyle' title='Create an account by signing up for our newsletter'>Create An Account</a></li>
+                    <li><a href="#!customer?show=myaccount" class='bindByAnchor footerLinkStyle' title='Log into your accoun or create one'>Log in or Sign up</a></li>
+                    <li><a href="#!customer?show=changepassword" class='bindByAnchor footerLinkStyle' title='Set a different password for you account'>Change Password</a></li>
+                    <li>Update Account</li>
+                    <li><a href="#!customer?show=lists" class='bindByAnchor footerLinkStyle' title="See items you've been wanting">Wishlist Items</a></li>
+                    <li><a href="#!customer?show=orders" class='bindByAnchor footerLinkStyle' title='Track your order'>Order Tracking</a></li>
+                    <li>Sign Out</li>
                 </ul>
             </div>             
         </div>
         
     </div> <!-- end footerCategories -->
     
-    <div class='lowerFooterContainer'>
+    <div class='lowerFooterContainer montFont fontColorBlack fontSize12PX centerText'>
     
     	<div class='footerLogos'>
-        
+        	<img src="images/MC-Logo.png">
+            <img src="images/Visa-Logo.png">
+            <img src="images/Discover-Logo.png">
+            <img src="images/PayPal-Logo.png">
+            <img src="images/GoogleCheckout-Logo.png">
+            <img src="images/AuthorizeNet-Logo.png">
+            <img src="images/UpFront-Logo.png">
+            <img src="images/FacebookFollow-Logo.png">
         </div>
         
         <div class='footerCopyright'>
-        
+        	Copyright 2013. Please read our Privacy and Return Policies. E-Commerce Solution provided by Zoovy.
         </div>
         
     </div> <!-- end lowerFooterContainer-->
