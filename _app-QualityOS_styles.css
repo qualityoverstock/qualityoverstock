@@ -1,12 +1,17 @@
 @charset "utf-8";
 /* CSS Document */
 
-body {background: white;}
+body {background: #f5f1de;}
 
 #appPreview, #appView {
-	background: white;
+	background: #f5f1de;
 	margin: 0px auto;
 	width: 1020px;	
+}
+
+.siteWidth {
+	width: 940px;
+	margin: 0px auto 0px auto;	
 }
 
 .positionRel {position: relative;}
@@ -19,6 +24,7 @@ body {background: white;}
 .fontSize14PX {font-size: 14px;}
 .fontSize18PX {font-size: 18px;}
 .fontSize24PX {font-size: 24px;}
+.fontSize36PX {font-size: 36px;}
 
 .fontColorWhite {color: #fff;}
 .fontColorBlack {color: #000;}
@@ -34,8 +40,8 @@ body {background: white;}
 
 .indentText {text-indent: 35px;}
 .centerText {text-align: center;}
-.smallcaps {font-variant: small-caps}
-.kernText {letter-spacing: 2.2px}
+.smallcaps {font-variant: small-caps;}
+.kernText {letter-spacing: 2.2px;}
 
 .cents {
 	font-size: 50%;
@@ -59,6 +65,13 @@ body {background: white;}
 	text-align: center;
 	background-color: #fec611;
 	border: none;
+}
+
+.descriptionBar {
+	height: 50px;
+	width: 100%;
+	font-variant: small-caps;
+	line-height: 200%;
 }
 
 
@@ -274,14 +287,90 @@ FOOTER
 }
 
 
+/*************************************************************************************
+END FOOTER
+*************************************************************************************/
 
+
+/*************************************************************************************
+HOMEPAGE TEMPLATE
+*************************************************************************************/
+
+.homepageContainer {
+	width: 960px;
+	margin: 0px auto 0px auto;
+}
+
+.homepageBanner {
+	height: 300px;
+	width: 700px;
+	margin: 20px 10px 0px 10px;
+	float: left;
+	background-color: #09F;
+}
+
+.productList li {
+	height: 300px;
+	width: 220px;
+	float: left;
+	margin: 20px 10px 0px 10px;
+}
+
+.catThumb.thumbContainer {
+	height: 223px;
+	width: 194px;
+	padding: 27px 13px 0px 13px;
+	background-color: #fff;
+}
+
+.homepageTextDescription {
+	height: 475px;
+}
+
+.homepageLogoTagline {
+	height: 100%;
+	width: 50%;
+}
+
+.quality {
+	position: absolute;
+	top: 135px;
+	left: -98px;
+	margin-left: 50%;
+	font-size: 56px;
+}
+
+.overstock {
+	position: absolute;
+	top: 199px;
+	left: 190px;
+	letter-spacing: 6.2px;
+}
+
+.tagline {
+	position: absolute;
+	top: 288px;
+	left: 16px;
+	letter-spacing: 4.2px;
+	line-height: 31px;
+}
+
+.homepageDescription {
+	height: 100%;
+	width: 47%;
+	margin: 40px 10px 10px 10px;
+	float: left;
+	line-height: 25px;
+}
+
+.homepageDescription span {font-size: 24px}
 
 
 
 
 
 /*************************************************************************************
-END FOOTER
+END HOMEPAGE TEMPLATE
 *************************************************************************************/
 
 
@@ -294,6 +383,7 @@ CATEGORY TEMPLATE
 CATEGORY LIST TEMPLATE
 *************************************************************************************/
 
+.catListTempLineAdjust { line-height: 47px;}
 
 /*************************************************************************************
 CATEGORY LIST TEMPLATE ROOTCATS

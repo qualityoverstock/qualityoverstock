@@ -26,7 +26,7 @@ var _gaq = _gaq || {'push':function(){}} //here for testing. REPLACE BEFORE DEPL
 var myCreole;
 
 var app = {vars:{
-	"release":"20130315091700",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+	"release":"20130315175700",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 	"_clientid":"zmvc",
 	"baseURL":"", //used in non-local mode.
 	"testURL":"http://www.gkworld.com/" //used ONLY if protocol is file: (for testing)
@@ -322,23 +322,63 @@ the homepageTemplate template is loaded into mainContentArea by default when the
 -->
 <div id='homepageTemplate' class='homeTemplate'>
 	
+   
+<div class='homepageContainer'> 
 
-<ul id="wideSlideshow" class="pics slideshow displayNone">
-		<img src='images/blank.gif' width='712' height='400' data-bind="var: category(%page.banner_slideshow1); format: banner; extension:myRIA; editor:banner; wrap:<li>;" />
-	</ul>
+    <div class='homepageBanner clearfix'>
+        <img src="images/HomepageBannerGraphic.jpg">
+        <div class='descriptionBar blackBackground playFont fontColorWhite fontSize24PX centerText'>
+            See Our Valentine's Day Specials
+        </div>
+    </div>
+    
+	<ul data-bind="var: category(@subcategoryDetail); format: categoryList; extension: store_navcats; loadsTemplate: categoryListTemplate; detail:max;" class='listStyleNone noPadOrMargin productList'></ul>
+    
+	<div class='homepageTextDescription clearfix playFont fontColorBlack'>
+    
+    	<div class='homepageLogoTagline positionRel floatLeft'>
+        	<div class='quality smallcaps'>Quality</div>
+            <div class='overstock montFont fontSize14PX'>OVERSTOCK</div>
+            <div class='tagline fontSize36PX smallcaps centerText'>
+            	Premium Designer<br>Collectible Figurines<br>at Discounted Prices
+            </div>
+        </div>
+        <div class='homepageDescription fontSize12PX'>
+        	<span>Q</span>uality Overstock is a fine retailer of designer figurines, collectibles and 
+            more lines of the highest quality. We value each customer and are committed to providing 
+            superior service. For those who share an appreciation for collectibles figurines you're 
+            assured satisfaction. Our offerings in delicate crystals include many reputable brands such 
+            as Swarovski, Lalique, and Armani, amongst others. In addition to our crystal product lines 
+            we house premium designer tableware from Rosenthal Versace. Credited for its intricate detail, 
+            amazing elegance, and functionality, china from Versace also makes a wonderful home addition or 
+            gift. In all cases, we can order items by request. So, if you do not find what you are seeking 
+            displayed on our website please contact us directly.
+            <br><br>
+            We offer a 100% satisfaction guarantee on all transactions, and assure you absolute security 
+            for your private information. To further ensure satisfaction all orders are processed efficiently, 
+            carefully packaged, and shipped in the quickest fashion. We are determined to simplify your shopping 
+            process to one of complete satisfaction. Quality Overstock is more than just a store of collectible 
+            figurines ; our competitive prices and exceptional service are the foundation of our success. 
+            Welcome to our store, and we look forward to dealing with you. 
+        </div>
+        
+    </div>
+
 	
-	<ul data-bind="var: category(@subcategoryDetail); format: categoryList; extension: store_navcats; loadsTemplate: categoryListTemplate; detail:max;" class='listStyleNone fluidList clearfix noPadOrMargin categoryList'></ul>
-
-	<ul data-bind="var: category(@products); format: productList; editor: finder; extension: store_prodlist; loadsTemplate: productListTemplate; hide_summary:1; before:<h2>Featured Items</h2>; withReviews:1;" class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
-	<p data-bind="var: category(%page.description); format:wiki; wikiFormats:myRIA; editor: textarea;"></p>
-
-<!-- a sample of how to format an elastic native search in a data-bind -->
-	<ul id='homeProdSearchBestSellers' data-bind='var: elastic-native({"size":"4","mode":"elastic-native","filter":{"term":{"tags":"IS_BESTSELLER"}}}); format: productSearch; extension: myRIA; loadsTemplate: productListTemplateResultsNoPreview; before:<h2>Best Sellers</h2>;' class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
-
-	<a href="#" onClick="return showContent('search',{'TAG':'IS_BESTSELLER'});">See all Best Sellers</a>
-
-<!-- a sample of how to get a 'list' src onto the page. -->
-	<ul data-bind="var: list($models.@products); format: productList; editor: finder; extension: store_prodlist; loadsTemplate: productListTemplate; withReviews:1; items_per_page: 25;" class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
+    <!-- DEFAULT DATA BINDS...
+    	<ul id="wideSlideshow" class="pics slideshow displayNone">
+            <img src='images/blank.gif' width='700' height='250' data-bind="var: category(%page.banner_slideshow1); format: banner; extension:myRIA; editor:banner; wrap:<li>;" />
+        </ul> 
+        
+    
+    <ul data-bind="var: category(@products); format: productList; editor: finder; extension: store_prodlist; loadsTemplate: productListTemplate; hide_summary:1; before:<h2>Featured Items</h2>; withReviews:1;" class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
+        <p data-bind="var: category(%page.description); format:wiki; wikiFormats:myRIA; editor: textarea;"></p>
+    <!-- a sample of how to format an elastic native search in a data-bind -->
+    <!--<ul id='homeProdSearchBestSellers' data-bind='var: elastic-native({"size":"4","mode":"elastic-native","filter":{"term":{"tags":"IS_BESTSELLER"}}}); format: productSearch; extension: myRIA; loadsTemplate: productListTemplateResultsNoPreview; before:<h2>Best Sellers</h2>;' class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
+        <a href="#" onClick="return showContent('search',{'TAG':'IS_BESTSELLER'});">See all Best Sellers</a>
+        <!-- a sample of how to get a 'list' src onto the page. -->
+    <!--<ul data-bind="var: list($models.@products); format: productList; editor: finder; extension: store_prodlist; loadsTemplate: productListTemplate; withReviews:1; items_per_page: 25;" class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul>-->
+</div>
 
 
 </div>
@@ -386,11 +426,19 @@ don't modify the 'data-templateid' unless you are changing template names and up
 <ul>
 <li id='categoryListTemplate'>
 	<div onClick="showContent('category',{'navcat':$(this).parent().attr('data-catsafeid')});" class='pointer'>
+		<div class='catThumb thumbContainer'><img src='blank.gif' class='catThumb' data-bind='var: category(%meta.CAT_THUMB); format:imageURL;' width='195' height='195' /></div>
+        <div class='catListTempLineAdjust descriptionBar blackBackground centerText playFont fontColorWhite fontSize18PX'><span data-bind='var: category(pretty); format:catText; extension: myRIA;'></span></div>
+	</div>
+</li>
+
+<!-- ORIGINAL TEMPLATE
+<li id='categoryListTemplate'>
+	<div onClick="showContent('category',{'navcat':$(this).parent().attr('data-catsafeid')});" class='pointer'>
 		<div class='thumbContainer'><img src='blank.gif' class='catThumb' data-bind='var: category(%meta.CAT_THUMB); format:imageURL;' width='120' height='120' /></div>
 		<div class='catName white2LGray'><span data-bind='var: category(pretty); format:catText; extension: myRIA;'></span></div>
 	</div>
 </li>
-
+-->
 
 <li id='categoryListTemplateRootCats'>
 	<div onClick="showContent('category',{'navcat':$(this).parent().attr('data-catsafeid')});" class='pointer'>
