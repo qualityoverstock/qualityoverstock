@@ -469,7 +469,42 @@ MP CONTROLS CONTAINER
 	line-height: 28px;
 }
 
-/* sets text to center of numbers on left side of mpControls*/
+/*OVERRIDES OF CSS DROPDOWN MENU FROM QUICKSTART.CSS
+/* tier1 menu behavior */
+.ddUlMenu ul li {
+	margin:0;
+	padding:0;
+	list-style:none;
+	color: #fff;
+	font-size: 14px;
+	text-align: center;
+}
+
+.ddUlMenu ul li+li {margin: 7px 0px 5px 7px;}
+
+/* tier 1 menu link style (ok to change this). will affect tier2 also */
+.ddUlMenu ul li a {
+	float: left;
+	text-decoration:none;
+	padding:0 12px;
+	cursor: text;
+	color: #000;
+}
+
+.ddUlMenu li ul {
+	left: -999em;
+	margin: 24px 0px 0 -34px; /* top margin should = tier 1 line-height - 1px...ish */
+	position: absolute;
+	width: 160px;
+	z-index: 9999;
+	background-image: none;
+	background: #000;
+	border: none;
+}
+/*END CSS DROP DOWN MENU OVERRIDES
+
+
+/* sets text to vertical center of numbers on left side of mpControls*/
 .ofItems {			
 	line-height: 28px;
 }
@@ -478,16 +513,16 @@ MP CONTROLS CONTAINER
 
 .mpFiltersContainer > div {margin: 0px 14px 0px 14px;}
 
-.mpFiltersContainer img {margin: 1px 11px 0px 0px;}
+.mpFiltersContainer img {margin: -1px 11px 0px 0px;}
 
 .selectionBox {
 	height: 15px;
 	width: 15px;
 	background-color: #fff;
-	margin: 1px 11px 0px 0px;
+	margin: -1px 11px 0px 0px;
 }
 
-.selectionBox: hover {background-color: #fec611;}
+.selectionBox:hover {background-color: #fec611;}
 
 
 /*************************************************************************************
