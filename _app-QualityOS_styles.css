@@ -30,11 +30,11 @@ body { background-image: url(images/BackgroundImage.jpg);}
 .fontColorYellow {color: #fec611;}
 
 .montFont {font-family: Montserrat;}
-.montFontBold {
-	font-family: Monterrat;
-	font-weight: bold;
-}
+.montFontBold {font-family: Monterrat; font-weight: bold;}
+
 .playFont {font-family: "Playfair Display";}
+.playFontBold {font-family: "Playfair Display"; font-weight: bold;}
+
 .playSCFont {font-family: "Playfair Display SC";}
 
 .indentText {text-indent: 35px;}
@@ -66,6 +66,8 @@ body { background-image: url(images/BackgroundImage.jpg);}
 	background-color: #fec611;
 	border: none;
 }
+
+.borderGrey {border: 1px solid #777c71;}
 
 .descriptionBar {
 	height: 50px;
@@ -305,39 +307,6 @@ END FOOTER AND PERSISTENT CONTENT
 
 
 /*************************************************************************************
-BREADCRUMB
-*************************************************************************************/
-
-
-.newBreadcrumb {
-	cursor: pointer;
-	text-decoration: none;
-}
-
-.breadcrumb li:after {
-	font-size: 14px;
-	color: #000;
-	font-weight: 400; 
-	cursor: text;
-}
-
-.breadcrumb li:last-child a {
-	font-weight: bold;
-	color: #000;
-}
-
-.clearfix.noPadOrMargin.fluidList.breadcrumb {
-	width: 940px;
-	margin: 0px auto 12px auto;
-}*/
-
-
-/*************************************************************************************
-END BREADCRUMB
-*************************************************************************************/
-
-
-/*************************************************************************************
 HOMEPAGE TEMPLATE
 *************************************************************************************/
 
@@ -424,6 +393,13 @@ CATEGORY TEMPLATE
 *************************************************************************************/
 
 
+.categoryTemplate {
+	height: auto;
+	width: 940px;
+	margin: auto;	
+}
+
+
 /*************************************************************************************
 CATEGORY LIST TEMPLATE
 *************************************************************************************/
@@ -475,10 +451,83 @@ PRODCUT LIST TEMPLATE BUYER LIST
 *************************************************************************************/
 
 
+/*************************************************************************************
+MP CONTROLS CONTAINER
+*************************************************************************************/
 
 
+.mpControls {
+	
+}
+
+.mpControlsPagination.ui-state-active.pointer {
+	border: none;
+	background-color: transparent;
+	background: none;
+	font-weight: 400;
+	color: #000;
+	line-height: 28px;
+}
+
+/* sets text to center of numbers on left side of mpControls*/
+.ofItems {			
+	line-height: 28px;
+}
+
+.mpFiltersContainer {margin: 8px 106px 0px 0px;}
+
+.mpFiltersContainer > div {margin: 0px 14px 0px 14px;}
+
+.mpFiltersContainer img {margin: 1px 11px 0px 0px;}
+
+.selectionBox {
+	height: 15px;
+	width: 15px;
+	background-color: #fff;
+	margin: 1px 11px 0px 0px;
+}
+
+.selectionBox: hover {background-color: #fec611;}
 
 
+/*************************************************************************************
+END MP CONTROLS CONTAINER
+*************************************************************************************/
+
+
+/*************************************************************************************
+BREADCRUMB
+*************************************************************************************/
+
+
+.newBreadcrumb {
+	cursor: pointer;
+	text-decoration: none;
+	text-transform: capitalize;
+}
+
+.breadcrumb li:after {
+	font-size: 14px;
+	color: #000;
+	font-weight: 400; 
+	cursor: text;
+}
+
+.breadcrumb li:last-child a {
+	font-weight: bold;
+	color: #000;
+	text-transform: capitalize;
+}
+
+.clearfix.noPadOrMargin.fluidList.breadcrumb {
+	width: 940px;
+	margin: 4px auto 12px auto;
+}*/
+
+
+/*************************************************************************************
+END BREADCRUMB
+*************************************************************************************/
 
 
 

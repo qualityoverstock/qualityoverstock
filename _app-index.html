@@ -26,7 +26,7 @@ var _gaq = _gaq || {'push':function(){}} //here for testing. REPLACE BEFORE DEPL
 var myCreole;
 
 var app = {vars:{
-	"release":"20130315175700",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+	"release":"20130317211500",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 	"_clientid":"zmvc",
 	"baseURL":"", //used in non-local mode.
 	"testURL":"http://www.gkworld.com/" //used ONLY if protocol is file: (for testing)
@@ -1134,32 +1134,41 @@ onclicks are recursive, so only add it to the parent element.
 -->
 
 <div id='mpControlSpec' class='mpControlContainer'>
-	<div class='mpControls ui-widget ui-state-default ui-corner-top'>
-
-<span class="mpControlsPagination ui-state-active ui-corner-all floatRight paging pointer" data-role='next' title="next page">
-	<span class="ui-icon ui-icon-circle-triangle-e"></span>
-</span>
-
-<div class='floatRight ddUlMenu mpControlsPagination'>
-<ul>
-	<li>
-
-	<a href='#' onClick='return false;'>
-	<span data-bind='var:prodlistmeta(page_in_focus); format:text; pretext: page ;'></span>
-	<span data-bind='var:prodlistmeta(total_page_count); format:text; pretext: of ;'></span>	</a>
-	<ul data-bind='var:prodlistmeta(total_page_count); format:mpPagesAsListItems; extension:store_prodlist;' class='ui-widget-content ui-corner-bottom'></ul>
-	</li>
-</ul>
-</div>
-
-<span class="mpControlsPagination ui-state-active ui-corner-all floatRight paging pointer" data-role='previous' title="previous page">
-	<span class="ui-icon ui-icon-circle-triangle-w"></span>
-</span>
-
-
-<span data-bind='var:prodlistmeta(page_start_point); format:text; pretext:items ;'></span>
-<span data-bind='var:prodlistmeta(page_end_point); format:text; pretext: - ;'></span>
-<span data-bind='var:prodlistmeta(total_product_count); format:text; pretext: of ;'></span>
+	
+    <div class='mpControls montFont fontColorBlack fontSize12PX'>
+        
+        <span class="mpControlsPagination ui-state-active floatRight paging pointer" data-role='next' title="next page">NEXT</span>
+        <div class='floatRight ddUlMenu mpControlsPagination'>
+            <ul>
+                <li>
+                <a href='#' onClick='return false;'>
+                <span class='playFontBold fontSize18PX' data-bind='var:prodlistmeta(page_in_focus); format:text;'></span>
+                <span>&nbsp OF &nbsp</span>
+                <span class='playFontBold fontSize18PX' data-bind='var:prodlistmeta(total_page_count); format:text;'></span></a>
+                <ul data-bind='var:prodlistmeta(total_page_count); format:mpPagesAsListItems; extension:store_prodlist;' class='playFontBold fontSize18PX ui-widget-content ui-corner-bottom'></ul>
+                </li>
+            </ul>
+        </div>
+        <span class="mpControlsPagination ui-state-active floatRight paging pointer" data-role='previous' title="previous page">PREV</span>
+        
+        <div class='mpFiltersContainer floatRight'>
+        	<div class='floatLeft'>
+            	In-Stock Items Only
+            	<div class='selectionBox borderGrey floatLeft'></div>    
+            </div>
+            <div class='floatLeft'>Name: A to Z
+            	<img src="images/SmallBlackRoundDownArrow.png" class='floatLeft'>
+            </div>
+            <div class='floatLeft'>24 Items Shown
+            	<img src="images/SmallBlackRoundDownArrow.png" class='floatLeft'>
+            </div>
+        </div>
+        
+        <span class='playFont fontSize24PX' data-bind='var:prodlistmeta(page_start_point); format:text;'></span>
+        <!-- <span data-bind='var:prodlistmeta(page_end_point); format:text; pretext: - ;'></span> -->
+        <span class='ofItems'>&nbsp OF &nbsp</span>
+        <span class='playFont fontSize24PX' data-bind='var:prodlistmeta(total_product_count); format:text;'></span>
+		<span class='ofItems'>&nbsp ITEM(S) &nbsp</span>
 
 	</div><!-- /.mpControls -->
 </div><!-- /#mpControlSpec -->
