@@ -541,10 +541,10 @@ PRODCUT TEMPLATE
 }
 
 .prodPriceSelection h5 {
-	height: 50px;
+	height: 46px;
 	width: 100%;
 	font-size: 24px;
-	line-height: 62px;
+	line-height: 43px;
 	text-align: center;
 	text-decoration: line-through;
 	float: left;
@@ -594,56 +594,54 @@ PRODCUT TEMPLATE
 .prodCartSelection {
 	height: 486px;
 	width: 100%;
-	background-color: #eeeeee;
 }
+
+.prodCartSelection span {
+	height: 10px;
+	width: 50%;
+	margin: 0px 18px 0px 18px;
+}
+
+.prodCartSelection h4 {letter-spacing: 2.2px; font-weight: 400;}
 
 .prodCartMarginRemove.prodViewerAddToCartForm {
 	margin-bottom: 0px;
 }
 
 .prodSelectionQty {
-	font-size: 10px;
+	width: 30px;
 	text-align: center;
-	margin: 0px;
-	padding: 22px;
-}
-
-.sizeSelector {
-	height: 132px;
-	width: 100%;
-	font-size: 18px;
-	margin: 0px auto 0px auto;
-	text-align: center;
-	border-top: 2px solid #000;
-	border-bottom: 2px solid #000;
-	padding: 15px 0px 15px 0px;
-	background-color: #CCC;
-	font-family: "open sans";
-	font-weight: bold;
+	margin: 45px 10px 0px 0px;
+	padding: 0px 0px 0px 20px;
+	float: left;
 }
 
 .prodSelectItemField {
-	height: 36px;
-	width: 36px;
-	margin: auto;
+	height: 30px;
+	width: 128px;
+	margin-left: 7px;
+	float: left;
 }
 
 .zform_number {
-	height: 36px;
-	width: 36px;
+	height: 30px;
+	width: 130px;
 	text-align: center;
-	margin: auto;
-	border: 2px solid #000;
+	margin: 46px 0px 0px 0px;
+	border: none;
+	float: left;
 }
 
 .prodSelectAddCartButton.ui-state-default {
 	height: 50px;
 	width: 180px;
-	font-size: 30px;
-	color: #000;
 	line-height: 10px;
-	margin: 16px 18px 10px 18px;
+	margin: 10px 18px 10px 18px;
 	padding: 0px;
+	background: #fec611;
+	border: none;
+	color: #000;
+	font-weight: 400;
 }
 
 .productSmallButtonContainer {
@@ -654,34 +652,27 @@ PRODCUT TEMPLATE
 
 .prodSelectSmallButtons.ui-button {
 	height: 33px;
-	font-size: 15px;
 	color: #fff;
-	text-shadow: 
-		-1px -1px 0 #000,
-    	1px -1px 0 #000,
-   		-1px 3px 0 #000,
-    	1px 1px 0 #000;
+	font-family: "Playfair Display";
+	font-size: 14px;
+	font-weight: 400;
+	font-variant: small-caps;
 	margin-bottom: 10px;
-	background: #00b7f5; /* Old browsers */
-	background: -moz-linear-gradient(top, #00b7f5 0%, #00093d 100%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#00b7f5), color-stop(100%,#00093d)); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(top, #00b7f5 0%,#00093d 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(top, #00b7f5 0%,#00093d 100%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(top, #00b7f5 0%,#00093d 100%); /* IE10+ */
-	background: linear-gradient(to bottom, #00b7f5 0%,#00093d 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00b7f5', endColorstr='#00093d',GradientType=0 ); /* IE6-9 */;
+	background: #777c71;
+	border: none;
 }
 
 .prodSelectShareButton {
-	width: 59px;
+	width: 108px;	
+	
 }
 
 .prodSelectWishlistButton {
-	width: 108px;
+	width: 59px;
 	margin-left: 6px;
 }
 
-.prodSelectSeeDescriptionButton.prodSelectSmallButtons.bangersFont.ui-button-text.ui-button.ui-state-default.ui-corner-all.displayNone {
+.prodSelectSeeDescriptionButton.prodSelectSmallButtons.ui-button.ui-state-default.displayNone {
 	width: 180px;
 	display: none;
 }
@@ -692,22 +683,6 @@ PRODCUT TEMPLATE
 
 .prodSelectWriteReviewButton.ui-button {
 	width: 180px;
-	background: #666666; /* Old browsers */
-	background: -moz-linear-gradient(top, #666666 0%, #020202 100%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#666666), color-stop(100%,#020202)); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(top, #666666 0%,#020202 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(top, #666666 0%,#020202 100%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(top, #666666 0%,#020202 100%); /* IE10+ */
-	background: linear-gradient(to bottom, #666666 0%,#020202 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#666666', endColorstr='#020202',GradientType=0 ); /* IE6-9 */
-}
-
-.prodCartSelection span {
-	font-family: Bangers;
-	text-align: center;
-	margin-bottom: 10px;
-	width: 100%;
-	height: 100px;
 }
 
 

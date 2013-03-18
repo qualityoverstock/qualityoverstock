@@ -725,61 +725,34 @@ this will likely become more flexible in the future. ###
             <!-- <div class='latency' data-bind='var: product(zoovy:ship_latency); format:text;pretext:PRODUCT SHIPS WITHIN ;posttext: DAYS;'></div> -->
                         
             <div class='prodPriceSelection playFont fontColorWhite fontSize24PX'>
-            	<h4 class='basePrice' data-bind='var: product(zoovy:base_price); format:money; currencySign: $;  hideZero:true;'></h4>
+            	<h4 class='basePrice' data-bind='var: product(zoovy:base_price); format:money;  hideZero:true;'></h4>
                 <div class='prodCostDesc montFont fontColorYellow fontSize12PX centerText'>OUR PRICE</div>
-                <h5 class='prodMSRP bangersFont' data-bind='var: product(zoovy:prod_msrp); format:money; currencySign: $;  hideZero:true;'></h5>
+                <h5 class='prodMSRP bangersFont' data-bind='var: product(zoovy:prod_msrp); format:money; hideZero:true;'></h5>
                 <div class='prodCostDesc montFont fontColorYellow fontSize12PX centerText'>DISCOUNTED PRICE</div>
-                <h5 class='prodMSRP bangersFont' data-bind='var: product(zoovy:prod_msrp); format:money; currencySign: $;  hideZero:true;'></h5>
+                <h5 class='prodMSRP bangersFont' data-bind='var: product(zoovy:prod_msrp); format:money; hideZero:true;'></h5>
                 <div class='prodCostDesc montFont fontColorYellow fontSize12PX centerText'>RETAIL PRICE</div>
-                <h5 class='prodMSRP bangersFont' data-bind='var: product(zoovy:prod_msrp); format:money; currencySign: $;  hideZero:true;'></h5>
+                <h5 class='prodMSRP bangersFont' data-bind='var: product(zoovy:prod_msrp); format:money;  hideZero:true;'></h5>
            		<div class='prodCostDesc montFont fontColorYellow fontSize12PX centerText'>YOU SAVED</div>
             </div>
-            
-        <!--<div class='prodSizeSelection'>
-            	<ul title='please choose' id='prodlistChildren' class='listStyleNone fluidList clearfix noPadOrMargin productList smallProdlist' data-bind="var: product(zoovy:grp_children); format:productList; extension:store_prodlist; loadsTemplate:productListTemplateChildren;hide_summary:true;"></ul>
-        		<ul class='sizeUL'>
-                	<li>
-                        <div class='sizeCheck border'></div>
-                        <div class='sizeText openSansBoldFont'>S &nbsp $1,049.99</div>
-                    </li>
-                    <li>
-                        <div class='sizeCheck border'></div>
-                        <div class='sizeText openSansBoldFont'>M &nbsp $1,049.99</div>
-                    </li>
-                    <li>
-                        <div class='sizeCheck border'></div>
-                        <div class='sizeText openSansBoldFont'>L &nbsp $1,049.99</div>
-                    </li>
-                    <li>
-                        <div class='sizeCheck border'></div>
-                        <div class='sizeText openSansBoldFont'>XL &nbsp $1,049.99</div>
-                    </li>
-                    <li>
-                        <div class='sizeCheck border'></div>
-                        <div class='sizeText openSansBoldFont'>XXL &nbsp $1,049.99</div>
-                    </li>
-                </ul>
-            </div> -->
-        <!--	<div data-bind='var: product(@inventory.inv); format:simpleInvDisplay; extension:store_product;' class='inventory'></div> -->
-        
+
         	<div class='prodCartSelection'>
                 
                 <form data-bind='var: product(pid); format:atcForm; extension:store_product;' class='prodCartMarginRemove prodViewerAddToCartForm clearfix' action='#' onSubmit="app.ext.myRIA.u.handleAddToCart($(this),{'action':'modal'}); return false;">
                     <!-- -->
                     <div data-bind='var: product(pid); format:atcVariations; extension:store_product;' class='borderNone sizeSelector'></div>
                     
-                    <div class='openSansBoldFont prodSelectionQty'>ITEM QUANTITY</div>
+                    <div class='playFont fontSize12PX fontColorYellow prodSelectionQty'><h4>HOW</h4> MANY?</div>
                     <div data-bind='var: product(pid); format:atcQuantityInput; extension:store_product;' class='prodSelectItemField'></div>
-                    <input type='submit' value='Add to Cart' class='prodSelectAddCartButton bangersFont ui-button ui-button-text ui-corner-all ui-state-default addToCartButton displayNone' data-bind='var: product(pid); format:addToCartButton; extension:store_product;' id='addToCartBtn' />
+                    <input type='submit' value='Check Out' class='prodSelectAddCartButton playFont fontSize18PX smallcaps ui-state-default addToCartButton displayNone' data-bind='var: product(pid); format:addToCartButton; extension:store_product;' id='addToCartBtn' />
                 </form>
                 
-                <div class='productSmallButtonContainer'>       
+                <div class='productSmallButtonContainer playFont fontColorWhite fontSize14PX smallcaps'>       
                     <menu data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;' class='CRMButtonMenu'>
-                        <button class='prodSelectShareButton prodSelectSmallButtons bangersFont ui-button-text ui-button ui-state-default ui-corner-all' onClick=";">SHARE</button><!--!%!-->
-                        <button class='prodSelectWishlistButton prodSelectSmallButtons bangersFont ui-button-text ui-button ui-state-default ui-corner-all' onClick="app.ext.myRIA.a.add2BuyerList({sku:$(this).parent().attr('data-pid'),'listid':'wishlist'}); return false;">ADD TO WISHLIST</button>
-                        <button class='prodSelectSeeReviewButton prodSelectSmallButtons bangersFont ui-button-text ui-button ui-state-default ui-corner-all' onClick='app.ext._2bhip.a.showReviews($(this).parent().data("pid"));'>SEE PRODUCT REVIEWS</button> 
-                        <button class='prodSelectSeeDescriptionButton prodSelectSmallButtons bangersFont ui-button-text ui-button ui-state-default ui-corner-all displayNone' onClick='app.ext._2bhip.a.showDescription($(this).parent().data("pid"));'>SEE PRODUCT DESCRIPTION</button>
-                        <button class='prodSelectWriteReviewButton prodSelectSmallButtons bangersFont ui-button-text ui-button ui-state-default ui-corner-all' onClick='app.ext.store_crm.u.showReviewFrmInModal({"pid":$(this).attr("data-pid"),"templateID":"reviewFrmTemplate"});' data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;'>WRITE A PRODUCT REVIEW</button>
+                        <button class='prodSelectShareButton prodSelectSmallButtons ui-button ui-state-default' onClick=";">Share This</button><!--!%!-->
+                        <button class='prodSelectWishlistButton prodSelectSmallButtons ui-button ui-state-default' onClick="app.ext.myRIA.a.add2BuyerList({sku:$(this).parent().attr('data-pid'),'listid':'wishlist'}); return false;">Print</button>
+                        <button class='prodSelectSeeReviewButton prodSelectSmallButtons ui-button ui-state-default' onClick='app.ext._2bhip.a.showReviews($(this).parent().data("pid"));'>Product Reviews</button> 
+                        <button class='prodSelectSeeDescriptionButton prodSelectSmallButtons ui-button ui-state-default displayNone' onClick='app.ext._2bhip.a.showDescription($(this).parent().data("pid"));'>Product Description</button>
+                        <button class='prodSelectWriteReviewButton prodSelectSmallButtons ui-button ui-state-default' onClick='app.ext.store_crm.u.showReviewFrmInModal({"pid":$(this).attr("data-pid"),"templateID":"reviewFrmTemplate"});' data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;'>Write a Review</button>
                     </menu>
                 </div>
                      
