@@ -1,10 +1,9 @@
 @charset "utf-8";
 /* CSS Document */
 
-body {background: #f5f1de;}
+body { background-image: url(images/BackgroundImage.jpg);}
 
 #appPreview, #appView {
-	background: #f5f1de;
 	margin: 0px auto;
 	width: 1020px;	
 }
@@ -40,6 +39,7 @@ body {background: #f5f1de;}
 
 .indentText {text-indent: 35px;}
 .centerText {text-align: center;}
+.allcaps{text-transform: capitalize;}
 .smallcaps {font-variant: small-caps;}
 .kernText {letter-spacing: 2.2px;}
 
@@ -100,6 +100,8 @@ HEADER
 	float: left;
 }
 
+.headerBarLogin a {text-decoration: none;}
+
 .headerBarCart {
 	width: 235px;
 	padding-left: 200px;
@@ -139,7 +141,7 @@ HEADER
 }
 
 .dropdown {
-	height: 17px;
+	height: 0px;
 	width: 320px;
 	margin: 0px 0px 0px 20px;
 	position:absolute;
@@ -298,7 +300,40 @@ FOOTER
 
 
 /*************************************************************************************
-END FOOTER
+END FOOTER AND PERSISTENT CONTENT
+*************************************************************************************/
+
+
+/*************************************************************************************
+BREADCRUMB
+*************************************************************************************/
+
+
+.newBreadcrumb {
+	cursor: pointer;
+	text-decoration: none;
+}
+
+.breadcrumb li:after {
+	font-size: 14px;
+	color: #000;
+	font-weight: 400; 
+	cursor: text;
+}
+
+.breadcrumb li:last-child a {
+	font-weight: bold;
+	color: #000;
+}
+
+.clearfix.noPadOrMargin.fluidList.breadcrumb {
+	width: 940px;
+	margin: 0px auto 12px auto;
+}*/
+
+
+/*************************************************************************************
+END BREADCRUMB
 *************************************************************************************/
 
 

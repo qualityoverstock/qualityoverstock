@@ -105,10 +105,10 @@ app.u.loadScript(app.vars.baseURL+"app-quickstart-init.js");
 	<div class='headerBarContainer noPadOrMargin blackBackground'>
     	<div class='headerBarLogin'>
         	<span class='playFont fontSize14PX'>Welcome, Guest! </span>
-            <span>(Not you?</span>
-            <span class='montFontBold fontColorYellow pointer' onClick="return showContent('customer',{'show':'myaccount'});"> LOG IN</span>
+            <span>(Not you?</span>     
+            <a href="#!customer?show=myaccount" class='bindByAnchor montFontBold fontColorYellow' title='Log into your account'> LOG IN</a>
             <span>or </span>
-            <span class='montFontBold fontColorYellow pointer' onClick="return showContent('customer',{'show':'newsletter'});">SIGN UP!</span>
+            <a href="#!customer?show=newsletter" class='bindByAnchor montFontBold fontColorYellow' title='Create an account by signing up for our newsletter'> SIGN UP!</a>
             <span>)</span>
         </div>
         <div class='headerBarCart'>
@@ -338,7 +338,7 @@ the homepageTemplate template is loaded into mainContentArea by default when the
         </div>
     </div>
     
-	<ul data-bind="var: category(@subcategoryDetail); format: categoryList; extension: store_navcats; loadsTemplate: categoryListTemplate; detail:max;" class='listStyleNone noPadOrMargin productList'></ul>
+	<ul data-bind="var: category(@subcategoryDetail); format: categoryList; extension: store_navcats; loadsTemplate: categoryListTemplateRootCats; detail:max;" class='listStyleNone noPadOrMargin productList'></ul>
     
 	<div class='homepageTextDescription clearfix playFont fontColorBlack'>
     
@@ -437,19 +437,25 @@ don't modify the 'data-templateid' unless you are changing template names and up
 	</div>
 </li>
 
-<!-- ORIGINAL TEMPLATE
+<!-- ORIGINAL TEMPLATES cateory and root category
 <li id='categoryListTemplate'>
 	<div onClick="showContent('category',{'navcat':$(this).parent().attr('data-catsafeid')});" class='pointer'>
 		<div class='thumbContainer'><img src='blank.gif' class='catThumb' data-bind='var: category(%meta.CAT_THUMB); format:imageURL;' width='120' height='120' /></div>
 		<div class='catName white2LGray'><span data-bind='var: category(pretty); format:catText; extension: myRIA;'></span></div>
 	</div>
 </li>
--->
-
 <li id='categoryListTemplateRootCats'>
 	<div onClick="showContent('category',{'navcat':$(this).parent().attr('data-catsafeid')});" class='pointer'>
 		<div class='thumbContainer'><img src='blank.gif' class='catThumb' data-bind='var: category(%meta.CAT_THUMB); format:imageURL;' width='35' height='35' /></div>
 		<div class='catName'><span data-bind='var: category(pretty); format:catText; extension: myRIA;'></span></div>
+	</div>
+</li>
+-->
+
+<li id='categoryListTemplateRootCats'>
+	<div onClick="showContent('category',{'navcat':$(this).parent().attr('data-catsafeid')});" class='pointer'>
+		<div class='catThumb thumbContainer'><img src='blank.gif' class='catThumb' data-bind='var: category(%meta.CAT_THUMB); format:imageURL;' width='195' height='195' /></div>
+		<div class='catName catListTempLineAdjust descriptionBar blackBackground centerText playFont fontColorWhite fontSize18PX'><span data-bind='var: category(pretty); format:catText; extension: myRIA;'></span></div>
 	</div>
 </li>
 
@@ -878,7 +884,7 @@ adding classes is not likely to have any bad effects.
 <!--  used in breadcrumb -->
 <ul>
 	<li id='breadcrumbTemplate'>
-	<a href='#' onClick="return showContent('category',{'navcat':$(this).parent().attr('data-catsafeid')});" data-bind='var: category(pretty); format:catText; extension: myRIA;'></a>
+	<a href='#' onClick="return showContent('category',{'navcat':$(this).parent().attr('data-catsafeid')});" class='newBreadcrumb montFont fontSize10PX fontColorBlack allcaps centerText' data-bind='var: category(pretty); format:catText; extension: myRIA;'></a>
 	</li>
 </ul>
 
