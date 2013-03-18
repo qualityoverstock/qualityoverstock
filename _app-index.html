@@ -130,7 +130,7 @@ app.u.loadScript(app.vars.baseURL+"app-quickstart-init.js");
             <script type="text/javascript">
                 var showDropdown = function ($tag) {
                     var $dropdown = $(".dropdown", $tag);
-                    var height = 387;
+                    var height = 320;
                     $dropdown.children().each(function(){
                         $(this).outerHeight(true);
                     });
@@ -144,14 +144,17 @@ app.u.loadScript(app.vars.baseURL+"app-quickstart-init.js");
                 
             <div class='shopContainer'>
                 <div class='shopArrowContainer' onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))"><img src="images/SmallYellowRoundDownArrow.png">
-                	<div class='dropdown'>
-                        <ul class='blackBackground playFont fontColorWhite fontSize14PX listStyleNone'>
+                	<div class='dropdown blackBackground'>
+                        <ul class='playFont fontColorWhite fontSize14PX listStyleNone floatLeft'>
+                            <li>Limited Offer</li>
                             <li>Special Deals</li>
                             <li>Swarovski</li>
                             <li>Baccarat</li>
                             <li>Bake 'n Serve</li>
                             <li>Lalique</li>
                             <li>Llardro</li>
+                        </ul>    
+                        <ul class='playFont fontColorWhite fontSize14PX listStyleNone floatLeft'>
                             <li>Vera Bradley</li>
                             <li>Versache</li>
                             <li>Sale Items</li>
@@ -160,6 +163,9 @@ app.u.loadScript(app.vars.baseURL+"app-quickstart-init.js");
                             <li>Retiring 2013</li>
                             <li>Clearance</li>
                         </ul>
+                        <div class='headerSeeAll blackBackground playFont fontColorYellow fontSize18PX smallcaps centerText floatLeft'>
+                        	See All Categories
+                        </div>
                     </div>
                 </div>	
                 <span class='fontColorWhite fontSize18PX'>Shop Our Store</span>

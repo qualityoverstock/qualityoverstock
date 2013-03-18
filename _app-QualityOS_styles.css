@@ -140,23 +140,33 @@ HEADER
 
 .dropdown {
 	height: 17px;
-	width: 171px;
+	width: 320px;
 	margin: 0px 0px 0px 20px;
 	position:absolute;
-	top: 17px;
+	top: 50px;
 	overflow: hidden;
 	position: absolute;
 	left: -20px;
 }
 
 .dropdown ul {
-	margin-top: 33px;
-	padding-bottom: 3px;
+	margin: 0px;
+	padding: 0px 0px 3px 35px;
 }
 
 .dropdown li {
-	margin: 10px;
+	margin: 15px 10px 18px 10px;
 	font-variant: small-caps;
+}
+
+.dropdown li:hover {
+	color: #fec611;
+	cursor: pointer;
+}
+
+.headerSeeAll {
+	height: 50px;
+	width: 100%;
 }
 
 .shopContainer span {
