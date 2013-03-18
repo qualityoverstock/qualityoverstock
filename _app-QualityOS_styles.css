@@ -210,6 +210,7 @@ FOOTER
 .footerContainer {
 	width: 100%;
 	clear: both;
+	margin-bottom: 20px;
 }
 
 .upperFooterContainer {
@@ -481,7 +482,7 @@ PRODCUT TEMPLATE
 .pointer.border.additionalImages {margin: 10px;}
 
 .prodReviewContainer {
-	width: 420px;
+	width: 443px;
 	padding-right: 22px;
 	background-color: #093;
 }
@@ -592,7 +593,7 @@ PRODCUT TEMPLATE
 }
 
 .prodCartSelection {
-	height: 486px;
+	height: auto;
 	width: 100%;
 }
 
