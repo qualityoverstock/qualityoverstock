@@ -102,6 +102,12 @@ HEADER
 	float: left;
 }
 
+/* Adds user name to "Welcome" in header if logged in */
+.buyerLoggedIn .hideIfLoggedIn {display:none;}
+.hideIfLoggedOut {display:none;}
+.buyerLoggedIn .hideIfLoggedOut {display: block;} /* may be 'block' */
+.buyerLoggedIn span.hideIfLoggedOut {display: inline;} /* ensures inline on span elements */
+
 .headerBarLogin a {text-decoration: none;}
 
 .headerBarCart {
