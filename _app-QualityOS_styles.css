@@ -703,6 +703,58 @@ PRODCUT QUICKVIEW TEMPLATE
 
 
 /*************************************************************************************
+COMPANY TEMPLATE
+*************************************************************************************/
+
+
+.companyTemplateContainer {
+	height: auto;
+	width: 940px;
+	margin: 10px auto 10px auto;
+}
+
+/* SIDELINE */
+.sideline a {
+	padding: 0px;
+	text-decoration: none;
+	color: #000;
+	cursor: pointer;
+}
+
+.sideline a:hover {
+	color: #ccc;
+}
+
+.sideline li:first-child {
+	margin: 15px 0px 5px 0px;
+	line-height: 25px;
+}
+
+.sideline li {
+	margin-left: 15px;
+	line-height: 25px;
+}
+
+
+/* ABOUT US */
+#aboutArticle h1 {
+	margin: 0px 0px 10px 0px;
+}
+
+.aboutUs p:first-child {
+	padding-left: 10px;
+	text-indent: -10px;
+}
+
+
+
+
+/*************************************************************************************
+END COMPANY TEMPLATE
+*************************************************************************************/
+
+
+/*************************************************************************************
 PRODCUT LIST TEMPLATE BUYER LIST
 *************************************************************************************/
 
@@ -820,7 +872,6 @@ BREADCRUMB
 /*************************************************************************************
 END BREADCRUMB
 *************************************************************************************/
-
 
 
 

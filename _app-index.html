@@ -26,7 +26,7 @@ var _gaq = _gaq || {'push':function(){}} //here for testing. REPLACE BEFORE DEPL
 var myCreole;
 
 var app = {vars:{
-	"release":"20130318180700",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+	"release":"20130319174400",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 	"_clientid":"zmvc",
 	"baseURL":"", //used in non-local mode.
 	"testURL":"http://www.gkworld.com/" //used ONLY if protocol is file: (for testing)
@@ -978,27 +978,38 @@ adding classes is not likely to have any bad effects.
 
 
 <!-- loadingBG needed on this for app init (content may take a moment to load) -->
-<div id='companyTemplate' class='clearfix loadingBG'>
+<div id='companyTemplate' class='clearfix loadingBG companyTemplateContainer'>
 
-	<div class='sideline' >
-<nav id='companyNav'>
-<ul class='listStyleNone noPadOrMargin'>
-	<li><a href='#company?show=about'  id='navLink_about'>About Us</a></li>
-	<li><a href='#company?show=contact'  id='navLink_contact'>Contact Information</a></li>
-	<li><a href='#company?show=faq'  id='navLink_faq'>FAQ</a></li>
-	<li><a href='#company?show=payment' id='navLink_payment'>Payment Policy</a></li>
-	<li><a href='#company?show=privacy' id='navLink_privacy'>Privacy Statement</a></li>
-	<li><a href='#company?show=return' id='navLink_return'>Return Policy</a></li>
-	<li><a href='#company?show=shipping' id='navLink_shipping'>Shipping Information</a></li>
-</ul>
-</nav>
+	<div class='sideline montFont fontColorBlack fontSize12PX' >
+      <nav id='companyNav'>
+            <ul class='listStyleNone noPadOrMargin'>
+            <li class='playSCFont fontSize18PX smallcaps'>Customer Service</li>
+                <li><a href="#!company?show=about" class='bindByAnchor' title='About Us'>&#187 About Us</a></li>
+                <li><a href="#!company?show=contact" class='bindByAnchor' title='Contact Us'>&#187 Contact Us</a></li>
+                <li><a href="#!company?show=faq" class='bindByAnchor' title='Find answers to common inquiries'>&#187 FAQs</a></li>
+                <li><a href="#!company?show=payment" class='bindByAnchor' title='Find info. about purchasing items'>&#187 Payment Policy</a></li>
+                <li><a href="#!company?show=privacy" class='bindByAnchor' title='Find info. on how this site uses your information'>&#187 Privacy Policy</a></li>
+                <li><a href="#!company?show=return" class='bindByAnchor' title='Find info. about returning an item'>&#187 Return Policy</a></li>
+                <li><a href="#!company?show=shipping" class='bindByAnchor' title='Find info. about how we ship your purchases'>&#187 Shipping Policy</a></li>
+            </ul>
+        <ul class='listStyleNone noPadOrMargin'>
+            	<li class='playSCFont fontSize18PX smallcaps'>My Account</li>
+                <li><a href="#!customer?show=myaccount" class='bindByAnchor' title='Log into your accoun or create one'>&#187 Log-in or Sign-up</a></li>
+                <li>&#187 Account Recovery</li>
+                <li>&#187 Update Preferences</li>
+                <li><a href="#!customer?show=orders" class='bindByAnchor' title='Track your order'>&#187 Order Tracking</a></li>
+                <li><a href="#!company?show=return" class='bindByAnchor' title='Find info. about returning an item'>&#187 Return a Product</a></li>
+                <li><a href="#!customer?show=newsletter" class='bindByAnchor' title='Sign up for our newsletter'>&#187 Join Our Newsletter</a></li>
+                <li>&#187 Sign Out</li>
+          </ul>
+        </nav>
 	</div>
 
 	<div class='mainColumn'>
 <!-- .textContentArea is used as a selector in quickstart.js because article tag type isn't ie8 friendly -->
 		<div id='aboutArticle' class='textContentArea article'>
-			<h1>About Us</h1>
-			<div data-bind='var: profile(zoovy:about); format:wiki; wikiFormats:myRIA;' id='aboutUsContent'></div>
+			<h1 class='playSCFont fontColorBlack fontSize24PX smallcaps'>About Quality OverStock</h1>
+			<div data-bind='var: profile(zoovy:about); format:wiki; wikiFormats:myRIA;' id='aboutUsContent' class='aboutUs montFont fontSize12PX'></div>
 		</div>
 
 
