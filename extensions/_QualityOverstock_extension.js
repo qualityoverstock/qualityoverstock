@@ -88,7 +88,7 @@ var _QualityOverstock = function() {
 						$('.prodSelectSeeDescriptionButton', $context).unbind();
 						$('.prodSelectSeeDescriptionButton', $context).click(app.ext._QualityOverstock.a.showDescription);
 					}, 250);
-				},
+				}, //END showReviews
 				showDescription : function(pid) {
 					var $context = $('#productTemplate_'+app.u.makeSafeHTMLId(pid));
 					
@@ -103,8 +103,8 @@ var _QualityOverstock = function() {
 						$('.prodSelectSeeReviewButton', $context).unbind();
 						$('.prodSelectSeeReviewButton', $context).click(app.ext._QualityOverstock.a.showReviews);
 					}, 250);
-				}
-				
+				} //END showDescription
+								
 			}, //Actions
 
 ////////////////////////////////////   RENDERFORMATS    \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\

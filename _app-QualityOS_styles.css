@@ -152,11 +152,11 @@ HEADER
 	height: 0px;
 	width: 320px;
 	margin: 0px 0px 0px 20px;
-	position:absolute;
 	top: 50px;
 	overflow: hidden;
 	position: absolute;
 	left: -20px;
+	z-index: 5;
 }
 
 .dropdown ul {
