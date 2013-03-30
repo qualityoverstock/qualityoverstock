@@ -26,7 +26,7 @@ var _gaq = _gaq || {'push':function(){}} //here for testing. REPLACE BEFORE DEPL
 var myCreole;
 
 var app = {vars:{
-	"release":"20130322181100",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+	"release":"20130329173200",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 	"_clientid":"zmvc",
 	"baseURL":"", //used in non-local mode.
 	"testURL":"http://www.a4feac9.crackle.zoovy.net/" //used ONLY if protocol is file: (for testing)
@@ -148,20 +148,20 @@ app.u.loadScript(app.vars.baseURL+"_app-QualityOverstock-init.js");
                         <ul class='playFont fontColorWhite fontSize14PX listStyleNone floatLeft'>
                             <li>Limited Offer</li>
                             <li>Special Deals</li>
-                            <li>Swarovski</li>
-                            <li>Baccarat</li>
-                            <li>Bake 'n Serve</li>
-                            <li>Lalique</li>
-                            <li>Llardro</li>
+                            <li><a class='bindByAnchor' href='#!category?navcat=.01-swarovski'>Swarovski</a></li>
+                            <li><a class='bindByAnchor' href='#!category?navcat=.baccarat'>Baccarat</a></li>
+                            <li><a class='bindByAnchor' href='#!category?navcat=.bake__n_serve'>Bake 'n Serve</a></li>
+                            <li><a class='bindByAnchor' href='#!category?navcat=.lalique'>Lalique</a></li>
+                            <li><a class='bindByAnchor' href='#!category?navcat=.lladro'>Llardro</a></li>
                         </ul>    
                         <ul class='playFont fontColorWhite fontSize14PX listStyleNone floatLeft'>
-                            <li>Vera Bradley</li>
-                            <li>Versache</li>
-                            <li>Sale Items</li>
-                            <li>New Arrivals</li>
-                            <li>Coming Soon</li>
-                            <li>Retiring 2013</li>
-                            <li>Clearance</li>
+                            <li><a class='bindByAnchor' href='#!category?navcat=.vera_bradley'>Vera Bradley</a></li>
+                            <li><a class='bindByAnchor' href='#!category?navcat=.versace'>Versache</a></li>
+                            <li><a class='bindByAnchor' href='#!category?navcat=.sale_items'>Sale Items</a></li>
+                            <li><a class='bindByAnchor' href='#!category?navcat=.new_arrivals'>New Arrivals</a></li>
+                            <li><a class='bindByAnchor' href='#!category?navcat=.coming_soon'>Coming Soon></a></li>
+                            <li><a class='bindByAnchor' href='#!category?navcat=.retiring_2013'>Retiring 2013</a></li>
+                            <li><a class='bindByAnchor' href='#!category?navcat=.clearance'>Clearance</a></li>
                         </ul>
                         <div class='headerSeeAll blackBackground playFont fontColorYellow fontSize18PX smallcaps centerText floatLeft'>
                         	See All Categories
@@ -216,20 +216,20 @@ app.u.loadScript(app.vars.baseURL+"_app-QualityOverstock-init.js");
                 	<li class='footerLinkHead fontColorBlack playFont fontSize24PX smallcaps'>Categories</li>
                 	<li>Limited Offer</li>
                     <li>Special Deals</li>
-                    <li>Swarovski</li>
-                    <li>Baccarat</li>
-                    <li>Bake 'n Serve</li>
-                    <li>Lalique</li>
-                    <li>Lladro</li>
+                    <li><a class='bindByAnchor' href='#!category?navcat=.01-swarovski'>Swarovski</a></li>
+                    <li><a class='bindByAnchor' href='#!category?navcat=.baccarat'>Baccarat</a></li>
+                    <li><a class='bindByAnchor' href='#!category?navcat=.bake__n_serve'>Bake 'n Serve</a></li>
+                    <li><a class='bindByAnchor' href='#!category?navcat=.lalique'>Lalique</a></li>
+                    <li><a class='bindByAnchor' href='#!category?navcat=.lladro'>Llardro</a></li>
                 </ul>
                 <ul class='floatLeft footerCategoriesRight listStyleNone'>
-                	<li class='footerLink SecondCol'>Vera Bradley</li>
-                    <li>Versache</li>
-                    <li>Sale Items</li>
-                    <li>New Arrivals</li>
-                    <li>Coming Soon</li>
-                    <li>Retiring 2013</li>
-                    <li>Clearance</li>
+                	<li class='footerLink SecondCol'><a class='bindByAnchor' href='#!category?navcat=.vera_bradley'>Vera Bradley</a></li>
+                     <li><a class='bindByAnchor' href='#!category?navcat=.versace'>Versache</a></li>
+                    <li><a class='bindByAnchor' href='#!category?navcat=.sale_items'>Sale Items</a></li>
+                    <li><a class='bindByAnchor' href='#!category?navcat=.new_arrivals'>New Arrivals</a></li>
+                    <li><a class='bindByAnchor' href='#!category?navcat=.coming_soon'>Coming Soon></a></li>
+                    <li><a class='bindByAnchor' href='#!category?navcat=.retiring_2013'>Retiring 2013</a></li>
+                    <li><a class='bindByAnchor' href='#!category?navcat=.clearance'>Clearance</a></li>
                 </ul>
             </div>
             <div class='footerHelpAccount floatLeft'>
@@ -251,10 +251,10 @@ app.u.loadScript(app.vars.baseURL+"_app-QualityOverstock-init.js");
                     <li><a href="#!customer?show=newsletter" class='bindByAnchor footerLinkStyle' title='Create an account by signing up for our newsletter'>Create An Account</a></li>
                     <li><a href="#!customer?show=myaccount" class='bindByAnchor footerLinkStyle' title='Log into your accoun or create one'>Log in or Sign up</a></li>
                     <li><a href="#!customer?show=changepassword" class='bindByAnchor footerLinkStyle' title='Set a different password for you account'>Change Password</a></li>
-                    <li>Update Account</li>
+                    <li><a class='bindByAnchor' href='#!customer?show=myaccount'>Update Account</a></li>
                     <li><a href="#!customer?show=lists" class='bindByAnchor footerLinkStyle' title="See items you've been wanting">Wishlist Items</a></li>
                     <li><a href="#!customer?show=orders" class='bindByAnchor footerLinkStyle' title='Track your order'>Order Tracking</a></li>
-                    <li>Sign Out</li>
+                    <li><a class='bindByAnchor' href='#!customer?show=logout'>Sign Out</a></li>
                 </ul>
             </div>             
         </div>
@@ -269,9 +269,9 @@ app.u.loadScript(app.vars.baseURL+"_app-QualityOverstock-init.js");
             <img src="images/Discover-Logo.png">
             <img src="images/PayPal-Logo.png">
             <img src="images/GoogleCheckout-Logo.png">
-            <img src="images/AuthorizeNet-Logo.png">
-            <img src="images/UpFront-Logo.png">
-            <img src="images/FacebookFollow-Logo.png">
+           	<img src="images/AuthorizeNet-Logo.png">
+            <a href='http://www.thefind.com/store/about-qualityoverstock' target='_blank'><img src="images/UpFront-Logo.png"></a>
+            <a href='http://www.facebook.com/pages/Quality-Overstock/105315309536960?v=app_4949752878&ref=ts' target='_blank'><img src="images/FacebookFollow-Logo.png"></a>
         </div>
         
         <div class='footerCopyright'>
@@ -334,7 +334,7 @@ the homepageTemplate template is loaded into mainContentArea by default when the
     <div class='homepageBanner clearfix'>
         <img src="images/HomepageBannerGraphic.jpg">
         <div class='descriptionBar blackBackground playFont fontColorWhite fontSize24PX centerText'>
-            See Our Valentine's Day Specials
+            <a class='bindByAnchor' href='#!category?navcat=.valentines-day'>See Our Valentine's Day Specials</a>
         </div>
     </div>
     

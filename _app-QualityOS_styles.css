@@ -8,6 +8,8 @@ body { background-image: url(images/BackgroundImage.jpg);}
 	width: 1020px;	
 }
 
+a {text-decoration:none; color:#fff;}
+
 .siteWidth {
 	width: 940px;
 	margin: 0px auto 0px auto;	
