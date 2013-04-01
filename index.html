@@ -26,7 +26,7 @@ var _gaq = _gaq || {'push':function(){}} //here for testing. REPLACE BEFORE DEPL
 var myCreole;
 
 var app = {vars:{
-	"release":"20130329173200",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+	"release":"20130401165300",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 	"_clientid":"zmvc",
 	"baseURL":"", //used in non-local mode.
 	"testURL":"http://www.a4feac9.crackle.zoovy.net/" //used ONLY if protocol is file: (for testing)
@@ -159,7 +159,7 @@ app.u.loadScript(app.vars.baseURL+"_app-QualityOverstock-init.js");
                             <li><a class='bindByAnchor' href='#!category?navcat=.versace'>Versache</a></li>
                             <li><a class='bindByAnchor' href='#!category?navcat=.sale_items'>Sale Items</a></li>
                             <li><a class='bindByAnchor' href='#!category?navcat=.new_arrivals'>New Arrivals</a></li>
-                            <li><a class='bindByAnchor' href='#!category?navcat=.coming_soon'>Coming Soon></a></li>
+                            <li><a class='bindByAnchor' href='#!category?navcat=.coming_soon'>Coming Soon</a></li>
                             <li><a class='bindByAnchor' href='#!category?navcat=.retiring_2013'>Retiring 2013</a></li>
                             <li><a class='bindByAnchor' href='#!category?navcat=.clearance'>Clearance</a></li>
                         </ul>
@@ -331,14 +331,23 @@ the homepageTemplate template is loaded into mainContentArea by default when the
    
 <div class='homepageContainer'> 
 
-    <div class='homepageBanner clearfix'>
-        <img src="images/HomepageBannerGraphic.jpg">
-        <div class='descriptionBar blackBackground playFont fontColorWhite fontSize24PX centerText'>
-            <a class='bindByAnchor' href='#!category?navcat=.valentines-day'>See Our Valentine's Day Specials</a>
+	<a class='bindByAnchor' href='#!category?navcat=.valentines-day'>
+        <div class='homepageBanner clearfix'>
+            <img src="images/HomepageBannerGraphic.jpg">
+            <div class='descriptionBar blackBackground playFont fontColorWhite fontSize24PX centerText'>
+                See Our Valentine's Day Specials
+            </div>
         </div>
-    </div>
+	</a>
+    <a class='bindByAnchor' href='#!category?navcat=.valentines-day'>
+        <div class='specialDealsContainer floatLeft'>
+            <div class='catName catListTempLineAdjust descriptionBar blackBackground centerText playFont fontColorWhite fontSize18PX'>
+                Special Deals
+            </div> 
+        </div>
+  	</a>
     
-	<ul data-bind="var: category(@subcategoryDetail); format: categoryList; extension: store_navcats; loadsTemplate: categoryListTemplateRootCats; detail:max;" class='listStyleNone noPadOrMargin homepageProdList'></ul>
+	<ul data-bind="var: category(@subcategoryDetail); format: categoryList; extension: store_navcats; loadsTemplate: categoryListTemplateRootCats; detail:max;" class='clearfix listStyleNone noPadOrMargin homepageProdList'></ul>
     
 	<div class='homepageTextDescription clearfix playFont fontColorBlack'>
     
@@ -482,8 +491,8 @@ remember to NOT put the button inside the 'onclick' container or two events will
 
 		<h6 class='prodPrice centerText playFont fontColorWhite' data-bind='var: product(zoovy:base_price); format:money; currencySign: $;  hideZero:true; className:price;'></h6>
 		
-		<span data-bind='var: reviews(reviews.average); format:addClass; className:review_;' class='reviewSprite'></span>
-<!-- 	<span data-bind='var: reviews(reviews.total); format:text; pretext: from ;posttext: reviews; className:numReviews;'></span> -->
+<!--	<span data-bind='var: reviews(reviews.average); format:addClass; className:review_;' class='reviewSprite'></span>
+ 		<span data-bind='var: reviews(reviews.total); format:text; pretext: from ;posttext: reviews; className:numReviews;'></span> -->
 	</div>
 	
 	<!-- <form data-bind='var: product(pid); format:atcForm; extension:store_product;' class='prodViewerAddToCartForm clearfix' action='#'>
@@ -685,7 +694,7 @@ this will likely become more flexible in the future. ###
         <h1 class='playFont fontColorBlack fontSize24PX' data-bind='var: product(zoovy:prod_name); format:text;'></h1>
         	<!-- USE BEFORE INSTEAD OF PRETEXT TO FORMAT "SKU" SEPERATELY. EXAMPLE ON HOMEPAGE OF DEFAULT
             	TEMPLATE "FEATURED ITEMS -->
-        <h5 class='stid montFontBold' data-bind='var: product(zoovy:prod_mfg); format:text; extension:myRIA; pretext: <h4>Manufactured by: &nbsp</h4>;'></h5>
+        <h5 class='stid montFontBold marginBottom' data-bind='var: product(zoovy:prod_mfg); format:text; extension:myRIA; pretext: <h4>Manufactured by: &nbsp</h4>;'></h5>
         <!-- <h6 class='stid openSansBoldFont' data-bind='var: product(pid); format:text; pretext: <h3>SKU Item Number: &nbsp</h3>;'></h6> 
         <h5 data-bind='var: product(zoovy:prod_mfgid); format:text; pretext: Mfg ID: ;'></h5> -->
     
@@ -702,21 +711,17 @@ this will likely become more flexible in the future. ###
             <span data-bind='var: reviews(reviews.average); format:addClass; className:review_;' class='reviewSprite'></span>
             <span data-bind='var: reviews(reviews.total); format:text;posttext: from ;posttext: reviews; className:numReviews;'></span>
         </section>
-        <div class='prodDetailsDesc' data-bind='var: product(zoovy:prod_desc); format:wiki; wikiFormats:myRIA;'></div>
+        <div class='prodDetailsDesc fontSize14PX' data-bind='var: product(zoovy:prod_desc); format:wiki; wikiFormats:myRIA;'></div>
    
         <span id="buySAFE_Kicker" name="buySAFE_Kicker" type="Kicker Guaranteed Transparent 33 175x30"></span>
-        
-        <div> 
-        	Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-			Integer eros nisi, interdum in tincidunt eu, rutrum
-			pellentesque quam. Quisque facilisis, ante ut iaculis
-			ullamcorper, nulla tellus dapibus orci, quis venenatis felis
-			elit et ante.
-        </div>
+
 	</td>
     
-    <td class='prodReviewContainer displayNone'>
-		<ul class='listStyleNone clearfix productReviewsList' id='prodViewerReviews' data-bind="var: reviews(reviews.@reviews); format:processList; loadsTemplate:productReviewsTemplateDetail;"></ul>
+    <td>
+    	<div class='prodReviewContainer displayNone'>
+        	<div class='playSCFont fontSize24PX centerText smallcaps'>Product Reviews<br><br></div>
+			<ul class='listStyleNone clearfix productReviewsList' id='prodViewerReviews' data-bind="var: reviews(reviews.@reviews); format:processList; loadsTemplate:productReviewsTemplateDetail;"></ul>
+		</div>
     </td>
     	
     <td>
@@ -741,8 +746,8 @@ this will likely become more flexible in the future. ###
                     <!-- -->
                     <div data-bind='var: product(pid); format:atcVariations; extension:store_product;' class='borderNone sizeSelector'></div>
                     
-                    <div class='playFont fontSize12PX fontColorYellow prodSelectionQty'><h4>HOW</h4> MANY?</div>
-                    <div data-bind='var: product(pid); format:atcQuantityInput; extension:store_product;' class='prodSelectItemField'></div>
+                    
+                    <div data-bind='var: product(pid); format:atcQuantityInput; extension:store_product;' class='prodSelectItemField'><div class='playFont fontSize12PX fontColorYellow prodSelectionQty'><h4>HOW</h4> MANY?</div></div>
                     <input type='submit' value='Check Out' class='prodSelectAddCartButton playFont fontSize18PX smallcaps ui-state-default addToCartButton displayNone' data-bind='var: product(pid); format:addToCartButton; extension:store_product;' id='addToCartBtn' />
                 </form>
                 
@@ -756,7 +761,7 @@ this will likely become more flexible in the future. ###
                     </menu>
                 </div>
                      
-                <ul class='listStyleNone clearfix productReviewsList' id='prodViewerReviews' data-bind="var: reviews(reviews.@reviews); format:processList; loadsTemplate:productReviewsTemplateDetail;"></ul>
+           <!-- <ul class='listStyleNone clearfix productReviewsList' id='prodViewerReviews' data-bind="var: reviews(reviews.@reviews); format:processList; loadsTemplate:productReviewsTemplateDetail;"></ul> -->
         	 </div>
              
              <div class='productShips'></div>
@@ -1438,17 +1443,14 @@ used on a product layout. Some product have 'children' which may represent the s
 <!-- individual review template -->
 <ul>
 	<li id='productReviewsTemplateDetail' class='reviewLineItem clearfix'>
-	<ul class='prodReviewInfo'>
-		<li data-bind='var:review(RATING); format:addClass; format:addClass; className:review_;' class='reviewSprite'></li>
-		<li data-bind='var:review(CUSTOMER_NAME); format:text;'></li>
-		<li data-bind='var:review(LOCATION); format:text; pretext:of ;'></li>
-		<li data-bind='var:review(CREATED_GMT); format:unix2mdy; pretext:on ;'></li>
-
-	</ul>
-	<blockquote>
-		<h2 data-bind='var:review(SUBJECT); format:text;'></h2>
-		<p data-bind='var:review(MESSAGE); format:text; ;'></p>
-	</blockquote>
+	    <ul class='prodReviewInfo'>
+            <h2 class='montFontBold' data-bind='var:review(SUBJECT); format:text;'></h2>
+            <li data-bind='var:review(RATING); format:addClass; format:addClass; className:review_;' class='reviewSprite floatRight'></li>
+            <li data-bind='var:review(CUSTOMER_NAME); format:text;'></li>
+            <li data-bind='var:review(LOCATION); format:text; pretext:of ;'></li>
+            <li class='marginBottom' data-bind='var:review(CREATED_GMT); format:unix2mdy; pretext:on ;'></li>
+            <p class='marginTop' data-bind='var:review(MESSAGE); format:text; ;'></p>
+        </ul>
 	</li>
 </ul>
 
