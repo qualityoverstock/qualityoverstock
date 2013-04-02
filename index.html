@@ -26,7 +26,7 @@ var _gaq = _gaq || {'push':function(){}} //here for testing. REPLACE BEFORE DEPL
 var myCreole;
 
 var app = {vars:{
-	"release":"20130401165300",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+	"release":"20130402104100",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 	"_clientid":"zmvc",
 	"baseURL":"", //used in non-local mode.
 	"testURL":"http://www.a4feac9.crackle.zoovy.net/" //used ONLY if protocol is file: (for testing)
@@ -47,7 +47,8 @@ css files should be included before any .js file to ensure they are downloaded i
 -->
 <link rel="stylesheet" type="text/css" href="app-quickstart.css" />
 <link rel="stylesheet" type="text/css" href="_app-QualityOS_styles.css" />
-<link rel="stylesheet" type="text/css" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/themes/ui-lightness/jquery-ui.css" />
+<link rel="stylesheet" type="text/css" href="jquery-ui-1.10.2.custom.css" />
+<!-- <link rel="stylesheet" type="text/css" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/themes/ui-lightness/jquery-ui.css" /> -->
 <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Playfair+Display' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Playfair+Display+SC' rel='stylesheet' type='text/css'>
@@ -185,8 +186,8 @@ app.u.loadScript(app.vars.baseURL+"_app-QualityOverstock-init.js");
 
 <!-- These add specific functionality for the app. In most cases, you want to leave them alone. -->
 <div id='appNav'>
-	<button class='displayNone prodDetailNextItemButton' data-app-role='prodDetailNextItemButton'>Next</button>
-	<button class='displayNone prodDetailPrevItemButton' data-app-role='prodDetailPrevItemButton'>Previous</button>
+	<button class='displayNone prodDetailNextItemButton prodDetailNxtItem' data-app-role='prodDetailNextItemButton'>Next</button>
+	<button class='displayNone prodDetailPrevItemButton prodDetailPrvItem' data-app-role='prodDetailPrevItemButton'>Previous</button>
 </div>
 
 <div id='mainContentArea'></div><!-- DO NOT REMOVE - this is where the specific page (ex: homepage, product, category) content is going to go -->
@@ -1267,7 +1268,7 @@ onclicks are recursive, so only add it to the parent element.
             </div>
         </div>
         
-        <span class='playFont fontSize24PX' data-bind='var:prodlistmeta(page_start_point); format:text;'></span>
+        <span class='playFont fontSize24PX' data-bind='var:prodlistmeta(page_product_count); format:text;'></span>
         <!-- <span data-bind='var:prodlistmeta(page_end_point); format:text; pretext: - ;'></span> -->
         <span class='ofItems'>&nbsp OF &nbsp</span>
         <span class='playFont fontSize24PX' data-bind='var:prodlistmeta(total_product_count); format:text;'></span>

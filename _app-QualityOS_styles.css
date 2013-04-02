@@ -78,6 +78,16 @@ a {text-decoration:none; color:#fff;}
 	line-height: 200%;
 }
 
+#appNav .displayNone.prodDetailNextItemButton.prodDetailNxtItem {
+		right: 285px;
+		top: 28px;
+}
+
+#appNav .displayNone.prodDetailPrevItemButton.prodDetailPrvItem {
+		left: 295px;
+		top: 28px;
+}
+
 
 /****************************************
 PERSISTENT CONTENT
@@ -503,7 +513,7 @@ PRODCUT TEMPLATE
 	background-color: #fff;
 	border: 2px solid #000;
 	box-shadow: 0px 2px 2px #000;
-	margin: 0px 9px 20px 0px;
+	margin: 50px 9px 20px 0px;
 	overflow:auto;
 }
 
@@ -521,7 +531,7 @@ PRODCUT TEMPLATE
 	padding-right: 22px;
 }
 
-.prodSummaryContainer h1 {margin: 5px 0px 13px 0px;}
+.prodSummaryContainer h1 {margin: 50px 0px 13px 0px;}
 
 .stid h3 {
 	float: left;
@@ -632,6 +642,8 @@ PRODCUT TEMPLATE
 	width: 50%;
 	margin: 0px 18px 0px 18px;
 	color: #fff;
+	line-height: 48px;
+	font-size: 11px;
 }
 
 .prodCartSelection h4 {letter-spacing: 2.2px; font-weight: 400;}
