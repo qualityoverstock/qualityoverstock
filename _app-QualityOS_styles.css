@@ -877,6 +877,63 @@ END MP CONTROLS CONTAINER
 
 
 /*************************************************************************************
+PRODUCT LIST TEMPLATE CART CONTAINER
+*************************************************************************************/
+
+
+.cartItemContianer {
+	height: auto;
+	width: 140px;
+	background-color:#F0F;
+}
+
+.cartProdDesc.montFont.centerText.fontSize10PX.fontColorBlack {
+	height: 56px;
+	padding:15px 5px 6px 0px;
+	font-size: 11px;
+}
+
+.cartProdPrice {
+	height: 30px;
+	width: 100%;
+	line-height: 23px;
+	font-size: 22px;
+	background-color: #000;
+	margin-bottom: 10px;
+}
+
+.cartButtonContainer {
+	height: 60px;
+	width: 140px;
+	padding: 3px 0px 0px 3px;
+}
+
+.cartButtonContainer button:first-child {
+	height: 30px;
+	width: 100%;
+	color: #ccc;
+	text-align: center;
+	line-height: 30px;
+	border: none;
+	background: none;
+}
+
+.cartRemoveButton.floatRight.ui-button.ui-widget.ui-state-default.ui-corner-all.ui-button-icon-only {
+	background: none;
+	height: 30px;
+	width: 100%;
+	border: none;
+}
+
+.cartRemoveButton span:first-child, .ui-button-icon-primary ui-icon ui-icon-closethick {display: none;}
+.cartRemoveButton span:nth-child(2), .ui-button-icon-primary ui-icon ui-icon-closethick {color:#fff;}
+
+/*************************************************************************************
+PRODUCT LIST TEMPLATE CART CONTAINER
+*************************************************************************************/
+
+
+/*************************************************************************************
 BREADCRUMB
 *************************************************************************************/
 

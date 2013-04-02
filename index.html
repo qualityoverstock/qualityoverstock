@@ -26,7 +26,7 @@ var _gaq = _gaq || {'push':function(){}} //here for testing. REPLACE BEFORE DEPL
 var myCreole;
 
 var app = {vars:{
-	"release":"20130402104100",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+	"release":"20130402153800",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 	"_clientid":"zmvc",
 	"baseURL":"", //used in non-local mode.
 	"testURL":"http://www.a4feac9.crackle.zoovy.net/" //used ONLY if protocol is file: (for testing)
@@ -113,11 +113,11 @@ app.u.loadScript(app.vars.baseURL+"_app-QualityOverstock-init.js");
             <span>)</span>
         </div>
         <div class='headerBarCart'>
-        	<div class='pointer' onClick="return showContent('cart',{});">
+        	<a class='bindByAnchor' href="#!cart?show=inline">
                 <span class='cartItemCount montFontBold'></span>
                 <span> item(s) in your</span>
                 <span class='montFontBold fontColorYellow'> SHOPPING CART</span>
-			</div>
+			</a>
         </div>
         <div class='headerBarHelp pointer' onClick="return showContent('company',{'show':'faq'});">NEED HELP?</div>
     </div>
@@ -1402,25 +1402,30 @@ So the cart template should contain these two elements and the extension should 
 <ul>
 	<li id='productListTemplateCart' class='padMargBorderBottom clearfix'>
 
-		<button class='floatRight removeButton' data-bind='format:removeItemBtn; extension:store_cart; useParentData:true;' >Remove Item From Cart</button>
-		<button class='floatRight moveToWishlist marginRight' data-bind='format:moveToWishlistButton; extension:myRIA; useParentData:true;' >Move to Wishlist</button>
+		<div class='cartItemContianer'>
+                
+            <div class='floatLeft'><img src='blank.gif' class='prodThumb' data-bind='var: product(zoovy:prod_image1); defaultVar: product(%attribs.zoovy:prod_image1); format:imageURL;' width='140' height='140' /></div>
+    
+            <h4 class='cartProdDesc montFont centerText fontSize10PX fontColorBlack floatLeft' data-bind='var: product(prod_name); format:text; '></h4>
+    		
+            <span class='cartProdPrice centerText playFont fontColorWhite price floatLeft' data-bind='var: product(price); format:money; currencySign: $;  hideZero:false;' ></span>
+            
+            <div class='ztable_row_small prodOptions' data-bind='var: variations(%options); format:selectedOptionsDisplay;'></div>
 
-		<div class='floatLeft'><img src='blank.gif' class='prodThumb' data-bind='var: product(zoovy:prod_image1); defaultVar: product(%attribs.zoovy:prod_image1); format:imageURL;' width='75' height='75' /></div>
+            <div class='playFont'>
+                &nbsp&nbsp Quantity: &nbsp <input type='number' class='qtyInput centerText borderNone' onChange="app.ext.store_cart.u.updateCartQty($(this)); app.model.dispatchThis('immutable');"  data-bind='format:cartItemQty;extension:store_cart;useParentData:true;' size='3' />
+                <button class='displayNone'>update</button><!-- here to stop 'enter' in input above from closing modal -->
+           <!-- <span data-bind='var: product(price); format:money; currencySign: $;  hideZero:false; pretext: x ;' ></span>
+                <span data-bind='var: product(extended); format:money; currencySign: $; hideZero:false; pretext: = ;'></span> -->
+            </div>
 
-		<h4 data-bind='var: product(prod_name); format:text; '></h4>
-
-		<div class='ztable_row_small stid' data-bind='var: product(sku); format:text; className: stid; pretext: Sku: ;'></div>
-
-		<div>
-		qty: <input type='number' class='qtyInput' onChange="app.ext.store_cart.u.updateCartQty($(this)); app.model.dispatchThis('immutable');"  data-bind='format:cartItemQty;extension:store_cart;useParentData:true;' size='3' />
-		<button class='displayNone'>update</button><!-- here to stop 'enter' in input above from closing modal -->
-		<span data-bind='var: product(price); format:money; currencySign: $;  hideZero:false; pretext: x ;' ></span>
-		<span data-bind='var: product(extended); format:money; currencySign: $; hideZero:false; pretext: = ;'></span>
-
-		</div>
-
-		<div class='ztable_row_small prodOptions' data-bind='var: variations(%options); format:selectedOptionsDisplay;'></div>
-	</li>
+			<div class='cartButtonContainer'>
+                <button class='floatRight moveToWishlist marginRight' data-bind='format:moveToWishlistButton; extension:myRIA; useParentData:true;' >Move to Wishlist</button>
+                <button class='cartRemoveButton floatRight removeButton' data-bind='format:removeItemBtn; extension:store_cart; useParentData:true;' >Remove Item From Cart</button>            
+           <!-- <div class='ztable_row_small stid' data-bind='var: product(sku); format:text; className: stid; pretext: Sku: ;'></div> -->
+			</div>
+        </div>
+    </li>
 </ul>
 
 
