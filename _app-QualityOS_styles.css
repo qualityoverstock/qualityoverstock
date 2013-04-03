@@ -486,7 +486,7 @@ PRODCUT LIST TEMPLATE NO PREVIEW
 
 
 /*************************************************************************************
-PRODCUT TEMPLATE
+PRODUCT TEMPLATE
 *************************************************************************************/
 
 
@@ -719,6 +719,11 @@ PRODCUT TEMPLATE
 .prodSelectSeeDescriptionButton.prodSelectSmallButtons.ui-button.ui-state-default.displayNone {
 	width: 180px;
 	display: none;
+}
+
+.prodSelectSeeDescriptionButton.prodSelectSmallButtons.ui-button.ui-state-default.displayNone.inReview {
+	width: 120px;
+	margin-left: 10px;
 }
 
 .prodSelectSeeReviewButton {

@@ -26,7 +26,7 @@ var _gaq = _gaq || {'push':function(){}} //here for testing. REPLACE BEFORE DEPL
 var myCreole;
 
 var app = {vars:{
-	"release":"20130402153800",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+	"release":"20130402204900",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 	"_clientid":"zmvc",
 	"baseURL":"", //used in non-local mode.
 	"testURL":"http://www.a4feac9.crackle.zoovy.net/" //used ONLY if protocol is file: (for testing)
@@ -720,9 +720,13 @@ this will likely become more flexible in the future. ###
     
     <td>
     	<div class='prodReviewContainer displayNone'>
-        	<div class='playSCFont fontSize24PX centerText smallcaps'>Product Reviews<br><br></div>
-			<ul class='listStyleNone clearfix productReviewsList' id='prodViewerReviews' data-bind="var: reviews(reviews.@reviews); format:processList; loadsTemplate:productReviewsTemplateDetail;"></ul>
-		</div>
+        	<div class='beFirst'>
+                <div class='playSCFont fontSize24PX centerText smallcaps'>Product Reviews<br><br></div>
+                <ul class='listStyleNone clearfix productReviewsList noReviews' id='prodViewerReviews' data-bind="var: reviews(reviews.@reviews); format:processList; loadsTemplate:productReviewsTemplateDetail;"></ul>
+  			</div>
+            <button class='prodSelectSeeDescriptionButton prodSelectSmallButtons inReview ui-button ui-state-default displayNone floatRight' onClick='app.ext._QualityOverstock.a.showDescription($(this).parent().data("pid"));'>Close</button>
+            <button class='prodSelectWriteReviewButton prodSelectSmallButtons ui-button ui-state-default floatRight' onClick='app.ext.store_crm.u.showReviewFrmInModal({"pid":$(this).attr("data-pid"),"templateID":"reviewFrmTemplate"});' data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;'>Write a Review</button>
+        </div>
     </td>
     	
     <td>

@@ -36,6 +36,8 @@ var _QualityOverstock = function() {
 			
 				app.ext._QualityOverstock.a.showDescription();
 					app.u.dump("_QOS showDescription() run");
+				app.ext._QualityOverstock.a.sansReviews();
+					app.u.dump("_QOS sansReviews() run");
 				return true;
 				/*var r = false; //return false if extension won't load for some reason (account config, dependencies, etc).
 
@@ -103,8 +105,45 @@ var _QualityOverstock = function() {
 						$('.prodSelectSeeReviewButton', $context).unbind();
 						$('.prodSelectSeeReviewButton', $context).click(app.ext._QualityOverstock.a.showReviews);
 					}, 250);
-				} //END showDescription
-								
+				}, //END showDescription
+				
+				
+				sansReviews : function() {
+					app.rq.push(['templateFunction','productTemplate','onCompletes',function(P) { 
+					
+						var $thisProduct = $('#productTemplate_'+app.u.makeSafeHTMLId(P.pid));
+						app.u.dump("Begin review message displaying function");
+						if($(".noReviews", $thisProduct).children().length === 0){
+							app.u.dump("No reviews. Running existing message check");
+							if(($(".reviewsCont", $thisProduct).length === 0) || ($(".reviewsCont", $thisProduct).length === null)){
+							  app.u.dump("No message exists. Display message");
+							  $('.beFirst', '#productTemplate_'+app.u.makeSafeHTMLId(P.pid)).append(
+							  '<p style="text-align:center;" class="reviewsCont">'
+							  + 'Be the First to Review This Product!'
+							  + '</p>');
+							  //var p = document.getElementsByClassName("reviewsCont");
+							  //p.reviewsCont += '#productTemplate_'+app.u.makeSafeHTMLId(P.pid);
+							  app.u.dump("Review message displaying for : " + '#productTemplate_'+app.u.makeSafeHTMLId(P.pid));
+							}
+							else{
+								app.u.dump("Message exists. Doing nothing");
+							}
+					
+					
+							/*var noReviews = document.createElement("p");
+							var noReviewsMessage = document.createTextNode("Be the First to Review This Product!");
+							noReviews.appendChild(noreviewsMessage);
+							var findReviewSec = document.getElementsByClassName("reviewsBind");
+							document.body.insertBefore(noReviews, findReviewSec);*/
+						}
+						else
+						{
+							app.u.dump("Reviews exist. function aborted. Reviews length amount: " + $(".reviewsBind").children.length);
+							
+						}
+					
+					}]);
+				}// END SANSREVIEWS
 			}, //Actions
 
 ////////////////////////////////////   RENDERFORMATS    \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
