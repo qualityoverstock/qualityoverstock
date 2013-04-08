@@ -1,6 +1,5 @@
 <!DOCTYPE HTML>
-<html>
-<head>
+<html><head>
 <meta charset="utf-8">
 
 <!-- do not populate or add meta data or title, the SEO layer will add it -->
@@ -26,7 +25,7 @@ var _gaq = _gaq || {'push':function(){}} //here for testing. REPLACE BEFORE DEPL
 var myCreole;
 
 var app = {vars:{
-	"release":"20130402204900",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+	"release":"20130407220500",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 	"_clientid":"zmvc",
 	"baseURL":"", //used in non-local mode.
 	"testURL":"http://www.a4feac9.crackle.zoovy.net/" //used ONLY if protocol is file: (for testing)
@@ -268,9 +267,18 @@ app.u.loadScript(app.vars.baseURL+"_app-QualityOverstock-init.js");
         	<img src="images/MC-Logo.png">
             <img src="images/Visa-Logo.png">
             <img src="images/Discover-Logo.png">
-            <img src="images/PayPal-Logo.png">
-            <img src="images/GoogleCheckout-Logo.png">
-           	<img src="images/AuthorizeNet-Logo.png">
+            <a class="pointer" onClick="javascript:window.open('https://www.paypal.com/us/cgi-bin/webscr?cmd=xpt/cps/popup/OLCWhatIsPayPal-outside','olcwhatispaypal','toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=yes, width=400, height=350')" href"#"><img border="0" alt="Acceptance Mark" src="images/PayPal-Logo.png"></a>
+            <a href='javascript:showHide(1)'><img height='58' width='62' alt='Google Checkout Acceptance Mark' src="https://checkout.google.com/seller/accept/images/st.gif"></a>
+           	<noscript><img src="https://checkout.google.com/seller/accept/images/st.gif" width="92" height="88" alt="Google Checkout Acceptance Mark" /></noscript>
+            <div class='AuthorizeNetSeal'>
+            	<!--<script src='//verify.authorize.net/anetseal/seal.js'></script>
+                <script src='//verify.authorize.net/anetseal/seal.js' language="javascript" type="text/javascript"></script>
+	            <a target='_blank' onClick="window.open('//verify.authorize.net/anetseal/?pid=31f5d0ee-8cd2-4a5c-9afa-d5519d0360f6&rurl=http%3A//www.qualityoverstock.com/','AuthorizeNetVerification','width=600,height=430,dependent=yes,resizable=yes,scrollbars=yes,menubar=no,toolbar=no,status=no,directories=no,location=yes'); return false;" onmouseout="window.status=''; return true;" onmouseover="window.status='http://www.authorize.net/'; return true;" href="//verify.authorize.net/anetseal/?pid=31f5d0ee-8cd2-4a5c-9afa-d5519d0360f6&rurl=http%3A//www.qualityoverstock.com/">
+                <!-- <img src="images/AuthorizeNet-Logo.png"> -->
+                <img width="59" height="65" border="0" alt="Authorize.Net Merchant - Click to Verify" src="images/AuthorizeNet-Logo.png">
+                </a>
+        		<a id="AuthorizeNetText" target="_blank" href="http://www.authorize.net/">Merchant Services</a>
+            </div>
             <a href='http://www.thefind.com/store/about-qualityoverstock' target='_blank'><img src="images/UpFront-Logo.png"></a>
             <a href='http://www.facebook.com/pages/Quality-Overstock/105315309536960?v=app_4949752878&ref=ts' target='_blank'><img src="images/FacebookFollow-Logo.png"></a>
         </div>
@@ -1019,24 +1027,62 @@ adding classes is not likely to have any bad effects.
 <!-- .textContentArea is used as a selector in quickstart.js because article tag type isn't ie8 friendly -->
 		<div id='aboutArticle' class='textContentArea article'>
 			<h1 class='playSCFont fontColorBlack fontSize24PX smallcaps'>About Quality OverStock</h1>
-			<div data-bind='var: profile(zoovy:about); format:wiki; wikiFormats:myRIA;' id='aboutUsContent' class='aboutUs montFont fontSize12PX'></div>
+			<div data-bind='var: profile(zoovy:about); format:wiki; wikiFormats:myRIA;' id='aboutUsContent' class='aboutUs montFont fontSize12PX'>
+            	<p>Quality Overstock has been in the wholesale and retail trade of crystal & collectibles since 
+                    the 1980s. Throughout the years we have consistently surpassed customers' expectations with 
+                    our outstanding selection, prices, and service. Since our inception, our aim has been to earn 
+                    the trust and satisfaction of our customers. We therefore combine competitive prices with honest, 
+                    helpful dealings and superior service before, during, and after each sale. Indeed, our success is 
+                    reflected in the long-standing relationships we have built with our customers. 
+                </p>
+                <p>
+                    Quality Overstock's product lines consist of Swarovski, Lladro, Lalique, Daum, Baccarat, Armani 
+                    and selected others. We can orders items upon request as long as they haven't been discontinued 
+                    or retired. To ensure your comfort, security, and confidence, we offer a 100% satisfaction 
+                    guarantee on all transactions. Furthermore, all transactions are digitally encrypted using the 
+                    latest technologies, and we never share your information with anyone. Orders are processed 
+                    efficiently and shipped securely. Whether you're shopping with us for the first time, or have 
+                    bought from us repeatedly, we are determined to simplify the process to one of complete 
+                    satisfaction.  
+				</p>
+            </div>
 		</div>
 
 
 		<div id='contactArticle' class='displayNone textContentArea'>
-			<h1>Contact Information</h1>
-			<form action='#' onSubmit="app.ext.store_crm.calls.appSendMessage.init($(this).serializeJSON(),{'callback':'showMessaging','parentID':'contactFormMessaging','message':'Thank you, your message has been sent'},'immutable'); app.model.dispatchThis('immutable');  return false;" id='contactForm' name='contactForm'>
-			<fieldset>
-				<legend>Contact Us</legend>
-				<div id='contactFormMessaging'></div>
-				<div><label for='contactFormSender'>Email Address: </label><input type='email' name='sender' required='required' id='contactFormSender' /></div>
-				<div><label for='contactFormSubject'>Subject: </label><input type='text' name='subject' id='contactFormSubject' /></div>
-				<div><label for='contactFormOID'>Order ID: </label><input type='text' name='OID' id='contactFormOID' /></div>
-				<div><label for='contactFormBody'>Message: </label><textarea name='body' required='required' id='contactFormBody'></textarea></div>
-				<div class='alignRight'><input type='submit' class='ui-button-text ui-button ui-state-default ui-corner-all' value='Send Message' />
-				</div>
-			</fieldset>
-			</form>
+			<h1 class='playSCFont fontColorBlack fontSize24PX smallcaps'>Contact Us</h1>
+            <div class='contactContainer'>
+            	<div class='floatLeft'>
+                <form action='#' onSubmit="app.ext.store_crm.calls.appSendMessage.init($(this).serializeJSON(),{'callback':'showMessaging','parentID':'contactFormMessaging','message':'Thank you, your message has been sent'},'immutable'); app.model.dispatchThis('immutable');  return false;" id='contactForm' name='contactForm' class='floatLeft';>
+                    <fieldset>
+                        <div id='contactFormMessaging'></div>
+                        <div><label for='contactFormName'></label><input type='text' name='name' id='contactFormName' value=' Full Name'/></div>
+                        <div><label for='contactFormSender'></label><input type='email' name='sender' required='required' id='contactFormSender' value=' E-mail Address'/></div>
+                        <div><label for='contactFormOID'></label><input type='text' name='OID' id='contactFormOID' value=' Order Number (if applicable)'/></div>
+                        <div><label for='contactFormBody'></label><textarea class='contactMessage' name='body' required='required' id='contactFormBody' placeholder=" What's it about?"></textarea></div>
+                        <div class='alignRight'><input type='submit' class='ui-button-text ui-button ui-state-default ui-corner-all smallcaps' value='Send Message' /></div>
+                    </fieldset>
+                </form>
+                </div>
+                <div class='waysToContact floatRight'>
+                	<h2>Order Status</h2>
+                    <p>If you'd like to check the status of an order, (or cancel one that hasn't been processed), 
+                    	please <a class='bindByAnchor' title='Log into your account' href='#!customer?show=myaccount'>sign in</a> to your customer account.</p>
+                    <h2>E-mail Us <span>(Quickest Response Time)</span></h2>
+                    <p>
+                    	For general product questions and order inquiries you can also email us at 
+                    	<a mailto:help@qualityoverstock.com>help@qualityoverstock.com</a>.
+                    </p>
+                    <h2>Call Us</h2>
+                    <p>
+                    	To place an order over the phone call <span>+1 (877) 740-3123</span> between 8:00 am to 5:00 pm PST.
+                    	<br><br>You can also FAX us at +1 (845) 406-9148<br><br>
+						If you have a specific question about an existing product or order please email us at <a mailto:help@qualityoverstock.com>help@qualityoverstock.com</a>.
+                    </p>
+                    <h2>Location</h2>
+                    <p>12 Swallow Avenue, Spring Valley, NY 10977</p>
+               	</div>
+            </div>
 			<div data-bind='var: profile(zoovy:contact); format:wiki; wikiFormats:myRIA;' id='contactContent'></div>
 		</div>
 

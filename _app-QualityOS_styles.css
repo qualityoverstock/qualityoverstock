@@ -53,6 +53,7 @@ a {text-decoration:none; color:#fff;}
 .form {
 	height: 30px;
 	font-family: "Playfair Display";
+	font-weight: normal;
 	font-size: 12px;
 	color: #000;
 	border: none;
@@ -310,14 +311,19 @@ FOOTER
 
 .footerLogos {
 	height: 65px;
-	width: 515px;
+	width: 525px;
 	margin: 30px auto 30px auto;
 	padding-right: 10px;
 }
 
-.footerLogos img {
-	margin-left: 10px;
-}
+.footerLogos img {margin-left: 10px;}
+
+.AuthorizeNetSeal{text-align:center;margin:0;padding:0;width:59px;font:normal 9px arial,helvetica,san-serif;line-height:10px;display:inline;}
+.AuthorizeNetSeal a{text-decoration:none;color:black;display:table-row-group;}
+.AuthorizeNetSeal a:visited{color:black;}
+.AuthorizeNetSeal a:active{color:black;}
+.AuthorizeNetSeal a:hover{text-decoration:underline;color:black;}
+.AuthorizeNetSeal a img{border:0px;margin:0px;text-decoration:none;} 
 
 
 /*************************************************************************************
@@ -783,9 +789,89 @@ COMPANY TEMPLATE
 	margin: 0px 0px 10px 0px;
 }
 
-.aboutUs p:first-child {
-	padding-left: 10px;
-	text-indent: -10px;
+.aboutUs p {
+	padding-left: 20px;
+	text-indent: 30px;
+	line-height: 25px
+}
+
+
+/* CONTACT US */
+.contactContainer {
+	height: auto;
+	width: 700px;
+}
+
+#contactForm {margin: 0px 0px 12px -123px;}
+
+#contactForm fieldset {
+	border:none;
+}
+
+#contactForm input {
+	height:33px; 
+	width: 270px;
+	border: 1px solid #000;
+	font-family: "Playfair Display";
+	font-weight: normal;
+	font-size:12px;
+}
+
+#contactForm textarea {
+	height:200px; 
+	width: 270px;
+	border: 1px solid #000;
+	font-family: "Playfair Display";
+	font-weight: normal;
+	font-size:12px;
+}
+
+#contactForm input.smallcaps {
+	height:33px; 
+	width: 150px;
+	border: none;
+	font-family: "Playfair Display";
+	font-weight: normal;
+	font-size:14px;
+}
+
+.contactMessage {line-height:26px;}
+
+.waysToContact {
+	Height:auto;
+	width:380px;
+}
+
+.waysToContact h2 {
+	font-family:"Playfair Display SC"; 
+	font-weight: normal;
+	font-size:18px;
+	font-variant: small-caps;
+}
+
+.waysToContact p {
+	font-family:Montserrat;
+	font-weight:normal;
+	font-size:12px;
+	line-height:14px;
+}
+
+.waysToContact a {
+	cursor: pointer;
+	font-weight:bold;
+	text-decoration:underline;
+	color:#000;	
+}
+
+.waysToContact span:first-child {
+	color: #777c71;
+	font-size: 12px;
+	font-family:Montserrat;
+	font-variant:normal;	
+}
+
+.waysToContact span:nth-child(2) {
+	font-weight:bold;	
 }
 
 
