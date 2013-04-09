@@ -783,12 +783,46 @@ COMPANY TEMPLATE
 	line-height: 25px;
 }
 
-
-/* ABOUT US */
-#aboutArticle h1 {
+.articleText h1 {
 	margin: 0px 0px 10px 0px;
 }
 
+.articleText h2 {
+	font-family: "Playfair Display SC"; 
+	font-weight: normal;
+	font-size: 18px;
+	font-variant: small-caps;
+}
+
+.articleText p {
+	font-family: Montserrat;
+	font-weight: normal;
+	font-size: 12px;
+	line-height: 14px;
+	line-height: 25px;
+}
+
+.articleText a {
+	cursor: pointer;
+	font-weight:bold;
+	text-decoration:underline;
+	color:#000;	
+}
+
+.articleText span.grey {
+	color: #777c71;
+	font-size: 12px;
+	font-family: Montserrat;
+	font-variant: normal;	
+}
+
+.articleText span.boldNumber {
+	font-weight: bold;
+	color: #000;	
+}
+
+
+/* ABOUT US */
 .aboutUs p {
 	padding-left: 20px;
 	text-indent: 30px;
@@ -842,38 +876,14 @@ COMPANY TEMPLATE
 	width:380px;
 }
 
-.waysToContact h2 {
-	font-family:"Playfair Display SC"; 
-	font-weight: normal;
-	font-size:18px;
-	font-variant: small-caps;
+.paymentArti p {
+	padding-left: 20px;
+	text-indent: 30px;
+	line-height: 25px
 }
 
-.waysToContact p {
-	font-family:Montserrat;
-	font-weight:normal;
-	font-size:12px;
-	line-height:14px;
-}
-
-.waysToContact a {
-	cursor: pointer;
-	font-weight:bold;
-	text-decoration:underline;
-	color:#000;	
-}
-
-.waysToContact span:first-child {
-	color: #777c71;
-	font-size: 12px;
-	font-family:Montserrat;
-	font-variant:normal;	
-}
-
-.waysToContact span:nth-child(2) {
-	font-weight:bold;	
-}
-
+/* SHIPPING */  
+.shippingText p {padding-left:22px; text-indent:-22px;}
 
 
 

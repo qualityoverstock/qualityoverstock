@@ -25,7 +25,7 @@ var _gaq = _gaq || {'push':function(){}} //here for testing. REPLACE BEFORE DEPL
 var myCreole;
 
 var app = {vars:{
-	"release":"20130407220500",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+	"release":"20130408173500",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 	"_clientid":"zmvc",
 	"baseURL":"", //used in non-local mode.
 	"testURL":"http://www.a4feac9.crackle.zoovy.net/" //used ONLY if protocol is file: (for testing)
@@ -1025,7 +1025,7 @@ adding classes is not likely to have any bad effects.
 
 	<div class='mainColumn'>
 <!-- .textContentArea is used as a selector in quickstart.js because article tag type isn't ie8 friendly -->
-		<div id='aboutArticle' class='textContentArea article'>
+		<div id='aboutArticle' class='textContentArea article articleText'>
 			<h1 class='playSCFont fontColorBlack fontSize24PX smallcaps'>About Quality OverStock</h1>
 			<div data-bind='var: profile(zoovy:about); format:wiki; wikiFormats:myRIA;' id='aboutUsContent' class='aboutUs montFont fontSize12PX'>
             	<p>Quality Overstock has been in the wholesale and retail trade of crystal & collectibles since 
@@ -1064,18 +1064,18 @@ adding classes is not likely to have any bad effects.
                     </fieldset>
                 </form>
                 </div>
-                <div class='waysToContact floatRight'>
+                <div class='waysToContact articleText floatRight'>
                 	<h2>Order Status</h2>
                     <p>If you'd like to check the status of an order, (or cancel one that hasn't been processed), 
                     	please <a class='bindByAnchor' title='Log into your account' href='#!customer?show=myaccount'>sign in</a> to your customer account.</p>
-                    <h2>E-mail Us <span>(Quickest Response Time)</span></h2>
+                    <h2>E-mail Us <span class='grey'>(Quickest Response Time)</span></h2>
                     <p>
                     	For general product questions and order inquiries you can also email us at 
                     	<a mailto:help@qualityoverstock.com>help@qualityoverstock.com</a>.
                     </p>
                     <h2>Call Us</h2>
                     <p>
-                    	To place an order over the phone call <span>+1 (877) 740-3123</span> between 8:00 am to 5:00 pm PST.
+                    	To place an order over the phone call <span class='boldNumber'>+1 (877) 740-3123</span> between 8:00 am to 5:00 pm PST.
                     	<br><br>You can also FAX us at +1 (845) 406-9148<br><br>
 						If you have a specific question about an existing product or order please email us at <a mailto:help@qualityoverstock.com>help@qualityoverstock.com</a>.
                     </p>
@@ -1095,14 +1095,19 @@ adding classes is not likely to have any bad effects.
 
 
 
-		<div class='displayNone textContentArea' id='paymentArticle'>
-			<h1>Payment Policy</h1>
+		<div class='displayNone textContentArea articleText paymentArti' id='paymentArticle'>
+			<h1 class='playSCFont fontColorBlack fontSize24PX smallcaps'>Payment Policy</h1>
+            	<p>
+                	The simplest way to pay for your order is to enter your credit card number on the secure online 
+                    order form. We accept Discover, MasterCard, & Visa. Your credit card information is privately 
+                    protected by a state of the art encryption software. 
+                </p>
 			<div data-bind='var: profile(zoovy:payment_policy); format:wiki; wikiFormats:myRIA;' id='paymentContent'></div>
 		</div>
 
 
-		<div class='displayNone textContentArea' id='privacyArticle'>
-			<h1>Privacy Statement</h1>
+		<div class='displayNone textContentArea montFont articleText' id='privacyArticle'>
+			<h1 class='playSCFont fontColorBlack smallcaps'>Privacy Statement</h1>
 	<h4>About this Privacy Policy:</h4>
 	<p>The entire site, or at least specific portions of this site are assisted by Zoovy technology. Zoovy has created this privacy policy as a template for customers who are using Zoovy technology with their websites. Zoovy in no way takes responsibility for the accuracy or enforcement of this policy. For a copy of Zoovy's privacy policy (which does not necessarily apply to the customers of its customers) visit http://www.zoovy.com/legal</p>
 
@@ -1145,15 +1150,44 @@ adding classes is not likely to have any bad effects.
 
 
 
-		<div class='displayNone textContentArea' id='returnArticle'>
-			<h1>Return Policy</h1>
+		<div class='displayNone textContentArea articleText' id='returnArticle'>
+			<h1 class='playSCFont fontColorBlack fontSize24PX smallcaps'>Return Policy</h1>
+            	<p>
+                	Satisfaction guaranteed or your money back!<br>
+					Quality Overstock's goal is that you be completely satisfied with your purchase. If for any 
+                    reason you are not satisfied, simply return your purchase in its original packaging along with 
+                    your original packing slip, within 7 days of receipt, for a refund or exchange. We'll also pay 
+                    the return shipping costs if the return is a result of our error (i.e. incorrect or defective item). 
+                    If you are not satisfied with your purchase after this time period, please let us know. Your 
+                    complete satisfaction is of most importance to us. 
+                </p>
 			<div data-bind='var: profile(zoovy:return_policy); format:wiki; wikiFormats:myRIA;' id='returnContent'></div>
 		</div>
 
 
 
-		<div class='displayNone textContentArea' id='shippingArticle'>
-			<h1>Shipping Information</h1>
+		<div class='displayNone textContentArea articleText shippingText' id='shippingArticle'>
+			<h1 class='playSCFont fontColorBlack fontSize24PX smallcaps'>Shipping Policy</h1>
+            	<p>
+                	ALL IN STOCK ITEMS WILL SHIP WITHIN 24-48 HOURS (certain exclusions apply). WE OFFER A SHIPPING 
+                    DISCOUNT FOR MULTIPLE PURCHASES.
+				</p>
+                <p>
+					DOMESTIC BUYERS: All items are carefully and securely packaged for safe transport and are fully 
+                    insured. You will receive an automated email with the Tracking Number the day your package is being 
+                    shipped, which is typically within 1-2 days after the close of the purchase. (If you do not receive 
+                    the email it may be due to your Junk Mail filter.)
+				</p>
+                <p>
+					INTERNATIONAL BUYERS: The following USPS shipping methods are available:
+					First Class Airmail - approx. 2-3 weeks (NO TRACKING SERVICES AVAILABLE).
+					Priority Airmail - 2 weeks with tracking services.
+					Express - 3-5 bus. days with tracking services.
+				</p>
+                <p>
+					Please bear in mind that packages sent overseas are sometimes delayed because of Customs and may 
+                    take longer to arrive than specified by USPS. 
+                </p>
 			<div data-bind='var: profile(zoovy:shipping_policy); format:wiki; wikiFormats:myRIA;' id='shippingContent'></div>
 		</div>
 
