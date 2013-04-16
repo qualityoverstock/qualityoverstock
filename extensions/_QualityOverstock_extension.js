@@ -152,7 +152,18 @@ var _QualityOverstock = function() {
 //on a data-bind, format: is equal to a renderformat. extension: tells the rendering engine where to look for the renderFormat.
 //that way, two render formats named the same (but in different extensions) don't overwrite each other.
 		renderFormats : {
-
+				
+				youSaved : function($tag, data) {
+					app.u.dump(data.value);
+				/*
+					var ourPrice = data.value['%attribs']['zoovy:base_price'];
+					var discPrice = data.value['%attribs']['zoovy:prod_vendor_price'];
+					var retailPrice = data.value['%attribs']['zoovy:zoovy:prod_msrp'];
+					
+					app.u.dump('*** ' + ourPrice + '*** ' + discPrice + '*** ' + retailPrice);
+				*/
+				}
+				
 			}, //renderFormats
 ////////////////////////////////////   UTIL [u]   \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 

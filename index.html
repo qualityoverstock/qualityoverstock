@@ -25,7 +25,7 @@ var _gaq = _gaq || {'push':function(){}} //here for testing. REPLACE BEFORE DEPL
 var myCreole;
 
 var app = {vars:{
-	"release":"20130408173500",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+	"release":"20130415175100",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 	"_clientid":"zmvc",
 	"baseURL":"", //used in non-local mode.
 	"testURL":"http://www.a4feac9.crackle.zoovy.net/" //used ONLY if protocol is file: (for testing)
@@ -745,10 +745,11 @@ this will likely become more flexible in the future. ###
             <div class='prodPriceSelection playFont fontColorWhite fontSize24PX'>
             	<h4 class='basePrice' data-bind='var: product(zoovy:base_price); format:money;  hideZero:true;'></h4>
                 <div class='prodCostDesc montFont fontColorYellow fontSize12PX centerText'>OUR PRICE</div>
-                <h5 class='prodMSRP bangersFont' data-bind='var: product(zoovy:prod_msrp); format:money; hideZero:true;'></h5>
+                <h5 class='prodMSRP bangersFont' data-bind='var: product(user:prod_vendor_price); format:money; hideZero:true;'></h5>
                 <div class='prodCostDesc montFont fontColorYellow fontSize12PX centerText'>DISCOUNTED PRICE</div>
                 <h5 class='prodMSRP bangersFont' data-bind='var: product(zoovy:prod_msrp); format:money; hideZero:true;'></h5>
                 <div class='prodCostDesc montFont fontColorYellow fontSize12PX centerText'>RETAIL PRICE</div>
+		   <!-- <h5 class='prodMSRP bangersFont' data-bind='useParentData:true; format:youSaved; extension:_QualityOverstock;'></h5> -->
                 <h5 class='prodMSRP bangersFont' data-bind='var: product(zoovy:prod_msrp); format:money;  hideZero:true;'></h5>
            		<div class='prodCostDesc montFont fontColorYellow fontSize12PX centerText'>YOU SAVED</div>
             </div>
@@ -761,7 +762,7 @@ this will likely become more flexible in the future. ###
                     
                     
                     <div data-bind='var: product(pid); format:atcQuantityInput; extension:store_product;' class='prodSelectItemField'><div class='playFont fontSize12PX fontColorYellow prodSelectionQty'><h4>HOW</h4> MANY?</div></div>
-                    <input type='submit' value='Check Out' class='prodSelectAddCartButton playFont fontSize18PX smallcaps ui-state-default addToCartButton displayNone' data-bind='var: product(pid); format:addToCartButton; extension:store_product;' id='addToCartBtn' />
+                    <input type='submit' value='Add To Cart' class='prodSelectAddCartButton playFont fontSize18PX smallcaps ui-state-default addToCartButton displayNone' data-bind='var: product(pid); format:addToCartButton; extension:store_product;' id='addToCartBtn' />
                 </form>
                 
                 <div class='productSmallButtonContainer playFont fontColorWhite fontSize14PX smallcaps'>       
@@ -1341,7 +1342,7 @@ onclicks are recursive, so only add it to the parent element.
         <div class='mpFiltersContainer floatRight'>
         	<div class='floatLeft'>
             	In-Stock Items Only
-            	<div class='selectionBox borderGrey floatLeft'></div>    
+            	<button class='selectionBox borderGrey floatLeft'></button>    
             </div>
             <div class='floatLeft'>Name: A to Z
             	<img src="images/SmallBlackRoundDownArrow.png" class='floatLeft'>
@@ -1487,7 +1488,7 @@ So the cart template should contain these two elements and the extension should 
 	<li id='productListTemplateCart' class='padMargBorderBottom clearfix'>
 
 		<div class='cartItemContianer'>
-                
+				
             <div class='floatLeft'><img src='blank.gif' class='prodThumb' data-bind='var: product(zoovy:prod_image1); defaultVar: product(%attribs.zoovy:prod_image1); format:imageURL;' width='140' height='140' /></div>
     
             <h4 class='cartProdDesc montFont centerText fontSize10PX fontColorBlack floatLeft' data-bind='var: product(prod_name); format:text; '></h4>

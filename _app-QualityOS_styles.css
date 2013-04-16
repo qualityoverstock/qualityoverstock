@@ -659,11 +659,15 @@ PRODUCT TEMPLATE
 }
 
 .prodSelectionQty {
-	width: 30px;
+	width: 50px;
 	text-align: center;
-	margin: 5px 7px 0px 1px;
-	padding: 0px 0px 0px 20px;
+	margin: 6px -10px 0 18px;
+	padding: 0px;
 	float: left;
+	background-color:#FEC611;
+	color:#000;
+	height:32px;
+	line-height:15px;
 }
 
 .prodSelectItemField {
@@ -970,6 +974,8 @@ MP CONTROLS CONTAINER
 }
 
 .selectionBox:hover {background-color: #fec611;}
+
+.hideInventory {display:none;}
 
 
 /*************************************************************************************
