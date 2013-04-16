@@ -768,7 +768,7 @@ fallback is to just output the value.
 			moveToWishlistButton : function($tag,data)	{
 				
 				if(app.u.buyerIsAuthenticated())	{
-					$tag.show().button({icons: {primary: "ui-icon-heart"},text: false});
+					$tag.show().button({icons: {primary: "ui-icon-heart"},text: true});
 					$tag.off('click.moveToWishlist').on('click.moveToWishList',function(){
 						app.ext.myRIA.a.moveItemFromCartToWishlist(data.value);
 						});

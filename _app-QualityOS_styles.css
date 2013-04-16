@@ -901,6 +901,12 @@ PRODCUT LIST TEMPLATE BUYER LIST
 *************************************************************************************/
 
 
+.listsArticle {margin: 0px 0px 20px 40px;}
+.listsArticle h1 {margin-bottom:10px;}
+.listsArticle .mpControls .mpFiltersContainer {display:none;}
+.productListTemplateBuyerList .prodThumbContainer {margin-right: 20px;}
+
+
 /*************************************************************************************
 MP CONTROLS CONTAINER
 *************************************************************************************/
@@ -988,10 +994,15 @@ PRODUCT LIST TEMPLATE CART CONTAINER
 *************************************************************************************/
 
 
+.lineItemProdlist > li {
+	height: auto;
+	width: 150px !important;
+	float: left
+}
+
 .cartItemContianer {
 	height: auto;
 	width: 140px;
-	background-color:#F0F;
 }
 
 .cartProdDesc.montFont.centerText.fontSize10PX.fontColorBlack {
@@ -1012,24 +1023,37 @@ PRODUCT LIST TEMPLATE CART CONTAINER
 .cartButtonContainer {
 	height: 60px;
 	width: 140px;
-	padding: 3px 0px 0px 3px;
+	padding: 0px 0px 0px 1px;
+	margin-top: 10px;
 }
 
-.cartButtonContainer button:first-child {
+.cartButtonContainer button:nth-child(1) {
 	height: 30px;
 	width: 100%;
-	color: #ccc;
+	color: #fff;
 	text-align: center;
 	line-height: 30px;
 	border: none;
-	background: none;
+	background: #777;
+	font-size:13px;
 }
 
-.cartRemoveButton.floatRight.ui-button.ui-widget.ui-state-default.ui-corner-all.ui-button-icon-only {
+.cartButtonContainer button:nth-child(1) span:nth-child(1) {display:none;}
+.cartButtonContainer button:nth-child(1) span:nth-child(2) {padding:0px;}
+
+.cartButtonContainer button:nth-child(2) {
 	background: none;
 	height: 30px;
 	width: 100%;
 	border: none;
+	text-align: center;
+}
+
+.cartButtonContainer button:nth-child(2) span {
+	padding:0 4px 0 0;
+	color: #777;
+	text-decoration:underline;
+	font-size:10px;
 }
 
 .cartRemoveButton span:first-child, .ui-button-icon-primary ui-icon ui-icon-closethick {display: none;}

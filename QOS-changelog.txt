@@ -1,0 +1,7 @@
+1. app-quicstart.js: moveToWishlistButtton : function($tag,data) {
+	Change "text: false" to "text: true" on line 771 of the $tag.show().button... statement.
+
+
+2. store_cart.js: removeItemBtn : function($tag,data) {
+	Change "text: false" to "text: true" on line 269 of the $tag.button(... statement.
+	
