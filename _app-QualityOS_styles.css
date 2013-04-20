@@ -485,6 +485,59 @@ PRODCUT LIST TEMPLATE BUYER LIST
 PRODCUT LIST TEMPLATE RESULTS
 *************************************************************************************/
 
+.resultListContainer {
+	height: auto;
+	width: 960px;
+	margin: auto;
+}
+
+.resultsHeader.clearfix {
+	height: auto;
+	width: 928px;
+	background-color: #fff;
+	color: #000;
+	margin: auto;
+	top: -1px;
+	text-align:center;
+	font-family: "Playfair Display SC";
+	font-size: 18px;
+}
+
+.resultsHeader.clearfix.ui-widget-header {
+	top: -40px;
+	border: none;
+	width: 310px;
+}
+
+.resultsMenuContainer .resultsMenu {
+	height: 29px;
+	width: 125px;
+	position:absolute;
+	top: 4px;
+	left: 5px;
+	text-align: center;
+	font-size: 18px;
+	font-family: "Open Sans";
+	border: none;
+}
+
+.resultsMenuContainer .resultsMenu li {
+	height: auto;
+}
+
+.resultsMenuContainer .resultsMenu li ul li {
+	height: 20px;
+	width: 120px;
+	}
+
+.prevMove {
+	position:absolute;
+	left: -386px;
+}
+
+.nextMove {
+	position:absolute;
+	right: 32px;
 
 /*************************************************************************************
 PRODCUT LIST TEMPLATE NO PREVIEW
