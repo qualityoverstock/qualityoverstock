@@ -431,6 +431,13 @@ CATEGORY TEMPLATE
 	margin: auto;	
 }
 
+.categoryDescription {
+	height: 100%;
+	width: 100%;
+	margin: 20px 10px 10px 10px;
+	float: left;
+	line-height: 25px;
+}
 
 /*************************************************************************************
 CATEGORY LIST TEMPLATE
@@ -538,7 +545,7 @@ PRODCUT LIST TEMPLATE RESULTS
 .nextMove {
 	position:absolute;
 	right: 32px;
-
+}
 /*************************************************************************************
 PRODCUT LIST TEMPLATE NO PREVIEW
 *************************************************************************************/
@@ -548,8 +555,6 @@ PRODCUT LIST TEMPLATE NO PREVIEW
 PRODUCT TEMPLATE
 *************************************************************************************/
 
-.whyisthislikethis {
-}
 
 .prodViewerContainer {
 	width: 960px;
@@ -621,14 +626,14 @@ PRODUCT TEMPLATE
 }
 
 .prodSelectionContainer {
-	height: 618px;
+	height: auto; /*618px;*/
 	width: 218px;
 	background-color: #000;
 	margin-bottom: 20px;
 }
 
 .prodPriceSelection {
-	height: 290px;
+	height: auto; /*290px;*/
 	width: 100%;
 }
 
@@ -696,6 +701,7 @@ PRODUCT TEMPLATE
 .prodCartSelection {
 	height: auto;
 	width: 100%;
+	margin-top:20px;
 }
 
 .prodCartSelection span {
