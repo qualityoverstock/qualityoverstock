@@ -546,6 +546,7 @@ PRODCUT LIST TEMPLATE RESULTS
 	position:absolute;
 	right: 32px;
 }
+
 /*************************************************************************************
 PRODCUT LIST TEMPLATE NO PREVIEW
 *************************************************************************************/
@@ -597,7 +598,11 @@ PRODUCT TEMPLATE
 	padding-right: 22px;
 }
 
-.prodSummaryContainer h1 {margin: 50px 0px 13px 0px;}
+.prodSummaryContainer h1 {
+	margin: 50px 0px 13px 0px;
+	font-family: "Playfair Display";
+	font-weight: normal;
+}
 
 .stid h3 {
 	float: left;
@@ -813,6 +818,18 @@ END PRODCUT TEMPLATE
 /*************************************************************************************
 PRODCUT QUICKVIEW TEMPLATE
 *************************************************************************************/
+
+.previewProductDetail .prodViewerContainer {
+	width: 660px; 
+}
+
+.previewProductDetail .imageContainer {
+	width: 29%;
+}
+
+.previewProductDetail .prodSummaryContainer  {
+	font-family: "Open Sans";
+}
 
 
 /*************************************************************************************
