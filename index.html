@@ -791,10 +791,11 @@ this will likely become more flexible in the future. ###
 					<h5 class='prodMSRP bangersFont' data-bind='var: product(user:prod_vendor_price); format:money; hideZero:true;'></h5>
 					<div class='prodCostDesc montFont fontColorYellow fontSize12PX centerText'>DISCOUNTED PRICE</div>
                 </div>
-				<h5 class='prodMSRP bangersFont' data-bind='var: product(zoovy:prod_msrp); format:money; hideZero:true;'></h5>
-                <div class='prodCostDesc montFont fontColorYellow fontSize12PX centerText'>RETAIL PRICE</div>
-		   <!-- <h5 class='prodMSRP bangersFont' data-bind='useParentData:true; format:youSaved; extension:_QualityOverstock;'></h5> -->
-                <h5 class='prodMSRP bangersFont' data-bind='var: product(zoovy:prod_msrp); format:money;  hideZero:true;'></h5>
+				<div class='displayNone' data-bind='var:product(zoovy:prod_msrp); format:showIfSet;'>
+					<h5 class='prodMSRP bangersFont' data-bind='var: product(zoovy:prod_msrp); format:money; hideZero:true;'></h5>
+					<div class='prodCostDesc montFont fontColorYellow fontSize12PX centerText'>RETAIL PRICE</div>
+                </div>
+				<h5 class='prodMSRP bangersFont savingsDifference' data-bind='var: product(pid); format:priceRetailSavingsDifference; extension:myRIA;'></h5>
            		<div class='prodCostDesc montFont fontColorYellow fontSize12PX centerText'>YOU SAVED</div>
             </div>
 

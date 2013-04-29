@@ -501,8 +501,8 @@ PRODCUT LIST TEMPLATE RESULTS
 .resultsHeader.clearfix {
 	height: auto;
 	width: 928px;
-	background-color: #fff;
-	color: #000;
+	background: none;
+	color: #FEC611;
 	margin: auto;
 	top: -1px;
 	text-align:center;
