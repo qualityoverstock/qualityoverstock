@@ -25,7 +25,7 @@ var _gaq = _gaq || {'push':function(){}} //here for testing. REPLACE BEFORE DEPL
 var myCreole;
 
 var app = {vars:{
-	"release":"20130428182100",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+	"release":"20130429120700",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 	"_clientid":"zmvc",
 	"baseURL":"", //used in non-local mode.
 	"testURL":"http://www.a4feac9.crackle.zoovy.net/" //used ONLY if protocol is file: (for testing)
@@ -173,7 +173,7 @@ app.u.loadScript(app.vars.baseURL+"_app-QualityOverstock-init.js");
             <div class='findItContainer positionRel'>
                 <form name='headerSearchFrm' action='#' class='productSearchForm' method="get" id="searchFunc">
                     <input class="search pointer button headerSearchButton" type="submit" value="Search" />
-                    <input type='search' name='KEYWORDS' class="productSearchKeyword handleDefault form headerSearchBar" placeholder="  Find it here..." />
+                    <input type='search' name='KEYWORDS' class="productSearchKeyword handleDefault form headerSearchBar" placeholder=' Find it here...' />
                 </form>
             </div>
         </div>
@@ -662,7 +662,7 @@ remember to NOT put the button inside the 'onclick' container or two events will
 
 SANITY -> if you change the height and width of this image, change the .minimalMode .searchResultsProduct in qs_styles.css to match
 -->
-<li id='productListTemplateResults' class='loadingBG searchResultsProduct ' >
+<li id='productListTemplateResults' class='loadingBG searchResultsProduct extraDetail' >
 	<div onClick="app.ext.myRIA.a.handleProdPreview($(this).parent().attr('data-pid'));" class='pointer'>
 		<div class='prodThumbContainer'>
 		<img src='blank.gif' class='prodThumb prodImg' data-bind='var: product(images); format:imageURL;isElastic:1;bgcolor:ffffff;' width='114' height='114' />
@@ -672,7 +672,8 @@ SANITY -> if you change the height and width of this image, change the .minimalM
 
 		<h6 class='hideInMinimalMode prodPrice centerText playFont fontColorWhite price' data-bind='var: product(base_price); format:money; isElastic:1; currencySign: $;  hideZero:true; className:price;'></h6>
 	</div>
-	<!-- <div class='hideInMinimalMode pointer moreDetails' onClick="showContent('product',{'pid':$(this).parent().attr('data-pid')});">more details</div> -->
+	<!--<div class='hideInMinimalMode pointer floatRight' onClick="showContent('product',{'pid':$(this).closest('[data-pid]').attr('data-pid')});">more details</div>-->
+	<div class='hideInMinimalMode pointer moreDetails searchMoreDetails smallcaps' onClick="showContent('product',{'pid':$(this).parent().attr('data-pid')});">more details</div> 
 </li>
 
 <li id='productListTemplateResultsNoPreview' class='loadingBG searchResultsProduct ' >
@@ -939,7 +940,7 @@ It's done this way because ID's hard coded into template are bad mojo (templates
 
 	<div data-bind="var: product(zoovy:prod_is_tags); format:addTagSpans;" class='tagsContainer'></div>
 	<div data-bind='var:product(pid); format:addPicSlider; extension:myRIA;'><img src='blank.gif' class='prodBigImage' data-bind='var: product(zoovy:prod_image1); format:imageURL;' width='240' height='240' /></div>
-
+	<!-- <div class='hideInMinimalMode pointer moreDetailsSmall floatRight' onClick="showContent('product',{'pid':$(this).closest('[data-pid]').attr('data-pid')});">more details</div> -->
 </div>
 
 	</td>

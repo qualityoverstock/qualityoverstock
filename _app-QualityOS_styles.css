@@ -547,6 +547,29 @@ PRODCUT LIST TEMPLATE RESULTS
 	right: 32px;
 }
 
+/* MORE DETAILS FOR SEARCH RESULTS */
+.searchResultsProduct.extraDetail {
+	height:266px;
+}
+
+.searchMoreDetails {
+	height: 30px; 
+	width: 136px;
+	font-size: 14px;
+	font-family: "Open Sans";
+	line-height:30px;
+	text-align: center;
+	color: #000;
+	background-color: #fff;
+	border-right: 2px solid #000000;
+	border-bottom: 2px solid #000000;
+	border-left: 2px solid #000000;
+}
+
+/* Previous Next Close Preview buttons */
+.searchResultsPage.clearfix.minimalMode button {margin:0 5px; padding:0 5px;}
+
+
 /*************************************************************************************
 PRODCUT LIST TEMPLATE NO PREVIEW
 *************************************************************************************/
