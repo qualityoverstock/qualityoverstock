@@ -72,24 +72,27 @@ app.u.loadScript(app.vars.baseURL+"_app-QualityOverstock-init.js");
 <!-- what is displayed onLoad until the view is loaded -->
 <div id='appPreView'>
 <table>
-<tr>
-	<td><!-- put logo here --></td>
-	<td>
+	<tr>
+		<td class='logoBox'>
+			<img class='appPreviewLogo' src="images/QOS_Logo.png">
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<div id="loader">
+				<h3 class='playFont'>One moment please.</h3>
 
-	<div id="loader">
-		<h3>One moment please.</h3>
-
-		<div class='alignCenter'>
-		<progress id="appPreViewProgressBar" max="100" value="0" ></progress><br />
-		</div>
-		<div id='appPreViewProgressText'>0% Complete</div>
-	</div>
-	<div id="clickToLoad" class="displayNone pointer">
-		Click here to load your totally kickass shopping experience!
-	</div>
-	<div class='appMessaging'></div>
-	</td>
-</tr>
+				<div class='alignCenter'>
+				<progress id="appPreViewProgressBar" max="100" value="0" ></progress><br />
+				</div>
+				<div id='appPreViewProgressText' class='playSCFont'>0% Complete</div>
+			</div>
+			<div id="clickToLoad" class="displayNone pointer">
+				Click here to load your totally kickass shopping experience!
+			</div>
+			<div class='appMessaging'></div>
+		</td>
+	</tr>
 </table>
 </div>
 
