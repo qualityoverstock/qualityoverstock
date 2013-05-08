@@ -48,6 +48,7 @@ var _QualityOverstock = function() {
 						app.u.dump('Recent Ran');
 					app.ext._QualityOverstock.a.runProductCarouselSimilar($context);
 						app.u.dump('Similar Ran');
+					app.ext._QualityOverstock.a.runProductCarouselTitle($context);
 				}]);
 					
 				return true;
@@ -157,6 +158,49 @@ var _QualityOverstock = function() {
 					}]);
 				},// END SANSREVIEWS
 				
+				runProductCarouselTitle : function($context) {
+					//CAROUSEL OF CAROUSELS ON PRODUCT PAGE
+					var $target = $('.productCarouselTitle', $context);
+					if($target.data('isCarousel'))	{} //only make it a carousel once.
+					else	{
+					$target.data('isCarousel',true);
+			//for whatever reason, caroufredsel needs to be executed after a moment.
+					setTimeout(function(){
+						$target.carouFredSel({
+							height: 50,
+							width: 940,
+							items: {
+								visible: 3,
+								minimum: 1,
+								width: 313,
+								height: 50,
+							},
+							synchronise: '.productCarousel',
+							auto: false,
+							prev: {
+								button: '.productCarouselPrev',
+								key: "left"
+							},
+							next: {
+								button: '.productCarouselNext',
+								key: "right"
+							},
+							//pagination: '.productCarouselTitle',
+							scroll: 1,/*{
+								items: 1,
+								fx: 'crossfade',
+								duration: 3000,
+								timeoutDuration: 2000
+							},*/
+							swipe: {
+								onMouse: true,
+								onTouch: true
+								}
+							});
+						},1500); 
+					} //end prodPageCarousel
+				},
+				
 				runProductCarousel : function($context) {
 					//CAROUSEL OF CAROUSELS ON PRODUCT PAGE
 					var $target = $('.productCarousel', $context);
@@ -183,7 +227,7 @@ var _QualityOverstock = function() {
 								button: '.productCarouselNext',
 								key: "right"
 							},
-							//pagination: '#bestCarPagenation',
+							//pagination: '.productCarouselTitle',
 							scroll: 1,
 							swipe: {
 								onMouse: true,
@@ -227,7 +271,7 @@ var _QualityOverstock = function() {
 								onTouch: true
 								}
 							});
-						},1000); 
+						},2000); 
 					} //end prodPageCarouselSimilar
 				},
 				
@@ -264,7 +308,7 @@ var _QualityOverstock = function() {
 								onTouch: true
 								}
 							});
-						},1000); 
+						},2000); 
 					} //end prodPageCarouselRecent
 				},
 				
@@ -301,7 +345,7 @@ var _QualityOverstock = function() {
 								onTouch: true
 								}
 							});
-						},1000); 
+						},2000); 
 					} //end prodPageCarouselReco
 				}
 				

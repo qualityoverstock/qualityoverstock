@@ -25,7 +25,7 @@ var _gaq = _gaq || {'push':function(){}} //here for testing. REPLACE BEFORE DEPL
 var myCreole;
 
 var app = {vars:{
-	"release":"20130429120700",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+	"release":"201300508133700",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 	"_clientid":"zmvc",
 	"baseURL":"", //used in non-local mode.
 	"checkoutAuthMode" : "active",//can be passive, active or required
@@ -906,47 +906,49 @@ It's done this way because ID's hard coded into template are bad mojo (templates
 	
 
 
-
+	<div class='productCarouselTitleWrapper'>
+		<div class='productCarouselPrev'><span>Prev</span></div>
+		<div class='productCarouselNext'><span>Next</span></div>
 		<div class='productCarouselTitle'><!--BIZMARK-->
 			<div class='leftTitle floatLeft smallcaps'>Recommended Items</div>
-			<div class='productCarouselPrev floatLeft'><span>Previous</span></div>
 			<div class='centerTitle floatLeft smallcaps'>Similar Items</div>
-			<div class='rightTitle floatRight smallcaps'>Recently Viewed</div>
-			<div class='productCarouselNext floatRight'><span>Next</span></div>
+			<div class='rightTitle floatLeft smallcaps'>Recently Viewed</div>
 		</div>
+	</div>	
 		
 	<div class='productCarouselWrapper'>
 		<div class='productCarousel floatLeft'>
 			<div class='productCarouselSimilar floatLeft'>
-				<div>
+				<div>						 <!-- data-bind="var: product(zoovy:related_products); format:productList; extension:store_prodlist;loadsTemplate:productListTemplate;hide_summary:true; withInventory:1; withVariations:1;" -->
 					<ul  id='prodCarouselSimilar' data-bind='var: elastic-native({"size":"100","mode":"elastic-native","filter":{"term":{"tags":"IS_USER2"}}}); format: productSearch; extension: myRIA; loadsTemplate: productListTemplateResults;' class='listStyleNone fluidList clearfix noPadOrMargin productList prodCarSimilar'></ul>
 				</div>
 				<div class='prodCarPagination'>
-					<span class='prodCarouselSimilarPrev smallcaps prodCarPrev'>prev</span>
+					<span class='prodCarouselSimilarPrev smallcaps prodCarPrev pointer'>prev</span>
 					<span class='prodCarSimPagination'></span>
-					<span class='prodCarouselSimilarNext smallcaps prodCarNext'>next</span>
+					<span class='prodCarouselSimilarNext smallcaps prodCarNext pointer'>next</span>
 				</div>
 			</div>
 
-			<div class='productCarouselRecent floatLeft'>
-				<div>									 
-					<ul  id='prodCarouselRecent' data-bind='var: elastic-native({"size":"100","mode":"elastic-native","filter":{"term":{"tags":"IS_USER2"}}}); format: productSearch; extension: myRIA; loadsTemplate: productListTemplateResults;' class='listStyleNone fluidList clearfix noPadOrMargin productList prodCarRecent'></ul>
+			<div class='productCarouselRecent floatLeft recentlyViewedItemsContainer'>
+				<div>						<!-- data-bind="var: session(recentlyViewedItems); format: productList; extension: store_prodlist; loadsTemplate: productListTemplate; hide_summary:1; hide_pagination:1; withReviews:1;" -->		 
+			<!--	<ul  id='prodCarouselRecent' data-bind="var: session(recentlyViewedItems); format: productList; extension: store_prodlist; loadsTemplate: productListTemplate; hide_summary:1; hide_pagination:1; withReviews:1;" class='listStyleNone fluidList clearfix noPadOrMargin productList prodCarRecent'></ul> -->
+					<ul  id='prodCarouselRecent' data-bind='var: elastic-native({"size":"100","mode":"elastic-native","filter":{"term":{"tags":"IS_USER4"}}}); format: productSearch; extension: myRIA; loadsTemplate: productListTemplateResults;' class='listStyleNone fluidList clearfix noPadOrMargin productList prodCarRecent'></ul> 
 				</div>
 				<div class='prodCarPagination'>
-					<span class='prodCarouselRecentPrev smallcaps prodCarPrev'>prev</span>
+					<span class='prodCarouselRecentPrev smallcaps prodCarPrev pointer'>prev</span>
 					<span class='prodCarRecentPagination'></span>
-					<span class='prodCarouselRecentNext smallcaps prodCarNext'>next</span>
+					<span class='prodCarouselRecentNext smallcaps prodCarNext pointer'>next</span>
 				</div>
 			</div>
 			
 			<div class='productCarouselReco floatLeft'>
-				<div>									 
-					<ul  id='prodCarouselReco' data-bind='var: elastic-native({"size":"100","mode":"elastic-native","filter":{"term":{"tags":"IS_USER2"}}}); format: productSearch; extension: myRIA; loadsTemplate: productListTemplateResults;' class='listStyleNone fluidList clearfix noPadOrMargin productList prodCarReco'></ul>
+				<div>					  <!-- data-bind="var: product(zoovy:accessory_products); format:productList; extension:store_prodlist;loadsTemplate:productListTemplate;hide_summary:true; withInventory:1; withVariations:1;" -->
+					<ul  id='prodCarouselReco' data-bind='var: elastic-native({"size":"100","mode":"elastic-native","filter":{"term":{"tags":"IS_USER4"}}}); format: productSearch; extension: myRIA; loadsTemplate: productListTemplateResults;' class='listStyleNone fluidList clearfix noPadOrMargin productList prodCarReco'></ul>
 				</div>
 				<div class='prodCarPagination'>
-					<span class='prodCarouselRecoPrev smallcaps prodCarPrev'>prev</span>
+					<span class='prodCarouselRecoPrev smallcaps prodCarPrev pointer'>prev</span>
 					<span class='prodCarRecoPagination'></span>
-					<span class='prodCarouselRecoNext smallcaps prodCarNext'>next</span>
+					<span class='prodCarouselRecoNext smallcaps prodCarNext pointer'>next</span>
 				</div>
 			</div>   
 		</div>

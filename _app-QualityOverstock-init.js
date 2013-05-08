@@ -39,6 +39,14 @@ app.rq.push(['script',1,app.vars.baseURL+'resources/jquery.carouFredSel-6.2.0.mi
 
 
 
+//Display Recently viewed items
+app.rq.push(['templateFunction','productTemplate','onDeparts',function(P) {
+	var $container = $('.recentlyViewedItemsContainer');
+	$container.show();
+	$("ul",$container).empty(); //empty product list
+	$container.anycontent({data:app.ext.myRIA.vars.session}); //build product list
+}]);
+
 //add tabs to product data.
 //tabs are handled this way because jquery UI tabs REALLY wants an id and this ensures unique id's between product
 app.rq.push(['templateFunction','productTemplate','onCompletes',function(P) {
