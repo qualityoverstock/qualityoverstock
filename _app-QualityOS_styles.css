@@ -863,7 +863,7 @@ PRODUCT TEMPLATE
 	height: 50px;
 	width: 940px;
 	margin: 20px auto 10px auto;
-	font-family: "Playfair SC"
+	font-family: "Playfair Display SC"
 	font-size: 18px;
 	color: #fff;
 	line-height:50px;
@@ -912,35 +912,57 @@ PRODUCT TEMPLATE
 
 .productCarouselNext span {display:none}
 
-.productCarousel {
-	height: 306px;
-	width: 960px;
-	margin: 0px auto 20px auto;
+.productCarouselWrapper {
+	margin-left:30px;
 	overflow:hidden;
-	padding: 0 30px;
+}
+
+.productCarousel {
+	height: 326px;
+	width: 960px;
+	overflow: hidden;
 }
 
 .productCarouselSimilar {
-	height: 286px;
+	height: 326px;
 	width: 960px;
-	margin: 0px auto 20px auto;
-	overflow:hidden;
-	padding: 0 30px;
+	overflow: hidden;
 }
 .productCarouselRecent {
-	height: 286px;
+	height: 326px;
 	width: 960px;
-	margin: 0px auto 20px auto;
-	overflow:hidden;
-	padding: 0 30px;
+	overflow: hidden;
 }
 
 .productCarouselReco {
-	height: 286px;
+	height: 326px;
 	width: 960px;
-	margin: 0px auto 20px auto;
-	overflow:hidden;
-	padding: 0 30px;
+	overflow: hidden;
+}
+
+.prodCarPagination {
+	background: #e56f23;
+	height: 40px;
+	width: 100%;
+	text-align: center;
+	line-height:40px;
+	font-family: "Playfair Display SC"
+}
+
+.prodCarPagination a {margin:0 5px;}
+
+.prodCarPagination a.selected {color:#ccc;}
+
+.prodCarPrev {
+	margin-right: 10px; 
+	font-family: Montserrat;
+	font-size: 12px;
+}
+
+.prodCarNext {
+	margin-left: 10px; 
+	font-family: Montserrat;
+	font-size: 12px;
 }
 
 /*************************************************************************************

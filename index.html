@@ -915,27 +915,41 @@ It's done this way because ID's hard coded into template are bad mojo (templates
 			<div class='productCarouselNext floatRight'><span>Next</span></div>
 		</div>
 		
-	
-	<div class='productCarousel'>
-	<div>
-		<div class='productCarouselSimilar'>
-			<div>
-				<ul  id='prodCarouselSimilar' data-bind='var: elastic-native({"size":"100","mode":"elastic-native","filter":{"term":{"tags":"IS_USER2"}}}); format: productSearch; extension: myRIA; loadsTemplate: productListTemplateResults;' class='listStyleNone fluidList clearfix noPadOrMargin productList prodCarSimilar'></ul>
+	<div class='productCarouselWrapper'>
+		<div class='productCarousel floatLeft'>
+			<div class='productCarouselSimilar floatLeft'>
+				<div>
+					<ul  id='prodCarouselSimilar' data-bind='var: elastic-native({"size":"100","mode":"elastic-native","filter":{"term":{"tags":"IS_USER2"}}}); format: productSearch; extension: myRIA; loadsTemplate: productListTemplateResults;' class='listStyleNone fluidList clearfix noPadOrMargin productList prodCarSimilar'></ul>
+				</div>
+				<div class='prodCarPagination'>
+					<span class='prodCarouselSimilarPrev smallcaps prodCarPrev'>prev</span>
+					<span class='prodCarSimPagination'></span>
+					<span class='prodCarouselSimilarNext smallcaps prodCarNext'>next</span>
+				</div>
 			</div>
-		</div>
 
-		<div class='productCarouselRecent'>
-			<div>									 
-				<ul  id='prodCarouselRecent' data-bind='var: elastic-native({"size":"100","mode":"elastic-native","filter":{"term":{"tags":"IS_USER2"}}}); format: productSearch; extension: myRIA; loadsTemplate: productListTemplateResults;' class='listStyleNone fluidList clearfix noPadOrMargin productList prodCarRecent'></ul>
+			<div class='productCarouselRecent floatLeft'>
+				<div>									 
+					<ul  id='prodCarouselRecent' data-bind='var: elastic-native({"size":"100","mode":"elastic-native","filter":{"term":{"tags":"IS_USER2"}}}); format: productSearch; extension: myRIA; loadsTemplate: productListTemplateResults;' class='listStyleNone fluidList clearfix noPadOrMargin productList prodCarRecent'></ul>
+				</div>
+				<div class='prodCarPagination'>
+					<span class='prodCarouselRecentPrev smallcaps prodCarPrev'>prev</span>
+					<span class='prodCarRecentPagination'></span>
+					<span class='prodCarouselRecentNext smallcaps prodCarNext'>next</span>
+				</div>
 			</div>
+			
+			<div class='productCarouselReco floatLeft'>
+				<div>									 
+					<ul  id='prodCarouselReco' data-bind='var: elastic-native({"size":"100","mode":"elastic-native","filter":{"term":{"tags":"IS_USER2"}}}); format: productSearch; extension: myRIA; loadsTemplate: productListTemplateResults;' class='listStyleNone fluidList clearfix noPadOrMargin productList prodCarReco'></ul>
+				</div>
+				<div class='prodCarPagination'>
+					<span class='prodCarouselRecoPrev smallcaps prodCarPrev'>prev</span>
+					<span class='prodCarRecoPagination'></span>
+					<span class='prodCarouselRecoNext smallcaps prodCarNext'>next</span>
+				</div>
+			</div>   
 		</div>
-		
-		<div class='productCarouselReco'>
-			<div>									 
-				<ul  id='prodCarouselReco' data-bind='var: elastic-native({"size":"100","mode":"elastic-native","filter":{"term":{"tags":"IS_USER2"}}}); format: productSearch; extension: myRIA; loadsTemplate: productListTemplateResults;' class='listStyleNone fluidList clearfix noPadOrMargin productList prodCarReco'></ul>
-			</div>
-		</div>
-    </div>     
 	</div>
 	
     <div class='seperator'></div>

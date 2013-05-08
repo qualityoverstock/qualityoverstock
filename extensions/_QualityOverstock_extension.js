@@ -166,13 +166,13 @@ var _QualityOverstock = function() {
 			//for whatever reason, caroufredsel needs to be executed after a moment.
 					setTimeout(function(){
 						$target.carouFredSel({
-							height: 306,
+							height: 326,
 							width: 960,
 							items: {
 								visible: 1,
 								minimum: 1,
 								width: 960,
-								height: 286,
+								height: 326,
 							},
 							auto: false,
 							prev: {
@@ -220,7 +220,7 @@ var _QualityOverstock = function() {
 								button: '.prodCarouselSimilarNext',
 								key: "right"
 							},
-							//pagination: '#bestCarPagenation',
+							pagination: '.prodCarSimPagination',
 							scroll: 6,
 							swipe: {
 								onMouse: true,
@@ -257,7 +257,7 @@ var _QualityOverstock = function() {
 								button: '.prodCarouselRecentNext',
 								key: "right"
 							},
-							//pagination: '#bestCarPagenation',
+							pagination: '.prodCarRecentPagination',
 							scroll: 6,
 							swipe: {
 								onMouse: true,
@@ -265,7 +265,7 @@ var _QualityOverstock = function() {
 								}
 							});
 						},1000); 
-					} //end prodPageCarouselSimilar
+					} //end prodPageCarouselRecent
 				},
 				
 				runProductCarouselReco : function($context) {
@@ -294,7 +294,7 @@ var _QualityOverstock = function() {
 								button: '.prodCarouselRecoNext',
 								key: "right"
 							},
-							//pagination: '#bestCarPagenation',
+							pagination: '.prodCarRecoPagination',
 							scroll: 6,
 							swipe: {
 								onMouse: true,
@@ -302,7 +302,7 @@ var _QualityOverstock = function() {
 								}
 							});
 						},1000); 
-					} //end prodPageCarouselSimilar
+					} //end prodPageCarouselReco
 				}
 				
 			}, //Actions
