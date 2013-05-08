@@ -1,4 +1,4 @@
-1. app-quicstart.js: moveToWishlistButtton : function($tag,data) {
+1. app-quicstart.js: moveToWishlistButton : function($tag,data)	{
 	Change "text: false" to "text: true" on line 771 of the $tag.show().button... statement.
 
 

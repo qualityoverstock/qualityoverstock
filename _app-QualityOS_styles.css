@@ -859,6 +859,89 @@ PRODUCT TEMPLATE
 	width: 180px;
 }
 
+.productCarouselTitle {
+	height: 50px;
+	width: 940px;
+	margin: 20px auto 10px auto;
+	font-family: "Playfair SC"
+	font-size: 18px;
+	color: #fff;
+	line-height:50px;
+	background:#000;
+}
+
+.leftTitle {
+	height: 100%;
+	width: 225px;
+	margin-left:20px; 
+	text-align:left;
+}
+
+.centerTitle {
+	height: 100%;
+	width: 395px;
+	margin-left: 10px; 
+	text-align: center;
+	font-size: 24px;
+}
+
+.rightTitle {
+	height: 100%;
+	width: 225px;
+	margin-right:20px; 
+	text-align:right;
+}
+
+.productCarouselPrev {
+	height: 17px;
+	width: 16px;
+	margin-right: 0px;
+	margin-top: 17px;
+	background-image: url(images/CarouselPrev-16x17.png);
+}
+
+.productCarouselPrev span {display:none}
+
+.productCarouselNext {
+	height: 17px;
+	width: 16px;
+	margin-right: 0px;
+	margin-top: 17px;
+	background-image: url(images/CarouselNext-16x17.png);
+}
+
+.productCarouselNext span {display:none}
+
+.productCarousel {
+	height: 306px;
+	width: 960px;
+	margin: 0px auto 20px auto;
+	overflow:hidden;
+	padding: 0 30px;
+}
+
+.productCarouselSimilar {
+	height: 286px;
+	width: 960px;
+	margin: 0px auto 20px auto;
+	overflow:hidden;
+	padding: 0 30px;
+}
+.productCarouselRecent {
+	height: 286px;
+	width: 960px;
+	margin: 0px auto 20px auto;
+	overflow:hidden;
+	padding: 0 30px;
+}
+
+.productCarouselReco {
+	height: 286px;
+	width: 960px;
+	margin: 0px auto 20px auto;
+	overflow:hidden;
+	padding: 0 30px;
+}
 
 /*************************************************************************************
 END PRODCUT TEMPLATE

@@ -40,6 +40,8 @@ input:focus {
 	outline:none;
 	}
 
+input.numberInput	{width:50px}
+
 button:focus	{outline:none;}
 
 .zform_number	{width:50px;}
@@ -82,7 +84,7 @@ and offMenu is toggle off, hiding the change button.
 	filter: alpha(opacity=50);
 	opacity:0.5;
 	}
-
+.formValidationError, .zwarn	{color:#cc0000;} /* applied to errors displayed in form validation or generic warnings */
 .pointer	{cursor:pointer;}
 
 /* used when an element needs to start of hidden. this is used frequently. */
@@ -113,6 +115,20 @@ and offMenu is toggle off, hiding the change button.
 .marginTop	{margin-top:12px;}
 .marginBottom	{margin-bottom:12px;}
 .stdMargin	{margin:12px;}
+.headerPadding	{padding: 3px 6px;} /* for use in headings or legends that use the ui-state classes and need a little padding within. */
+.stdPadding	{padding:12px;}
+.fullWidth	{width:100%;}
+
+
+
+
+.buyerLoggedIn .hideIfLoggedIn	{display:none;}
+
+.hideIfLoggedOut	{display:none;}
+
+.buyerLoggedIn .hideIfLoggedOut	{display: block;} /* may be 'block' */
+.buyerLoggedIn span.hideIfLoggedOut, .buyerLoggedIn a.hideIfLoggedOut	{display: inline;} /* ensures inline on span elements */
+
 
 
 
@@ -140,8 +156,8 @@ and offMenu is toggle off, hiding the change button.
 /*.appMessage .ui-icon-alert	{background:url(images/error-82x82.png) no-repeat; height:82px; width:82px; margin:0 10px 10px 0;} */
 .appMessage .appMessageTxt	{float:left;}
 
-.ui-state-success, .ui-state-statusupdate	{border:1px solid #aecdae; background:#dff6df; color:#333333;}
-.ui-state-warning	{border:1px solid #f58d48; background:#ffdfc9; color:#333333;}
+.ui-state-success, .ui-state-statusupdate	{border:1px solid #aecdae !important; background:#e3f6e3 !important; color:#333333 !important;}
+.ui-state-warning	{border:1px solid #f58d48 !important; background:#ffdfc9 !important; color:#333333 !important;}
 
 
 /* used in order history and faq (possibly other places) in a format similar to an accordian, but more than one panel can be open. */
@@ -160,7 +176,7 @@ and offMenu is toggle off, hiding the change button.
 
 /* app nav */
 
-#appNav {position:relative; height:1px; overflow:visible;}
+#appNav {position:relative; height:1px; overflow:visible; z-index:99;}
 #appNav .prodDetailPrevItemButton	{position:absolute; top:20px; left:-10px;}
 #appNav .prodDetailNextItemButton	{position:absolute; top:20px; right:-10px;}
 
@@ -214,6 +230,14 @@ and override using classes or id's as needed.
 
 
 
+/* for variations */
+
+.variation	{margin-bottom:6px;} /* class applied to div containing a variation group */
+.pogType_radio span label	{display:block; margin-bottom:4px; margin-left:12px;}
+
+
+
+
 /***************************************************
 
 PRODUCT DETAIL PAGE (productTemplate)
@@ -243,7 +267,7 @@ so the displayNone class is used, then a .grpType_PARENT class is added if the i
 
 .prodViewerAddToCartForm	{margin-bottom:24px;}
 .prodViewerAddToCartForm fieldset	{margin:0 0 12px 0; padding:0;}
-.prodViewerAddToCartForm label:after	{content:":"; padding-right:12px;}
+.variation > label:after	{content:":"; padding-right:12px;} /* applies to first label in a group. so no impact on radio labels */
 
 .CRMButtonMenu	{margin:0; padding:0; margin-bottom:12px;}
 
@@ -260,7 +284,7 @@ so the displayNone class is used, then a .grpType_PARENT class is added if the i
 .review_2	{background-position:0 -61px;}
 .review_3	{background-position:0 -91px;}
 .review_4	{background-position:0 -121px;}
-.review_4	{background-position:0 -151px;}
+.review_5	{background-position:0 -151px;}
 .review_6	{background-position:0 -181px;}
 .review_7	{background-position:0 -211px;}
 .review_8	{background-position:0 -241px;}
@@ -310,11 +334,9 @@ cartTemplate
 ***************************************************/
 
 
-
-
 .cartContainer	{width:100%;}
 
-
+#mainContentArea_cart .continueShoppingButton	{display:none;} /* used in modal cart only */
 
 /***************************************************
 
@@ -336,7 +358,7 @@ CUSTOMER PAGES
 #subscribeFormContainer .userInfo div	{margin-bottom:6px;}
 #subscribeFormContainer li	{list-style:none;}
 #subscribeFormContainer .userInfo label, #changePasswordForm label	{width:120px; display:inline-block; margin-right:10px;}
-.subscriberLists label	{width:300px;}
+.subscribeListItem	{display:block; height:30px;}
 
 
 /****** ORDER HISTORY AND INVOICE ******/
@@ -369,7 +391,7 @@ SEARCH RESULTS PAGE
 .resultsHeader	{position:relative; padding:3px 6px;}
 .resultsMenuContainer	{position:absolute; top:1px; left:3px;}
 .resultsMenuContainer .resultsMenu	{margin:3px 12px 0 0px;} /* used for sorting and pagination menus */
-.resultsMenuContainer ul.ui-menu ul	{z-index:10000;}
+.resultsMenuContainer ul.ui-menu ul	{z-index:10000; width:150px;}
 
 .resultsHeader .nextPageButton, .resultsHeader .prevPageButton	{float:right;}
 
@@ -414,7 +436,7 @@ HELP PAGES
 /***************************************************
 
 CART
-NOTE - Some of these classes are also shared with the cart summary that appears during checkout.
+
 
 ***************************************************/
 
@@ -444,128 +466,20 @@ CHECKOUT
 
 ***************************************************/
 
-
-/* the padding is needed for buttons that use loadingButtonBG.  this is applied to all buttons for the sake of consistency */
-#zCheckoutContainer button	{padding:3px 20px;}
-.cartTotalLineItem .prodThumb	{margin:0 12px 12px 0;}
-
-
-#zCheckoutContainer h2	{font-size:1em; margin:0; padding:0;}
-
 #paybySupplemental_CREDIT .ui-icon-help	{display:inline-block; margin-left:6px;}
-
-#modalProcessCheckout .loadingBG	{width:100px; height:200px;}
-
-#returnFromThirdParty	{padding:5px;}
-#returnFromThirdParty .ui-icon	{margin-right: .3em;}
-
-
-
-/* -----------------> CHECKOUT  <----------------- */
-
-/* some global styles, within checkout. */
-
-#checkoutFrm label	{vertical-align:top}
-
-.checkoutFormContainer legend	{padding:3px 12px; margin-left:12px;}
-.checkoutFormContainer fieldset	{padding:12px; margin-bottom:12px;}
-
-
-/* these are the errors that appear next to the place order button, typically reporting validation errors */
-#chkoutSummaryErrors	{clear:both;}
-#chkoutSummaryErrors li	{text-align:right;}
-
-#zCheckoutContainer .ui-widget p	{margin:3px;}
-
-/* by defualt, gift card will appear in the payment choices panel, above the other payment options */
-#giftCardContainer	{padding:5px 0px 5px 0px; border-bottom:1px dashed #efefef; display:block; text-align:left;}
-#giftCardContainer	label	{padding-right:12px;}
-#giftCardContainer	button	{margin-left:12px;}
-
-
-#couponContainer	{clear:both; float:right;}
-#couponFrmContainer	{clear:both;}
-
-
-/* preflight panel is used in 'nice' checkout and shows login information */
-#chkoutPreflightFieldset	{width:auto;}
-#chkoutPreflightFieldset .preflightInputContainer	{float:left; margin-right:24px; padding-bottom:12px;}
-#chkoutPreflightFieldset .preflightInputContainer .h2	{margin-bottom:12px;}
-#chkoutPreflightFieldset div button	{margin-left:12px;}
-
-#preflightGuestInputs label,
-#preflightAccountInputs label,
-#preflightAuthenticatedInputs label	{width:140px; display:inline-block;}
-
-
-#checkoutTemplateCostSummary	{text-align:right;}
-
-#chkoutCartSummary #cartSummaryTotalsContainer	{width:auto;}
-.checkoutFormContainer fieldset, #chkoutCartSummary	{margin:0 0px 12px 0; min-height:50px;}
-.checkoutFormContainer fieldset textarea	{width:80%; height:100px;}
-
-#chkoutBillAddressFieldset label:after, 
-#chkoutAccountInfoFieldset label:after, 
-#chkoutPreflightFieldset label:after, 
-#chkoutShipAddressFieldset label:after,
-.paybySupplemental label:after { content: ":"; }
-
-#chkoutBillAddressFieldset label, 
-#chkoutAccountInfoFieldset label, 
-#chkoutShipAddressFieldset label, 
-.paybySupplemental label { width:140px; }
-
-#chkout-create_customerContainer label	{width:auto;}
-#chkout-create_customerContainer label:after	{content: ""}
-
-#chkoutSummaryTotalsContainer	{float:right; width:35%;}
-#checkoutStuffList	{float:left; width:60%}
-#checkoutStuffList .prodThumb	{float:left;}
-
-#chkoutPlaceOrderBtn	{font-size:1.5em; font-weight:bold; 
-	clear:both; margin:12px 0;
-	}
-
-
-#zCheckoutFrm address	{display:block; float:left; margin:12px; border:1px solid #cccccc; padding:10px; font-style:normal; text-align:left;} /* use a white border (if not colored) so elements don't shift when 'selected' class is added. */
-
-#zCheckoutFrm .paybySupplemental, #shipAddressUL li, #billAddressUL li	{margin-bottom:6px;}
-
-/* the entry after the comma below handles 'supplemental' labels (under radio buttons, like in payment) */
-#zCheckoutFrm fieldset li label, #zCheckoutFrm fieldset li.paycon ul label	{text-align:right; padding-right:12px; display:inline-block;}
-
-
-#zCheckoutFrm fieldset input[type=text], #zCheckoutFrm fieldset input[type=tel], #zCheckoutFrm fieldset input[type=password], #zCheckoutFrm fieldset input[type=email]	{width:220px;}
-#zCheckoutFrm .checkbox	label	{text-align:left; width:240px;}
-#zCheckoutFrm .checkbox	{ padding-left:120px; clear:both;}
-#zCheckoutFrm .creditCardCVV	{width:50px !important;}
-
-#zCheckoutFrm fieldset li.paycon, #zCheckoutFrm fieldset li.shipcon	{margin-top:10px; }
-#zCheckoutFrm fieldset li.paycon label, #zCheckoutFrm fieldset li.shipcon label	{text-align:left; line-height:1.4em;}
-
-
-#zCheckoutFrm fieldset li.bill_zip input, #zCheckoutFrm fieldset li.ship_zip input	{width:80px;}
-#zCheckoutFrm fieldset li.bill_state, #zCheckoutFrm fieldset li.ship_state	{float:left;}
-#zCheckoutFrm fieldset li.bill_state input, #zCheckoutFrm fieldset li.ship_state input, #zCheckoutFrm fieldset .bankState	{width:40px;}
-
-#zCheckoutFrm fieldset p	{clear:both;}
-
-.mandatory input[type=text], .mandatory input[type=tel], .mandatory select	{border:1px solid #990000}
-.mandatory label{color:#990000; font-weight:bold;}
-.mandatory span:after	{content: "*";}
 
 
 .paybySupplemental {padding:12px; font-weight:normal; border-top-width:0;}
-.paybySupplemental .zform_select {margin-right:12px;}
+.paybySupplemental select {margin-right:12px;}
 
+.addressList address	{float:left; margin:0 12px 12px 0;}
 
+.creditCardCVVIcon	{display:inline-block !important;}
 
+.checkoutFormContainer input, checkoutFormContainer select	{margin:2px 6px 2px 0;}
+.checkoutFormContainer input[type='password']	{width:200px;} /* class affects both login password and create account passwords */
 
-
-
-
-
-
+.headerPadding label	{padding:2px 6px;}
 
 /* Pure CSS3 Multi Level Drop Down Navigation Menu */
 /*             http://www.bloggermint.com/demos/darknavmenu/#            */

@@ -113,7 +113,6 @@ For the list of available params, see the 'options' object below.
 			$r, //what is returned.
 			amcss = {'margin':'0','paddingBottom':'5px'} //anyMessageCSS - what's applied to P (or each P in the case of _msgs)
 			
-			
 			if(!msg)	{
 //				app.u.dump(" -> msg is blank. could be that message is being handled as a method.");
 				//no message passed. is ok because messages 'could' get handled as a method.
@@ -125,22 +124,22 @@ For the list of available params, see the 'options' object below.
 			else if(typeof msg == 'object')	{
 //				app.u.dump(" -> msg type is object."); app.u.dump(msg);
 				if(msg._msgs)	{
-				app.u.dump(" -> msg format is _msgs.");
+//				app.u.dump(" -> msg format is _msgs.");
 					$r = $("<div \/>").css({'margin-left':'20px'}); //adds a left margin to make multiple messages all align.
 					for(var i = 1; i <= msg['_msgs']; i += 1)	{
 						$r.append($("<p \/>").addClass('anyMessage').css(amcss).addClass(msg['_msg_'+i+'_type']).text(msg['_msg_'+i+'_txt']+" ["+msg['_msg_'+i+'_id']+"]"));
 						}
 					}
 				else if(msg.errid)	{
-					app.u.dump(" -> msg type is err.");
-					$r = $("<p \/>").addClass('anyMessage').css(amcss).addClass(msg.errtype).text(msg.errmsg+" ["+msg.errid+"]");
+//					app.u.dump(" -> msg type is err.");
+					$r = $("<p \/>").addClass('anyMessage').css(amcss).addClass(msg.errtype).html(msg.errmsg+" ["+msg.errid+"]");
 					
 					if(msg.errtype == 'iseerr')	{
 //					app.u.dump(" -> msg IS iseerr.");
 
 					o.persistant = true; //iseErr should be persistant
 					this.outputArr[instance].addClass('ui-state-error');
-					$('button',this.outputArr[instance]).button('disable');
+//					$('button',this.outputArr[instance]).button('disable'); //I don't think we want to disable the ability to close this, we just don't want it to auto-close.
 
 					this.outputArr[instance].addClass('ui-state-error');
 						var msgDetails = "<ul>";
@@ -157,7 +156,7 @@ For the list of available params, see the 'options' object below.
 //the validate order request returns a list of issues.
 				else if(msg['@issues'])	{
 					var L = msg['@issues'].length;
-					console.dir("Got to @issues, length: "+L);
+//					console.dir("Got to @issues, length: "+L);
 					$r = $("<div \/>").css({'margin-left':'20px'}); //adds a left margin to make multiple messages all align.
 					for(var i = 0; i < L; i += 1)	{
 						$r.append("<p>"+msg['@issues'][i][3]+"<\/p>");
@@ -170,6 +169,10 @@ For the list of available params, see the 'options' object below.
 			else	{
 //				app.u.dump(" -> app.u.formatResponsethis.span 'else' hit. Should not have gotten to this point");
 				$r = $("<p \/>").addClass('anyMessage').text('unknown error has occured'); //don't want to have our error handler generate an error on screen.
+				}
+//gMessage is generic message, used for 'soft' errors. and ISEERR should have messaging this is a little less generic (or more severe)
+			if(o.gMessage && msg.errtype != 'iseerr')	{
+				$r.prepend("<p>An error has occured (details below). If you continue to experience this error, please contact the site administrator.<\/p>");
 				}
 			return $r;
 
@@ -247,7 +250,6 @@ or this: $('#bob').find('.ui-tabs-nav li:nth-child(2)').trigger('click');
 			
 			if($t.attr('widget') == 'anytabs')	{} //id has already been set as tabs.
 			else	{
-				console.log('got into init else');
 				$t.attr('widget','anytabs')
 				$t.addClass('ui-tabs ui-widget ui-widget-anytabs')
 				self.tabs = $("ul",$t).first();
@@ -354,7 +356,11 @@ or this: $('#bob').find('.ui-tabs-nav li:nth-child(2)').trigger('click');
 
 //clear the message entirely. run after a close. removes element from DOM.
 		destroy : function(){
-			this.element.empty().remove();
+			this.element.empty();
+			this.element.removeClass("ui-tabs");
+			this.element.removeClass("ui-widget");
+			this.element.removeClass("ui-widget-anytabs");
+			this.element.attr("widget","");
 			}
 		}); // create the widget
 })(jQuery); 
@@ -407,7 +413,7 @@ either templateID or (data or datapointer) are required.
 				self._anyContent();
 				}
 			else if(o.data || (o.datapointer && !$.isEmptyObject(app.data[o.datapointer])))	{
-//				app.u.dump(" -> passed data check.");
+//				app.u.dump(" -> passed data check."); app.u.dump(o.data);
 				self._anyContent();
 				}
 			else	{
@@ -427,17 +433,23 @@ either templateID or (data or datapointer) are required.
 //			app.u.dump(" -> _anyContent executed.");
 			var o = this.options,
 			r = true; // what is returned. false if not able to create template.
-			
+			//isTranslated is added as a data() var to any template that's been translated. A way to globally identify if translation has already occured.
 			
 			if(o.templateID && o.datapointer && app.data[o.datapointer])	{
 //				app.u.dump(" -> template and datapointer present. transmogrify.");
 				this.element.hideLoading().removeClass('loadingBG');
 				this.element.append(app.renderFunctions.transmogrify(o.dataAttribs,o.templateID,app.data[o.datapointer]));
+				this.element.data('isTranslated',true);
 				}
 			else if(o.templateID && o.data)	{
 //				app.u.dump(" -> template and data present. transmogrify.");
+//				app.u.dump(" -> element.tagname: "+this.element.prop("tagName"));
 				if(typeof jQuery().hideLoading == 'function'){this.element.hideLoading().removeClass('loadingBG')}
+//				app.u.dump(" -> hideLoading has run.");
 				this.element.append(app.renderFunctions.transmogrify(o.dataAttribs,o.templateID,o.data));
+//				app.u.dump(" -> transmogrified");
+				this.element.data('isTranslated',true);
+//				app.u.dump(" -> data.isTranslated set to true.");
 				}
 //a templateID was specified, just add the instance. This likely means some process outside this plugin itself is handling translation.
 			else if(o.templateID)	{
@@ -452,12 +464,14 @@ either templateID or (data or datapointer) are required.
 //				app.u.dump(" -> data specified, translate selector");
 				app.renderFunctions.translateSelector(this.element,o.data);
 				this.element.hideLoading().removeClass('loadingBG');
+				this.element.data('isTranslated',true);
 				}
 //if just translating because the template has already been rendered
 			else if(o.datapointer  && app.data[o.datapointer])	{
 //				app.u.dump(" -> data specified, translate selector");
 				app.renderFunctions.translateSelector(this.element,app.data[o.datapointer]);
 				this.element.hideLoading().removeClass('loadingBG');
+				this.element.data('isTranslated',true);
 				}
 			else	{
 				//should never get here. error handling handled in _init before this is called.
@@ -692,26 +706,39 @@ and it'll turn the cb into an ios-esque on/off switch.
 			},
 		_init : function(){
 			var self = this,
-			$label = self.element;
+			$label;
 			
+			if(self.element.is('label'))	{$label = self.element}
+			else if(self.element.is(':checkbox'))	{$label = self.element.closest('label')}
+			else	{}
+			
+		
 			if($label.data('anycb') === true)	{app.u.dump(" -> already anycb-ified");} //do nothing, already anycb-ified
-			else	{
+			else if($.browser && $.browser.msie && Number($.browser.version.substring(0, 1)) <= 8)	{} //ie 8 not supported. didn't link binding.
+			else if($label.length)	{
 				var $input = $("input",$label).first(),
-				$container = $("<span \/>").addClass('ui-widget ui-widget-content ui-corner-all ui-widget-header').css({'position':'relative','display':'inline-block','width':'55px','margin-right':'6px','height':'20px','z-index':1,'padding':0}),
-				$span = $("<span \/>").css({'padding':'0px','width':'30px','text-align':'center','height':'20px','line-height':'20px','position':'absolute','top':-1,'z-index':2,'font-size':'.75em'});
+				$container = $("<span \/>").addClass('ui-widget ui-widget-content ui-corner-all ui-widget-header').css({'position':'relative','display':'block','width':'55px','margin-right':'6px','height':'20px','z-index':1,'padding':0,'float':'left','cursor':'pointer','float':'left'}),
+				$span = $("<span \/>").css({'padding':'0px','width':'30px','text-align':'center','height':'20px','line-height':'20px','position':'absolute','top':-1,'z-index':2,'font-size':'.75em','cursor':'pointer'});
 	
-				$label.data('anycb',true);
+				$label.data('anycb',true); // allows for plugin to check if it's already been run on this element.
 				self.span = $span; //global (within instance) for easy reference.
 
+				$label.contents().filter(function() {
+					return this.nodeType === 3 && $.trim(this.nodeValue) !== '';
+					}).wrap("<span class='label anycb-label' style='display:block; height:24px; line-height:24px; float:left;'></span>"); //wrap around just the text. text().wrap() didn't work. don't use inline-block or ie8 doesn't work.
 				$input.hide();
 				$container.append($span);
 				$label.prepend($container);
-				$input.is(':checked') ? self._turnOn() :self._turnOff(); //set default
-		
-				$input.on('change.anycb',function(){
+				$input.is(':checked') ? self._turnOn() : self._turnOff(); //set default
+				
+				$input.on('click.anycb',function(){
+					app.u.dump(" -> anycb is toggled");
 					if($input.is(':checked')){self._turnOn();}
 					else	{self._turnOff();}
 					});
+				}
+			else	{
+				app.u.dump("Warning! anycb() run on an element where it is NOT a label or no parent label found. non critical issue.");
 				}
 
 			}, //_init
@@ -835,6 +862,7 @@ Additional a settings button can be added which will contain a dropdown of selec
 					if(o.showLoading){$t.showLoading();}
 					}
 				//appevents should happen outside this so that any other manipulation can occur prior to running them.
+				//and also so that in cases where the events are not desired, there's no problem (recycled templates, for example)
 				//they'll get executed as part of the callback if a call is specified.
 				self._handleInitialState();
 				}
@@ -969,7 +997,6 @@ Additional a settings button can be added which will contain a dropdown of selec
 //			app.u.dump(" -> this.options.persistent: "+this.options.persistent);
 //			app.u.dump(" -> value: "+value);
 			if(this.options.persistent && value)	{
-//				app.u.dump("GOT HERE!!!!!!!!!!!! ")
 				if(this.options.extension && this.options.name)	{
 					var settings = {};
 					settings[this.options.name] = {'state':value};

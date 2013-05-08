@@ -35,9 +35,21 @@ var _QualityOverstock = function() {
 			onSuccess : function()	{
 			
 				app.ext._QualityOverstock.a.showDescription();
-					app.u.dump("_QOS showDescription() run");
+					//app.u.dump("_QOS showDescription() run");
 				app.ext._QualityOverstock.a.sansReviews();
-					app.u.dump("_QOS sansReviews() run");
+					//app.u.dump("_QOS sansReviews() run");
+				app.rq.push(['templateFunction','productTemplate','onCompletes',function(infoObj) {
+					var $context = $(app.u.jqSelector('#'+infoObj.parentID)); //grabs the currently loaded product page (to ignore previously loaded / invisible ones)
+					app.ext._QualityOverstock.a.runProductCarousel($context);
+						app.u.dump('product Ran');
+					app.ext._QualityOverstock.a.runProductCarouselReco($context);
+						app.u.dump('Reco Ran');
+					app.ext._QualityOverstock.a.runProductCarouselRecent($context);
+						app.u.dump('Recent Ran');
+					app.ext._QualityOverstock.a.runProductCarouselSimilar($context);
+						app.u.dump('Similar Ran');
+				}]);
+					
 				return true;
 				/*var r = false; //return false if extension won't load for some reason (account config, dependencies, etc).
 
@@ -143,7 +155,156 @@ var _QualityOverstock = function() {
 						}
 					
 					}]);
-				}// END SANSREVIEWS
+				},// END SANSREVIEWS
+				
+				runProductCarousel : function($context) {
+					//CAROUSEL OF CAROUSELS ON PRODUCT PAGE
+					var $target = $('.productCarousel', $context);
+					if($target.data('isCarousel'))	{} //only make it a carousel once.
+					else	{
+					$target.data('isCarousel',true);
+			//for whatever reason, caroufredsel needs to be executed after a moment.
+					setTimeout(function(){
+						$target.carouFredSel({
+							height: 306,
+							width: 960,
+							items: {
+								visible: 1,
+								minimum: 1,
+								width: 960,
+								height: 286,
+							},
+							auto: false,
+							prev: {
+								button: '.productCarouselPrev',
+								key: "left"
+							},
+							next: {
+								button: '.productCarouselNext',
+								key: "right"
+							},
+							//pagination: '#bestCarPagenation',
+							scroll: 1,
+							swipe: {
+								onMouse: true,
+								onTouch: true
+								}
+							});
+						},1500); 
+					} //end prodPageCarousel
+				},
+				
+				runProductCarouselSimilar : function($context) {
+					//SIMILAR ITEMS CAROUSEL ON PRODUCT PAGE
+					var $target = $('.prodCarSimilar', $context);
+					if($target.data('isCarousel'))	{} //only make it a carousel once.
+					else	{
+					$target.data('isCarousel',true);
+			//for whatever reason, caroufredsel needs to be executed after a moment.
+					setTimeout(function(){
+						$target.carouFredSel({
+							height: 286,
+							width: 960,
+							items: {
+								visible: 6,
+								minimum: 1,
+								width: 160,
+								height: 286,
+							},
+							auto: false,
+							prev: {
+								button: '.prodCarouselSimilarPrev',
+								key: "left"
+							},
+							next: {
+								button: '.prodCarouselSimilarNext',
+								key: "right"
+							},
+							//pagination: '#bestCarPagenation',
+							scroll: 6,
+							swipe: {
+								onMouse: true,
+								onTouch: true
+								}
+							});
+						},1000); 
+					} //end prodPageCarouselSimilar
+				},
+				
+				runProductCarouselRecent : function($context) {
+					//RECENT ITEMS CAROUSEL ON PRODUCT PAGE
+					var $target = $('.prodCarRecent', $context);
+					if($target.data('isCarousel'))	{} //only make it a carousel once.
+					else	{
+					$target.data('isCarousel',true);
+			//for whatever reason, caroufredsel needs to be executed after a moment.
+					setTimeout(function(){
+						$target.carouFredSel({
+							height: 286,
+							width: 960,
+							items: {
+								visible: 6,
+								minimum: 1,
+								width: 160,
+								height: 286,
+							},
+							auto: false,
+							prev: {
+								button: '.prodCarouselRecentPrev',
+								key: "left"
+							},
+							next: {
+								button: '.prodCarouselRecentNext',
+								key: "right"
+							},
+							//pagination: '#bestCarPagenation',
+							scroll: 6,
+							swipe: {
+								onMouse: true,
+								onTouch: true
+								}
+							});
+						},1000); 
+					} //end prodPageCarouselSimilar
+				},
+				
+				runProductCarouselReco : function($context) {
+					//RECOMMENDED ITEMS CAROUSEL ON PRODUCT PAGE
+					var $target = $('.prodCarReco', $context);
+					if($target.data('isCarousel'))	{} //only make it a carousel once.
+					else	{
+					$target.data('isCarousel',true);
+			//for whatever reason, caroufredsel needs to be executed after a moment.
+					setTimeout(function(){
+						$target.carouFredSel({
+							height: 286,
+							width: 960,
+							items: {
+								visible: 6,
+								minimum: 1,
+								width: 160,
+								height: 286,
+							},
+							auto: false,
+							prev: {
+								button: '.prodCarouselRecoPrev',
+								key: "left"
+							},
+							next: {
+								button: '.prodCarouselRecoNext',
+								key: "right"
+							},
+							//pagination: '#bestCarPagenation',
+							scroll: 6,
+							swipe: {
+								onMouse: true,
+								onTouch: true
+								}
+							});
+						},1000); 
+					} //end prodPageCarouselSimilar
+				}
+				
 			}, //Actions
 
 ////////////////////////////////////   RENDERFORMATS    \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
