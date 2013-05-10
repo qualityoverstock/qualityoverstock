@@ -94,6 +94,7 @@ a {text-decoration:none; color:#fff;}
 	text-align: center;
 	background-color: #fec611;
 	border: none;
+	cursor:pointer;
 }
 
 .borderGrey {border: 1px solid #777c71;}
@@ -1015,6 +1016,13 @@ PRODCUT QUICKVIEW TEMPLATE
 
 .previewProductDetail .prodSummaryContainer  {
 	font-family: "Open Sans";
+}
+
+.prodViewerContainer  .button {
+	width: 100px;
+	line-height: 28px;
+	font-family: "Open Sans";
+	font-weight: bold;
 }
 
 

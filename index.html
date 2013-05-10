@@ -25,7 +25,7 @@ var _gaq = _gaq || {'push':function(){}} //here for testing. REPLACE BEFORE DEPL
 var myCreole;
 
 var app = {vars:{
-	"release":"201300508133700",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+	"release":"20130510135300",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 	"_clientid":"zmvc",
 	"baseURL":"", //used in non-local mode.
 	"checkoutAuthMode" : "active",//can be passive, active or required
@@ -930,9 +930,11 @@ It's done this way because ID's hard coded into template are bad mojo (templates
 			</div>
 
 			<div class='productCarouselRecent floatLeft recentlyViewedItemsContainer'>
-				<div>						<!-- data-bind="var: session(recentlyViewedItems); format: productList; extension: store_prodlist; loadsTemplate: productListTemplate; hide_summary:1; hide_pagination:1; withReviews:1;" -->		 
-			<!--	<ul  id='prodCarouselRecent' data-bind="var: session(recentlyViewedItems); format: productList; extension: store_prodlist; loadsTemplate: productListTemplate; hide_summary:1; hide_pagination:1; withReviews:1;" class='listStyleNone fluidList clearfix noPadOrMargin productList prodCarRecent'></ul> -->
+				<div>
+					<ul  id='prodCarouselRecent' data-bind="var: session(session.recentlyViewedItems); format: productList; extension: store_prodlist; loadsTemplate: productListTemplate; hide_summary:1; hide_pagination:1; withReviews:1;" class='listStyleNone fluidList clearfix noPadOrMargin productList prodCarRecent'></ul>
+					<!--
 					<ul  id='prodCarouselRecent' data-bind='var: elastic-native({"size":"100","mode":"elastic-native","filter":{"term":{"tags":"IS_USER4"}}}); format: productSearch; extension: myRIA; loadsTemplate: productListTemplateResults;' class='listStyleNone fluidList clearfix noPadOrMargin productList prodCarRecent'></ul> 
+					-->
 				</div>
 				<div class='prodCarPagination'>
 					<span class='prodCarouselRecentPrev smallcaps prodCarPrev pointer'>prev</span>
@@ -988,7 +990,9 @@ It's done this way because ID's hard coded into template are bad mojo (templates
 <div>
 
 	<div data-bind="var: product(zoovy:prod_is_tags); format:addTagSpans;" class='tagsContainer'></div>
-	<div data-bind='var:product(pid); format:addPicSlider; extension:myRIA;'><img src='blank.gif' class='prodBigImage' data-bind='var: product(zoovy:prod_image1); format:imageURL;' width='240' height='240' /></div>
+	<div data-bind="var:product(pid);format:assignAttribute; attribute:data-pid;" onclick="showContent('product',{'pid':$(this).attr('data-pid')})">
+		<div data-bind='var:product(pid); format:addPicSlider; extension:myRIA;'><img src='blank.gif' class='prodBigImage' data-bind='var: product(zoovy:prod_image1); format:imageURL;' width='240' height='240' /></div>
+	</div>
 	<!-- <div class='hideInMinimalMode pointer moreDetailsSmall floatRight' onClick="showContent('product',{'pid':$(this).closest('[data-pid]').attr('data-pid')});">more details</div> -->
 </div>
 
@@ -1016,7 +1020,8 @@ It's done this way because ID's hard coded into template are bad mojo (templates
 	</section>
 
 	<div id="prodDesc" data-bind='var: product(zoovy:prod_desc); format:wiki; wikiFormats:myRIA;'></div>
-
+	<div class='button' data-bind="var:product(pid);format:assignAttribute; attribute:data-pid;" onclick="showContent('product',{'pid':$(this).attr('data-pid')})">more details</div>
+	
 	</td>
 </tr>
 <tr>
