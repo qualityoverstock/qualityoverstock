@@ -1167,6 +1167,28 @@ COMPANY TEMPLATE
 END COMPANY TEMPLATE
 *************************************************************************************/
 
+/*************************************************************************************
+CUSTOMER TEMPLATE
+*************************************************************************************/
+
+.custArticle {margin:0 0 0 40px;}
+.custArticle a {color: #000;}
+.custArticle a:hover {color: #ccc;}
+
+.custArticle h1 {
+	font-family: "Playfair Display SC";
+	font-weight: normal;
+}
+
+#buyerAddresses h2 {clear:none;}
+
+.customerSideline.sideline li:first-child {margin:0 0 0 15px;}
+
+/*************************************************************************************
+END CUSTOMER TEMPLATE
+*************************************************************************************/
+
+
 
 /*************************************************************************************
 PRODCUT LIST TEMPLATE BUYER LIST
