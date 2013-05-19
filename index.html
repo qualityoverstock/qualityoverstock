@@ -147,28 +147,28 @@ app.u.loadScript(app.vars.baseURL+"_app-QualityOverstock-init.js");
                 }
             </script>
                 
-            <div class='shopContainer'>
-                <div class='shopArrowContainer' onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))"><img src="images/SmallYellowRoundDownArrow.png">
+            <div class='shopContainer' onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))">
+                <div class='shopArrowContainer'><img src="images/SmallYellowRoundDownArrow.png">
                 	<div class='dropdown blackBackground'>
                         <ul class='playFont fontColorWhite fontSize14PX listStyleNone floatLeft'>
                             <li>Limited Offer</li>
                             <li>Special Deals</li>
-                            <li><a class='bindByAnchor' href='#!category?navcat=.01-swarovski'>Swarovski</a></li>
-                            <li><a class='bindByAnchor' href='#!category?navcat=.baccarat'>Baccarat</a></li>
-                            <li><a class='bindByAnchor' href='#!category?navcat=.bake__n_serve'>Bake 'n Serve</a></li>
-                            <li><a class='bindByAnchor' href='#!category?navcat=.lalique'>Lalique</a></li>
-                            <li><a class='bindByAnchor' href='#!category?navcat=.lladro'>Llardro</a></li>
+                            <li><a class='bindByAnchor' href='#!category?navcat=.01-swarovski' onClick="hideDropdown($(this).parent().parent().parent().parent())">Swarovski</a></li>
+                            <li><a class='bindByAnchor' href='#!category?navcat=.baccarat' onClick="hideDropdown($(this).parent().parent().parent().parent())">Baccarat</a></li>
+                            <li><a class='bindByAnchor' href='#!category?navcat=.bake__n_serve' onClick="hideDropdown($(this).parent().parent().parent().parent())">Bake 'n Serve</a></li>
+                            <li><a class='bindByAnchor' href='#!category?navcat=.lalique' onClick="hideDropdown($(this).parent().parent().parent().parent())">Lalique</a></li>
+                            <li><a class='bindByAnchor' href='#!category?navcat=.lladro' onClick="hideDropdown($(this).parent().parent().parent().parent())">Llardro</a></li>
                         </ul>    
                         <ul class='playFont fontColorWhite fontSize14PX listStyleNone floatLeft'>
-                            <li><a class='bindByAnchor' href='#!category?navcat=.vera_bradley'>Vera Bradley</a></li>
-                            <li><a class='bindByAnchor' href='#!category?navcat=.versace'>Versache</a></li>
-                            <li><a class='bindByAnchor' href='#!category?navcat=.sale_items'>Sale Items</a></li>
-                            <li><a class='bindByAnchor' href='#!category?navcat=.new_arrivals'>New Arrivals</a></li>
-                            <li><a class='bindByAnchor' href='#!category?navcat=.coming_soon'>Coming Soon</a></li>
-                            <li><a class='bindByAnchor' href='#!category?navcat=.retiring_2013'>Retiring 2013</a></li>
-                            <li><a class='bindByAnchor' href='#!category?navcat=.clearance'>Clearance</a></li>
+                            <li><a class='bindByAnchor' href='#!category?navcat=.vera_bradley' onClick="hideDropdown($(this).parent().parent().parent().parent())">Vera Bradley</a></li>
+                            <li><a class='bindByAnchor' href='#!category?navcat=.versace' onClick="hideDropdown($(this).parent().parent().parent().parent())">Versache</a></li>
+                            <li><a class='bindByAnchor' href='#!category?navcat=.sale_items' onClick="hideDropdown($(this).parent().parent().parent().parent())">Sale Items</a></li>
+                            <li><a class='bindByAnchor' href='#!category?navcat=.new_arrivals' onClick="hideDropdown($(this).parent().parent().parent().parent())">New Arrivals</a></li>
+                            <li><a class='bindByAnchor' href='#!category?navcat=.coming_soon' onClick="hideDropdown($(this).parent().parent().parent().parent())">Coming Soon</a></li>
+                            <li><a class='bindByAnchor' href='#!category?navcat=.retiring_2013' onClick="hideDropdown($(this).parent().parent().parent().parent())">Retiring 2013</a></li>
+                            <li><a class='bindByAnchor' href='#!category?navcat=.clearance' onClick="hideDropdown($(this).parent().parent().parent().parent())">Clearance</a></li>
                         </ul>
-                        <div class='headerSeeAll blackBackground playFont fontColorYellow fontSize18PX smallcaps centerText floatLeft'>
+                        <div class='headerSeeAll blackBackground playFont fontColorYellow fontSize18PX smallcaps centerText floatLeft pointer' onClick="hideDropdown($(this).parent().parent().parent().parent())">
                         	See All Categories
                         </div>
                     </div>
