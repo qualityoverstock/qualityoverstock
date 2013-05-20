@@ -26,7 +26,7 @@ var _gaq = _gaq || {'push':function(){}} //here for testing. REPLACE BEFORE DEPL
 var myCreole;
 
 var app = {vars:{
-	"release":"201314.20130518193500",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+	"release":"201314.20130520131100",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 	"_clientid":"zmvc",
 	"baseURL":"", //used in non-local mode.
 	"checkoutAuthMode" : "active",//can be passive, active or required
@@ -572,82 +572,39 @@ container ul should have lineItemProdlist class on it instead of productList
 </li>
 
 
-<li id='productListTemplateBuyerList' class='loadingBG clearfix productListTemplateBuyerList' >
-	<div class='cartItemContianer'>
-    <div data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;' >
-    
-		<div class='floatLeft'><img src='blank.gif' class='prodThumb' data-bind='var: product(zoovy:prod_image1); defaultVar: product(%attribs.zoovy:prod_image1); format:imageURL;' width='140' height='140' /></div>
-    
-            <h4 class='cartProdDesc montFont centerText fontSize10PX fontColorBlack floatLeft' data-bind='var: product(prod_name); format:text; '></h4>
-    		
-            <span class='cartProdPrice centerText playFont fontColorWhite price floatLeft' data-bind='var: product(price); format:money; currencySign: $;  hideZero:false;' ></span>
-            
-            <div class='ztable_row_small prodOptions' data-bind='var: variations(%options); format:selectedOptionsDisplay;'></div>
+<li id='productListTemplateBuyerList' class='productListTemplateBuyerList loadingBG' >
+	<div data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;' >
 
-            <div class='playFont fontSize14PX'>
-                &nbsp&nbsp Quantity: &nbsp <input type='number' class='qtyInput centerText borderNone' onChange="app.ext.store_cart.u.updateCartQty($(this)); app.model.dispatchThis('immutable');"  data-bind='format:cartItemQty;extension:store_cart;useParentData:true;' size='3' />
-                <button class='displayNone'>update</button><!-- here to stop 'enter' in input above from closing modal -->
-           <!-- <span data-bind='var: product(price); format:money; currencySign: $;  hideZero:false; pretext: x ;' ></span>
-                <span data-bind='var: product(extended); format:money; currencySign: $; hideZero:false; pretext: = ;'></span> -->
-            </div>
-
-			<div class='cartButtonContainer'>
-                <button class='floatRight moveToWishlist marginRight' data-bind='format:moveToWishlistButton; extension:myRIA; useParentData:true;' >Move to Wishlist</button>
-                <button class='cartRemoveButton floatRight removeButton' data-bind='format:removeItemBtn; extension:store_cart; useParentData:true;' >Remove Item From Cart</button>            
-           <!-- <div class='ztable_row_small stid' data-bind='var: product(sku); format:text; className: stid; pretext: Sku: ;'></div> -->
-		</div>    
-    </div>
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-
-<!--	<div class='prodThumbContainer floatLeft'>
+		<div class='prodThumbContainer floatLeft'>
 			<div class='ui-widget ui-widget-content ui-corner-all'>
-				<img src='blank.gif' class='prodThumb' data-bind='var: product(zoovy:prod_image1); format:imageURL;' width='160' height='160' />
+				<img src='blank.gif' class='prodThumb' alt='' data-bind='var: product(zoovy:prod_image1); format:imageURL;' width='150' height='150' />
 				
-                
-                <div class='buttonList ui-widget ui-widget-header ui-corner-all alignCenter'>
-
-                    <button class='ui-state-default ui-corner-all' title='add item to cart' onClick="showContent('product',{'pid':$(this).closest('[data-pid]').attr('data-pid')});">
-                    <span class="ui-icon ui-icon-cart"></span>
-                    </button>
-                    
-                    <button class='ui-state-default ui-corner-all' title='more information'>
-                    <span class="ui-icon ui-icon-info"></span>
-                    </button>
-                    
-                    <button class='ui-state-default ui-corner-all' title='write a review for this item' onClick="app.ext.store_crm.u.showReviewFrmInModal({'pid':$(this).closest('[data-pid]').attr('data-pid'),'templateID':'reviewFrmTemplate'});">
-                    <span class="ui-icon ui-icon-star"></span>
-                    </button>
-                    
-                    <button class='ui-state-default ui-corner-all' title='remove item from list' onClick="app.ext.myRIA.a.removeItemFromBuyerList({'stid':$(this).closest('[data-pid]').attr('data-pid'),'listID':$(this).closest('[data-buyerlistid]').attr('data-buyerlistid')},{'parentID':$(this).closest('li').attr('id')});">
-                    <span class="ui-icon ui-icon-trash"></span>
-                    </button>
-
-				</div>
+				<h5 data-bind='var: product(zoovy:prod_name); format:text;' class='prodDesc montFont centerText fontSize10PX fontColorBlack'></h5>
+				
+				<h6 data-bind='var: product(zoovy:base_price); format:money; currencySign: $;  hideZero:true; className:price;' class='prodPrice centerText playFont fontColorWhite price'></h6>
 			</div>
 		</div>
-		<span data-bind='var: reviews(reviews.average); format:addClass; className:review_;' class='reviewSprite floatRight' ></span>
+		
+		<div class='buttonList ui-widget ui-widget-header ui-corner-all alignCenter'>
 
-		<h5 data-bind='var: product(zoovy:prod_name); format:text;'></h5>
+					<button class='ui-state-default ui-corner-all playfontSC smallcaps seeMore' title='more information' onClick="quickView('product',{'templateID':'productTemplateQuickView','pid':$(this).closest('[data-pid]').attr('data-pid')});">See More Details</button>
+					<form data-bind='var: product(pid); format:atcForm; extension:store_product;' class='prodViewerAddToCartForm clearfix' action='#' onSubmit="app.ext.myRIA.u.addItemToCart($(this)); return false;">
+						<fieldset data-bind='var: product(pid); format:atcVariations; extension:store_product;' class='borderNone'></fieldset>
+						<fieldset data-bind='useParentData:true; format:atcQuantityInput; extension:store_product; pretext:Quantity: ; defaultValue:0;' class='borderNone prodSelectionQty smallcaps'></fieldset>
+						<input type='submit' value='Add to Cart' class='playfontSC smallcaps ui-button ui-button-text ui-corner-all ui-state-default addToCartButton displayNone' data-bind='var: product(pid); format:addToCartButton; extension:store_product;'  />
+					</form>
+					<div class='wishlistTrash montFont smallcaps' title='remove item from list' onClick="app.ext.myRIA.a.removeItemFromBuyerList({'stid':$(this).closest('[data-pid]').attr('data-pid'),'listID':$(this).closest('[data-buyerlistid]').attr('data-buyerlistid')},{'parentID':$(this).closest('li').attr('id')});"><span class='pointer'>remove item</span></div>
+					
+				<!--<button class='ui-state-default ui-corner-all' title='write a review for this item' onClick="app.ext.store_crm.u.showReviewFrmInModal({'pid':$(this).closest('[data-pid]').attr('data-pid'),'templateID':'reviewFrmTemplate'});">
+						<span class="ui-icon ui-icon-star"></span>
+					</button>
+					<span data-bind='var: reviews(reviews.average); format:addClass; className:review_;' class='reviewSprite floatRight' ></span>
+				-->
 
-		<h6 data-bind='var: product(zoovy:base_price); format:money; currencySign: $;  hideZero:true; className:price; pretext: Our Price: ;'></h6>
--->
+				</div>
+		
+
+		
 
 	</div>
 </li>
@@ -807,12 +764,14 @@ this will likely become more flexible in the future. ###
 
         	<div class='prodCartSelection'>
                 
-                <form data-bind='var: product(pid); format:atcForm; extension:store_product;' class='prodCartMarginRemove prodViewerAddToCartForm clearfix' action='#' onSubmit="app.ext.myRIA.u.handleAddToCart($(this),{'action':'modal'}); return false;">
+                <form data-bind='var: product(pid); format:atcForm; extension:store_product;' class='prodCartMarginRemove prodViewerAddToCartForm clearfix' action='#' onSubmit="app.ext.myRIA.u.addItemToCart($(this)); return false;">
                     <!-- -->
                     <div data-bind='var: product(pid); format:atcVariations; extension:store_product;' class='borderNone sizeSelector'></div>
                     
-                    
-                    <div data-bind='var: product(pid); format:atcQuantityInput; extension:store_product;' class='prodSelectItemField'><div class='playFont fontSize12PX fontColorYellow prodSelectionQty'><h4>HOW</h4> MANY?</div></div>
+                         data-bind='useParentData:true; format:atcQuantityInput; extension:store_product; pretext:Quantity: ; defaultValue:0;' class='borderNone'></fieldset>
+                    <div data-bind='useParentData:true; format:atcQuantityInput; extension:store_product; defaultValue:0;' class='prodSelectItemField'>
+						<div class='playFont fontSize12PX fontColorYellow prodSelectionQty'><h4>HOW</h4> MANY?</div>
+					</div>
                     <input type='submit' value='Add To Cart' class='prodSelectAddCartButton playFont fontSize18PX smallcaps ui-state-default addToCartButton displayNone' data-bind='var: product(pid); format:addToCartButton; extension:store_product;' id='addToCartBtn' />
                 </form>
                 
@@ -1380,7 +1339,7 @@ subscribeListsArticle is used for authenticated buyers
 
 
 
-		<div id='changepasswordArticle custArticle' class='displayNone textContentArea'>
+		<div id='changepasswordArticle' class='displayNone textContentArea custArticle'>
 			<h1>Change Password</h1>
 			<div id='changepasswordContainer'>
 

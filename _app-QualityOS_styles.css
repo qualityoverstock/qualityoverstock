@@ -511,11 +511,6 @@ PRODUCT LIST TEMPLATE ATC
 
 
 /*************************************************************************************
-PRODCUT LIST TEMPLATE BUYER LIST
-*************************************************************************************/
-
-
-/*************************************************************************************
 PRODCUT LIST TEMPLATE RESULTS
 *************************************************************************************/
 
@@ -774,6 +769,13 @@ PRODUCT TEMPLATE
 	margin-bottom: 0px;
 }
 
+.prodSelectItemField {
+	height: 30px;
+	width: 198px;
+	margin: 0px 0px 8px 0px;
+	float: left;
+}
+
 .prodSelectionQty {
 	width: 50px;
 	text-align: center;
@@ -786,10 +788,12 @@ PRODUCT TEMPLATE
 	line-height:15px;
 }
 
-.prodSelectItemField {
+.prodSelectItemField input{
 	height: 30px;
-	width: 198px;
-	margin: 0px 0px 8px 0px;
+	width: 130px;
+	text-align: center;
+	margin: 6px 0px 0px 10px;
+	border: none;
 	float: left;
 }
 
@@ -1189,22 +1193,9 @@ END CUSTOMER TEMPLATE
 *************************************************************************************/
 
 
-
-/*************************************************************************************
-PRODCUT LIST TEMPLATE BUYER LIST
-*************************************************************************************/
-
-
-.listsArticle {margin: 0px 0px 20px 40px;}
-.listsArticle h1 {margin-bottom:10px;}
-.listsArticle .mpControls .mpFiltersContainer {display:none;}
-.productListTemplateBuyerList .prodThumbContainer {margin-right: 20px;}
-
-
 /*************************************************************************************
 MP CONTROLS CONTAINER
 *************************************************************************************/
-
 
 .mpControls {
 	margin: 10px 0px 5px 0px;
@@ -1355,6 +1346,66 @@ PRODUCT LIST TEMPLATE CART CONTAINER
 
 /*************************************************************************************
 PRODUCT LIST TEMPLATE CART CONTAINER
+*************************************************************************************/
+
+
+/*************************************************************************************
+PRODUCT LIST WISHLIST CONTAINER
+*************************************************************************************/
+
+
+#listsArticle .ui-widget-content {
+	background: none;
+	border: none;
+}
+
+.productListTemplateBuyerList .cartItemContianer {
+	background: #fff;
+	padding: 12px 0;
+}
+
+.productListTemplateBuyerList .prodThumb{margin: 0 5px;}
+.productListTemplateBuyerList .prodDesc {background: #fff;}
+.productListTemplateBuyerList .buttonList {
+	height: auto;
+	width:160px;
+	background: none; 
+	border: none;
+}
+
+.productListTemplateBuyerList button {
+	height: 30px;
+	width: 100%;
+	margin: 10px 0 0 0;
+}
+
+.wishlistTrash {
+	text-decoration: underline;
+	text-align: center;
+	margin: 10px 0 0 0;
+	font-size: 14px; 
+}
+
+.productListTemplateBuyerList .addToCartButton {
+	height: 30px;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+.listsArticle {margin: 0px 0px 20px 40px;}
+.listsArticle h1 {margin-bottom:10px;}
+.listsArticle .mpControls .mpFiltersContainer {display:none;}
+.listsArticle .ui-tabs .ui-tabs-panel {padding:0;}
+.listsArticle .productListTemplateBuyerList {width:160px !important; margin:0 20px 0 0;}
+.productListTemplateBuyerList .prodThumbContainer {margin-right: 20px; background:#fff;}
+.productListTemplateBuyerList .seeMore.ui-state-default {background:#fff; border:2px solid #ccc; padding:0 0 1px 0;}
+.productListTemplateBuyerList .prodSelectionQty {width:156px; font-weight:normal; line-height:30px; background:#fff; border:2px solid #ccc;}
+.productListTemplateBuyerList .prodSelectionQty input {height:30px; width:50px; margin:0; border-left:2px solid #ccc; border-style:none none none solid; float:right; text-align:center; background:#fff;}
+
+
+/*************************************************************************************
+END PRODUCT LIST WISHLIST CONTAINER
 *************************************************************************************/
 
 
