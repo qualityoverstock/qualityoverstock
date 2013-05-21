@@ -313,6 +313,10 @@ FOOTER
 	color: #fec611;
 }
 
+.footerLinksContainer a:hover {
+	color: #fec611;
+}
+
 .footerLink.SecondCol {
 	margin: 49px 0px 0px 30px;
 }
@@ -352,6 +356,8 @@ FOOTER
 .AuthorizeNetSeal a:hover{text-decoration:underline;color:black;}
 .AuthorizeNetSeal a img{border:0px;margin:0px;text-decoration:none;} 
 
+.footerCopyright a {color: #000; text-decoration: underline;}
+.footerCopyright a:hover {color: #FEC611;}
 
 /*************************************************************************************
 END FOOTER AND PERSISTENT CONTENT
@@ -540,7 +546,7 @@ PRODCUT LIST TEMPLATE RESULTS
 
 .resultsMenuContainer .resultsMenu {
 	height: 29px;
-	width: 125px;
+	width: 135px;
 	position:absolute;
 	top: 4px;
 	left: 5px;
@@ -550,8 +556,13 @@ PRODCUT LIST TEMPLATE RESULTS
 	border: none;
 }
 
+.resultsMenuContainer .resultsMenu.ui-widget-content {
+	background: none;
+}
+
 .resultsMenuContainer .resultsMenu li {
 	height: auto;
+	width: auto;
 }
 
 .resultsMenuContainer .resultsMenu li ul li {
@@ -978,7 +989,6 @@ PRODUCT TEMPLATE
 }
 
 .prodCarPagination {
-	background: #e56f23;
 	height: 40px;
 	width: 100%;
 	text-align: center;
@@ -986,7 +996,7 @@ PRODUCT TEMPLATE
 	font-family: "Playfair Display SC"
 }
 
-.prodCarPagination a {margin:0 5px;}
+.prodCarPagination a {color: #000; margin:0 5px;}
 
 .prodCarPagination a.selected {color:#ccc;}
 

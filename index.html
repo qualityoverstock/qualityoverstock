@@ -26,7 +26,7 @@ var _gaq = _gaq || {'push':function(){}} //here for testing. REPLACE BEFORE DEPL
 var myCreole;
 
 var app = {vars:{
-	"release":"201314.20130520131100",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+	"release":"201314.20130521094100",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 	"_clientid":"zmvc",
 	"baseURL":"", //used in non-local mode.
 	"checkoutAuthMode" : "active",//can be passive, active or required
@@ -253,13 +253,13 @@ app.u.loadScript(app.vars.baseURL+"_app-QualityOverstock-init.js");
             <div class='footerHelpAccount floatLeft listStyleNone'>
             	<ul  class='floatLeft'>    
                 	<li class='footerLinkHead fontColorBlack playFont fontSize24PX smallcaps'>My Account</li>
-                    <li><a href="#!customer?show=newsletter" class='bindByAnchor footerLinkStyle' title='Create an account by signing up for our newsletter'>Create An Account</a></li>
+                    <li><a href="#!customer?show=myaccount" class='bindByAnchor footerLinkStyle' title='Create an account by signing up for our newsletter'>Create An Account</a></li>
                     <li><a href="#!customer?show=myaccount" class='bindByAnchor footerLinkStyle' title='Log into your accoun or create one'>Log in or Sign up</a></li>
                     <li><a href="#!customer?show=changepassword" class='bindByAnchor footerLinkStyle' title='Set a different password for you account'>Change Password</a></li>
                     <li><a class='bindByAnchor' href='#!customer?show=myaccount'>Update Account</a></li>
                     <li><a href="#!customer?show=lists" class='bindByAnchor footerLinkStyle' title="See items you've been wanting">Wishlist Items</a></li>
                     <li><a href="#!customer?show=orders" class='bindByAnchor footerLinkStyle' title='Track your order'>Order Tracking</a></li>
-                    <li><a class='bindByAnchor' href='#!customer?show=logout'>Sign Out</a></li>
+                    <li><a onClick='app.ext.myRIA.u.handleLogoutActions(); return false;' href='#'>Sign Out</a></li>
                 </ul>
             </div>             
         </div>
@@ -289,7 +289,7 @@ app.u.loadScript(app.vars.baseURL+"_app-QualityOverstock-init.js");
         </div>
         
         <div class='footerCopyright'>
-        	Copyright 2013. Please read our Privacy and Return Policies. E-Commerce Solution provided by Zoovy.
+        	Copyright 2013. Please read our Privacy and Return Policies. E-Commerce Solution provided by <a href='https://www.zoovy.com/' alt='Zoovy.com'>Zoovy</a>.
         </div>
         
     </div> <!-- end lowerFooterContainer-->
@@ -1074,13 +1074,13 @@ if you change these, you should move them above this comment so that when you (o
             </ul>
         <ul class='listStyleNone noPadOrMargin'>
             	<li class='playSCFont fontSize18PX smallcaps'>My Account</li>
-                <li><a href="#!customer?show=myaccount" class='bindByAnchor' title='Log into your accoun or create one'>&#187 Log-in or Sign-up</a></li>
-                <li>&#187 Account Recovery</li>
-                <li>&#187 Update Preferences</li>
+                <li><a href="#!customer?show=myaccount" class='bindByAnchor' title='Log into your account or create one'>&#187 Log-in or Sign-up</a></li>
+                <li><a href="#!customer?show=changepassword" class='bindByAnchor' title="Change your password">&#187 Account Recovery</a></li>
+                <li><a href="#!customer?show=myaccount" class='bindByAnchor' title='Log into your account to update preferences'&#187 Update Preferences</a></li>
                 <li><a href="#!customer?show=orders" class='bindByAnchor' title='Track your order'>&#187 Order Tracking</a></li>
                 <li><a href="#!company?show=return" class='bindByAnchor' title='Find info. about returning an item'>&#187 Return a Product</a></li>
                 <li><a href="#!customer?show=newsletter" class='bindByAnchor' title='Sign up for our newsletter'>&#187 Join Our Newsletter</a></li>
-                <li>&#187 Sign Out</li>
+                <li><a onClick='app.ext.myRIA.u.handleLogoutActions(); return false;' href='#'>&#187 Sign Out</a></li>
           </ul>
         </nav>
 	</div>
