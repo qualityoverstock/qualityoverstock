@@ -384,8 +384,6 @@ HOMEPAGE TEMPLATE
 	height: 50px; 
 	width: 220px; 
 	margin: 20px 10px 0px 10px;
-	padding-top: 250px;
-	background-image:url(images/SpecialDealsBkgnd-300x220.jpg);
 }
 
 .homepageProdList li {

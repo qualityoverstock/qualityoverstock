@@ -3,6 +3,17 @@
 <head>
 <meta charset="utf-8">
 
+<!-- TABLE OF CONTENTS 
+You may copy the items below (w/out the number) and search for their corresponding elements by pressing "ctrl + f". 
+
+	1. QOSMainBanner : The graphic for the large banner on the homepage
+	2. QOSMinorBanner : The graphic for the smaller banner on the homepage
+	3. QOSFooterLinksColumn1 : The LEFT column of categories in the hompage footer
+	4. QOSFooterLinksColumn2 : The RIGHT column of categories in the hompage footer
+	5. QOSDropdownLinks : The links in the "Shop Our Store" dropdown menu on the homepage
+	
+-->
+
 <!-- do not populate or add meta data or title, the SEO layer will add it -->
 
 <!-- used for optional social media extensions -->
@@ -151,6 +162,7 @@ app.u.loadScript(app.vars.baseURL+"_app-QualityOverstock-init.js");
                 <div class='shopArrowContainer'><img src="images/SmallYellowRoundDownArrow.png">
                 	<div class='dropdown blackBackground'>
                         <ul class='playFont fontColorWhite fontSize14PX listStyleNone floatLeft'>
+					<!-- QOSDropdownLinks -->
                             <li>Limited Offer</li>
                             <li>Special Deals</li>
                             <li><a class='bindByAnchor' href='#!category?navcat=.01-swarovski' onClick="hideDropdown($(this).parent().parent().parent().parent())">Swarovski</a></li>
@@ -218,6 +230,7 @@ app.u.loadScript(app.vars.baseURL+"_app-QualityOverstock-init.js");
         	
             <div class='footerCategories floatLeft'>
             	<ul class='floatLeft listStyleNone'>
+			<!-- QOSFooterLinksColumn1 -->
                 	<li class='footerLinkHead fontColorBlack playFont fontSize24PX smallcaps'>Categories</li>
                 	<li>Limited Offer</li>
                     <li>Special Deals</li>
@@ -228,10 +241,10 @@ app.u.loadScript(app.vars.baseURL+"_app-QualityOverstock-init.js");
                     <li><a class='bindByAnchor' href='#!category?navcat=.lladro'>Lladro</a></li>
                 </ul>
                 <ul class='floatLeft footerCategoriesRight listStyleNone'>
+			<!-- QOSFooterLinksColumn2 -->
                 	<li class='footerLink SecondCol'><a class='bindByAnchor' href='#!category?navcat=.vera_bradley'>Vera Bradley</a></li>
                     <li><a class='bindByAnchor' href='#!category?navcat=.sale_items'>Sale Items</a></li>
                     <li><a class='bindByAnchor' href='#!category?navcat=.new_arrivals'>New Arrivals</a></li>
-                    <li><a class='bindByAnchor' href='#!category?navcat=.coming_soon'>Coming Soon</a></li>
                     <li><a class='bindByAnchor' href='#!category?navcat=.coming_soon'>Coming Soon</a></li>
                     <li><a class='bindByAnchor' href='#!category?navcat=.retiring_2013'>Retiring 2013</a></li>
                     <li><a class='bindByAnchor' href='#!category?navcat=.clearance'>Clearance</a></li>
@@ -251,7 +264,7 @@ app.u.loadScript(app.vars.baseURL+"_app-QualityOverstock-init.js");
                 </ul>
             </div>
             <div class='footerHelpAccount floatLeft listStyleNone'>
-            	<ul  class='floatLeft'>    
+            	<ul  class='floatLeft'>
                 	<li class='footerLinkHead fontColorBlack playFont fontSize24PX smallcaps'>My Account</li>
                     <li><a href="#!customer?show=myaccount" class='bindByAnchor footerLinkStyle' title='Create an account by signing up for our newsletter'>Create An Account</a></li>
                     <li><a href="#!customer?show=myaccount" class='bindByAnchor footerLinkStyle' title='Log into your accoun or create one'>Log in or Sign up</a></li>
@@ -347,17 +360,24 @@ the homepageTemplate template is loaded into mainContentArea by default when the
 
 	<a class='bindByAnchor' href='#!category?navcat=.valentines-day'>
         <div class='homepageBanner clearfix'>
-            <img src="images/HomepageBannerGraphic.jpg">
-            <div class='descriptionBar blackBackground playFont fontColorWhite fontSize24PX centerText'>
+            <img src="images/homepage-banner-graphic-700x250.jpg"> <!-- QOSMainBanner -->
+			<!-- THE THREE LINES OF CODE HOLD THE TEXT AND BLACK BAR UNDER THE GRAPHIC, DELETE THE END COMMENT TAG ON THE 
+			FIRST LINE, AND THE BEGINNING COMMENT TAG ON THE LINE AFTER TO HIDE THE CONTAINER. ADD THEM BACK TO SHOW IT AGAIN-->
+<!-- -->    <div class='descriptionBar blackBackground playFont fontColorWhite fontSize24PX centerText'>
                 See Our Valentine's Day Specials
-            </div>
+            </div> 
+<!-- -->			
         </div>
 	</a>
     <a class='bindByAnchor' href='#!category?navcat=.valentines-day'>
         <div class='specialDealsContainer floatLeft'>
-            <div class='catName catListTempLineAdjust descriptionBar blackBackground centerText playFont fontColorWhite fontSize18PX'>
+			<img src='images/special-deals-bkgnd-250x220.jpg' /> <!-- QOSMinorBanner -->
+			<!-- THE THREE LINES OF CODE HOLD THE TEXT AND BLACK BAR UNDER THE GRAPHIC, DELETE THE END COMMENT TAG ON THE 
+			FIRST LINE, AND THE BEGINNING COMMENT TAG ON THE LINE AFTER TO HIDE THE CONTAINER. ADD THEM BACK TO SHOW IT AGAIN-->
+<!-- -->    <div class='catName catListTempLineAdjust descriptionBar blackBackground centerText playFont fontColorWhite fontSize18PX'>
                 Special Deals
             </div> 
+<!-- -->
         </div>
   	</a>
     
