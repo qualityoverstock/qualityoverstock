@@ -1444,12 +1444,76 @@ BREADCRUMB
 .clearfix.noPadOrMargin.fluidList.breadcrumb {
 	width: 940px;
 	margin: 4px auto 12px auto;
-}*/
+}
 
 
 /*************************************************************************************
 END BREADCRUMB
 *************************************************************************************/
 
+
+/*************************************************************************************
+CART TEMPLATE
+*************************************************************************************/
+
+.cartSummaryTotalsContainer {
+	color: #ffffff;
+	width: 1%;
+}
+
+
+
+.prodSelectionContainer .cartSummary .orderSubtotal{
+	font-family: "Playfair Display SC"; 
+	font-size: 36px; 
+	text-align: center;
+}
+
+.prodSelectionContainer .cartSummary .orderShipping {
+	font-family: "Playfair Display SC"; 
+	font-size: 24px; 
+	text-align: center;
+}
+
+.prodPriceSelection .orderShipping .orderShipMethod {display: none;}
+
+.prodSelectionContainer .cartSummary .orderBalanceDue {
+	font-family: "Playfair Display SC"; 
+	font-size: 48px; 
+	text-align: center;
+}
+
+.cartTemplateShippingContainer h3 {
+	font-family: "Playfair Display"; 
+	margin: 0 0 0 10px;
+}
+
+.cartZipCodeContainer {
+	font-family: "Playfair Display";
+	margin: 12px 0 0 5px; 
+	border:none; 
+	padding:0;
+}
+
+.cartContainer .cartSummaryTotalsContainer .prodSelectionContainer .cartBigButton.ui-state-default.ui-button {
+	height: 50px;
+	width: 180px;
+	line-height: 10px;
+	margin: 10px 0 0 7px;
+	padding: 0px;
+	background: #fec611;
+	border: none;
+	color: #000;
+	font-weight: normal;
+	font-family: "Playfair Display SC"
+}
+
+.cartAltButtonsContainer, .cartSummaryContainer {
+	border: none;
+	margin: 0;
+	padding: 0;
+}
+
+#paypalECButton {margin: 0 0 0 13px;}
 
 
