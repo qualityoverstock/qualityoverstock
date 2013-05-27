@@ -1550,10 +1550,24 @@ CHECKOUT FORM
 	margin: 0 0 0 11px;
 }
 
+.checkoutFormContainer .headerPadding label.ui-state-active {
+	background: none;
+	border: none; 
+}
+
+.checkoutFormContainer .headerPadding .creditCard {margin: 0 0 5px 5px;}
+.checkoutFormContainer .headerPadding .creditCardCVV {margin: 5px 0 0 5px;}
+
 .checkoutFormContainer .panelContent .chkoutOrderNotes.fullWidth {
 	font-family: montserrat;
 }	
 
+.checkoutFormContainer .panelContent thead tr th {padding: 0 0 5px 0;}
+
+.checkoutFormContainer .panelContent tbody tr td {
+	padding: 10px 0;
+	border-top: 1px solid #000000;
+}
 
 
 
