@@ -1516,4 +1516,44 @@ CART TEMPLATE
 
 #paypalECButton {margin: 0 0 0 13px;}
 
+/*************************************************************************************
+END CART TEMPLATE
+*************************************************************************************/
+
+
+/*************************************************************************************
+CHECKOUT FORM
+*************************************************************************************/
+
+.checkoutFormContainer {
+	margin: 20px 40px;
+}
+
+.checkoutFormContainer fieldset legend.ui-widget-header {
+	background: none;
+	border: none;
+	font-variant: small-caps;
+	font-family: "Playfair Display SC";
+	font-weight: normal;
+	font-size: 24px;
+}
+
+.checkoutFormContainer input {font-family: montserrat;}
+.checkoutFormContainer input[type="password"] {margin: 11px 0 0 0;}
+
+.checkoutFormContainer .panelContent {
+	font-family: montserrat;
+	font-size: 13px; 
+}
+
+.checkoutFormContainer .panelContent button.ui-state-default {
+	margin: 0 0 0 11px;
+}
+
+.checkoutFormContainer .panelContent .chkoutOrderNotes.fullWidth {
+	font-family: montserrat;
+}	
+
+
+
 
