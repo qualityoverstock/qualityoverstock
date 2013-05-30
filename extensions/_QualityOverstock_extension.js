@@ -358,15 +358,13 @@ var _QualityOverstock = function() {
 //that way, two render formats named the same (but in different extensions) don't overwrite each other.
 		renderFormats : {
 				
-				youSaved : function($tag, data) {
-					app.u.dump(data.value);
-				/*
-					var ourPrice = data.value['%attribs']['zoovy:base_price'];
-					var discPrice = data.value['%attribs']['zoovy:prod_vendor_price'];
-					var retailPrice = data.value['%attribs']['zoovy:zoovy:prod_msrp'];
-					
-					app.u.dump('*** ' + ourPrice + '*** ' + discPrice + '*** ' + retailPrice);
-				*/
+				priceLabelSwitcher : function($tag, data) {
+					//app.u.dump(data.value);
+					var discounted = data.value['%attribs']['user:prod_vendor_price'];
+					//app.u.dump("*** "+discounted);
+					if(discounted > 0) {
+						$tag.children('.vendorPrice').empty().append('DISCOUNTED PRICE');
+					}
 				}
 				
 			}, //renderFormats

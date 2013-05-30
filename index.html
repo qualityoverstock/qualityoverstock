@@ -37,7 +37,7 @@ var _gaq = _gaq || {'push':function(){}} //here for testing. REPLACE BEFORE DEPL
 var myCreole;
 
 var app = {vars:{
-	"release":"201314.20130521094100",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+	"release":"201314.20130529215300",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 	"_clientid":"zmvc",
 	"baseURL":"", //used in non-local mode.
 	"checkoutAuthMode" : "active",//can be passive, active or required
@@ -767,12 +767,12 @@ this will likely become more flexible in the future. ###
         
             <!-- <div class='latency' data-bind='var: product(zoovy:ship_latency); format:text;pretext:PRODUCT SHIPS WITHIN ;posttext: DAYS;'></div> -->
                         
-            <div class='prodPriceSelection playFont fontColorWhite fontSize24PX'>
+            <div class='prodPriceSelection playFont fontColorWhite fontSize24PX' data-bind='useParentData:true; format:priceLabelSwitcher; extension:_QualityOverstock;'>
             	<h4 class='basePrice' data-bind='var: product(zoovy:base_price); format:money;  hideZero:true;'></h4>
-                <div class='prodCostDesc montFont fontColorYellow fontSize12PX centerText'>OUR PRICE</div>
+                <div class='prodCostDesc montFont fontColorYellow fontSize12PX centerText vendorPrice'>OUR PRICE</div>
                 <div class='displayNone' data-bind='var: product(user:prod_vendor_price); format:showIfSet;'>
 					<h5 class='prodMSRP bangersFont' data-bind='var: product(user:prod_vendor_price); format:money; hideZero:true;'></h5>
-					<div class='prodCostDesc montFont fontColorYellow fontSize12PX centerText'>DISCOUNTED PRICE</div>
+					<div class='prodCostDesc montFont fontColorYellow fontSize12PX centerText'>OUR PRICE</div>
                 </div>
 				<div class='displayNone' data-bind='var:product(zoovy:prod_msrp); format:showIfSet;'>
 					<h5 class='prodMSRP bangersFont' data-bind='var: product(zoovy:prod_msrp); format:money; hideZero:true;'></h5>

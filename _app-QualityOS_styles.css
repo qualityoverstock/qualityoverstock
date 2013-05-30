@@ -716,6 +716,8 @@ PRODUCT TEMPLATE
 	float: left;
 }
 
+.prodPriceSelection .savingsDifference {text-decoration: none;} 
+
 .prodCostDesc {}
 
 .prodSizeSelection {
