@@ -361,12 +361,13 @@ var _QualityOverstock = function() {
 				priceLabelSwitcher : function($tag, data) {
 					//app.u.dump(data.value);
 					var discounted = data.value['%attribs']['user:prod_vendor_price'];
+					var shh 	   = data.value['%attribs']['amz:fba'];
 					//app.u.dump("*** "+discounted);
 					if(discounted > 0) {
 						$tag.children('.vendorPrice').empty().append('DISCOUNTED PRICE');
 					}
 				}
-				
+
 			}, //renderFormats
 ////////////////////////////////////   UTIL [u]   \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 

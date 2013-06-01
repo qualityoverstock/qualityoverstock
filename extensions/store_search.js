@@ -478,14 +478,19 @@ P.parentID - The parent ID is used as the pointer in the multipage controls obje
 					query.type = 'product';
 					query.mode = 'elastic-native';
 					query.size = 250;
-					query.query =  {"query_string" : obj};
-					}
+					query.query =  {
+						"filtered": {
+							"query" : {"query_string" : obj},
+							"filter" : {"not" : {"term" : {"amz:fba":"1"}}}
+						}
+					};
+				}
 				else	{
 					$('#globalMessaging').anymessage({'message':'In store_search.u.buildElasticSimpleQuery, obj.query was empty. ',gMessage:true});
 					query = false;
-					}
+				}
 				return query;
-				},
+			},
 
 //not used by quickstart anymore. Still in use by analyzer and admin product editor.
 			handleElasticSimpleQuery : function(keywords,_tag)	{
