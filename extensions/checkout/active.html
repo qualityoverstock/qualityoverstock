@@ -540,37 +540,37 @@ If this gets recycled, test in order history after making changes.
 <table>
 	<tr id='chkoutInvoiceItemTemplate' class='padMargBorderBottom'>
 	
-	<td>
+<!--	<td>
 	<div class='prodThumbContainer marginRight'>
-	<img src='blank.gif' class='prodThumb' data-bind='var: product(zoovy:prod_image1); format:imageURL;' width='55' height='55' />
+	<img src='blank.gif' class='prodThumb' data-bind='var: product(zoovy:prod_image1); format:imageURL;' width='150' height='150' />
 	</div>
 	</td>
-	
+-->	
 	<td class='valignTop ztable_row'>
-	
-<div class='infoContainer'>
-
-	<h3 data-bind='var: product(prod_name); format:text; '></h3>
-	<div class='ztable_row_small stid' data-bind='var: product(sku); format:text; className: stid; pretext: Sku: ;'></div>
-
-	<div>
-	<span data-bind='var: product(qty); format:text; pretext:qty: ;'></span>
-	<span data-bind='var: product(price); format:money; currencySign: $;  hideZero:false; pretext: x ;' ></span>
-	<span data-bind='var: product(extended); format:money; currencySign: $; hideZero:false; pretext: = ;'></span>
-	</div>
-
-	<div class='ztable_row_small prodOptions' data-bind='var: product(%options); format:selectedOptionsDisplay;'></div>
-
-
-
-	
-</div>
+		<div class='orderHistProdContainer'>
+			<div class='prodThumbContainer marginRight'>
+			<img src='blank.gif' class='prodThumb' data-bind='var: product(zoovy:prod_image1); format:imageURL;' width='150' height='150' />
+			</div>
+			<div class='infoContainer'>
+				<h3 data-bind='var: product(prod_name); format:text; '></h3>
+				<!--<div class='ztable_row_small stid' data-bind='var: product(sku); format:text; className: stid; pretext: Sku: ;'></div>-->
+				<div class='prodPrice'>
+					<!--<span data-bind='var: product(qty); format:text; pretext:qty: ;'></span>-->
+					<span data-bind='var: product(price); format:money; currencySign: $;  hideZero:false;' ></span>
+					<!--<span data-bind='var: product(extended); format:money; currencySign: $; hideZero:false; pretext: = ;'></span>-->
+				</div>
+				<div class='ztable_row_small prodOptions' data-bind='var: product(%options); format:selectedOptionsDisplay;'></div>
+			</div>
+			<div class='alignRight hide4Print'>
+				<button class='writeReview' data-app-event="store_crm|showWriteReview" data-bind='var:product(product);format:assignAttribute; attribute:data-pid;'>Write Review</button>	
+			</div>
+		</div>
 	</td>
 	
-	<td class='alignRight hide4Print'>
+<!--<td class='alignRight hide4Print'>
 	<button class='writeReview' data-app-event="store_crm|showWriteReview" data-bind='var:product(product);format:assignAttribute; attribute:data-pid;'>Write Review</button>	
 	</td>
-
+-->
 
 	</tr>
 </table>

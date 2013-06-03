@@ -1197,7 +1197,7 @@ CUSTOMER TEMPLATE
 
 #buyerAddresses h2 {clear:none;}
 
-.customerSideline.sideline li:first-child {margin:0 0 0 15px;}
+.customerSideline.sideline {margin:25px 10px 0 0;}
 
 .ordersArticle .orderHeader {
 	background: #000000;
@@ -1222,10 +1222,58 @@ CUSTOMER TEMPLATE
 	padding: 15px 0 0 0
 }
 
-.orderContents {}
+.orderContents.ui-widget-content{
+	background: none;
+	border: none;
+}
+
+#ordersArticle .ui-accordion-content {padding: .4em 0;}
 
 .orderContents .historyOrderTotal {}
 
+.orderHistProdContainer {
+	height:auto;
+	width:160px;
+	margin: 5px 10px 5px 0;
+	background: #ffffff;
+}
+
+.orderHistProdContainer .prodThumb {
+	margin: 5px;
+}
+
+.infoContainer h3 {
+	font-family: Montserrat;
+	font-size: 11px;
+	text-align: center;
+	font-weight: normal;
+	margin: 0 10px;
+}
+
+.infoContainer span {
+	font-family: "Playfair Display SC";
+	font-size: 18px;
+	font-weight: normal;
+	color: #ffffff;
+}
+
+.infoContainer .prodPrice {
+	margin: 5px 0 0 0;
+	text-align: center;
+}
+
+.writeReview.ui-state-default{
+	height: auto;
+	width: 100%;
+}
+
+.orderContentsTable hgroup {font-size: 14px;}
+
+.orderContentsTable address {
+	padding: 0 10px 0 10px;
+	border-left: 1px solid #000000;
+	font-size: 14px;
+}
 
 
 /*************************************************************************************

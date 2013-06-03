@@ -1096,7 +1096,7 @@ if you change these, you should move them above this comment so that when you (o
             	<li class='playSCFont fontSize18PX smallcaps'>My Account</li>
                 <li><a href="#!customer?show=myaccount" class='bindByAnchor' title='Log into your account or create one'>&#187 Log-in or Sign-up</a></li>
                 <li><a href="#!customer?show=changepassword" class='bindByAnchor' title="Change your password">&#187 Account Recovery</a></li>
-                <li><a href="#!customer?show=myaccount" class='bindByAnchor' title='Log into your account to update preferences'&#187 Update Preferences</a></li>
+                <li><a href="#!customer?show=myaccount" class='bindByAnchor' title='Log into your account to update preferences'>&#187 Update Preferences</a></li>
                 <li><a href="#!customer?show=orders" class='bindByAnchor' title='Track your order'>&#187 Order Tracking</a></li>
                 <li><a href="#!company?show=return" class='bindByAnchor' title='Find info. about returning an item'>&#187 Return a Product</a></li>
                 <li><a href="#!customer?show=newsletter" class='bindByAnchor' title='Sign up for our newsletter'>&#187 Join Our Newsletter</a></li>
@@ -1282,17 +1282,30 @@ if you change these, you should move them above this comment so that when you (o
 <!-- loadingBG needed on this for app init (content may take a moment to load) -->
 <div id='customerTemplate' class='clearfix loadingBG'>
 
-	<div class='sideline customerSideline' >
+	<div class='sideline customerSideline montFont fontColorBlack fontSize12PX' >
 		<nav id='customerNav'>
 			<ul class='listStyleNone noPadOrMargin'>
+            <li class='playSCFont fontSize18PX smallcaps'>Customer Service</li>
+                <li><a href="#!company?show=about" class='bindByAnchor' title='About Us'>&#187 About Us</a></li>
+                <li><a href="#!company?show=contact" class='bindByAnchor' title='Contact Us'>&#187 Contact Us</a></li>
+                <li><a href="#!company?show=faq" class='bindByAnchor' title='Find answers to common inquiries'>&#187 FAQs</a></li>
+                <li><a href="#!company?show=payment" class='bindByAnchor' title='Find info. about purchasing items'>&#187 Payment Policy</a></li>
+                <li><a href="#!company?show=privacy" class='bindByAnchor' title='Find info. on how this site uses your information'>&#187 Privacy Policy</a></li>
+                <li><a href="#!company?show=return" class='bindByAnchor' title='Find info. about returning an item'>&#187 Return Policy</a></li>
+                <li><a href="#!company?show=shipping" class='bindByAnchor' title='Find info. about how we ship your purchases'>&#187 Shipping Policy</a></li>
+            </ul>
+			<ul class='listStyleNone noPadOrMargin'>
+				<li class='playSCFont fontSize18PX smallcaps'>Account</li>
 		<!-- before restoring this, test cuz news form on left was causing some conflicts -->
 		<!--		<li><a href='#customer?show=subscriberLists'>Newsletter Subscription</a></li>
 				<li><a href='#recoverpassword' id='navLink_recoverpassword'>Recover Password</a></li> -->
-				<li><a href='#customer?show=myaccount' id='navLink_myaccount'>My Account</a></li>
-				<li><a href='#customer?show=changepassword' id='navLink_changepassword'>Change Password</a></li>
-				<li><a href='#customer?show=orders' id='navLink_orders'>Order History</a></li>
-				<li><a href='#customer?show=lists' id='navLink_orders'>Manage Lists</a></li>
-				<li class='hideIfLoggedOut'><a href="#" onClick="app.ext.myRIA.u.handleLogoutActions(); return false;">Log Out</a></li>
+				<li><a href='#customer?show=myaccount' id='navLink_myaccount'>&#187 My Account</a></li>
+				<li><a href='#customer?show=changepassword' id='navLink_changepassword'>&#187 Change Password</a></li>
+				<li><a href='#customer?show=orders' id='navLink_orders'>&#187 Order History</a></li>
+				<li><a href='#customer?show=lists' id='navLink_orders'>&#187 Manage Lists</a></li>
+				<li><a href="#!company?show=return" class='bindByAnchor' title='Find info. about returning an item'>&#187 Return a Product</a></li>
+                <li><a href="#!customer?show=newsletter" class='bindByAnchor' title='Sign up for our newsletter'>&#187 Join Our Newsletter</a></li>
+				<li class='hideIfLoggedOut'><a href="#" onClick="app.ext.myRIA.u.handleLogoutActions(); return false;">&#187 Sign Out</a></li>
 			</ul>
 		</nav>
 	</div>
@@ -1870,17 +1883,14 @@ The 'data-action' attribute is used to assign an onclick.
 	</tr>
 	<tr>
 		<td>
-			<hgroup class='marginBottom floatLeft'>
+			<hgroup class='marginBottom marginRight floatLeft marginTop'>
 				<!-- print icon -->
-
-
 				<!-- <h2 data-bind='var:order(bill/firstname);format:text; pretext:Shipping Status: ;'></h2> -->
-
 				<h5 class='orderTotal historyOrderTotal' data-bind='var:order(order/sum/order_total);format:money; currencySign: $;  hideZero:false; pretext:Order Total: ;'></h5>
 				<h5 class='balanceDue' data-bind='var:order(order/sum/balance_due_total);format:money; currencySign: $;  hideZero:false; pretext:Balance Due: ;'></h5>
 			</hgroup>
 
-			<address class='marginBottom floatLeft'>
+			<address class='marginBottom marginTop floatLeft'>
 				<b>
 					<span data-bind='var:order(order/bill/firstname);format:text; pretext:Bill To: ;'></span>
 					<span data-bind='var:order(order/bill/lastname);format:text;'></span>
@@ -1895,7 +1905,7 @@ The 'data-action' attribute is used to assign an onclick.
 				<div data-bind='var:order(order/bill/countrycode);format:text;'></div>
 			</address>
 
-			<address class='marginBottom floatLeft'>
+			<address class='marginBottom marginTop floatLeft'>
 				<b>
 					<span data-bind='var:order(order/ship/firstname);format:text; pretext:Ship To: ;'></span>
 					<span data-bind='var:order(order/ship/lastname);format:text;'></span>
