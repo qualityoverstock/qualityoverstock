@@ -262,6 +262,7 @@ FOOTER
 .upperFooterContainer {
 	height: 385px;
 	width: 100%;
+	margin: 20px 0 0 0;
 }
 
 .stayUpdatedContainer {
@@ -1197,6 +1198,35 @@ CUSTOMER TEMPLATE
 #buyerAddresses h2 {clear:none;}
 
 .customerSideline.sideline li:first-child {margin:0 0 0 15px;}
+
+.ordersArticle .orderHeader {
+	background: #000000;
+	border: 1px solid #000000;
+	color: #ffffff;
+}
+
+.ordersArticle .orderDate {
+	line-height: 20px;
+}
+
+.ordersArticle .orderID {
+	margin: 0 10px 0 0;
+	line-height: 23px;
+}
+
+.arrowWrapper {
+	height: 29px; 
+	width: 40px;
+	background-color: #fec611;
+	margin: -10px -10px 0 0;	
+	padding: 15px 0 0 0
+}
+
+.orderContents {}
+
+.orderContents .historyOrderTotal {}
+
+
 
 /*************************************************************************************
 END CUSTOMER TEMPLATE

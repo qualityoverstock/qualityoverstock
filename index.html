@@ -1347,7 +1347,7 @@ subscribeListsArticle is used for authenticated buyers
 		</div>
 
 
-		<div id='ordersArticle' class='displayNone textContentArea ordersArticle'>
+		<div id='ordersArticle' class='displayNone textContentArea ordersArticle custArticle'>
 			<h1>Order History</h1>
 			<div data-bind="var: orders(@orders); format:processList; loadsTemplate:orderLineItemTemplate;" data-app-role='orderList' class='ui-accordion ui-widget ui-helper-reset ui-accordion-icons '></div>
 		</div>
@@ -1759,13 +1759,16 @@ used for store_crm.js
 
 <section id='orderLineItemTemplate' class='appAccordianesque' data-bind='var:order(ORDERID);format:assignAttribute; attribute:data-orderid;'>
 
-	<div data-app-role='orderHeader' onClick="app.ext.myRIA.u.showOrderDetails($(this).parent());" class='ui-accordion-header ui-helper-reset ui-state-default ui-corner-top ui-corner-bottom' >
-	<span class="ui-icon ui-icon-triangle-1-e floatLeft marginRight"></span>
-	<span data-bind='var:order(ORDERID);format:text;pretext:Order ID: ;'></span>
-	<span data-bind='var:order(MODIFIED_GMT);format:unix2mdy; pretext: Placed on ;'></span>
+	<div data-app-role='orderHeader' onClick="app.ext.myRIA.u.showOrderDetails($(this).parent());" class='orderHeader ui-accordion-header ui-helper-reset ui-state-default ui-corner-top ui-corner-bottom' >
+	<div class='arrowWrapper floatRight'>
+		<span class="ui-icon ui-icon-triangle-1-e floatRight marginRight">VIEW DETAILS</span>
+	</div>
+	<span class='orderDate montFont fontSize12PX smallcaps' data-bind='var:order(MODIFIED_GMT);format:unix2mdy;'></span>
+	<span data-bind='var:order(order/sum/order_total);format:money; currencySign: $;  hideZero:false; pretext:Total: ;'></span>
+	<span class='floatRight orderID montFontBold fontSize14PX' data-bind='var:order(ORDERID);format:text;pretext:Order ID: ;'></span>
 	</div>
 
-	<div data-app-role='orderContents' class='ui-accordion-content ui-helper-reset displayNone ui-widget-content '></div>
+	<div data-app-role='orderContents' class='orderContents ui-accordion-content ui-helper-reset displayNone ui-widget-content '></div>
 
 </section>
 
@@ -1847,68 +1850,68 @@ The 'data-action' attribute is used to assign an onclick.
 
 
 <table class='orderContentsTable' data-app-role='invoiceContainer' id='invoiceTemplate'>
-<tr>
-	<td colspan='2'>
-<div class='floatRight'>
-<button data-app-event="myRIA|execOrder2Cart">Re-order</button>
-<button data-app-event="orderCreate|execInvoicePrint">Print Invoice</button>
-</div>
+	<tr>
+		<td colspan='2'>
+			<div class='floatRight'>
+				<button data-app-event="myRIA|execOrder2Cart">Re-order</button>
+				<button data-app-event="orderCreate|execInvoicePrint">Print Invoice</button>
+			</div>
 
-<h3 data-bind='var:order(order/flow/pool);format:text; pretext:Order Status: ;'></h3>
-
-	</td>
-</tr>
-<tr>
-	<td>
-<hgroup class='marginBottom'>
-<!-- print icon -->
-
-
-<!-- <h2 data-bind='var:order(bill/firstname);format:text; pretext:Shipping Status: ;'></h2> -->
-
-<h5 class='orderTotal' data-bind='var:order(order/sum/order_total);format:money; currencySign: $;  hideZero:false; pretext:Order Total: ;'></h5>
-<h5 class='balanceDue' data-bind='var:order(order/sum/balance_due_total);format:money; currencySign: $;  hideZero:false; pretext:Balance Due: ;'></h5>
-</hgroup>
-
-<address class='marginBottom'>
-<b>
-	<span data-bind='var:order(order/bill/firstname);format:text; pretext:Bill To: ;'></span>
-	<span data-bind='var:order(order/bill/lastname);format:text;'></span>
-</b>
-<div data-bind='var:order(order/bill/address1);format:text;'></div>
-<div data-bind='var:order(order/bill/address2);format:text;'></div>
-<div>
-	<span data-bind='var:order(order/bill/city);format:text;posttext:, ;'></span>
-	<span data-bind='var:order(order/bill/region);format:text;posttext:. ;'></span>
-	<span data-bind='var:order(order/bill/postal);format:text; defaultVar:order(order/data.bill_int_zip);'></span>
-</div>
-<div data-bind='var:order(order/bill/countrycode);format:text;'></div>
-</address>
-
-<address class='marginBottom'>
-<b>
-	<span data-bind='var:order(order/ship/firstname);format:text; pretext:Ship To: ;'></span>
-	<span data-bind='var:order(order/ship/lastname);format:text;'></span>
-</b>
-<div data-bind='var:order(order/ship/address1);format:text;'></div>
-<div data-bind='var:order(order/ship/address2);format:text;'></div>
-<div>
-	<span data-bind='var:order(order/ship/city);format:text;posttext:, ;'></span>
-	<span data-bind='var:order(order/ship/region);format:text;posttext:. ;'></span>
-	<span data-bind='var:order(order/ship/postal);format:text;'></span>
-</div>
-<div data-bind='var:order(order/ship/countrycode);format:text;'></div>
-</address>
+			<h3 data-bind='var:order(order/flow/pool);format:text; pretext:Order Status: ;'></h3>
+		</td>
+	</tr>
+	<tr>
+		<td class='orderContentsProdlistContainer'>
+			<ul data-bind='var:order(order/tracking); format:orderTrackingLinks; extension:store_crm;before:<h4>Shipping:</h4>;' class='displayNone noListStyle marginBottom'></ul>
+			<table  class='listStyleNone lineItemProdlist'>
+				<tbody data-bind="var: order(order/@ITEMS); format:stuffList; loadsTemplate:chkoutInvoiceItemTemplate;"></tbody>
+			</table>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<hgroup class='marginBottom floatLeft'>
+				<!-- print icon -->
 
 
-	</td>
-	<td class='orderContentsProdlistContainer'>
-	<ul data-bind='var:order(order/tracking); format:orderTrackingLinks; extension:store_crm;before:<h4>Shipping:</h4>;' class='displayNone noListStyle marginBottom'></ul>
-	<table  class='listStyleNone lineItemProdlist'>
-		<tbody data-bind="var: order(order/@ITEMS); format:stuffList; loadsTemplate:chkoutInvoiceItemTemplate;"></tbody>
-	</table>
-	</td>
-</tr>
+				<!-- <h2 data-bind='var:order(bill/firstname);format:text; pretext:Shipping Status: ;'></h2> -->
+
+				<h5 class='orderTotal historyOrderTotal' data-bind='var:order(order/sum/order_total);format:money; currencySign: $;  hideZero:false; pretext:Order Total: ;'></h5>
+				<h5 class='balanceDue' data-bind='var:order(order/sum/balance_due_total);format:money; currencySign: $;  hideZero:false; pretext:Balance Due: ;'></h5>
+			</hgroup>
+
+			<address class='marginBottom floatLeft'>
+				<b>
+					<span data-bind='var:order(order/bill/firstname);format:text; pretext:Bill To: ;'></span>
+					<span data-bind='var:order(order/bill/lastname);format:text;'></span>
+				</b>
+				<div data-bind='var:order(order/bill/address1);format:text;'></div>
+				<div data-bind='var:order(order/bill/address2);format:text;'></div>
+				<div>
+					<span data-bind='var:order(order/bill/city);format:text;posttext:, ;'></span>
+					<span data-bind='var:order(order/bill/region);format:text;posttext:. ;'></span>
+					<span data-bind='var:order(order/bill/postal);format:text; defaultVar:order(order/data.bill_int_zip);'></span>
+				</div>
+				<div data-bind='var:order(order/bill/countrycode);format:text;'></div>
+			</address>
+
+			<address class='marginBottom floatLeft'>
+				<b>
+					<span data-bind='var:order(order/ship/firstname);format:text; pretext:Ship To: ;'></span>
+					<span data-bind='var:order(order/ship/lastname);format:text;'></span>
+				</b>
+				<div data-bind='var:order(order/ship/address1);format:text;'></div>
+				<div data-bind='var:order(order/ship/address2);format:text;'></div>
+				<div>
+					<span data-bind='var:order(order/ship/city);format:text;posttext:, ;'></span>
+					<span data-bind='var:order(order/ship/region);format:text;posttext:. ;'></span>
+					<span data-bind='var:order(order/ship/postal);format:text;'></span>
+				</div>
+				<div data-bind='var:order(order/ship/countrycode);format:text;'></div>
+			</address>
+
+		</td>
+	</tr>
 </table>
 
 
