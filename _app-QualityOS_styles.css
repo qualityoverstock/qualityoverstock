@@ -465,10 +465,14 @@ CATEGORY TEMPLATE
 
 .categoryDescription {
 	height: 100%;
-	width: 100%;
+	width: 940px;
 	margin: 20px 10px 10px 10px;
 	float: left;
 	line-height: 25px;
+}
+
+.categoryDescription p span {
+	color: #000000 !important;
 }
 
 /*************************************************************************************
