@@ -465,11 +465,30 @@ CATEGORY TEMPLATE
 
 .categoryDescription {
 	height: 100%;
-	width: 940px;
+	width: auto;
 	margin: 20px 10px 10px 10px;
 	float: left;
 	line-height: 25px;
 }
+
+.categoryTemplate .homepageTextDescription {height: auto;}
+
+.categoryTemplate .homepageLogoTagline {
+	padding: 15% 0 0 0;
+}
+
+.catDescName {
+	margin: 0 -20px 0 55px;
+}
+
+.collection {
+	height: auto;
+	width: 100%;
+}
+
+.categoryTemplate .quality {top: 100%;}
+
+.categoryTemplate .overstock {top: 123%;}
 
 .categoryDescription p span {
 	color: #000000 !important;
