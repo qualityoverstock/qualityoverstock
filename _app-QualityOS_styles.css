@@ -1643,6 +1643,33 @@ CHECKOUT FORM
 	margin: 20px 40px;
 }
 
+.checkoutFormContainer .checkoutLeft {
+	height: auto;
+	width: 75%;
+}
+
+.checkoutFormContainer .floatRight.ocmThirdParty {
+	height: auto;
+	width: 23%;
+	background-color: #000000;
+	color: #ffffff;
+	font-variant: small-caps;
+	text-align: center;
+}
+
+.checkoutFormContainer .floatRight.ocmThirdParty .rightOrderTotal {
+	font-size: 48px; 
+	margin: 10px 0;
+}
+
+.checkoutFormContainer .floatRight.ocmThirdParty .rightOrderTotal h6 {
+	font-family: montserrat;
+	color: #FEC611;
+	font-variant: small-caps;
+	font-size: 12px;
+	font-weight: normal;
+}
+
 .checkoutFormContainer fieldset legend.ui-widget-header {
 	background: none;
 	border: none;
@@ -1682,6 +1709,45 @@ CHECKOUT FORM
 	padding: 10px 0;
 	border-top: 1px solid #000000;
 }
+
+.checkoutFormContainer .orderSummaryDetails {
+	text-align: center;
+	font-family: montserrat;
+	font-weight: normal;
+}
+
+.checkoutFormContainer .orderSummaryDetails h2 {
+	font-family: "Playfair Display SC";
+	font-size: 30px;
+	font-weight: normal;
+}
+
+.checkoutFormContainer .orderSummaryDetails h3 {font-size: 14px;}
+
+.checkoutFormContainer .orderSummaryDetails a {
+	color: blue;
+	text-decoration: underline;
+}
+
+.checkoutFormContainer .orderSummaryDetails .invoice_has_balancedue {
+	color: red;
+	margin: 10px 0 0 0;
+}
+
+.orderContentsTable .floatRight.hide4Print button span {color: transparent;}
+
+.checkoutFormContainer .orderContentsTable.fullWidth {
+	margin: 40px 0 0 0;
+}
+
+.checkoutFormContainer .orderContentsTable.fullWidth span {
+	font-family: "Playfair Display SC";
+	font-size: 18px; 
+	font-weight: normal;
+	font-variant: small-caps;
+}
+
+
 
 
 
