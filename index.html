@@ -1293,7 +1293,7 @@ if you change these, you should move them above this comment so that when you (o
 
 
 <!-- loadingBG needed on this for app init (content may take a moment to load) -->
-<div id='customerTemplate' class='clearfix loadingBG'>
+<div id='customerTemplate' class='clearfix'>
 
 	<div class='sideline customerSideline montFont fontColorBlack fontSize12PX' >
 		<nav id='customerNav'>
@@ -1345,13 +1345,13 @@ subscribeListsArticle is used for authenticated buyers
 			</form>
 		</div>
 
-		<div id='myaccountArticle' class='displayNone textContentArea custArticle'>
+		<div id='myaccountArticle' class='displayNone textContentArea custArticle floatLeft'>
 			<h1>My Account</h1>
 			<div id='logMessaging'></div>
 
 			<section id='buyerAddresses' class='clearfix'>
 
-				<div class='billAddressContainer' data-app-role='addressContainer' data-app-addresstype='bill'>
+				<div class='billAddressContainer floatLeft' data-app-role='addressContainer' data-app-addresstype='bill'>
 					<div class='marginBottom'>
 						<button class='floatRight' data-app-event='myRIA|showBuyerAddressAdd'>Add New Billing Address</button>
 						<h2>Billing Address(es)</h2>
@@ -1359,7 +1359,7 @@ subscribeListsArticle is used for authenticated buyers
 					<div class='billAddresses' data-bind="var: buyer(@bill); format:processList; loadsTemplate:billAddressTemplate;"></div>
 				</div>
 
-				<div class='shipAddressContainer clearfix' data-app-role='addressContainer' data-app-addresstype='ship'>
+				<div class='shipAddressContainer clearfix floatLeft' data-app-role='addressContainer' data-app-addresstype='ship'>
 					<div class='marginBottom'>
 						<button class='floatRight' data-app-event='myRIA|showBuyerAddressAdd'>Add New Shipping Address</button>
 						<h2>Shipping Address(es)</h2>
@@ -1374,7 +1374,7 @@ subscribeListsArticle is used for authenticated buyers
 
 
 		<div id='ordersArticle' class='displayNone textContentArea ordersArticle custArticle'>
-			<h1>Order History</h1>
+			<h1>ITEMS&#40;S&#41; YOU'VE ORDERED</h1>
 			<div data-bind="var: orders(@orders); format:processList; loadsTemplate:orderLineItemTemplate;" data-app-role='orderList' class='ui-accordion ui-widget ui-helper-reset ui-accordion-icons '></div>
 		</div>
 
@@ -1789,10 +1789,10 @@ used for store_crm.js
 
 	<div data-app-role='orderHeader' onClick="app.ext.myRIA.u.showOrderDetails($(this).parent());" class='orderHeader ui-accordion-header ui-helper-reset ui-state-default ui-corner-top ui-corner-bottom' >
 	<div class='arrowWrapper floatRight'>
-		<span class="ui-icon ui-icon-triangle-1-e floatRight marginRight">VIEW DETAILS</span>
+		<span class="floatRight">VIEW DETAILS</span>
 	</div>
 	<span class='orderDate montFont fontSize12PX smallcaps' data-bind='var:order(MODIFIED_GMT);format:unix2mdy;'></span>
-	<span data-bind='var:order(order/sum/order_total);format:money; currencySign: $;  hideZero:false; pretext:Total: ;'></span>
+	<span data-bind='var:order(order/sum/order_total);format:money; currencySign: false;  hideZero:false; pretext:Total: ;'></span>
 	<span class='floatRight orderID montFontBold fontSize14PX' data-bind='var:order(ORDERID);format:text;pretext:Order ID: ;'></span>
 	</div>
 

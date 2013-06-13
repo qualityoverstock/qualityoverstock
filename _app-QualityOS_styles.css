@@ -1238,11 +1238,22 @@ CUSTOMER TEMPLATE
 }
 
 .arrowWrapper {
-	height: 29px; 
-	width: 40px;
-	background-color: #fec611;
-	margin: -10px -10px 0 0;	
-	padding: 15px 0 0 0
+	background-color: #FEC611;
+    height: 33px;
+    margin: -10px -10px 0 0;
+    padding: 10px 0 0;
+    width: 140px;
+}
+.arrowWrapper  span{
+	margin-right: 10px;
+	font-family: "Playfair Display SC";
+	color:black;
+}
+.orderHistProdContainer div.infoContainer div span{
+	line-height: 16px;
+}
+.orderHistProdContainer div.infoContainer div span span.cents{
+	font-size: 12px;
 }
 
 .orderContents.ui-widget-content{
