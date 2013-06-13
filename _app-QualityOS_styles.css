@@ -478,7 +478,8 @@ CATEGORY TEMPLATE
 }
 
 .catDescName {
-	margin: 0 -20px 0 55px;
+	height:auto;
+	width: 100%;
 }
 
 .collection {
@@ -492,6 +493,7 @@ CATEGORY TEMPLATE
 
 .categoryDescription p span {
 	color: #000000 !important;
+	font-size: 12px !important;
 }
 
 /*************************************************************************************

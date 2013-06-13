@@ -37,7 +37,7 @@ var _gaq = _gaq || {'push':function(){}} //here for testing. REPLACE BEFORE DEPL
 var myCreole;
 
 var app = {vars:{
-	"release":"201314.20130612221600",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+	"release":"201314.20130613164500",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 	"_clientid":"zmvc",
 	"baseURL":"", //used in non-local mode.
 	"checkoutAuthMode" : "active",//can be passive, active or required
@@ -460,18 +460,20 @@ don't modify the 'data-templateid' unless you are changing template names and up
 
 	<ul data-bind="var: category(@products); format: productList; editor: finder; extension: store_prodlist; loadsTemplate: productListTemplate; withReviews:1; items_per_page: 24;" class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul><!-- outputs the product list -->
 
-	<div class='homepageTextDescription'>
-		<div class='homepageLogoTagline positionRel floatLeft'>
-			<div class='PlaySCfont fontSize36PX centerText smallcaps'>
-				<div class='floatLeft catDescName' data-bind='var:category(pretty); format:catText; extension:myRIA;'></div>
-				<span class='collection'>Collection<br></span>
-				<span class='fontSize14PX'>THROUGH</span>
+	<div class='displayNone' data-bind="var: category(%page.description2); format:showIfSet;">
+		<div class='homepageTextDescription'>
+			<div class='homepageLogoTagline positionRel floatLeft'>
+				<div class='PlaySCfont fontSize36PX centerText smallcaps'>
+					<span class='floatLeft catDescName' data-bind='var:category(pretty); format:catText; extension:myRIA; posttext: Collection;'></span>
+					
+					<span class='fontSize14PX'>THROUGH</span>
+				</div>
+				<div class='quality smallcaps'>Quality</div>
+				<div class='overstock montFont fontSize14PX'>OVERSTOCK</div>
 			</div>
-			<div class='quality smallcaps'>Quality</div>
-            <div class='overstock montFont fontSize14PX'>OVERSTOCK</div>
-		</div>
-		<div class='homepageDescription'>
-			<p class='categoryDescription fontSize12PX' data-bind="var: category(%page.description2); format:wiki; wikiFormats:myRIA; editor: textarea;"></p>
+			<div class='homepageDescription'>
+				<p class='categoryDescription fontSize12PX' data-bind="var: category(%page.description2); format:wiki; wikiFormats:myRIA; editor: textarea;"></p>
+			</div>
 		</div>
 	</div>
 	
