@@ -215,7 +215,7 @@ HEADER
 }
 
 .headerSeeAll {
-	height: 50px;
+	height: 39px; /*50px*/
 	width: 100%;
 }
 

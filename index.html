@@ -146,7 +146,7 @@ app.u.loadScript(app.vars.baseURL+"_app-QualityOverstock-init.js");
             <script type="text/javascript">
                 var showDropdown = function ($tag) {
                     var $dropdown = $(".dropdown", $tag);
-                    var height = 320;
+                    var height = 280; /*320*/
                     $dropdown.children().each(function(){
                         $(this).outerHeight(true);
                     });
@@ -163,16 +163,16 @@ app.u.loadScript(app.vars.baseURL+"_app-QualityOverstock-init.js");
                 	<div class='dropdown blackBackground'>
                         <ul class='playFont fontColorWhite fontSize14PX listStyleNone floatLeft'>
 					<!-- QOSDropdownLinks -->
-                            <li>Limited Offer</li>
-                            <li>Special Deals</li>
+                            <!-- <li>Limited Offer</li> For future use... vera_bradley moves to second ul when these are restored
+								 <li>Special Deals</li> -->
                             <li><a class='bindByAnchor' href='#!category?navcat=.01-swarovski' onClick="hideDropdown($(this).parent().parent().parent().parent())">Swarovski</a></li>
                             <li><a class='bindByAnchor' href='#!category?navcat=.baccarat' onClick="hideDropdown($(this).parent().parent().parent().parent())">Baccarat</a></li>
                             <li><a class='bindByAnchor' href='#!category?navcat=.bake__n_serve' onClick="hideDropdown($(this).parent().parent().parent().parent())">Bake 'n Serve</a></li>
                             <li><a class='bindByAnchor' href='#!category?navcat=.lalique' onClick="hideDropdown($(this).parent().parent().parent().parent())">Lalique</a></li>
                             <li><a class='bindByAnchor' href='#!category?navcat=.lladro' onClick="hideDropdown($(this).parent().parent().parent().parent())">Llardro</a></li>
-                        </ul>    
+							<li><a class='bindByAnchor' href='#!category?navcat=.vera_bradley' onClick="hideDropdown($(this).parent().parent().parent().parent())">Vera Bradley</a></li>
+						</ul>    
                         <ul class='playFont fontColorWhite fontSize14PX listStyleNone floatLeft'>
-                            <li><a class='bindByAnchor' href='#!category?navcat=.vera_bradley' onClick="hideDropdown($(this).parent().parent().parent().parent())">Vera Bradley</a></li>
                             <li><a class='bindByAnchor' href='#!category?navcat=.versace' onClick="hideDropdown($(this).parent().parent().parent().parent())">Versache</a></li>
                             <li><a class='bindByAnchor' href='#!category?navcat=.sale_items' onClick="hideDropdown($(this).parent().parent().parent().parent())">Sale Items</a></li>
                             <li><a class='bindByAnchor' href='#!category?navcat=.new_arrivals' onClick="hideDropdown($(this).parent().parent().parent().parent())">New Arrivals</a></li>
