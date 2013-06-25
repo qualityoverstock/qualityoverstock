@@ -358,7 +358,7 @@ FOOTER
 .footerLogos > div.AuthorizeNetSeal a:visited{color:black;}
 .footerLogos > div.AuthorizeNetSeal a:active{color:black;}
 .footerLogos > div.AuthorizeNetSeal a:hover{text-decoration:underline;color:black;}
-.footerLogos > div.AuthorizeNetSeal a img{border:0px;margin:0px;text-decoration:none;} 
+.footerLogos > div.AuthorizeNetSeal a img{border:0px;margin:0px;float:none;text-decoration:none;} 
 
 .footerCopyright a {color: #000; text-decoration: underline;}
 .footerCopyright a:hover {color: #FEC611;}
