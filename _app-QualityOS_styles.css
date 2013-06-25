@@ -231,7 +231,10 @@ HEADER
 	top: 9px;
 	left: 718px;
 	width: 140px;
+}
 
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+	.headerSearchBar {height:32px;}
 }
 
 .headerSearchButton {
