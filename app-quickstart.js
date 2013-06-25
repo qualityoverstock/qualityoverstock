@@ -1603,8 +1603,7 @@ if(ps.indexOf('?') >= 1)	{
 					var $img = $obj.find('img')
 					var width = $img.attr('width'); //using width() and height() here caused unusual results in the makeImage function below.
 					var height = $img.attr('height');
-					//$obj.width(width).height(height).css({'overflow':'hidden','position':'relative'});
-/*QOS*/				$obj.width(140).height(129).css({'overflow':'hidden','position':'relative'});
+					$obj.width(width).height(height).css({'overflow':'hidden','position':'relative'});
 					var $ul = $('<ul>').addClass('slideMe').css({'height':height+'px','width':'20000px'}); /* inline width to override inheretance */
 					
 					var $li; //recycled.
