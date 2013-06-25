@@ -544,6 +544,16 @@ PRODUCT LIST TEMPLATE
 	line-height: 23px;
 }
 
+button.quickView {
+	background: #000000; 
+	color: #FEC611;
+	border: none;
+	border-radius: 0;
+	font-family: montserrat;
+	font-variant: small-caps;
+	padding: 4px;
+}
+
 /*************************************************************************************
 PRODUCT LIST TEMPLATE ATC
 *************************************************************************************/
