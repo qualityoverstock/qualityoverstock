@@ -519,6 +519,8 @@ PRODUCT LIST TEMPLATE
 	background-color: #fff;
 }
 
+.prodList .slideMe li {margin:0;}
+
 .prodImg {margin: 15px 13px 0px 13px;}
 
 .prodDesc, .productList h5, .categoryList h5 {
