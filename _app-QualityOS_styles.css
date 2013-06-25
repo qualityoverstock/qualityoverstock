@@ -523,6 +523,10 @@ PRODUCT LIST TEMPLATE
 }
 
 .prodList .slideMe li {margin:0;}
+.prodList .prodThumbContainer {
+	height: 129px !important;
+	width: 139px !important;
+}
 
 .prodImg {margin: 15px 13px 0px 13px;}
 
