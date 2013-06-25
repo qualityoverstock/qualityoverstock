@@ -37,7 +37,7 @@ var _gaq = _gaq || {'push':function(){}} //here for testing. REPLACE BEFORE DEPL
 var myCreole;
 
 var app = {vars:{
-	"release":"201314.20130625120500",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+	"release":"201314.20130625121300",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 	"_clientid":"zmvc",
 	"baseURL":"", //used in non-local mode.
 	"checkoutAuthMode" : "active",//can be passive, active or required
@@ -804,7 +804,7 @@ this will likely become more flexible in the future. ###
                     <!-- -->
                     <div data-bind='var: product(pid); format:atcVariations; extension:store_product;' class='borderNone sizeSelector'></div>
                     
-                         data-bind='useParentData:true; format:atcQuantityInput; extension:store_product; pretext:Quantity: ; defaultValue:0;' class='borderNone'></fieldset>
+                    <!--<fieldset data-bind='useParentData:true; format:atcQuantityInput; extension:store_product; pretext:Quantity: ; defaultValue:0;' class='borderNone'></fieldset>-->
                     <div data-bind='useParentData:true; format:atcQuantityInput; extension:store_product; defaultValue:1;' class='prodSelectItemField'>
 						<div class='playFont fontSize12PX fontColorYellow prodSelectionQty'><h4>HOW</h4> MANY?</div>
 					</div>
