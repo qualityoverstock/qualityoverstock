@@ -353,7 +353,7 @@ FOOTER
 
 .footerLogos img {margin-left: 10px;}
 
-.AuthorizeNetSeal{text-align:center;margin:0;padding:0;width:59px;font:normal 9px arial,helvetica,san-serif;line-height:10px;display:inline;}
+.AuthorizeNetSeal{text-align:center;margin:0;padding:0 0 0 8px;height:auto;width:80px;font:normal 9px arial,helvetica,san-serif;line-height:10px;display:inline;}
 .AuthorizeNetSeal a{text-decoration:none;color:black;display:table-row-group;}
 .AuthorizeNetSeal a:visited{color:black;}
 .AuthorizeNetSeal a:active{color:black;}
