@@ -351,9 +351,9 @@ FOOTER
 	padding-right: 10px;
 }
 
-.footerLogos img {margin-left: 10px;}
+.footerLogos img {margin-left: 10px; float:left;}
 
-.footerLogos > div.AuthorizeNetSeal{text-align:center;margin:0;padding:0 0 0 8px;height:auto;width:80px !important;font:normal 9px arial,helvetica,san-serif;line-height:10px;display:inline;}
+.footerLogos > div.AuthorizeNetSeal{text-align:center;margin:0;padding:0 0 0 8px;height:auto;width:80px;font:normal 9px arial,helvetica,san-serif;line-height:10px;display:inline;float:left;}
 .footerLogos > div.AuthorizeNetSeal a{text-decoration:none;color:black;display:table-row-group;}
 .footerLogos > div.AuthorizeNetSeal a:visited{color:black;}
 .footerLogos > div.AuthorizeNetSeal a:active{color:black;}
