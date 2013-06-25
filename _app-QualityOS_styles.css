@@ -353,12 +353,12 @@ FOOTER
 
 .footerLogos img {margin-left: 10px;}
 
-.AuthorizeNetSeal{text-align:center;margin:0;padding:0 0 0 8px;height:auto;width:80px;font:normal 9px arial,helvetica,san-serif;line-height:10px;display:inline;}
-.AuthorizeNetSeal a{text-decoration:none;color:black;display:table-row-group;}
-.AuthorizeNetSeal a:visited{color:black;}
-.AuthorizeNetSeal a:active{color:black;}
-.AuthorizeNetSeal a:hover{text-decoration:underline;color:black;}
-.AuthorizeNetSeal a img{border:0px;margin:0px;text-decoration:none;} 
+div.AuthorizeNetSeal{text-align:center;margin:0;padding:0 0 0 8px;height:auto;width:80px;font:normal 9px arial,helvetica,san-serif;line-height:10px;display:inline;}
+div.AuthorizeNetSeal a{text-decoration:none;color:black;display:table-row-group;}
+div.AuthorizeNetSeal a:visited{color:black;}
+div.AuthorizeNetSeal a:active{color:black;}
+div.AuthorizeNetSeal a:hover{text-decoration:underline;color:black;}
+div.AuthorizeNetSeal a img{border:0px;margin:0px;text-decoration:none;} 
 
 .footerCopyright a {color: #000; text-decoration: underline;}
 .footerCopyright a:hover {color: #FEC611;}
