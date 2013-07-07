@@ -368,6 +368,7 @@ var _QualityOverstock = function() {
 					}
 				},
 				
+				//adds a class to each $tag with zero inventory that can be used to hide it
 				hideZeroInv : function($tag, data) {
 					var pid = data.value.pid;
 					var inventory = data.value['@inventory'][pid]['inv'];
