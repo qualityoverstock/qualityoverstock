@@ -266,7 +266,7 @@ formerly showCart
 				else if(data.value.asm_master)	{$tag.remove()}
 				else	{
 $tag.attr({'data-stid':data.value.stid}).val(0); //val is used for the updateCartQty
-$tag.button({icons: {primary: "ui-icon-closethick"},text: true});
+$tag.button({icons: {primary: "ui-icon-closethick"},text: true});/*QOS*/
 //the click event handles all the requests needed, including updating the totals panel and removing the stid from the dom.
 $tag.one('click',function(event){
 	event.preventDefault();

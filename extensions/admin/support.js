@@ -141,18 +141,18 @@ var admin_support = function() {
 						$target.effect("highlight", {}, 1500);
 						}
 					else	{
-						$target = $("<div \/>",{'id':targetID,'title':'help doc: '+docid}).addClass('helpDoc').appendTo('body');
+						$target = $("<div \/>",{'id':targetID,'title':'help doc: '+docid}).attr('docid',docid).addClass('helpDoc').appendTo('body');
 						$target.dialog({width:500, height:500});
-						$target.anycontent({'templateID':'helpDocumentTemplate','showLoadingMessage':'Fetching help documentation...'});
+						$target.showLoading({'message':'Fetching help documentation...'});
 
 						app.ext.admin.calls.helpDocumentGet.init(docid,{'callback':function(rd){
 							if(app.model.responseHasErrors(rd)){
 								$('#globalMessaging').anymessage({'message':rd});
 								}
 							else	{
-								$target.anycontent({'datapointer':rd.datapointer});
-								app.u.handleAppEvents($panel);
-								app.ext.admin_support.u.handleHelpDocOverwrites($panel);
+								$target.anycontent({'templateID':'helpDocumentTemplate','datapointer':rd.datapointer});
+								app.u.handleAppEvents($target);
+								app.ext.admin_support.u.handleHelpDocOverwrites($target);
 								}
 							}},'mutable');
 						app.model.dispatchThis('mutable');
@@ -293,8 +293,8 @@ var admin_support = function() {
 						$form.showLoading({'message':'Creating a new ticket'});
 						var sfo = $form.serializeJSON(),
 						uuid = $btn.closest('.ui-dialog-content').data('uuid'),
-						messageBody = sfo.description; //NOTE -> the user inputted message body should always be first. That way it's at the top of a high priority SMS/page.
-						for(index in sfo)	{
+						messageBody = sfo.description+"\n"; //NOTE -> the user inputted message body should always be first. That way it's at the top of a high priority SMS/page.
+						for(var index in sfo)	{
 							//only pass populated fields and don't pass description again (see above).
 							if(sfo[index] && index != 'description'){messageBody += "\n"+index+": "+sfo[index]}
 							}
@@ -352,13 +352,22 @@ var admin_support = function() {
 					$btn.off('click.execTicketClose').on('click.execTicketClose',function(event){
 						event.preventDefault();
 						
-						var $tbody = $btn.closest("[data-app-role='dualModeList']").find("[data-app-role='dualModeListContents']"),
-						ticketID = $btn.closest('tr').data('id');
+						var $D = app.ext.admin.i.dialogConfirmRemove({
+							'message':'Are you sure you want to close this ticket?',
+							'removeButtonText' : 'Close Ticket',
+							'removeFunction':function(rd){
+								var
+									$tbody = $btn.closest("[data-app-role='dualModeList']").find("[data-app-role='dualModeListContents']"),
+									ticketID = $btn.closest('tr').data('id');
+								app.model.destroy('adminTicketList');
+								app.ext.admin.calls.adminTicketMacro.init(ticketID,new Array('CLOSE'),{},'immutable');
+								app.ext.admin_support.u.reloadTicketList($tbody,$btn.closest("[data-app-role='dualModeList']").find("[name='disposition']").val(),'immutable'); //handles showloading
+								app.model.dispatchThis('immutable');
+								$D.dialog('close');
+								}
+							});
 						
-						app.model.destroy('adminTicketList');
-						app.ext.admin.calls.adminTicketMacro.init(ticketID,new Array('CLOSE'),{},'immutable');
-						app.ext.admin_support.u.reloadTicketList($tbody,$btn.closest("[data-app-role='dualModeList']").find("[name='disposition']").val(),'immutable'); //handles showloading
-						app.model.dispatchThis('immutable');
+
 						});
 					}
 				}, //execTicketClose
@@ -430,10 +439,10 @@ var admin_support = function() {
 					$form = $("[data-app-role='helpSearch']",$parent).first(),
 					keywords = $("[name='keywords']",$parent).val();
 
-					app.u.dump(" -> $parent.length: "+$parent.length);
-					app.u.dump(" -> $form.length: "+$form.length);
+//					app.u.dump(" -> $parent.length: "+$parent.length);
+//					app.u.dump(" -> $form.length: "+$form.length);
 //					app.u.dump(" -> formObj: "); app.u.dump(formObj);
-					app.u.dump(" -> keywords: "+keywords);
+//					app.u.dump(" -> keywords: "+keywords);
 
 					if(keywords)	{
 						$('.dualModeListMessaging',$parent).first().empty().hide();
@@ -442,7 +451,6 @@ var admin_support = function() {
 						$contentArea.showLoading({"message":"Searching for help files"});
 						app.ext.admin.calls.helpSearch.init(keywords,{'callback':'anycontent','jqObj':$contentArea},'mutable');
 						app.model.dispatchThis('mutable');
-
 						}
 					else	{
 						$('.dualModeListMessaging',$parent).first().empty().show().anymessage({'message':'Please enter some keywords into the form input above to search for.'});

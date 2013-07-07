@@ -20,19 +20,23 @@ var _gaq = _gaq || {'push':function(){}} //here for testing. REPLACE BEFORE DEPL
 var myCreole;
 
 var app = {vars:{
-	"release":"201314.a",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+	"release":"201320.r",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 	"_clientid":"zmvc",
 	"checkoutAuthMode" : "active", //can be passive, active or required
 	"baseURL":"",
-	"testURL":"http://www.ylh.zoovy.com/" //put your domain here. you can then test locally in firefox.
+	"testURL":"http://ylh.zoovy.com/" //put your domain here. you can then test locally in firefox.
 	},u:{},rq:[]};
 
 //set base url so images, css, js, etc all load from appropriate location once deployed.
 //baseURL as blank lets loadScript function run off local copy when testing locally.
-if(document.location.protocol != 'file:')	{
-	app.vars.baseURL  = "/";
-	document.getElementsByTagName('base')[0].href = app.vars.baseURL;
+if(document.location.protocol == 'file:')	{
+	app.vars.baseURL  = "";
 	}
+else	{
+	app.vars.baseURL = document.location.protocol+"//"+document.domain+"/";
+	}
+document.getElementsByTagName('base')[0].href = app.vars.baseURL;
+
 </script>
 
 
@@ -48,7 +52,11 @@ css files should be included before any .js file to ensure they are downloaded i
 <script src="resources/jquery.ui.widget.min.js"></script>
 <script type="text/javascript" src="loadscript.js"></script>
 
-
+<!--
+<script src="resources/webrtc_adapter.js"></script>
+<script src="resources/webrtc_core.js"></script>
+<script src="resources/webrtc_jsapi.min.js"></script>
+-->
 <script type="text/javascript">
 app.u.loadScript(app.vars.baseURL+"app-fashion-init.js");
 </script>
@@ -56,7 +64,8 @@ app.u.loadScript(app.vars.baseURL+"app-fashion-init.js");
 
 </head>
 
-<body>	
+<body>
+
 
 <!-- what is displayed onLoad until the view is loaded -->
 <div id='appPreView'>
@@ -1686,6 +1695,37 @@ The 'data-action' attribute is used to assign an onclick.
 
 
 
+
+
+
+<!-- this is for video -->
+
+<div id="container" ondblclick="enterFullScreen()"> 
+  <div id="card">
+  <table><tr>
+  	<td width='50%'>
+    <div id="local">
+      <video width="100%" height="100%" id="localVideo" autoplay muted="true"/>
+    </div>
+	</td>
+	<td width='50%'>
+    <div id="remote">
+      <video width="100%" height="100%" id="remoteVideo" autoplay>
+      </video>
+      <div id="mini">
+        <video width="100%" height="100%" id="miniVideo" autoplay muted="true"/>
+      </div>
+    </div>
+	</td>
+</tr></table>
+  </div>
+  <div id="footer">
+  </div>
+</div>
+
+
+
+
 <script type='text/javascript'>
 
 
@@ -1714,6 +1754,8 @@ function handleCategoryMenu(state)	{
 		}
 	}
 </script>
+
+
 
 
 

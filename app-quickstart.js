@@ -130,7 +130,7 @@ else if ("onhashchange" in window)	{ // does the browser support the hashchange 
 		}
 	}
 else	{
-	$('#globalMessaging').anyMessage({'message':"You appear to be running a very old browser. Our app will run, but may not be an optimal experience.",'persistant':true});
+	$('#globalMessaging').anyMessage({'message':"You appear to be running a very old browser. Our app will run, but may not be an optimal experience.",'persistent':true});
 	// wow. upgrade your browser. should only get here if older than:
 	// Google Chrome 5, Safari 5, Opera 10.60, Firefox 3.6 and Internet Explorer 8
 	//NOTE: does not trigger in IE9 running IE7 or IE8 standards mode
@@ -201,7 +201,7 @@ document.write = function(v){
 				var tagObj = {};
 //we always get the tier 1 cats so they're handy, but we only do something with them out of the get if necessary (tier1categories is defined)
 				if($('#tier1categories').length)	{
-					app.u.dump("#tier1categories is set. fetch tier1 cat data.");
+//					app.u.dump("#tier1categories is set. fetch tier1 cat data.");
 					app.ext.store_navcats.u.getChildDataOf(zGlobals.appSettings.rootcat,{'parentID':'tier1categories','callback':'addCatToDom','templateID':'categoryListTemplateRootCats','extension':'store_navcats'},'appCategoryDetailMax');  //generate nav for 'browse'. doing a 'max' because the page will use that anway.
 					app.model.dispatchThis();
 					}
@@ -309,7 +309,16 @@ document.write = function(v){
 			onSuccess : function(tagObj)	{
 				var catSafeID = tagObj.datapointer.split('|')[1];
 				tagObj.navcat = catSafeID;
+/*
+*** 201318 -> passing in unsanitized tagObj caused an issue with showPageContent
 				app.ext.myRIA.u.buildQueriesFromTemplate(tagObj);
+*/
+				app.ext.myRIA.u.buildQueriesFromTemplate({
+					'templateID':tagObj.templateID,
+					'parentID':tagObj.parentID,
+					'navcat':tagObj.navcat,
+					'datapointer':tagObj.datapointer});
+
 				app.model.dispatchThis();
 				},
 			onError : function(responseData)	{
@@ -329,6 +338,7 @@ document.write = function(v){
 //cat page handling.
 				if(tagObj.navcat)	{
 //					app.u.dump("BEGIN myRIA.callbacks.showPageContent ["+tagObj.navcat+"]");
+//					app.u.dump(" -> tagObj: "); app.u.dump(tagObj);
 
 					if(typeof app.data['appCategoryDetail|'+tagObj.navcat] == 'object' && !$.isEmptyObject(app.data['appCategoryDetail|'+tagObj.navcat]))	{
 						tmp = app.data['appCategoryDetail|'+tagObj.navcat]
@@ -372,7 +382,8 @@ document.write = function(v){
 				var L = tagObj.searchArray.length;
 				var $parent;
 				for(var i = 0; i < L; i += 1)	{
-					$parent = $('#'+tagObj.searchArray[i].split('|')[1]);
+//** 201318 -> better approach for handling selector.
+					$parent = $(app.u.jqSelector('#',tagObj.searchArray[i].split('|')[1]));
 					app.ext.myRIA.renderFormats.productSearch($parent,{value:app.data[tagObj.searchArray[i]]});
 					}
 				tagObj.state = 'onCompletes'; //needed for handleTemplateFunctions.
@@ -625,6 +636,7 @@ need to be customized on a per-ria basis.
 //				app.u.dump(data);
 				if(data.value)	{
 					var parentID = $tag.attr('id');
+
 					var L = data.value.hits.hits.length;
 					var templateID = data.bindData.loadsTemplate ? data.bindData.loadsTemplate : 'productListTemplateResults';
 					var pid;
@@ -715,7 +727,7 @@ fallback is to just output the value.
 				if(data.value.stid[0] == '%')	{$tag.remove()} //coupon.
 				else if(data.value.asm_master)	{$tag.remove()} //assembly 'child'.
 				else if(app.u.buyerIsAuthenticated())	{
-					$tag.show().button({icons: {primary: "ui-icon-heart"},text:true});
+/*QOS*/					$tag.show().button({icons: {primary: "ui-icon-heart"},text:true});
 					$tag.off('click.moveToWishlist').on('click.moveToWishList',function(){
 						app.ext.myRIA.a.moveItemFromCartToWishlist(data.value);
 						});
@@ -1422,7 +1434,7 @@ P.listID (buyer list id)
 //executed when the app loads.  
 //sets a default behavior of loading homepage. Can be overridden by passing in infoObj.
 			handleAppInit : function(infoObj)	{
-app.u.dump("BEGIN myRIA.u.handleAppInit");
+//app.u.dump("BEGIN myRIA.u.handleAppInit");
 //!!! need to write/test this in IE7
 //				if(app.u.getBrowserInfo().indexOf('explorer') > -1)	{}
 				
@@ -1699,7 +1711,7 @@ if(ps.indexOf('?') >= 1)	{
 					}
 				else if(url.indexOf('app-quickstart.html') > -1)	{
 					var msg = app.u.errMsgObject('Rename this file as index.html to decrease the likelyhood of accidentally saving over it.',"MVC-INIT-MYRIA_1000")
-					msg.persistant = true;
+					msg.persistent = true;
 					app.u.throwMessage(msg);
 					r.pageType = 'homepage';
 					}
@@ -2194,9 +2206,7 @@ effects the display of the nav buttons only. should be run just after the handle
 					parentID = infoObj.templateID+"_"+app.u.makeSafeHTMLId(pid);
 					infoObj.parentID = parentID;
 					app.ext.myRIA.u.handleTemplateFunctions(infoObj);
-					
-
-					
+	
 //no need to render template again.
 					if(!$('#'+parentID).length){
 						var $content = app.renderFunctions.createTemplateInstance(infoObj.templateID,{'id':parentID,'app-pagetype':'product'});
@@ -2758,6 +2768,7 @@ tagObj.searchArray = new Array(); //an array of search datapointers. added to _t
 tagObj.extension = 'myRIA'
 tagObj.lists = new Array(); // all the list id's needed.
 
+app.model.fetchData('appPageGet|'+catSafeID); //move data from local storage to memory, if present.
 
 //goes through template.  Put together a list of all the data needed. Add appropriate calls to Q.
 app.templates[P.templateID].find('[data-bind]').each(function()	{
@@ -2828,15 +2839,19 @@ app.templates[P.templateID].find('[data-bind]').each(function()	{
 // this is a navcat in focus
 		else	{
 			if(namespace == 'category' &&  attribute.substring(0,5) === '%page')	{
-				tmpAttr = attribute.substring(6)
-				myAttributes.push(tmpAttr);  //set value to the actual value
-				if(app.data['appCategoryDetail|'+catSafeID] && app.data['appCategoryDetail|'+catSafeID]['%page'])	{
-					if(app.data['appCategoryDetail|'+catSafeID]['%page'][tmpAttr])	{}
-					else if(app.data['appCategoryDetail|'+catSafeID]['%page'][tmpAttr] === null){}
+				tmpAttr = attribute.substring(6);
+				
+//if some attributes for this page have already been fetched, check to see if the attribute in focus in here or not set.
+// ** 201318 -> the changes below are to make the appGet more efficient (eliminates duplicate %page attribute requests)
+				if(myAttributes.indexOf(tmpAttr) >= 0)	{} //attribute is already in the list of attributes to be fetched.
+				else if(app.data['appPageGet|'+catSafeID] && app.data['appPageGet|'+catSafeID]['%page'])	{
+					if(app.data['appPageGet|'+catSafeID]['%page'][tmpAttr])	{} //already have value
+					else if(app.data['appPageGet|'+catSafeID]['%page'][tmpAttr] === null){} //value has been requested but is not set.
 					else	{
 						myAttributes.push(tmpAttr);  //set value to the actual value
 						}
 					}
+//no attributes are present so go get them pls.
 				else	{
 					myAttributes.push(tmpAttr);  //set value to the actual value
 					}				
@@ -2845,7 +2860,8 @@ app.templates[P.templateID].find('[data-bind]').each(function()	{
 			else if(namespace == 'list' && attribute.charAt(0) == '$')	{
 				var listPath = attribute.split('.')[0]
 				tagObj.lists.push(listPath); //attribute formatted as $listname.@products
-				numRequests = app.ext.store_navcats.calls.appNavcatDetail.init(listPath);
+//** 201318 -> numRequests could have been getting set to zero, causing no dispatch to go
+				numRequests += app.ext.store_navcats.calls.appNavcatDetail.init(listPath);
 				}
 			else if(namespace == 'list')	{
 				// no src is set.
@@ -2883,7 +2899,7 @@ app.templates[P.templateID].find('[data-bind]').each(function()	{
 				if(myAttributes.length > 0)	{
 					numRequests += app.ext.store_navcats.calls.appPageGet.init({'PATH':catSafeID,'@get':myAttributes});
 					}
-			//app.u.dump(" -> numRequests AFTER appPageGet: "+numRequests);
+//				app.u.dump(" -> numRequests AFTER appPageGet: "+numRequests);
 //queries are all compiled. if a dispatch is actually needed, add a 'ping' to execute callback, otherwise, just execute the callback now.
 				if(numRequests > 0)	{
 					app.calls.ping.init(tagObj);
@@ -2986,7 +3002,7 @@ else	{
 //used for adding a single item to the cart, such as from a prodlist w/ an add to cart but no quantity inputs for bulk adding.
 			addItemToCart : function($form,obj)	{
 				app.u.dump("BEGIN myRIA.u.addItemToCart");
-				obj = obj || {'action':''}
+				obj = obj || {'action':'modal'}
 				if($form && $form.length)	{
 					var cartObj = app.ext.store_product.u.buildCartItemAppendObj($form);
 					if(cartObj)	{
@@ -2994,7 +3010,9 @@ else	{
 							app.calls.cartItemAppend.init(cartObj,{},'immutable');
 							app.model.destroy('cartDetail');
 							app.calls.cartDetail.init({'callback':function(rd){
-								showContent('cart',obj);
+								if(obj.action === "modal"){
+									showContent('cart',obj);
+									}
 								}},'immutable');
 							app.model.dispatchThis('immutable');
 							}
@@ -3163,7 +3181,7 @@ else	{
 									if(!$.isEmptyObject(orderList[i]['%options']))	{
 										var variations = orderList[i]['%options'];
 										obj['%variations'] = {};
-										for(index in variations)	{
+										for(var index in variations)	{
 											obj['%variations'][variations[index].id] = variations[index].v
 											}
 										}
