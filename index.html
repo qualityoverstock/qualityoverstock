@@ -900,7 +900,7 @@ It's done this way because ID's hard coded into template are bad mojo (templates
 		<div class='productCarouselNext'><span>Next</span></div>
 		<div class='productCarouselTitle'><!--BIZMARK-->
 			<div class='leftTitle floatLeft smallcaps'>Recommended Items</div>
-			<div class='centerTitle floatLeft smallcaps'>Similar Items</div>
+			<div class='centerTitle floatLeft smallcaps'>New Arrivals</div> <!-- Similar Items - this was originally related items location-->
 			<div class='rightTitle floatLeft smallcaps'>Recently Viewed</div>
 		</div>
 	</div>	
@@ -909,7 +909,7 @@ It's done this way because ID's hard coded into template are bad mojo (templates
 		<div class='productCarousel floatLeft'>
 			<div class='productCarouselSimilar floatLeft'>
 				<div>						 <!-- data-bind="var: product(zoovy:related_products); format:productList; extension:store_prodlist;loadsTemplate:productListTemplate;hide_summary:true; withInventory:1; withVariations:1;" -->
-					<ul  id='prodCarouselSimilar' data-bind='var: elastic-native({"size":"100","mode":"elastic-native","filter":{"term":{"tags":"IS_USER2"}}}); format: productSearch; extension: myRIA; loadsTemplate: productListTemplateResults;' class='listStyleNone fluidList clearfix noPadOrMargin productList prodCarSimilar'></ul>
+					<ul  id='prodCarouselSimilar' data-bind='var: elastic-native({"size":"100","mode":"elastic-native","filter":{"term":{"tags":"IS_NEWARRIVAL"}}}); format: productSearch; extension: myRIA; loadsTemplate: productListTemplateResults;' class='listStyleNone fluidList clearfix noPadOrMargin productList prodCarSimilar'></ul>
 				</div>
 				<div class='prodCarPagination'>
 					<span class='prodCarouselSimilarPrev smallcaps prodCarPrev pointer'>prev</span>
@@ -933,8 +933,8 @@ It's done this way because ID's hard coded into template are bad mojo (templates
 			</div>
 			
 			<div class='productCarouselReco floatLeft'>
-				<div>					  <!-- data-bind="var: product(zoovy:accessory_products); format:productList; extension:store_prodlist;loadsTemplate:productListTemplate;hide_summary:true; withInventory:1; withVariations:1;" -->
-					<ul  id='prodCarouselReco' data-bind='var: elastic-native({"size":"100","mode":"elastic-native","filter":{"term":{"tags":"IS_USER4"}}}); format: productSearch; extension: myRIA; loadsTemplate: productListTemplateResults;' class='listStyleNone fluidList clearfix noPadOrMargin productList prodCarReco'></ul>
+				<div>					  <!-- data-bind='var: elastic-native({"size":"100","mode":"elastic-native","filter":{"term":{"tags":"IS_USER4"}}}); format: productSearch; extension: myRIA; loadsTemplate: productListTemplateResults;' -->
+					<ul  id='prodCarouselReco' data-bind="var: product(zoovy:accessory_products); format:productList; extension:store_prodlist;loadsTemplate:productListTemplate;hide_summary:true; withInventory:1; withVariations:1;" class='listStyleNone fluidList clearfix noPadOrMargin productList prodCarReco'></ul>
 				</div>
 				<div class='prodCarPagination'>
 					<span class='prodCarouselRecoPrev smallcaps prodCarPrev pointer'>prev</span>
