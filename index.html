@@ -524,7 +524,7 @@ Used for the product in a product list (prodlist), usually in the body of a cate
 the loadingBG class is removed (must be that classname) when the template is translated.
 remember to NOT put the button inside the 'onclick' container or two events will occur onclick.
 -->
-<li id='productListTemplate' class='loadingBGb prodList' onMouseOver="$('.quickView',$(this)).show();" onMouseOut="$('.quickView').hide();" >
+<li id='productListTemplate' class='loadingBGb prodList' onMouseOver="$('.quickView',$(this)).show();" onMouseOut="$('.quickView').hide();" data-bind="useParentData:true; format:hideZeroInv; extension:_QualityOverstock;">
 
 	<button class='floatRight pointer quickView displayNone' onClick="quickView('product',{'templateID':'productTemplateQuickView','pid':$(this).closest('[data-pid]').attr('data-pid')});">Quickview</button>
 
@@ -921,9 +921,6 @@ It's done this way because ID's hard coded into template are bad mojo (templates
 			<div class='productCarouselRecent floatLeft recentlyViewedItemsContainer'>
 				<div>
 					<ul  id='prodCarouselRecent' data-bind="var: session(session.recentlyViewedItems); format: productList; extension: store_prodlist; loadsTemplate: productListTemplate; hide_summary:1; hide_pagination:1; withReviews:1;" class='listStyleNone fluidList clearfix noPadOrMargin productList prodCarRecent'></ul>
-					<!--
-					<ul  id='prodCarouselRecent' data-bind='var: elastic-native({"size":"100","mode":"elastic-native","filter":{"term":{"tags":"IS_USER4"}}}); format: productSearch; extension: myRIA; loadsTemplate: productListTemplateResults;' class='listStyleNone fluidList clearfix noPadOrMargin productList prodCarRecent'></ul> 
-					-->
 				</div>
 				<div class='prodCarPagination'>
 					<span class='prodCarouselRecentPrev smallcaps prodCarPrev pointer'>prev</span>

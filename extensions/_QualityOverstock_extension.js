@@ -366,7 +366,16 @@ var _QualityOverstock = function() {
 					if(discounted > 0) {
 						$tag.children('.vendorPrice').empty().append('DISCOUNTED PRICE');
 					}
-				}
+				},
+				
+				hideZeroInv : function($tag, data) {
+					var pid = data.value.pid;
+					var inventory = data.value['@inventory'][pid]['inv'];
+					if(inventory == 0) {
+						$tag.addClass('zerInv');
+					}
+					//app.u.dump('-------------->'); app.u.dump(data.value['@inventory'][pid]['inv']);
+				} 
 
 			}, //renderFormats
 ////////////////////////////////////   UTIL [u]   \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
