@@ -88,6 +88,13 @@ var _QualityOverstock = function() {
 //actions are functions triggered by a user interaction, such as a click/tap.
 //these are going the way of the do do, in favor of app events. new extensions should have few (if any) actions.
 		a : {
+		
+				inventoryHide : function(pid) {
+					var $context = $(pid[0]['parentNode']['attributes']['id']['nodeValue']).text();
+					//app.u.dump('---------->'); app.u.dump(pid[0]['parentNode']['attributes']['id']['nodeValue']);
+					$('.invHider', $context).toggleClass('showInv');
+					$('.zerInv', $context).toggleClass('displayNone');
+				},
 
 				showReviews : function(pid) {
 					var $context = $('#productTemplate_'+app.u.makeSafeHTMLId(pid));

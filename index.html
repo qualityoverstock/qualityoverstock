@@ -31,7 +31,7 @@ var _gaq = _gaq || {'push':function(){}} //here for testing. REPLACE BEFORE DEPL
 var myCreole;
 
 var app = {vars:{
-	"release":"201320.20130706195000",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+	"release":"201320.20130707195100",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 	"_clientid":"zmvc",
 	"baseURL":"", //used in non-local mode.
 	"checkoutAuthMode" : "active",//can be passive, active or required
@@ -456,7 +456,9 @@ don't modify the 'data-templateid' unless you are changing template names and up
 	<ul data-bind="var: category(@subcategoryDetail); format: categoryList; extension: store_navcats; loadsTemplate: categoryListTemplate; detail:max;" class='listStyleNone fluidList clearfix noPadOrMargin homepageProdList categoryList'></ul><!-- outputs a list of subcategories -->
 
 	<!--<ul data-bind="var: category(@products); format: productList; editor: finder; extension: store_prodlist; loadsTemplate: productListTemplate; withReviews:1; items_per_page: 24;" class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul><!-- outputs the product list -->
-	<ul data-bind="var: category(@products); format: infiniteProductList; extension: prodlist_infinite; loadsTemplate: productListTemplate; withReviews:1; withVariations:1; withInventory:1; items_per_page: 60;" class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul><!-- outputs the product list -->
+	<ul data-bind="var: category(@products); format: infiniteProductList; extension: prodlist_infinite; loadsTemplate: productListTemplate; withReviews:1; withVariations:1; withInventory:1; items_per_page: 60;" class='listStyleNone fluidList clearfix noPadOrMargin productList'>
+		 <button class='invHider smallcaps' onClick='app.ext._QualityOverstock.a.inventoryHide($(this).parent());'>In Stock Only</button> 
+	</ul><!-- outputs the product list -->
 
 	<div class='displayNone' data-bind="var: category(%page.description2); format:showIfSet;">
 		<div class='homepageTextDescription'>

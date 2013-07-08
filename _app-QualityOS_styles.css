@@ -463,7 +463,24 @@ CATEGORY TEMPLATE
 .categoryTemplate {
 	height: auto;
 	width: 960px;
-	margin: auto;	
+	margin: auto;
+	position:relative; /*for inventory button*/
+}
+
+.invHider {
+	position:absolute;
+	top:1px; 
+	right:10px;
+	padding:5px;
+	border:none; 
+	background:#000000;
+	color:#FEC611;
+	font-family:"Playfair Display SC";
+}
+
+.invHider.showInv {
+	background:#FEC611;
+	color:#000000;
 }
 
 .categoryDescription {
@@ -553,6 +570,8 @@ button.quickView {
 	font-variant: small-caps;
 	padding: 4px;
 }
+
+.fluidList li.zerInv.displayNone {display:none;}
 
 /*************************************************************************************
 PRODUCT LIST TEMPLATE ATC
