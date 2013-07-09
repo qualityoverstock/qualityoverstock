@@ -90,6 +90,7 @@ var _QualityOverstock = function() {
 		a : {
 		
 				inventoryHide : function(pid) {
+				//app.u.dump('---------->'); app.u.dump(pid);
 					var $context = $(pid[0]['parentNode']['attributes']['id']['nodeValue']).text();
 					//app.u.dump('---------->'); app.u.dump(pid[0]['parentNode']['attributes']['id']['nodeValue']);
 					$('.invHider', $context).toggleClass('showInv');
