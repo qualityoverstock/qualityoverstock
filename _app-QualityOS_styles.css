@@ -959,7 +959,7 @@ PRODUCT TEMPLATE
 	height: 50px;
 	width: 940px;
 }
-
+/*
 .productCarouselTitle div:nth-child(1) {
 	height: 100%;
 	width: 283px;
@@ -978,9 +978,9 @@ PRODUCT TEMPLATE
 	width: 283px;
 	margin: 0 15px;
 	text-align: right;
-}
+}*/
 
-/*.leftTitle {
+.leftTitle {
 	height: 100%;
 	width: 283px;
 	margin: 0 15px;
@@ -999,7 +999,7 @@ PRODUCT TEMPLATE
 	width: 283px;
 	margin: 0 15px;
 	text-align:center;
-}*/
+}
 
 .productCarouselPrev {
 	height: 17px;
@@ -1009,7 +1009,7 @@ PRODUCT TEMPLATE
 	background-image: url(images/CarouselPrev-16x17.png);
 	position: absolute;
 	top: 0px;
-	left: 210px;
+	left: 260px;
 	z-index: 5;
 }
 
@@ -1023,7 +1023,7 @@ PRODUCT TEMPLATE
 	background-image: url(images/CarouselNext-16x17.png);
 	position: absolute;
 	top: 0px;
-	right: 210px;
+	right: 260px;
 	z-index: 5;
 }
 

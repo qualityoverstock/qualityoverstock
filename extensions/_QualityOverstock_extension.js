@@ -244,8 +244,20 @@ var _QualityOverstock = function() {
 							});
 						},1500); 
 					} //end prodPageCarousel
+						/*
+							$(".productCarouselNext").click(function() {
+								$(".productCarouselTitle").trigger("next", 1);
+								$(".productCarousel").trigger("next", 1);
+							});
+							$(".productCarouselPrev").click(function() {
+								$(".productCarouselTitle").trigger("prev", 1);
+								$(".productCarousel").trigger("prev", 1);
+							});
+						*/
 				},
-				
+	
+
+	
 				runProductCarouselSimilar : function($context) {
 					//SIMILAR ITEMS CAROUSEL ON PRODUCT PAGE
 					var $target = $('.prodCarSimilar', $context);
