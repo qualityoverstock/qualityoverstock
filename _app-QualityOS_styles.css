@@ -464,24 +464,29 @@ CATEGORY TEMPLATE
 	height: auto;
 	width: 960px;
 	margin: auto;
-	position:relative; /*for inventory button*/
+	position: relative; /*for inventory button*/
+}
+
+.invHiderContainer {
+	height: 30px;
+	width: 202px;
+	position: absolute;
+	top: 1px;
+	right: 20px;
 }
 
 .invHider {
-	position:absolute;
-	top:1px; 
-	right:10px;
-	padding:5px;
-	border:none; 
-	background:#000000;
-	color:#FEC611;
-	font-family:"Playfair Display SC";
+	padding: 10px 8px;
+	border: none; 
+	background: #ffffff;
+	font-family: "Playfair Display SC";
+	border: 2px solid #000000;
+	float: left;
 }
 
-.invHider.showInv {
-	background:#FEC611;
-	color:#000000;
-}
+.invHider.showInv {background: #FEC611;}
+
+.invHiderContainer span {float: right; line-height: 23px;}
 
 .categoryDescription {
 	height: 100%;
