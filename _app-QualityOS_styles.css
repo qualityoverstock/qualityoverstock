@@ -1245,6 +1245,7 @@ COMPANY TEMPLATE
 .shippingText p {padding-left:22px; text-indent:-22px;}
 
 /*CREATE ACCOUNT*/
+#loginMessagingInline.appMessaging {margin:0 0 12px 40px;}
 .buyerLoggedIn .hideIfLoggedIn{display:none;}
 .hideIfLoggedOut{display:none;}
 .buyerLoggedIn .hideIfLoggedOut	{display: block;} /* may be 'block' */

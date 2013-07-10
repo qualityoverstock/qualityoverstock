@@ -88,6 +88,28 @@ var _QualityOverstock = function() {
 //actions are functions triggered by a user interaction, such as a click/tap.
 //these are going the way of the do do, in favor of app events. new extensions should have few (if any) actions.
 		a : {
+				
+				//copied from app-quickstart.js so additional parameter could be used to assign the error location (for diff. login screens)
+				loginFrmSubmit : function(email,password,errorDiv)	{
+					var errors = '';
+					$errorDiv = errorDiv.empty(); //make sure error screen is empty. do not hide or callback errors won't show up.
+
+					if(app.u.isValidEmail(email) == false){
+						errors += "Please provide a valid email address<br \/>";
+						}
+					if(!password)	{
+						errors += "Please provide your password<br \/>";
+						}
+					if(errors == ''){
+						app.calls.appBuyerLogin.init({"login":email,"password":password},{'callback':'authenticateBuyer','extension':'myRIA'});
+						app.calls.refreshCart.init({},'immutable'); //cart needs to be updated as part of authentication process.
+	//					app.calls.buyerProductLists.init('forgetme',{'callback':'handleForgetmeList','extension':'store_prodlist'},'immutable');
+						app.model.dispatchThis('immutable');
+						}
+					else {
+						$errorDiv.anymessage({'message':errors});
+						}
+				}, //loginFrmSubmit
 		
 				inventoryHide : function(pid) {
 				//app.u.dump('---------->'); app.u.dump(pid);
