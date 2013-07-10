@@ -1244,6 +1244,37 @@ COMPANY TEMPLATE
 /* SHIPPING */  
 .shippingText p {padding-left:22px; text-indent:-22px;}
 
+/*CREATE ACCOUNT*/
+.buyerLoggedIn .hideIfLoggedIn{display:none;}
+.hideIfLoggedOut{display:none;}
+.buyerLoggedIn .hideIfLoggedOut	{display: block;} /* may be 'block' */
+.buyerLoggedIn span.hideIfLoggedOut, .buyerLoggedIn a.hideIfLoggedOut{display: inline;} /* ensures inline on span elements */
+
+.CreatAccount {height:auto; width:940px; margin:20px 0 0 40px;}
+#gotAccount1 {height:270px; width:300px; float:left; background:#000000; font-family:"Playfair Display SC"; font-weight:normal;}
+#gotAccount1 h1 {color:#ffffff; text-align:center; margin:29px 0 0 0;}
+#gotAccount1 fieldset {margin:0;}
+#gotAccount1 input {margin:10px auto; display:block; border:none; padding:5px 0 5px 5px;}
+#gotAccount1 input.ui-state-default {height:auto; width:100px; font-size:14pt; font-family:"Playfair Display SC";}
+#gotAccount1 a {color:#FEC611; font-family:"Open Sans"; font-size:12px; text-align:center; text-decoration:underline; margin:auto; display:block;}
+
+.Account {height:auto; width:620px; float:right; font-family:"Open Sans"; font-size:12px; font-weight:bold;}
+.Account h1 {font-family:"Playfair Display SC"; font-weight:normal; font-variant: small-caps; margin:0 0 30px 0;}
+.fieldM {height:auto; width:590px; padding:0 0 10px 0; margin:0 auto;}
+.field {height:auto; width:72px; display:inline-block; text-align:right;}
+.field.mname {width:82px;}
+.fieldM input, .fieldM select {height:30px; width:100px; margin:0 7px; padding:0 9px; border:1px solid #ffffff; border-radius:0; font-family:"Playfair Display SC"; border:2px solid #666666;}
+.fieldM input.textflast {width:123px;}
+.fieldM input.textfmname {width:15px;}
+.fieldM input.textfadd {width:280px;}
+.fieldM input.textfadd1 {width:150px;}
+.fieldM input.textfcity {width:176px;}
+.fieldM input.textfstate {width:60px;}
+.fieldM select.textfcountry {width:245px; padding:3px;}
+.fieldM input.textfmail {width:140px; margin:0 24px 0 7px;}
+.fieldM input.textfpass {width:140px;}
+.fieldM input.textfphone {width:180px;}
+.Account .createButton {padding:15px; margin:10px auto; background:#FEC611; border:none; display:block; font-family:"Playfair Display SC"; font-size:24px;}
 
 
 /*************************************************************************************

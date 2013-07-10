@@ -263,7 +263,8 @@ app.u.loadScript(app.vars.baseURL+"_app-QualityOverstock-init.js");
             <div class='footerHelpAccount floatLeft listStyleNone'>
             	<ul  class='floatLeft'>
                 	<li class='footerLinkHead fontColorBlack playFont fontSize24PX smallcaps'>My Account</li>
-                    <li><a href="#!customer?show=myaccount" class='bindByAnchor footerLinkStyle' title='Create an account by signing up for our newsletter'>Create An Account</a></li>
+                    <!--<li><a href="#!customer?show=createaccount" class='bindByAnchor footerLinkStyle' title='Create an account'>Create An Account</a></li>-->
+                    <li onClick="return showContent('customer',{'show':'createaccount'});" class='footerLinkStyle' title='Create an account'>Create An Account</li>
                     <li><a href="#!customer?show=myaccount" class='bindByAnchor footerLinkStyle' title='Log into your accoun or create one'>Log in or Sign up</a></li>
                     <li><a href="#!customer?show=changepassword" class='bindByAnchor footerLinkStyle' title='Set a different password for you account'>Change Password</a></li>
                     <li><a class='bindByAnchor' href='#!customer?show=myaccount'>Update Account</a></li>
@@ -1292,7 +1293,7 @@ if you change these, you should move them above this comment so that when you (o
 
 <!-- loadingBG needed on this for app init (content may take a moment to load) -->
 <div id='customerTemplate' class='clearfix'>
-
+<!-- 
 	<div class='sideline customerSideline montFont fontColorBlack fontSize12PX' >
 		<nav id='customerNav'>
 			<ul class='listStyleNone noPadOrMargin'>
@@ -1310,7 +1311,7 @@ if you change these, you should move them above this comment so that when you (o
 		<!-- before restoring this, test cuz news form on left was causing some conflicts -->
 		<!--		<li><a href='#customer?show=subscriberLists'>Newsletter Subscription</a></li>
 				<li><a href='#recoverpassword' id='navLink_recoverpassword'>Recover Password</a></li> -->
-				<li><a href='#customer?show=myaccount' id='navLink_myaccount'>&#187 My Account</a></li>
+<!--				<li><a href='#customer?show=myaccount' id='navLink_myaccount'>&#187 My Account</a></li>
 				<li><a href='#customer?show=changepassword' id='navLink_changepassword'>&#187 Change Password</a></li>
 				<li><a href='#customer?show=orders' id='navLink_orders'>&#187 Order History</a></li>
 				<li><a href='#customer?show=lists' id='navLink_orders'>&#187 Manage Lists</a></li>
@@ -1320,7 +1321,7 @@ if you change these, you should move them above this comment so that when you (o
 			</ul>
 		</nav>
 	</div>
-
+-->
 	<div class='mainColumn'>
 <!-- .textContentArea is used as a selector because IE8 doesn't play well  with tag type article as a selector -->
 
@@ -1333,6 +1334,67 @@ subscribeListsArticle is used for authenticated buyers
 			<div data-bind="format:loadsTemplate; loadsTemplate:subscribeFormTemplate;"></div>
 		</div>
 
+		
+		
+		
+		
+		<div class="hideIfLoggedIn">
+			<div class="CreatAccount">
+				<div id="gotAccount1"> 
+					<h1 class='smallcaps'>Welcome Back</h1>
+					<form action='#' onSubmit='app.ext.myRIA.u.loginFrmSubmit($("#modalLoginlogin").val(),$("#modalLoginpassword").val()); return false;' id='modalLoginForm'>
+						<input type='hidden' name='loginCallback' id='loginCallback' value='' /><!-- used to save a callback action in -->
+						<fieldset style="margin:0 0 0 20px; border:0px;">
+							<input type='email' class='zform_textbox zform_email' name='login' id='modalLoginlogin' value='' size='25' placeholder='E-mail address' />
+							<input type='password' class='zform_textbox zform_password' name='password' id='modalLoginpassword' value='' size='25' placeholder='Password' />
+							<input type='image' src="images/button-login-to-my-account.png" value='Log In' class='smallcaps ui-button-text ui-button ui-state-default ui-corner-all ' />
+						</fieldset>
+					</form>
+					<a href="#" onClick="app.ext.store_crm.calls.appBuyerPasswordRecover.init($('#modalLoginLogin').val(),{'callback':'showMessaging','message':'Thank you, will receive an email shortly','targetID':'loginMessaging'}); app.model.dispatchThis('immutable'); return false;">Forgot your username or password?</a>
+				</div>
+				<div class="Account" >
+					<form action='#' class='inputsAsBreaks'  onSubmit="app.ext.myRIA.u.handleAppBuyerCreate($(this)); return false;">
+						<input type="hidden" name="vendor" value="qualityoverstock"/>
+						<h1>First Time With Us?</h1><input type='hidden' name='form' value='wholesale' />
+						<div class="fieldM"><span class="field">First Name</span> <input name='firstname' type='text' size='30' class='textfname' placeholder='First Name' required='required' />
+						<span class="field mname">Middle Initial</span> <input name='firstname' type='text' size='3' class='textfmname' />
+						<b>Last Name</b> <input name='lastname' type='text' size='30' placeholder='Last Name' required='required' class='textflast'/></div>
+						<!--<div class="passwordInput"><b>Password</b><input name="password" size="30" placeholder="Password" required /></div>-->
+						<div class="fieldM"><span class="field">Address</span> <input name='address1' type='text' size='30' placeholder='Address' class='textfadd' required='required' /> 
+						<input name='address2' type='text' size='30' placeholder='Address (Line 2)' class='textfadd1'/></div>
+						<div class="fieldM"><span class="field">City</span> <input name='city' type='text' size='30' placeholder='City' required='required' class='textfcity'/> 	<b>State</b> <input name='region' type='text' size='5' placeholder='State' class='textfstate' /> <b>Zip</b> <input name='postal' type='text' size='10' placeholder='00000-0000' class='textfzip'/></div>
+						<div class="fieldM"><span class="field">Country</span> <select name="country" class="textfcountry"><option>United States of America</option></select></div>
+						<div class="fieldM"><span class="field">E-mail</span> <input name='email' type='email' size='30' class='textfmail' placeholder='E-mail Address' required='required' /> <b>Phone Number</b> <input name='phone' type='tel' size='12' placeholder='Phone Number' class='textfphone' required='required'/> </div>
+						<div class="fieldM"><span class="field">Password</span> <input name='pass' type='password' size='30' class='textfpass' placeholder='7-18 Characters' required='required' /> <b>Confirm Password</b> <input name='pass2' type='password' size='12' placeholder='Must be a match' class='textfphone' required='required'/> </div>
+						<!--<fieldset class='marginBottom'>
+							<legend>About Your Business</legend>
+							<div class="fieldM"><input name='order_volume' type='text' size='30' placeholder='Anticipated Order Volume' />
+							<input name='resaleid' type='text' size='30' placeholder='State Resale Permit' /></div>
+							<div class="fieldM"><input name='ein' type='text' size='30' placeholder='Company EIN/Tax ID' />
+							<input name='credit_limit' type='number' step='0.01' min='0' placeholder='Requested Credit Limit' /></div>
+						</fieldset>-->
+						<button class="createButton smallcaps">Create an Account</button>
+					</form>
+				</div>
+			</div>
+        </div>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		<div id='subscriberListsArticle' class='displayNone textContentArea custArticle'>
 			<h1>Manage your Subscriptions</h1>
 			<!-- save onchange -->
