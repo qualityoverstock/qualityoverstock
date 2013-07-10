@@ -31,7 +31,7 @@ var _gaq = _gaq || {'push':function(){}} //here for testing. REPLACE BEFORE DEPL
 var myCreole;
 
 var app = {vars:{
-	"release":"201320.201307010135000",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+	"release":"201320.20130710144600",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 	"_clientid":"zmvc",
 	"baseURL":"", //used in non-local mode.
 	"checkoutAuthMode" : "active",//can be passive, active or required
@@ -1336,8 +1336,47 @@ subscribeListsArticle is used for authenticated buyers
 			<div data-bind="format:loadsTemplate; loadsTemplate:subscribeFormTemplate;"></div>
 		</div>
 
-		<div id='createaccountArticle' class="displayNone textContentArea hideIfLoggedIn">
-			<div data-bind="format:loadsTemplate; loadsTemplate:loginInlineTemplate;"></div>
+		<div id='createaccountArticle' class="displayNone textContentArea">
+			<p id='loginMessagingInline' class='marginBottom appMessaging'></p>
+			<div class="CreatAccount">
+				<div id="gotAccount1"> 
+					<h1 class='smallcaps'>Welcome Back</h1>
+					<!-- Third parameter is id of message destination -->
+					<form action='#' onSubmit='app.ext._QualityOverstock.a.loginFrmSubmit($("#modalLoginLogin").val(),$("#modalLoginpassword").val(),$("#loginMessagingInline")); return false;' id='modalLoginForm'>
+						<input type='hidden' name='loginCallback' id='loginCallback' value='' /><!-- used to save a callback action in -->
+						<fieldset>
+							<input type='email' class='zform_textbox zform_email' name='login' id='modalLoginLogin' value='' size='25' placeholder='E-mail address' />
+							<input type='password' class='zform_textbox zform_password' name='password' id='modalLoginpassword' value='' size='25' placeholder='Password' />
+							<input type='submit' value='Log In' class='smallcaps ui-button-text ui-button ui-state-default ui-corner-all ' />
+						</fieldset>
+					</form>
+					<a href="#" onClick="app.calls.appBuyerPasswordRecover.init($('#modalLoginLogin').val(),{'callback':'showMessaging','message':'Thank you, you will receive an email shortly','targetID':'loginMessagingInline'}); app.model.dispatchThis('immutable'); return false;">Forgot your password?<br> Enter your username and click hear to retrieve it!</a>
+				</div>
+				<div class="Account" >
+					<form action='#' class='inputsAsBreaks'  onSubmit="app.ext.myRIA.u.handleAppBuyerCreate($(this)); return false;">
+						<input type="hidden" name="vendor" value="qualityoverstock"/>
+						<h1>First Time With Us?</h1><input type='hidden' name='form' value='wholesale' />
+						<div class="fieldM"><span class="field">First Name</span> <input name='firstname' type='text' size='30' class='textfname' placeholder='First Name' required='required' />
+						<span class="field mname">Middle Initial</span> <input name='firstname' type='text' size='3' class='textfmname' />
+						<b>Last Name</b> <input name='lastname' type='text' size='30' placeholder='Last Name' required='required' class='textflast'/></div>
+						<!--<div class="passwordInput"><b>Password</b><input name="password" size="30" placeholder="Password" required /></div>-->
+						<div class="fieldM"><span class="field">Address</span> <input name='address1' type='text' size='30' placeholder='Address' class='textfadd' required='required' /> 
+						<input name='address2' type='text' size='30' placeholder='Address (Line 2)' class='textfadd1'/></div>
+						<div class="fieldM"><span class="field">City</span> <input name='city' type='text' size='30' placeholder='City' required='required' class='textfcity'/> 	<b>State</b> <input name='region' type='text' size='5' placeholder='State' class='textfstate' /> <b>Zip</b> <input name='postal' type='text' size='10' placeholder='00000-0000' class='textfzip'/></div>
+						<div class="fieldM"><span class="field">Country</span> <select name="country" class="textfcountry"><option>United States of America</option></select></div>
+						<div class="fieldM"><span class="field">E-mail</span> <input name='email' type='email' size='30' class='textfmail' placeholder='E-mail Address' required='required' /> <b>Phone Number</b> <input name='phone' type='tel' size='12' placeholder='Phone Number' class='textfphone' required='required'/> </div>
+						<div class="fieldM"><span class="field">Password</span> <input name='pass' type='password' size='30' class='textfpass' placeholder='7-18 Characters' required='required' /> <b>Confirm Password</b> <input name='pass2' type='password' size='12' placeholder='Must be a match' class='textfphone' required='required'/> </div>
+						<!--<fieldset class='marginBottom'>
+							<legend>About Your Business</legend>
+							<div class="fieldM"><input name='order_volume' type='text' size='30' placeholder='Anticipated Order Volume' />
+							<input name='resaleid' type='text' size='30' placeholder='State Resale Permit' /></div>
+							<div class="fieldM"><input name='ein' type='text' size='30' placeholder='Company EIN/Tax ID' />
+							<input name='credit_limit' type='number' step='0.01' min='0' placeholder='Requested Credit Limit' /></div>
+						</fieldset>-->
+						<button class="createButton smallcaps">Create an Account</button>
+					</form>
+				</div>
+			</div>
         </div>
 
 		<div id='subscriberListsArticle' class='displayNone textContentArea custArticle'>
@@ -1783,49 +1822,6 @@ used for store_crm.js
 </form>
 </div>
 
-
-<div id='loginInlineTemplate'>
-	<p id='loginMessagingInline' class='marginBottom appMessaging'></p>
-	<div class="CreatAccount">
-		<div id="gotAccount1"> 
-			<h1 class='smallcaps'>Welcome Back</h1>
-			<!-- Third parameter is id of message destination -->
-			<form action='#' onSubmit='app.ext._QualityOverstock.a.loginFrmSubmit($("#modalLoginLogin").val(),$("#modalLoginpassword").val(),$("#loginMessagingInline")); return false;' id='modalLoginForm'>
-				<input type='hidden' name='loginCallback' id='loginCallback' value='' /><!-- used to save a callback action in -->
-				<fieldset>
-					<input type='email' class='zform_textbox zform_email' name='login' id='modalLoginLogin' value='' size='25' placeholder='E-mail address' />
-					<input type='password' class='zform_textbox zform_password' name='password' id='modalLoginpassword' value='' size='25' placeholder='Password' />
-					<input type='submit' value='Log In' class='smallcaps ui-button-text ui-button ui-state-default ui-corner-all ' />
-				</fieldset>
-			</form>
-			<a href="#" onClick="app.calls.appBuyerPasswordRecover.init($('#modalLoginLogin').val(),{'callback':'showMessaging','message':'Thank you, you will receive an email shortly','targetID':'loginMessagingInline'}); app.model.dispatchThis('immutable'); return false;">Forgot your password?<br> Enter your username and click hear to retrieve it!</a>
-		</div>
-		<div class="Account" >
-			<form action='#' class='inputsAsBreaks'  onSubmit="app.ext.myRIA.u.handleAppBuyerCreate($(this)); return false;">
-				<input type="hidden" name="vendor" value="qualityoverstock"/>
-				<h1>First Time With Us?</h1><input type='hidden' name='form' value='wholesale' />
-				<div class="fieldM"><span class="field">First Name</span> <input name='firstname' type='text' size='30' class='textfname' placeholder='First Name' required='required' />
-				<span class="field mname">Middle Initial</span> <input name='firstname' type='text' size='3' class='textfmname' />
-				<b>Last Name</b> <input name='lastname' type='text' size='30' placeholder='Last Name' required='required' class='textflast'/></div>
-				<!--<div class="passwordInput"><b>Password</b><input name="password" size="30" placeholder="Password" required /></div>-->
-				<div class="fieldM"><span class="field">Address</span> <input name='address1' type='text' size='30' placeholder='Address' class='textfadd' required='required' /> 
-				<input name='address2' type='text' size='30' placeholder='Address (Line 2)' class='textfadd1'/></div>
-				<div class="fieldM"><span class="field">City</span> <input name='city' type='text' size='30' placeholder='City' required='required' class='textfcity'/> 	<b>State</b> <input name='region' type='text' size='5' placeholder='State' class='textfstate' /> <b>Zip</b> <input name='postal' type='text' size='10' placeholder='00000-0000' class='textfzip'/></div>
-				<div class="fieldM"><span class="field">Country</span> <select name="country" class="textfcountry"><option>United States of America</option></select></div>
-				<div class="fieldM"><span class="field">E-mail</span> <input name='email' type='email' size='30' class='textfmail' placeholder='E-mail Address' required='required' /> <b>Phone Number</b> <input name='phone' type='tel' size='12' placeholder='Phone Number' class='textfphone' required='required'/> </div>
-				<div class="fieldM"><span class="field">Password</span> <input name='pass' type='password' size='30' class='textfpass' placeholder='7-18 Characters' required='required' /> <b>Confirm Password</b> <input name='pass2' type='password' size='12' placeholder='Must be a match' class='textfphone' required='required'/> </div>
-				<!--<fieldset class='marginBottom'>
-					<legend>About Your Business</legend>
-					<div class="fieldM"><input name='order_volume' type='text' size='30' placeholder='Anticipated Order Volume' />
-					<input name='resaleid' type='text' size='30' placeholder='State Resale Permit' /></div>
-					<div class="fieldM"><input name='ein' type='text' size='30' placeholder='Company EIN/Tax ID' />
-					<input name='credit_limit' type='number' step='0.01' min='0' placeholder='Requested Credit Limit' /></div>
-				</fieldset>-->
-				<button class="createButton smallcaps">Create an Account</button>
-			</form>
-		</div>
-	</div>
-</div>
 
 
 
