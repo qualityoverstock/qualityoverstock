@@ -1253,7 +1253,7 @@ COMPANY TEMPLATE
 .CreatAccount {height:auto; width:940px; margin:20px 0 0 40px;}
 #gotAccount1 {height:270px; width:300px; float:left; background:#000000; font-family:"Playfair Display SC"; font-weight:normal;}
 #gotAccount1 h1 {color:#ffffff; text-align:center; margin:29px 0 0 0;}
-#gotAccount1 fieldset {margin:0;}
+#gotAccount1 fieldset {padding:0; border:0}
 #gotAccount1 input {margin:10px auto; display:block; border:none; padding:5px 0 5px 5px;}
 #gotAccount1 input.ui-state-default {height:auto; width:100px; font-size:14pt; font-family:"Playfair Display SC";}
 #gotAccount1 a {color:#FEC611; font-family:"Open Sans"; font-size:12px; text-align:center; text-decoration:underline; margin:auto; display:block;}
@@ -1823,7 +1823,21 @@ CHECKOUT FORM
 	font-variant: small-caps;
 }
 
+/*************************************************************************************
+LOGIN MODAL
+*************************************************************************************/
 
+.createAccount {height:270px; width:300px; float:left; font-family:"Open Sans"; text-align:center;}
+.createAccount h1 {color:#000000; text-align:center; font-family:"Playfair Display SC"; font-size:20px; margin:33px 0 8px 0;}
+.createAccount .modalCreateButton {padding:5px; margin:10px; font-family:"Playfair Display SC"; border:none; background:#fec611;} 
 
+#gotAccount {height:270px; width:300px; float:right; background:#000000; font-family:"Playfair Display SC"; font-weight:normal;}
+#gotAccount h1 {color:#ffffff; text-align:center; margin:29px 0 0 0;}
+#gotAccount fieldset {padding:0; border:0}
+#gotAccount input {margin:10px auto; display:block; border:none; padding:5px 0 5px 5px;}
+#gotAccount input.ui-state-default {height:auto; width:100px; font-size:14pt; font-family:"Playfair Display SC";}
+#gotAccount a {color:#FEC611; font-family:"Open Sans"; font-size:12px; text-align:center; text-decoration:underline; margin:auto; display:block;}
+
+#recoverPasswordContainer .recoverField {margin:5px 0 12px 12px; float:left;}
 
 

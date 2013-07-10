@@ -31,7 +31,7 @@ var _gaq = _gaq || {'push':function(){}} //here for testing. REPLACE BEFORE DEPL
 var myCreole;
 
 var app = {vars:{
-	"release":"201320.201307009135600",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+	"release":"201320.201307009192600",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 	"_clientid":"zmvc",
 	"baseURL":"", //used in non-local mode.
 	"checkoutAuthMode" : "active",//can be passive, active or required
@@ -264,7 +264,8 @@ app.u.loadScript(app.vars.baseURL+"_app-QualityOverstock-init.js");
             	<ul  class='floatLeft'>
                 	<li class='footerLinkHead fontColorBlack playFont fontSize24PX smallcaps'>My Account</li>
                     <!--<li><a href="#!customer?show=createaccount" class='bindByAnchor footerLinkStyle' title='Create an account'>Create An Account</a></li>-->
-                    <li onClick="return showContent('customer',{'show':'createaccount'});" class='footerLinkStyle pointer' title='Create an account'>Create An Account</li>
+                    <li><a href="#!customer?show=myaccount" class='bindByAnchor footerLinkStyle' title='Log into your accoun or create one'>My Account</a></li>
+					<li onClick="return showContent('customer',{'show':'createaccount'});" class='footerLinkStyle pointer' title='Create an account'>Create An Account</li>
                     <li><a href="#!customer?show=myaccount" class='bindByAnchor footerLinkStyle' title='Log into your accoun or create one'>Log in or Sign up</a></li>
                     <li><a href="#!customer?show=changepassword" class='bindByAnchor footerLinkStyle' title='Set a different password for you account'>Change Password</a></li>
                     <li><a class='bindByAnchor' href='#!customer?show=myaccount'>Update Account</a></li>
@@ -1344,10 +1345,10 @@ subscribeListsArticle is used for authenticated buyers
 					<h1 class='smallcaps'>Welcome Back</h1>
 					<form action='#' onSubmit='app.ext.myRIA.u.loginFrmSubmit($("#modalLoginlogin").val(),$("#modalLoginpassword").val()); return false;' id='modalLoginForm'>
 						<input type='hidden' name='loginCallback' id='loginCallback' value='' /><!-- used to save a callback action in -->
-						<fieldset style="margin:0 0 0 20px; border:0px;">
+						<fieldset>
 							<input type='email' class='zform_textbox zform_email' name='login' id='modalLoginlogin' value='' size='25' placeholder='E-mail address' />
 							<input type='password' class='zform_textbox zform_password' name='password' id='modalLoginpassword' value='' size='25' placeholder='Password' />
-							<input type='image' src="images/button-login-to-my-account.png" value='Log In' class='smallcaps ui-button-text ui-button ui-state-default ui-corner-all ' />
+							<input type='text' value='Log In' class='smallcaps ui-button-text ui-button ui-state-default ui-corner-all ' />
 						</fieldset>
 					</form>
 					<a href="#" onClick="app.ext.store_crm.calls.appBuyerPasswordRecover.init($('#modalLoginLogin').val(),{'callback':'showMessaging','message':'Thank you, will receive an email shortly','targetID':'loginMessaging'}); app.model.dispatchThis('immutable'); return false;">Forgot your username or password?</a>
@@ -2030,47 +2031,64 @@ The 'data-action' attribute is used to assign an onclick.
 <p id='loginMessaging' class='marginBottom appMessaging'></p>
 
 <div id='loginFormContainer'>
-<form action='#' onSubmit='app.ext.myRIA.u.loginFrmSubmit($("#modalLoginlogin").val(),$("#modalLoginpassword").val()); return false;' id='modalLoginForm'>
-<input type='hidden' name='loginCallback' id='loginCallback' value='' /><!-- used to save a callback action in -->
-	<fieldset>
+	<form action='#' onSubmit='app.ext.myRIA.u.loginFrmSubmit($("#modalLoginlogin").val(),$("#modalLoginpassword").val()); return false;' id='modalLoginForm'>
+	<input type='hidden' name='loginCallback' id='loginCallback' value='' /><!-- used to save a callback action in -->
+		<fieldset>
+		
+		<div class='createAccount'>
+			<h1 class='smallcaps'>First Time With Us?</h1>
+			<p>If you have never made a purchase at this web site and have never subscribed to this store's mailing list,
+				please choose this option.</p>
+			<button class='smallcaps modalCreateButton' onClick="return showContent('customer',{'show':'createaccount'});">Create an Account</button>
+		</div>
 
+		<div id="gotAccount"> 
+			<h1 class='smallcaps'>Welcome Back</h1>
+			<form action='#' onSubmit='app.ext.myRIA.u.loginFrmSubmit($("#modalLoginlogin").val(),$("#modalLoginpassword").val()); return false;' id='modalLoginForm'>
+				<input type='hidden' name='loginCallback' id='loginCallback' value='' /><!-- used to save a callback action in -->
+				<fieldset>
+					<input type='email' class='zform_textbox zform_email' name='login' id='modalLoginlogin' value='' size='20' placeholder='E-mail address' />
+					<input type='password' class='zform_textbox zform_password' name='password' id='modalLoginpassword' value='' size='20' placeholder='Password' />
+					<input type='text' value='Log In' class='smallcaps ui-button-text ui-button ui-state-default ui-corner-all ' />
+				</fieldset>
+			</form>
+			<a href="#" onClick="app.ext.store_crm.calls.appBuyerPasswordRecover.init($('#modalLoginLogin').val(),{'callback':'showMessaging','message':'Thank you, will receive an email shortly','targetID':'loginMessaging'}); app.model.dispatchThis('immutable'); return false;">Forgot your username or password?</a>
+		</div>
+<!--	
 	<div>
 	<label for='modalLoginlogin'>Login/Email</label>
 	<input type='email' class='zform_textbox zform_email'  name='login' id='modalLoginlogin' value='' size='25' />
 	</div>
-
 	<div>
 	<label for='modalLoginpassword'>Password</label>
 	<input type='password' class='zform_textbox zform_password'   name='password' id='modalLoginpassword' value='' size='25' />
 	</div>
-
 	<div>
 	<input type='submit' value='log in' class='ui-button-text ui-button ui-state-default ui-corner-all ' />
 	</div>
-	</fieldset>
-</form>
+-->
+		</fieldset>
+	</form>
+<!--
+	<div id='recoverPasswordContainer'>
+		<hr />
 
-<div id='recoverPasswordContainer'>
-<hr />
+		<h3 class='marginBottom centerText'>Recover Password</h3>
+		<div id='recoverPasswordMessaging'></div>
+		<form action='#' onSubmit="app.calls.appBuyerPasswordRecover.init($('#passwordRecoveryLogin').val(),{'callback':'showMessaging','message':'Thank you, will receive an email shortly','targetID':'recoverPasswordMessaging'}); app.model.dispatchThis('immutable'); return false;">
+			<fieldset>
+				<div class='marginBottom recoverField'><label for='passwordRecoveryLogin'>Login/Email</label> <input type='text' name='login' required='required' id='passwordRecoveryLogin' size='22' /></div>
+				<div><input type='submit' class='recoverButton floatRight ui-button-text ui-button ui-state-default ui-corner-all ' value='Email Password to Me' /></div>
+			</fieldset>
+		</form>
 
-<h3 class='marginBottom'>Recover Password</h3>
-<div id='recoverPasswordMessaging'></div>
-<form action='#' onSubmit="app.calls.appBuyerPasswordRecover.init($('#passwordRecoveryLogin').val(),{'callback':'showMessaging','message':'Thank you, will receive an email shortly','targetID':'recoverPasswordMessaging'}); app.model.dispatchThis('immutable'); return false;">
-<fieldset>
-<div class='marginBottom'><label for='passwordRecoveryLogin'>Login/Email</label> <input type='text' name='login' required='required' id='passwordRecoveryLogin' size='25' /></div>
-
-<div><input type='submit' class='ui-button-text ui-button ui-state-default ui-corner-all ' value='Email Password to Me' /></div>
-
-</fieldset>
-</form>
-
-</div><!-- /recoverPasswordContainer -->
-
+	</div>--><!-- /recoverPasswordContainer -->
+<!--
 <div>
 <hr />
 <button class='ui-button-text ui-button ui-state-default ui-corner-all ' onClick="showContent('customer',{'show':'newsletter'});">Create Account</button>
 </div>
-
+-->
 
 
 </div>
