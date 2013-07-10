@@ -1351,7 +1351,7 @@ subscribeListsArticle is used for authenticated buyers
 							<input type='text' value='Log In' class='smallcaps ui-button-text ui-button ui-state-default ui-corner-all ' />
 						</fieldset>
 					</form>
-					<a href="#" onClick="app.ext.store_crm.calls.appBuyerPasswordRecover.init($('#modalLoginLogin').val(),{'callback':'showMessaging','message':'Thank you, will receive an email shortly','targetID':'loginMessaging'}); app.model.dispatchThis('immutable'); return false;">Forgot your username or password?</a>
+					<a href="#" onClick="app.calls.appBuyerPasswordRecover.init($('#modalLoginLogin').val(),{'callback':'showMessaging','message':'Thank you, will receive an email shortly','targetID':'loginMessaging'}); app.model.dispatchThis('immutable'); return false;">Forgot your username or password?</a>
 				</div>
 				<div class="Account" >
 					<form action='#' class='inputsAsBreaks'  onSubmit="app.ext.myRIA.u.handleAppBuyerCreate($(this)); return false;">
@@ -2052,7 +2052,7 @@ The 'data-action' attribute is used to assign an onclick.
 					<input type='text' value='Log In' class='smallcaps ui-button-text ui-button ui-state-default ui-corner-all ' />
 				</fieldset>
 			</form>
-			<a href="#" onClick="app.ext.store_crm.calls.appBuyerPasswordRecover.init($('#modalLoginLogin').val(),{'callback':'showMessaging','message':'Thank you, will receive an email shortly','targetID':'loginMessaging'}); app.model.dispatchThis('immutable'); return false;">Forgot your username or password?</a>
+			<a href="#" onClick="app.calls.appBuyerPasswordRecover.init($('#modalLoginLogin').val(),{'callback':'showMessaging','message':'Thank you, will receive an email shortly','targetID':'loginMessaging'}); app.model.dispatchThis('immutable'); return false;">Forgot your username or password?</a>
 		</div>
 <!--	
 	<div>
