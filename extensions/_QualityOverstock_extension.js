@@ -110,7 +110,8 @@ var _QualityOverstock = function() {
 						$errorDiv.anymessage({'message':errors});
 						}
 				}, //loginFrmSubmit
-		
+				
+				//toggles a class to show or hide inventory based on classes assigned in hideZeroInv renderFormat
 				inventoryHide : function(pid) {
 				//app.u.dump('---------->'); app.u.dump(pid);
 					var $context = $(pid[0]['parentNode']['attributes']['id']['nodeValue']).text();
