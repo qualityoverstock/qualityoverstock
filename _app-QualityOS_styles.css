@@ -469,7 +469,7 @@ CATEGORY TEMPLATE
 
 .invHiderContainer {
 	height: 30px;
-	width: 202px;
+	width: 240px;
 	position: absolute;
 	top: 1px;
 	right: 20px;
@@ -481,12 +481,12 @@ CATEGORY TEMPLATE
 	background: #ffffff;
 	font-family: "Playfair Display SC";
 	border: 2px solid #000000;
-	float: left;
+	float: right;
 }
 
 .invHider.showInv {background: #FEC611;}
 
-.invHiderContainer span {float: right; line-height: 23px;}
+.invHiderContainer span {float: right; line-height: 23px; margin:0 0 0 10px;}
 
 .categoryDescription {
 	height: 100%;
