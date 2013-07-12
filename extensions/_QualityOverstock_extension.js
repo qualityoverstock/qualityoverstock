@@ -414,12 +414,14 @@ var _QualityOverstock = function() {
 				//adds a class to each $tag with zero inventory that can be used to hide it
 				hideZeroInv : function($tag, data) {
 					var pid = data.value.pid;
-					var inventory = data.value['@inventory'][pid]['inv'];
-					if(inventory == 0) {
-						$tag.addClass('zerInv');
+					if(data.value['@inventory'][pid]) {
+						var inventory = data.value['@inventory'][pid]['inv'];
+						if(inventory == 0) {
+							$tag.addClass('zerInv');
+						}
+						//app.u.dump('-------------->'); app.u.dump(data.value['@inventory'][pid]['inv']);
 					}
-					//app.u.dump('-------------->'); app.u.dump(data.value['@inventory'][pid]['inv']);
-				} 
+				}
 
 			}, //renderFormats
 ////////////////////////////////////   UTIL [u]   \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
