@@ -766,6 +766,8 @@ this will likely become more flexible in the future. ###
    
         <span id="buySAFE_Kicker" name="buySAFE_Kicker" type="Kicker Guaranteed Transparent 33 175x30"></span>
 
+	
+
 	</td>
     
     <td>
@@ -814,7 +816,11 @@ this will likely become more flexible in the future. ###
                 
                 <div class='productSmallButtonContainer playFont fontColorWhite fontSize14PX smallcaps'>       
                     <menu data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;' class='CRMButtonMenu'>
-                        <button class='prodSelectShareButton prodSelectSmallButtons ui-button ui-state-default' onClick=";">Share This</button><!--!%!-->
+                        <div class='prodSelectShareButton prodSelectSmallButtons ui-button ui-state-default' onClick=";">Share This
+							<div class='socialLinksCont'>
+								<div class="socialLinks"></div>
+							</div>
+						</div><!--!%!-->
                         <button class='prodSelectWishlistButton prodSelectSmallButtons ui-button ui-state-default' onClick='javascript:window.print()'>Print</button>  <!--app.ext.myRIA.a.add2BuyerList({sku:$(this).parent().attr('data-pid'),'listid':'wishlist'}); return false;">Print</button>-->
                         <button class='prodSelectSeeReviewButton prodSelectSmallButtons ui-button ui-state-default' onClick='app.ext._QualityOverstock.a.showReviews($(this).parent().data("pid"));'>Product Reviews</button> 
                         <button class='prodSelectSeeDescriptionButton prodSelectSmallButtons ui-button ui-state-default displayNone' onClick='app.ext._QualityOverstock.a.showDescription($(this).parent().data("pid"));'>Product Description</button>
@@ -826,7 +832,7 @@ this will likely become more flexible in the future. ###
         	 </div>
              
              <div class='productShips'></div>
-       </div>
+        </div>
     </td>
 </tr>
 <!-- <tr>
