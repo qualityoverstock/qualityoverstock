@@ -714,6 +714,8 @@ PRODUCT TEMPLATE
 	font-size: 12px;
 }
 
+.prodReviewContainer  .prodSelectWriteReviewButton.ui-button {margin: 0 104px;}
+
 .prodReviewInfo {width:380px;}
 
 .prodSummaryContainer {
@@ -962,6 +964,7 @@ PRODUCT TEMPLATE
 .prodSelectWriteReviewButton.ui-button {
 	width: 180px;
 }
+
 .productCarouselTitleWrapper {
 	height: 50px;
 	width: 940px;

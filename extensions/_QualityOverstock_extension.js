@@ -149,6 +149,7 @@ var _QualityOverstock = function() {
 						$('.prodSelectSeeReviewButton', $context).unbind();
 						$('.prodSelectSeeReviewButton', $context).click(app.ext._QualityOverstock.a.showReviews);
 					}, 250);
+
 				}, //END showDescription
 				
 				
