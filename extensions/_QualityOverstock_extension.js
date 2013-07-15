@@ -111,13 +111,13 @@ var _QualityOverstock = function() {
 						}
 				}, //loginFrmSubmit
 				
-				//toggles a class to show or hide inventory based on classes assigned in hideZeroInv renderFormat
+				//toggles a class on the list ul to show or hide inventory based on classes assigned in hideZeroInv renderFormat
 				inventoryHide : function(pid) {
 				//app.u.dump('---------->'); app.u.dump(pid);
 					var $context = $(pid[0]['parentNode']['attributes']['id']['nodeValue']).text();
 					//app.u.dump('---------->'); app.u.dump(pid[0]['parentNode']['attributes']['id']['nodeValue']);
 					$('.invHider', $context).toggleClass('showInv');
-					$('.zerInv', $context).toggleClass('displayNone');
+					$('.zeroUL', $context).toggleClass('zeroHidden');
 				},
 
 				showReviews : function(pid) {

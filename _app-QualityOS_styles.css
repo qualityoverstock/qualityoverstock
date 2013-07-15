@@ -485,8 +485,8 @@ CATEGORY TEMPLATE
 }
 
 .invHider.showInv {background: #FEC611;}
-
 .invHiderContainer span {float: right; line-height: 23px; margin:0 0 0 10px;}
+.zeroHidden .zerInv {display:none;}
 
 .categoryDescription {
 	height: 100%;
