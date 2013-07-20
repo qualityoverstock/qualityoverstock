@@ -1359,7 +1359,8 @@ subscribeListsArticle is used for authenticated buyers
 					<a href="#" onClick="app.calls.appBuyerPasswordRecover.init($('#modalLoginLogin').val(),{'callback':'showMessaging','message':'Thank you, you will receive an email shortly','targetID':'loginMessagingInline'}); app.model.dispatchThis('immutable'); return false;">Forgot your password?<br> Enter your username and click hear to retrieve it!</a>
 				</div>
 				<div class="Account" >
-					<form action='#' class='inputsAsBreaks'  onSubmit="app.ext.myRIA.u.handleAppBuyerCreate($(this)); return false;">
+					<!--<form action='#' class='inputsAsBreaks'  onSubmit="app.ext.myRIA.u.handleAppBuyerCreate($(this)); return false;">-->
+					<form action='#' class='inputsAsBreaks'  onSubmit="app.ext._QualityOverstock.u.handleAppLoginCreate($(this)); return false;">
 						<input type="hidden" name="vendor" value="qualityoverstock"/>
 						<h1>First Time With Us?</h1><input type='hidden' name='form' value='wholesale' />
 						<div class="fieldM"><span class="field">First Name</span> <input name='firstname' type='text' size='30' class='textfname' placeholder='First Name' required='required' />
@@ -1368,7 +1369,7 @@ subscribeListsArticle is used for authenticated buyers
 						<!--<div class="passwordInput"><b>Password</b><input name="password" size="30" placeholder="Password" required /></div>-->
 						<div class="fieldM"><span class="field">Address</span> <input name='address1' type='text' size='30' placeholder='Address' class='textfadd' required='required' /> 
 						<input name='address2' type='text' size='30' placeholder='Address (Line 2)' class='textfadd1'/></div>
-						<div class="fieldM"><span class="field">City</span> <input name='city' type='text' size='30' placeholder='City' required='required' class='textfcity'/> 	<b>State</b> <input name='region' type='text' size='5' placeholder='State' class='textfstate' /> <b>Zip</b> <input name='postal' type='text' size='10' placeholder='00000-0000' class='textfzip'/></div>
+						<div class="fieldM"><span class="field">City</span> <input name='city' type='text' size='30' placeholder='City' required='required' class='textfcity'/> 	<b>State</b> <input name='region' type='text' size='5' placeholder='State' required='required' class='textfstate' /> <b>Zip</b> <input name='postal' type='text' size='10' placeholder='00000-0000' required='required' class='textfzip'/></div>
 						<div class="fieldM"><span class="field">Country</span> <select name="country" class="textfcountry"><option>United States of America</option></select></div>
 						<div class="fieldM"><span class="field">E-mail</span> <input name='email' type='email' size='30' class='textfmail' placeholder='E-mail Address' required='required' /> <b>Phone Number</b> <input name='phone' type='tel' size='12' placeholder='Phone Number' class='textfphone' required='required'/> </div>
 						<div class="fieldM"><span class="field">Password</span> <input name='pass' type='password' size='30' class='textfpass' placeholder='7-18 Characters' required='required' /> <b>Confirm Password</b> <input name='pass2' type='password' size='12' placeholder='Must be a match' class='textfphone' required='required'/> </div>
@@ -1379,7 +1380,7 @@ subscribeListsArticle is used for authenticated buyers
 							<div class="fieldM"><input name='ein' type='text' size='30' placeholder='Company EIN/Tax ID' />
 							<input name='credit_limit' type='number' step='0.01' min='0' placeholder='Requested Credit Limit' /></div>
 						</fieldset>-->
-						<button class="createButton smallcaps">Create an Account</button>
+						<input type="submit" value="Create an Account" class="createButton smallcaps"></input>
 					</form>
 				</div>
 			</div>

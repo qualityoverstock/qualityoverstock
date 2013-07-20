@@ -430,7 +430,25 @@ var _QualityOverstock = function() {
 //utilities are typically functions that are exected by an event or action.
 //any functions that are recycled should be here.
 		u : {
-				
+			
+			handleAppLoginCreate : function($form)	{
+			/*	if($form)	{
+					var formObj = $form.serializeJSON();
+					app.calls.appBuyerCreate.init(formObj,{'callback':function(rd){
+						if(app.model.responseHasErrors(rd)){
+							$form.anymessage({'message':rd});
+							}
+						else	{
+							$form.empty().anymessage({'message':'Thank you, your account request has been submitted. you will be notified by email when you are approved.'})
+							}
+						}});
+					app.model.dispatchThis('immutable');
+					}
+				else	{
+					$('#globalMessaging').anymessage({'message':'$form not passed into myRIA.u.handleBuyerAccountCreate','gMessage':true});
+					}
+			*/	}
+			
 			}, //u [utilities]
 
 //app-events are added to an element through data-app-event="extensionName|functionName"
