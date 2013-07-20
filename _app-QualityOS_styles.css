@@ -4,14 +4,14 @@
 html {height: 100%}
 
 body {
-	background-image: url(images/BackgroundImage.jpg);
+	background-image: url(images/background-image_1020x5000.jpg);
 	background-color: #F5F1DE;
 }	
 
 #appPreView { 
 	height: 240px;
 	width: 410px;
-	background-image: url(images/BackgroundImage.jpg);
+	background-image: url(images/background-image_1020x5000.jpg);
 	background-color: #F5F1DE;	
 	margin: 190px auto 0 auto;
 }
@@ -1028,7 +1028,7 @@ PRODUCT TEMPLATE
 	width: 16px;
 	margin-right: 0px;
 	margin-top: 17px;
-	background-image: url(images/CarouselPrev-16x17.png);
+	background-image: url(images/carousel-prev_16x17.png);
 	position: absolute;
 	top: 0px;
 	left: 260px;
@@ -1042,7 +1042,7 @@ PRODUCT TEMPLATE
 	width: 16px;
 	margin-right: 0px;
 	margin-top: 17px;
-	background-image: url(images/CarouselNext-16x17.png);
+	background-image: url(images/carousel-next_16x17.png);
 	position: absolute;
 	top: 0px;
 	right: 260px;
