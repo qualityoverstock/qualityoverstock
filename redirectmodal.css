@@ -1,17 +1,18 @@
 div.ui-dialog-titlebar {display:none;}
 
-div.ui-dialog div.redirectToSiteApp {background-color:#ffffff; background-image:url(images/redirect-modal-background-460x182.png); background-position:0 154px; background-repeat:no-repeat; background-size:450px 145px; float:left; font-family:Oswald; color#ffffff;}
+div.ui-dialog div.redirectToSiteApp {background-color:#ffffff; background-image:url(images/background-image_1020x500.jpg); float:left; font-family:"Playfair Display SC"; color#ffffff;}
 
-.redirectToSiteApp h3 {color:#3bb3c3; font-weight:normal; text-align:center; margin:15px 0;}
+.redirectToSiteApp h3 {color:#999999; font-weight:normal; text-align:center; margin:15px 0;}
 
 button::-moz-focus-inner {border:0;}
 
-.redirectToSiteApp button {color:#ffffff; margin:10px 0 0 0; border:none; padding:5px 10px; cursor:pointer;}
+.redirectToSiteApp button {color:#000000; margin:10px 0 0 0; border:none; padding:5px 10px; cursor:pointer;}
 
-.redirectToSiteApp button.autoRedirectButton {background-color:#e0463a; cursor:pointer;}
+.redirectToSiteApp button.autoRedirectButton {background-color:#fec611; cursor:pointer;}
+.redirectToSiteApp button.autoRedirectButton:hover {background-color:#000000; color:#fec611;}
 
-.redirectToSiteAppButton {height:40px; width:150px; font-weight:bold; background-color:#3bb3c3; cursor:pointer;}
-.redirectToSiteAppButton:hover {background-color:#f8c301; color:#000000;}
+.redirectToSiteApp .redirectToSiteAppButton {height:40px; width:150px; font-weight:bold; background-color:#000000; cursor:pointer; color:#ffffff;}
+.redirectToSiteAppButton:hover {background-color:#fec611; color:#000000;}
 
-.redirectToSiteApp a.bugLaterButton {color:#3bb3c3; font-family:"Open Sans"; font-size:14px; float:right; margin:30px 0 0 0; cursor:pointer;}
+.redirectToSiteApp a.bugLaterButton {color:#777c71; font-family:"Open Sans"; font-size:14px; float:right; margin:30px 0 0 0; cursor:pointer;}
 .redirectToSiteApp a.bugLaterButton:hover {color:#cccccc; text-decoration:underline;}
