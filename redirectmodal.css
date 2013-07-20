@@ -1,0 +1,17 @@
+div.ui-dialog-titlebar {display:none;}
+
+div.ui-dialog div.redirectToSiteApp {background-color:#ffffff; background-image:url(images/redirect-modal-background-460x182.png); background-position:0 154px; background-repeat:no-repeat; background-size:450px 145px; float:left; font-family:Oswald; color#ffffff;}
+
+.redirectToSiteApp h3 {color:#3bb3c3; font-weight:normal; text-align:center; margin:15px 0;}
+
+button::-moz-focus-inner {border:0;}
+
+.redirectToSiteApp button {color:#ffffff; margin:10px 0 0 0; border:none; padding:5px 10px; cursor:pointer;}
+
+.redirectToSiteApp button.autoRedirectButton {background-color:#e0463a; cursor:pointer;}
+
+.redirectToSiteAppButton {height:40px; width:150px; font-weight:bold; background-color:#3bb3c3; cursor:pointer;}
+.redirectToSiteAppButton:hover {background-color:#f8c301; color:#000000;}
+
+.redirectToSiteApp a.bugLaterButton {color:#3bb3c3; font-family:"Open Sans"; font-size:14px; float:right; margin:30px 0 0 0; cursor:pointer;}
+.redirectToSiteApp a.bugLaterButton:hover {color:#cccccc; text-decoration:underline;}
