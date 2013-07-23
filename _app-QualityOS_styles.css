@@ -516,6 +516,8 @@ CATEGORY TEMPLATE
 
 .categoryTemplate .overstock {top: 123%;}
 
+.categoryDescription p {margin:0 10px 12px 10px;}
+
 .categoryDescription p span {
 	color: #000000 !important;
 	font-size: 12px !important;
