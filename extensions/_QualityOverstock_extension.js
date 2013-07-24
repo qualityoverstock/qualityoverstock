@@ -70,8 +70,19 @@ var _QualityOverstock = function() {
 				}]);
 				
 				app.rq.push(['templateFunction', 'customerTemplate','onCompletes',function(infoObj){
+					//sets title of page
 					var title = "My Quality Overstock";
 					app.ext._QualityOverstock.u.setTitle(title);
+					
+					//creates list of countries to use in account creation dropdown menu
+					var $context = $(app.u.jqSelector('#'+infoObj.parentID));
+					var $countryinput = $('.countryDropDown',$context);
+					if(!$countryinput.hasClass('rendered')) {
+						app.ext.cco.calls.appCheckoutDestinations.init({'callback':function(rd){
+							$countryinput.addClass('rendered').anycontent({'templateID':'countryDropdownTemplate','datapointer':rd.datapointer})
+						}});
+						app.model.dispatchThis('immutable');
+					}
 				}]);
 				
 				app.rq.push(['templateFunction', 'pageNotFoundTemplate','onCompletes',function(infoObj){
