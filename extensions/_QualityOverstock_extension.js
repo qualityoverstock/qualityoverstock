@@ -40,6 +40,7 @@ var _QualityOverstock = function() {
 					//app.u.dump("_QOS sansReviews() run");
 				app.rq.push(['templateFunction','productTemplate','onCompletes',function(infoObj) {
 					var $context = $(app.u.jqSelector('#'+infoObj.parentID)); //grabs the currently loaded product page (to ignore previously loaded / invisible ones)
+					
 					app.ext._QualityOverstock.a.runProductCarousel($context);
 						app.u.dump('product Ran');
 					app.ext._QualityOverstock.a.runProductCarouselReco($context);
@@ -49,7 +50,15 @@ var _QualityOverstock = function() {
 					app.ext._QualityOverstock.a.runProductCarouselSimilar($context);
 						app.u.dump('Similar Ran');
 					app.ext._QualityOverstock.a.runProductCarouselTitle($context);
+					
+					var title = app.data["appProductGet|"+infoObj.pid]['%attribs']['zoovy:prod_name'];
+					app.ext._QualityOverstock.u.setTitle(title);
 				}]);
+				
+				
+				//var title = app.data["appPageGet|"+P.navcat]['%page'].page_title;
+				//	app.ext._QualityOverstock.u.setTitle(title);
+				
 					
 				return true;
 				/*var r = false; //return false if extension won't load for some reason (account config, dependencies, etc).
@@ -430,6 +439,17 @@ var _QualityOverstock = function() {
 //utilities are typically functions that are exected by an event or action.
 //any functions that are recycled should be here.
 		u : {
+		
+			setTitle : function(title) {
+				if(title && typeof title === "string") {
+					//This is what is expected
+				}
+				else {
+					//set title
+					title = "Quality Overstock Merchandise"
+				}
+				document.title = title+" | Quality Overstock";
+			}, //end setTitle
 			
 			handleAppLoginCreate : function($form)	{
 				if($form)	{
