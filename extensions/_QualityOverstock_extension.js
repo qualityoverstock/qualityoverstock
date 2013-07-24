@@ -34,6 +34,10 @@ var _QualityOverstock = function() {
 		init : {
 			onSuccess : function()	{
 				
+				app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(infoObj) {
+					app.ext._QualityOverstock.u.setTitle();
+				}]);
+				
 				app.ext._QualityOverstock.a.showDescription();
 					//app.u.dump("_QOS showDescription() run");
 				app.ext._QualityOverstock.a.sansReviews();
