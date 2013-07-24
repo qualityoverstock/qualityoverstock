@@ -55,9 +55,11 @@ var _QualityOverstock = function() {
 					app.ext._QualityOverstock.u.setTitle(title);
 				}]);
 				
-				
-				//var title = app.data["appPageGet|"+P.navcat]['%page'].page_title;
-				//	app.ext._QualityOverstock.u.setTitle(title);
+				app.rq.push(['templateFunction','categoryTemplate','onCompletes',function(infoObj) {
+					var title = app.data["appPageGet|"+infoObj.navcat]['%page'].page_title;
+					app.ext._QualityOverstock.u.setTitle(title);
+				}]);
+
 				
 					
 				return true;
