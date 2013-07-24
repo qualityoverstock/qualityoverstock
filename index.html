@@ -1385,11 +1385,8 @@ subscribeListsArticle is used for authenticated buyers
 							<b>Zip</b> 
 							<input name='postal' type='text' size='10' placeholder='00000-0000' required='required' class='textfzip'/>
 						</div>
-						<div class="fieldM">
-							<span class="field">Country</span> 
-							<select name="country" class="textfcountry">
-								<option>United States of America</option>
-							</select>
+						<div class="fieldM countryDropDown">
+							<!-- THIS CONTENT POPULATED WITH COUNTRYDROPDOWNTEMPLATE -->
 						</div>
 						<div class="fieldM">
 							<span class="field">E-mail</span> 
@@ -1501,6 +1498,14 @@ subscribeListsArticle is used for authenticated buyers
 
 </div>
 
+
+
+<div id="countryDropdownTemplate">
+	<span class="field">Country</span> 
+	<!--SEE COUNTRIES AS OPTIONS IN EXTENSIONS/_QUALITYOVERSTOCK.EXTENSION.JS or EXTENSIONS/CART_CHECKOUT_ORDER.JS-->
+	<select name="country" class="textfcountry" data-bind="var:customer(this.var.does.not.exist); defaultValue:US; format:countriesAsOptions; extension:cco;">
+	</select>
+</div>
 
 
 
