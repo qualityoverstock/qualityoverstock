@@ -201,7 +201,7 @@ HEADER
 
 .dropdown ul {
 	margin: 0px;
-	padding: 0px 0px 3px 35px;
+	padding: 0px 0px 3px 17px;
 }
 
 .dropdown li {
@@ -515,6 +515,8 @@ CATEGORY TEMPLATE
 .categoryTemplate .quality {top: 100%;}
 
 .categoryTemplate .overstock {top: 123%;}
+
+.categoryDescription p {margin:0 10px 12px 10px;}
 
 .categoryDescription p span {
 	color: #000000 !important;
@@ -1810,7 +1812,7 @@ CHECKOUT FORM
 }
 
 .checkoutFormContainer .orderSummaryDetails {
-	text-align: center;
+	text-align: left;
 	font-family: montserrat;
 	font-weight: normal;
 }
@@ -1819,6 +1821,7 @@ CHECKOUT FORM
 	font-family: "Playfair Display SC";
 	font-size: 30px;
 	font-weight: normal;
+	text-align: center;
 }
 
 .checkoutFormContainer .orderSummaryDetails h3 {font-size: 14px;}

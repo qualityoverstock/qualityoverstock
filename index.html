@@ -31,7 +31,7 @@ var _gaq = _gaq || {'push':function(){}} //here for testing. REPLACE BEFORE DEPL
 var myCreole;
 
 var app = {vars:{
-	"release":"201320.20130719175300",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+	"release":"201320.20130723155600",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 	"_clientid":"zmvc",
 	"baseURL":"", //used in non-local mode.
 	"checkoutAuthMode" : "active",//can be passive, active or required
@@ -121,7 +121,7 @@ app.u.loadScript(app.vars.baseURL+"_app-QualityOverstock-init.js");
             <span>(Not you?</span>     
             <a href="#!customer?show=myaccount" class='bindByAnchor montFontBold fontColorYellow' title='Log into your account'> LOG IN</a>
             <span>or </span>
-            <a href="#!customer?show=newsletter" class='bindByAnchor montFontBold fontColorYellow' title='Create an account by signing up for our newsletter'> SIGN UP!</a>
+            <a href="#!customer?show=myaccount" class='bindByAnchor montFontBold fontColorYellow' title='Create an account'> SIGN UP!</a>
             <span>)</span>
         </div>
         <div class='headerBarCart'>
@@ -163,15 +163,15 @@ app.u.loadScript(app.vars.baseURL+"_app-QualityOverstock-init.js");
                             <!-- <li>Limited Offer</li> For future use... vera_bradley moves to second ul when these are restored
 								 <li>Special Deals</li> These also used in footer category links-->
                             <li><a class='bindByAnchor' href='#!category?navcat=.01-swarovski' onClick="hideDropdown($(this).parent().parent().parent().parent())">Swarovski</a></li>
+                            <li><a class='bindByAnchor' href='#!category?navcat=.alessi' onClick="hideDropdown($(this).parent().parent().parent().parent())">Alessi</a></li>
                             <li><a class='bindByAnchor' href='#!category?navcat=.baccarat' onClick="hideDropdown($(this).parent().parent().parent().parent())">Baccarat</a></li>
                             <li><a class='bindByAnchor' href='#!category?navcat=.bake__n_serve' onClick="hideDropdown($(this).parent().parent().parent().parent())">Bake 'n Serve</a></li>
-                            <li><a class='bindByAnchor' href='#!category?navcat=.lalique' onClick="hideDropdown($(this).parent().parent().parent().parent())">Lalique</a></li>
-                            <li><a class='bindByAnchor' href='#!category?navcat=.lladro' onClick="hideDropdown($(this).parent().parent().parent().parent())">Llardro</a></li>
-							<li><a class='bindByAnchor' href='#!category?navcat=.vera_bradley' onClick="hideDropdown($(this).parent().parent().parent().parent())">Vera Bradley</a></li>
+                            <li><a class='bindByAnchor' href='#!category?navcat=.kosta_boda___orrefors' onClick="hideDropdown($(this).parent().parent().parent().parent())">Kosta Boda/Orrefors</a></li>
+                            <li><a class='bindByAnchor' href='#!category?navcat=.l_objet' onClick="hideDropdown($(this).parent().parent().parent().parent())">L'Objet</a></li>
 						</ul>    
                         <ul class='playFont fontColorWhite fontSize14PX listStyleNone floatLeft'>
-                            <li><a class='bindByAnchor' href='#!category?navcat=.versace' onClick="hideDropdown($(this).parent().parent().parent().parent())">Versache</a></li>
-                            <li><a class='bindByAnchor' href='#!category?navcat=.sale_items' onClick="hideDropdown($(this).parent().parent().parent().parent())">Sale Items</a></li>
+							<li><a class='bindByAnchor' href='#!category?navcat=.lladro' onClick="hideDropdown($(this).parent().parent().parent().parent())">Llardro</a></li>
+							<li><a class='bindByAnchor' href='#!category?navcat=.vera_bradley' onClick="hideDropdown($(this).parent().parent().parent().parent())">Vera Bradley</a></li>
                             <li><a class='bindByAnchor' href='#!category?navcat=.new_arrivals' onClick="hideDropdown($(this).parent().parent().parent().parent())">New Arrivals</a></li>
                             <li><a class='bindByAnchor' href='#!category?navcat=.coming_soon' onClick="hideDropdown($(this).parent().parent().parent().parent())">Coming Soon</a></li>
                             <li><a class='bindByAnchor' href='#!category?navcat=.retiring_2013' onClick="hideDropdown($(this).parent().parent().parent().parent())">Retiring 2013</a></li>
@@ -257,7 +257,7 @@ app.u.loadScript(app.vars.baseURL+"_app-QualityOverstock-init.js");
                     <li><a href="#!company?show=return" class='bindByAnchor footerLinkStyle' title='Find info. about returning an item'>Return Policy</a></li>
                     <li><a href="#!company?show=payment" class='bindByAnchor footerLinkStyle' title='Find info. about purchasing items'>Payment Policy</a></li>
                     <li><a href="#!company?show=privacy" class='bindByAnchor footerLinkStyle' title='Find info. on how this site uses your information'>Privacy Policy</a></li>
-                    <li><a href="mailto:info@qualityoverstock.com&Subject=Vendor Inquiry">Vendor Inquiries</a></li>
+                    <li><a href="mailto:info@qualityoverstock.com&Subject=Vendor%20Inquiry">Vendor Inquiries</a></li>
                 </ul>
             </div>
             <div class='footerHelpAccount floatLeft listStyleNone'>
@@ -369,7 +369,7 @@ the homepageTemplate template is loaded into mainContentArea by default when the
 <!-- -->			
         </div>
 	</a>
-    <a class='bindByAnchor' href='#!category?navcat=.sale_items/'>
+    <a class='bindByAnchor' href='#!category?navcat=.sale_items'>
         <div class='specialDealsContainer floatLeft'>
 			<img src='images/special-deals-bkgnd-250x220.jpg' /> <!-- QOSMinorBanner -->
 			<!-- THE THREE LINES OF CODE HOLD THE TEXT AND BLACK BAR UNDER THE GRAPHIC, DELETE THE END COMMENT TAG ON THE 
@@ -1338,7 +1338,7 @@ newsletterArticle is used for buyers who are not logged in or do not have an acc
 subscribeListsArticle is used for authenticated buyers
 -->
 		<div id='newsletterArticle' class='displayNone textContentArea custArticle'>
-			<h1>Subscribe to our Newsletter and Save!</h1>
+			<h1>Subscribe to our newsletter and save!</h1>
 			<div data-bind="format:loadsTemplate; loadsTemplate:subscribeFormTemplate;"></div>
 		</div>
 
@@ -1356,23 +1356,53 @@ subscribeListsArticle is used for authenticated buyers
 							<input type='submit' value='Log In' class='smallcaps ui-button-text ui-button ui-state-default ui-corner-all ' />
 						</fieldset>
 					</form>
-					<a href="#" onClick="app.calls.appBuyerPasswordRecover.init($('#modalLoginLogin').val(),{'callback':'showMessaging','message':'Thank you, you will receive an email shortly','targetID':'loginMessagingInline'}); app.model.dispatchThis('immutable'); return false;">Forgot your password?<br> Enter your username and click hear to retrieve it!</a>
+					<a href="#" onClick="app.calls.appBuyerPasswordRecover.init($('#modalLoginLogin').val(),{'callback':'showMessaging','message':'Thank you, you will receive an email shortly','targetID':'loginMessagingInline'}); app.model.dispatchThis('immutable'); return false;">Forgot your password?<br> Enter your username and click here to retrieve it!</a>
 				</div>
 				<div class="Account" >
 					<!--<form action='#' class='inputsAsBreaks'  onSubmit="app.ext.myRIA.u.handleAppBuyerCreate($(this)); return false;">-->
 					<form action='#' class='inputsAsBreaks'  onSubmit="app.ext._QualityOverstock.u.handleAppLoginCreate($(this)); return false;">
 						<input type="hidden" name="vendor" value="qualityoverstock"/>
 						<h1>First Time With Us?</h1><input type='hidden' name='form' value='wholesale' />
-						<div class="fieldM"><span class="field">First Name</span> <input name='firstname' type='text' size='30' class='textfname' placeholder='First Name' required='required' />
-						<span class="field mname">Middle Initial</span> <input name='firstname' type='text' size='3' class='textfmname' />
-						<b>Last Name</b> <input name='lastname' type='text' size='30' placeholder='Last Name' required='required' class='textflast'/></div>
+						<div class="fieldM">
+							<span class="field">First Name</span> 
+							<input name='firstname' type='text' size='30' class='textfname' placeholder='First Name' required='required' />
+							<!-- No middle name field: <span class="field mname">Middle Initial</span> 
+							<input name='middlename' type='text' size='3' class='textfmname' />-->
+							<b>Last Name</b>
+							<input name='lastname' type='text' size='30' placeholder='Last Name' required='required' class='textflast'/>
+						</div>
 						<!--<div class="passwordInput"><b>Password</b><input name="password" size="30" placeholder="Password" required /></div>-->
-						<div class="fieldM"><span class="field">Address</span> <input name='address1' type='text' size='30' placeholder='Address' class='textfadd' required='required' /> 
-						<input name='address2' type='text' size='30' placeholder='Address (Line 2)' class='textfadd1'/></div>
-						<div class="fieldM"><span class="field">City</span> <input name='city' type='text' size='30' placeholder='City' required='required' class='textfcity'/> 	<b>State</b> <input name='region' type='text' size='5' placeholder='State' required='required' class='textfstate' /> <b>Zip</b> <input name='postal' type='text' size='10' placeholder='00000-0000' required='required' class='textfzip'/></div>
-						<div class="fieldM"><span class="field">Country</span> <select name="country" class="textfcountry"><option>United States of America</option></select></div>
-						<div class="fieldM"><span class="field">E-mail</span> <input name='email' type='email' size='30' class='textfmail' placeholder='E-mail Address' required='required' /> <b>Phone Number</b> <input name='phone' type='tel' size='12' placeholder='Phone Number' class='textfphone' required='required'/> </div>
-						<div class="fieldM"><span class="field">Password</span> <input name='pass' type='password' size='30' class='textfpass' placeholder='7-18 Characters' required='required' /> <b>Confirm Password</b> <input name='pass2' type='password' size='12' placeholder='Must be a match' class='textfphone' required='required'/> </div>
+						<div class="fieldM">
+							<span class="field">Address</span>
+							<input name='address1' type='text' size='30' placeholder='Address' class='textfadd' required='required' /> 
+							<input name='address2' type='text' size='30' placeholder='Address (Line 2)' class='textfadd1'/>
+						</div>
+						<div class="fieldM">
+							<span class="field">City</span> 
+							<input name='city' type='text' size='30' placeholder='City' required='required' class='textfcity'/> 	
+							<b>State</b>
+							<input name='region' type='text' size='5' placeholder='State' required='required' class='textfstate' /> 
+							<b>Zip</b> 
+							<input name='postal' type='text' size='10' placeholder='00000-0000' required='required' class='textfzip'/>
+						</div>
+						<div class="fieldM">
+							<span class="field">Country</span> 
+							<select name="country" class="textfcountry">
+								<option>United States of America</option>
+							</select>
+						</div>
+						<div class="fieldM">
+							<span class="field">E-mail</span> 
+							<input name='email' type='email' size='30' class='textfmail' placeholder='E-mail Address' required='required' /> 
+							<b>Phone Number</b> 
+							<input name='phone' type='tel' size='12' placeholder='Phone Number' class='textfphone' required='required'/>
+						</div>
+						<div class="fieldM">
+							<span class="field">Password</span> 
+							<input name='pass' type='password' size='30' class='textfpass' placeholder='7-18 Characters' required='required' /> 
+							<b>Confirm Password</b> 
+							<input name='pass2' type='password' size='12' placeholder='Must be a match' class='textfphone' required='required'/> 
+						</div>
 						<!--<fieldset class='marginBottom'>
 							<legend>About Your Business</legend>
 							<div class="fieldM"><input name='order_volume' type='text' size='30' placeholder='Anticipated Order Volume' />
@@ -2019,7 +2049,7 @@ The 'data-action' attribute is used to assign an onclick.
 <p id='loginMessaging' class='marginBottom appMessaging'></p>
 
 <div id='loginFormContainer'>
-	<form action='#' onSubmit='app.ext.myRIA.u.loginFrmSubmit($("#modalLoginlogin1").val(),$("#modalLoginpassword").val()); return false;' id='modalLoginForm'>
+	<form action='#' onSubmit='app.ext.myRIA.u.loginFrmSubmit($("#modalLoginlogin1").val(),$("#modalLoginpassword1").val()); return false;' id='modalLoginForm'>
 	<input type='hidden' name='loginCallback' id='loginCallback' value='' /><!-- used to save a callback action in -->
 		<fieldset>
 		
@@ -2033,15 +2063,15 @@ The 'data-action' attribute is used to assign an onclick.
 		<div id="gotAccount"> 
 			<h1 class='smallcaps'>Welcome Back</h1>
 			<!-- Third parameter is id of message destination -->
-			<form action='#' onSubmit='app.ext.myRIA.u.loginFrmSubmit($("#modalLoginlogin1").val(),$("#modalLoginpassword").val(),$("#loginMessaging")); return false;' id='modalLoginForm'>
+			<form action='#' onSubmit='app.ext.myRIA.u.loginFrmSubmit($("#modalLoginlogin1").val(),$("#modalLoginpassword1").val(),$("#loginMessaging")); return false;' id='modalLoginForm'>
 				<input type='hidden' name='loginCallback' id='loginCallback' value='' /><!-- used to save a callback action in -->
 				<fieldset>
 					<input type='email' class='zform_textbox zform_email' name='login' id='modalLoginlogin1' value='' size='20' placeholder='E-mail address' />
-					<input type='password' class='zform_textbox zform_password' name='password' id='modalLoginpassword' value='' size='20' placeholder='Password' />
+					<input type='password' class='zform_textbox zform_password' name='password' id='modalLoginpassword1' value='' size='20' placeholder='Password' />
 					<input type='submit' value='Log In' class='smallcaps ui-button-text ui-button ui-state-default ui-corner-all ' />
 				</fieldset>
 			</form>
-			<a href="#" onClick="app.calls.appBuyerPasswordRecover.init($('#modalLoginLogin').val(),{'callback':'showMessaging','message':'Thank you, will receive an email shortly','targetID':'loginMessaging'}); app.model.dispatchThis('immutable'); return false;">Forgot your password?<br> Enter your username and click hear to retrieve it!</a>
+			<a href="#" onClick="app.calls.appBuyerPasswordRecover.init($('#modalLoginLogin').val(),{'callback':'showMessaging','message':'Thank you, will receive an email shortly','targetID':'loginMessaging'}); app.model.dispatchThis('immutable'); return false;">Forgot your password?<br> Enter your username and click here to retrieve it!</a>
 		</div>
 <!--	
 	<div>
