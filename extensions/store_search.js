@@ -481,7 +481,12 @@ P.parentID - The parent ID is used as the pointer in the multipage controls obje
 /*QOS*/					query.query =  {
 						"filtered": {
 							"query" : {"query_string" : obj},
-							"filter" : {"not" : {"term" : {"fba":"1"}}}
+							"filter" : {
+								"or" : [
+									{"not" : {"term" : {"fba":"1"}}},
+									{"not" : {"term" : {"incog_neat_o":"1"}}}
+									]
+								}
 						}
 /*QOS*/					}; //user:incog_neat_o tag for hiding products on the app.
 				}

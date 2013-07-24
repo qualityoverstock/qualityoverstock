@@ -2076,7 +2076,7 @@ The 'data-action' attribute is used to assign an onclick.
 		<div id="gotAccount"> 
 			<h1 class='smallcaps'>Welcome Back</h1>
 			<!-- Third parameter is id of message destination -->
-			<form action='#' onSubmit='app.ext.myRIA.u.loginFrmSubmit($("#modalLoginlogin1").val(),$("#modalLoginpassword1").val(),$("#loginMessaging")); return false;' id='modalLoginForm'>
+			<form action='#' onSubmit='app.ext.myRIA.u.loginFrmSubmit($("input[name=login]", $(this)).val(),$("input[name=password]", $(this)).val(),$("#loginMessaging")); return false;' id='modalLoginForm'>
 				<input type='hidden' name='loginCallback' id='loginCallback' value='' /><!-- used to save a callback action in -->
 				<fieldset>
 					<input type='email' class='zform_textbox zform_email' name='login' id='modalLoginlogin1' value='' size='20' placeholder='E-mail address' />
@@ -2084,7 +2084,7 @@ The 'data-action' attribute is used to assign an onclick.
 					<input type='submit' value='Log In' class='smallcaps ui-button-text ui-button ui-state-default ui-corner-all ' />
 				</fieldset>
 			</form>
-			<a href="#" onClick="app.calls.appBuyerPasswordRecover.init($('#modalLoginLogin1').val(),{'callback':'showMessaging','message':'Thank you, will receive an email shortly','targetID':'loginMessaging'}); app.model.dispatchThis('immutable'); return false;">Forgot your password?<br> Enter your username and click here to retrieve it!</a>
+			<a href="#" onClick="app.calls.appBuyerPasswordRecover.init($('input[name=login]', $(this).parent()).val(),{'callback':'showMessaging','message':'Thank you, will receive an email shortly','targetID':'loginMessaging'}); app.model.dispatchThis('immutable'); return false;">Forgot your password?<br> Enter your username and click here to retrieve it!</a>
 		</div>
 <!--	
 	<div>
