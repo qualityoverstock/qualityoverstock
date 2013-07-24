@@ -56,7 +56,7 @@ var prodlist_infinite = function() {
 //callbacks.init need to return either a true or a false, depending on whether or not the file will execute properly based on store account configuration.
 		init : {
 			onSuccess : function()	{
-//				app.u.dump('BEGIN app.ext.prodlist_infinite.init.onSuccess ');
+				app.u.dump('BEGIN app.ext.prodlist_infinite.init.onSuccess ');
 				return true;  //currently, there are no config or extension dependencies, so just return true. may change later.
 //unbind this from window anytime a category page is left.
 //NOTE! if infinite prodlist is used on other pages, remove run this on that template as well.
@@ -135,9 +135,7 @@ It is run once, executed by the renderFormat.
 //also need a list of product (csv)
 				if($tag && bindData.csv)	{
 //					app.u.dump(" -> required parameters exist. Proceed...");
-					
 					bindData.csv = app.ext.store_prodlist.u.cleanUpProductList(bindData.csv); //strip blanks and make sure this is an array. prod attributes are not, by default.
-//					app.u.dump(" -> bindData.csv after cleanup: "); app.u.dump(bindData.csv);
 					this.addProductToPage($tag);
 					}
 				else	{
@@ -176,13 +174,9 @@ It is run once, executed by the renderFormat.
 						}
 					else	{
 						for(var i = 0; i < L; i += 1)	{
-var tmp = app.data['appProductGet|'+pageCSV[i]];
-if(typeof app.data['appReviewsList|'+pageCSV[i]] == 'object'  && app.data['appReviewsList|'+pageCSV[i]]['@reviews'].length)	{
-	tmp['reviews'] = app.ext.store_prodlist.u.summarizeReviews(pageCSV[i]); //generates a summary object (total, average)
-	tmp['reviews']['@reviews'] = app.data['appReviewsList|'+pageCSV[i]]['@reviews']
-	}
-							//if you want this list inventory aware, do you check here and skip the append below.
-$tag.append(app.renderFunctions.transmogrify({'pid':pageCSV[i]},plObj.loadsTemplate,tmp));
+							var $placeholder = $('<span />');
+							$tag.append($placeholder);
+							app.ext.prodlist_infinite.u.insertProduct(pageCSV[i], plObj, $placeholder);
 							}
 						app.ext.prodlist_infinite.u.handleScroll($tag);
 						}				
@@ -197,7 +191,28 @@ $tag.append(app.renderFunctions.transmogrify({'pid':pageCSV[i]},plObj.loadsTempl
 					}
 
 				},
-
+			insertProduct : function(pid, plObj, $placeholder, attempts){
+				var data = app.data['appProductGet|'+pid];
+				attempts = attempts || 0;
+				if(data){
+					if(typeof app.data['appReviewsList|'+pid] == 'object'  && app.data['appReviewsList|'+pid]['@reviews'].length)	{
+						data['reviews'] = app.ext.store_prodlist.u.summarizeReviews(pid); //generates a summary object (total, average)
+						data['reviews']['@reviews'] = app.data['appReviewsList|'+pid]['@reviews']
+						}
+														//if you want this list inventory aware, do you check here and skip the append below.
+					$placeholder.before(app.renderFunctions.transmogrify({'pid':pid},plObj.loadsTemplate,data));
+					$placeholder.remove();
+					}
+				else if(attempts < 50){
+					setTimeout(function(){
+						app.ext.prodlist_infinite.u.insertProduct(pid, plObj, $placeholder, attempts+1);
+						}, 250);
+					}
+				else {
+					app.u.dump("-> prodlist_infinite FAILED TO INSERT PRODUCT: "+pid)
+					$placeholder.remove();
+					}
+				},
 			handleScroll : function($tag)	{
 var plObj = $tag.data();
 if(plObj.prodlist.csv.length <= plObj.prodlist.items_per_page)	{$tag.parent().find("[data-app-role='infiniteProdlistLoadIndicator']").hide();} //do nothing. fewer than 1 page worth of items.
@@ -209,7 +224,7 @@ else if(plObj.prodlist.page_in_focus >= plObj.prodlist.total_page_count)	{
 else	{
 	$(window).on('scroll.infiniteScroll',function(){
 		//will load data when two rows from bottom.
-/*QOS*/	if( $(window).scrollTop() >= ( $(document).height() - 475 - $(window).height() - ($tag.children().first().height() * 2) ) )	{
+		if( $(window).scrollTop() >= ( $(document).height() - $(window).height() - ($tag.children().first().height() * 2) ) )	{
 			if($tag.data('isDispatching') == true)	{}
 			else	{
 				plObj.prodlist.page_in_focus += 1;
