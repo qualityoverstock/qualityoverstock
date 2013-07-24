@@ -60,6 +60,10 @@ var _QualityOverstock = function() {
 					app.ext._QualityOverstock.u.setTitle(title);
 				}]);
 
+				app.rq.push(['templateFunction','companyTemplate','onCompletes',function(infoObj) {
+					var title = "Quality Overstock Information";
+					app.ext._QualityOverstock.u.setTitle(title);
+				}]);
 				
 					
 				return true;
