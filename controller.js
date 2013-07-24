@@ -131,8 +131,11 @@ copying the template into memory was done for two reasons:
 			else	{
 				//create a new session id.
 				app.vars._session = app.u.guidGenerator();
-				app.storageFunctions.writeLocal('_session',app.vars._session);
+				if(!app.storageFunctions.writeLocal('_session',app.vars._session)){
+					app.u.dump("not writing to local for session...?");
+					}
 				app.u.dump(" -> generated new session: "+app.vars._session);
+				app.u.dump(app.storageFunctions.readLocal('_session'));
 				}
 			}
 		}, //handleSession
@@ -3082,8 +3085,8 @@ $tmp.empty().remove();
 					}
 				catch(e)	{
 					r = false;
-//					app.u.dump(' -> localStorage defined but not available (no space? no write permissions?)');
-//					app.u.dump(e);
+					app.u.dump(' -> localStorage defined but not available (no space? no write permissions?)');
+					app.u.dump(e);
 					}
 				
 				}
@@ -3093,6 +3096,7 @@ $tmp.empty().remove();
 		readLocal : function(key)	{
 		//	app.u.dump("GETLOCAL: key = "+key);
 			if(typeof localStorage == 'undefined')	{
+				app.u.dump("Fetching cookie");
 				return app.storageFunctions.readCookie(key); //return blank if no cookie exists. needed because getLocal is used to set vars in some if statements and 'null'	
 				}
 			else	{
@@ -3101,8 +3105,8 @@ $tmp.empty().remove();
 					value = localStorage.getItem(key);
 					}
 				catch(e)	{
-					//app.u.dump("Local storage does not appear to be available. e = ");
-					//app.u.dump(e);
+					app.u.dump("Local storage does not appear to be available. e = ");
+					app.u.dump(e);
 					}
 				if(value == null)	{
 					return app.storageFunctions.readCookie(key);
