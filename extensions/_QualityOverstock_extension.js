@@ -33,7 +33,7 @@ var _QualityOverstock = function() {
 //executed when extension is loaded. should include any validation that needs to occur.
 		init : {
 			onSuccess : function()	{
-			
+				
 				app.ext._QualityOverstock.a.showDescription();
 					//app.u.dump("_QOS showDescription() run");
 				app.ext._QualityOverstock.a.sansReviews();
@@ -62,6 +62,11 @@ var _QualityOverstock = function() {
 
 				app.rq.push(['templateFunction','companyTemplate','onCompletes',function(infoObj) {
 					var title = "Quality Overstock Information";
+					app.ext._QualityOverstock.u.setTitle(title);
+				}]);
+				
+				app.rq.push(['templateFunction', 'customerTemplate','onCompletes',function(infoObj){
+					var title = "My Quality Overstock";
 					app.ext._QualityOverstock.u.setTitle(title);
 				}]);
 				
