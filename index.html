@@ -31,7 +31,7 @@ var _gaq = _gaq || {'push':function(){}} //here for testing. REPLACE BEFORE DEPL
 var myCreole;
 
 var app = {vars:{
-	"release":"201320.20130724133600",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+	"release":"201320.20130724140600",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 	"_clientid":"zmvc",
 	"baseURL":"", //used in non-local mode.
 	"checkoutAuthMode" : "active",//can be passive, active or required
@@ -1356,7 +1356,7 @@ subscribeListsArticle is used for authenticated buyers
 				<div id="gotAccount1"> 
 					<h1 class='smallcaps'>Welcome Back</h1>
 					<!-- Third parameter is id of message destination -->
-					<form action='#' onSubmit='app.ext._QualityOverstock.a.loginFrmSubmit($("#modalLoginLogin").val(),$("#modalLoginpassword").val(),$("#loginMessagingInline")); return false;' id='modalLoginForm'>
+					<form action='#' onSubmit='app.ext._QualityOverstock.a.loginFrmSubmit($("input[name=login]",$(this)).val(),$("input[name=password]",$(this)).val(),$("#loginMessagingInline")); return false;' id='modalLoginForm'>
 						<input type='hidden' name='loginCallback' id='loginCallback' value='' /><!-- used to save a callback action in -->
 						<fieldset>
 							<input type='email' class='zform_textbox zform_email' name='login' id='modalLoginLogin' value='' size='25' placeholder='E-mail address' />
@@ -1364,7 +1364,7 @@ subscribeListsArticle is used for authenticated buyers
 							<input type='submit' value='Log In' class='smallcaps ui-button-text ui-button ui-state-default ui-corner-all ' />
 						</fieldset>
 					</form>
-					<a href="#" onClick="app.calls.appBuyerPasswordRecover.init($('#modalLoginLogin').val(),{'callback':'showMessaging','message':'Thank you, you will receive an email shortly','targetID':'loginMessagingInline'}); app.model.dispatchThis('immutable'); return false;">Forgot your password?<br> Enter your username and click here to retrieve it!</a>
+					<a href="#" onClick="app.calls.appBuyerPasswordRecover.init($('input[name=login]', $(this).parent()).val(),{'callback':'showMessaging','message':'Thank you, you will receive an email shortly','targetID':'loginMessagingInline'}); app.model.dispatchThis('immutable'); return false;">Forgot your password?<br> Enter your username and click here to retrieve it!</a>
 				</div>
 				<div class="Account" >
 					<!--<form action='#' class='inputsAsBreaks'  onSubmit="app.ext.myRIA.u.handleAppBuyerCreate($(this)); return false;">-->
