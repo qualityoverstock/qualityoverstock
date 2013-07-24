@@ -364,7 +364,8 @@ the homepageTemplate template is loaded into mainContentArea by default when the
    
 <div class='homepageContainer'> 
 
-	<a class='bindByAnchor' href='#!category?navcat=.01-swarovski.tcoming_soon_-_new_arrivals'>
+	<!--<div class='bindByAnchor pointer' href='#!category?navcat=.01-swarovski.tcoming_soon_-_new_arrivals'> -->
+	<div class='pointer' href='#!' onClick="return showContent('category',{'navcat':'.01-swarovski.tcoming_soon_-_new_arrivals'});">
         <div class='homepageBanner clearfix'>
             <img src="images/main_banner_700_250_2.jpg"> <!-- QOSMainBanner -->
 			<!-- THE THREE LINES OF CODE HOLD THE TEXT AND BLACK BAR UNDER THE GRAPHIC, DELETE THE END COMMENT TAG ON THE 
@@ -374,8 +375,9 @@ the homepageTemplate template is loaded into mainContentArea by default when the
             </div> 
 <!-- -->			
         </div>
-	</a>
-    <a class='bindByAnchor' href='#!category?navcat=.sale_items'>
+	</div>
+    <!-- <div class='bindByAnchor pointer' href='#!category?navcat=.sale_items'> -->
+    <div class='pointer' onClick="return showContent('category',{'navcat':'.sale_items'});">
         <div class='specialDealsContainer floatLeft'>
 			<img src='images/special-deals-bkgnd-250x220.jpg' /> <!-- QOSMinorBanner -->
 			<!-- THE THREE LINES OF CODE HOLD THE TEXT AND BLACK BAR UNDER THE GRAPHIC, DELETE THE END COMMENT TAG ON THE 
@@ -385,7 +387,7 @@ the homepageTemplate template is loaded into mainContentArea by default when the
             </div> 
 <!-- -->
         </div>
-  	</a>
+  	</div>
     
 	<ul data-bind="var: category(@subcategoryDetail); format: categoryList; extension: store_navcats; loadsTemplate: categoryListTemplateRootCats; detail:max;" class='clearfix listStyleNone noPadOrMargin homepageProdList'></ul>
     
