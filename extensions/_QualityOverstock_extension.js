@@ -35,7 +35,8 @@ var _QualityOverstock = function() {
 			onSuccess : function()	{
 				
 				app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(infoObj) {
-					app.ext._QualityOverstock.u.setTitle();
+					var title = "Home";
+					app.ext._QualityOverstock.u.setTitle(title);
 				}]);
 				
 				app.ext._QualityOverstock.a.showDescription();
