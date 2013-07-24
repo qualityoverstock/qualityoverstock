@@ -471,8 +471,8 @@ var _QualityOverstock = function() {
 						if(inventory == 0) {
 							$tag.addClass('zerInv');
 						}
-					if(data.value['%attribs']['user:user:incog_neat_o']) {
-						if(data.value['%attribs']['user:user:incog_neat_o'] == 1) {
+					if(data.value['%attribs']['user:incog_neat_o']) {
+						if(data.value['%attribs']['user:incog_neat_o'] == 1) {
 							$tag.css('display','none');
 						}
 					}
