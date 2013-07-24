@@ -74,6 +74,21 @@ var _QualityOverstock = function() {
 					app.ext._QualityOverstock.u.setTitle(title);
 				}]);
 				
+				app.rq.push(['templateFunction', 'pageNotFoundTemplate','onCompletes',function(infoObj){
+					var title = "Page not found";
+					app.ext._QualityOverstock.u.setTitle(title);
+				}]);
+					
+				app.rq.push(['templateFunction', 'checkoutTemplate','onCompletes',function(infoObj){
+					var title = "Check out";
+					app.ext._QualityOverstock.u.setTitle(title);
+				}]);
+					
+				app.rq.push(['templateFunction', 'searchTemplate','onCompletes',function(infoObj){
+					var title = "Search";
+					app.ext._QualityOverstock.u.setTitle(title);
+				}]);
+				
 					
 				return true;
 				/*var r = false; //return false if extension won't load for some reason (account config, dependencies, etc).
