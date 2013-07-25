@@ -422,7 +422,7 @@ $display.appendTo($tag);
 					$tag.show().removeClass('displayNone').removeAttr('disabled');
 					}
 				else	{
-					$tag.hide().addClass('displayNone').before("<span class='notAvailableForPurchase'>This item is not available for purchase<\/span>"); //hide button, item is not purchaseable.
+					$tag.hide().addClass('displayNone').before("<div class='notAvailableForPurchase'>This item is not available for purchase.<br>Please check back later<\/div>"); //hide button, item is not purchaseable.
 					}
 
 //				app.u.dump(" -> ID at end: "+$tag.attr('id'));

@@ -478,7 +478,7 @@ var _QualityOverstock = function() {
 					}
 						//app.u.dump('-------------->'); app.u.dump(data.value['@inventory'][pid]['inv']);
 					}
-				}
+				},
 
 			}, //renderFormats
 ////////////////////////////////////   UTIL [u]   \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\

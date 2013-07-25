@@ -903,6 +903,12 @@ PRODUCT TEMPLATE
 	font-weight: 400;
 }
 
+.notAvailableForPurchase {
+	color: #ffffff;
+	padding: 20px; 
+	text-align: center;
+}
+
 .productSmallButtonContainer {
 	width: 180px;
 	margin: auto;
