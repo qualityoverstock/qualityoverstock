@@ -468,7 +468,7 @@ var _QualityOverstock = function() {
 					var pid = data.value.pid;
 					if(data.value['@inventory'][pid]) {
 						var inventory = data.value['@inventory'][pid]['inv'];
-						if(inventory == 0) {
+						if(inventory < 1 || undefined) {
 							$tag.addClass('zerInv');
 						}
 					if(data.value['%attribs']['user:incog_neat_o']) {
