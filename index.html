@@ -34,7 +34,7 @@ _gaq.push(['_trackPageview']);
 var myCreole;
 
 var app = {vars:{
-	"release":"201320.20130726100100",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+	"release":"201320.20130730084000",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 	"_clientid":"zmvc",
 	"baseURL":"", //used in non-local mode.
 	"checkoutAuthMode" : "active",//can be passive, active or required
@@ -380,12 +380,8 @@ the homepageTemplate template is loaded into mainContentArea by default when the
         </div>
 
 	</div>
-    <!-- <div class='bindByAnchor pointer' href='#!category?navcat=.sale_items'> -->
-    <div class='pointer' onClick="return showContent('category',{'navcat':'.sale_items'});">
 
-	</a>
-    <a class='bindByAnchor' href='#category?navcat=.sale_items'>
-        <div class='specialDealsContainer floatLeft'>
+    <a class='bindByAnchor' href='#<!--!category?navcat=.sale_items-->'>        <div class='specialDealsContainer floatLeft'>
 			<img src='images/special-deals-bkgnd-250x220.jpg' /> <!-- QOSMinorBanner -->
 			<!-- THE THREE LINES OF CODE HOLD THE TEXT AND BLACK BAR UNDER THE GRAPHIC, DELETE THE END COMMENT TAG ON THE 
 			FIRST LINE, AND THE BEGINNING COMMENT TAG ON THE LINE AFTER TO HIDE THE CONTAINER. ADD THEM BACK TO SHOW IT AGAIN-->
@@ -1170,16 +1166,17 @@ if you change these, you should move them above this comment so that when you (o
 			<h1 class='playSCFont fontColorBlack fontSize24PX smallcaps'>Contact Us</h1>
             <div class='contactContainer'>
             	<div class='floatLeft'>
-                <form action='#' onSubmit="app.ext.store_crm.calls.appSendMessage.init($(this).serializeJSON(),{'callback':'showMessaging','parentID':'contactFormMessaging','message':'Thank you, your message has been sent'},'immutable'); app.model.dispatchThis('immutable');  return false;" id='contactForm' name='contactForm' class='floatLeft';>
-                    <fieldset>
-                        <div id='contactFormMessaging'></div>
-                        <div><label for='contactFormName'></label><input type='text' name='name' id='contactFormName' value=' Full Name'/></div>
-                        <div><label for='contactFormSender'></label><input type='email' name='sender' required='required' id='contactFormSender' value=' E-mail Address'/></div>
-                        <div><label for='contactFormOID'></label><input type='text' name='OID' id='contactFormOID' value=' Order Number (if applicable)'/></div>
-                        <div><label for='contactFormBody'></label><textarea class='contactMessage' name='body' required='required' id='contactFormBody' placeholder=" What's it about?"></textarea></div>
-                        <div class='alignRight'><input type='submit' class='ui-button-text ui-button ui-state-default ui-corner-all smallcaps' value='Send Message' /></div>
-                    </fieldset>
-                </form>
+					<form action='#' onSubmit="app.calls.appSendMessage.init($(this).serializeJSON(),{'callback':'showMessaging','parentID':'contactFormMessaging','message':'Thank you, your message has been sent'},'immutable'); app.model.dispatchThis('immutable');  return false;" id='contactForm' name='contactForm' class='floatLeft';>
+						<fieldset>
+							<div id='contactFormMessaging'></div>
+							<div><label for='contactFormName'></label><input type='text' name='name' id='contactFormName' placeholder=' Full Name'/></div>
+							<div><label for='contactFormSender'></label><input type='email' name='sender' required='required' id='contactFormSender' placeholder=' E-mail Address'/></div>
+							<div><label for='contactFormSubject'></label><input type='text' name='subject' id='contactFormSubject' placeholder=' Subject'/></div>
+							<div><label for='contactFormOID'></label><input type='text' name='OID' id='contactFormOID' placeholder=' Order Number (if applicable)'/></div>
+							<div><label for='contactFormBody'></label><textarea class='contactMessage' name='body' required='required' id='contactFormBody' placeholder=" What's it about?"></textarea></div>
+							<div class='alignRight'><input type='submit' class='ui-button-text ui-button ui-state-default ui-corner-all smallcaps' value='Send Message' /></div>
+						</fieldset>
+					</form>
                 </div>
                 <div class='waysToContact articleText floatRight'>
                 	<h2>Order Status</h2>
@@ -1188,13 +1185,13 @@ if you change these, you should move them above this comment so that when you (o
                     <h2>E-mail Us <span class='grey'>(Quickest Response Time)</span></h2>
                     <p>
                     	For general product questions and order inquiries you can also email us at 
-                    	<a mailto:help@qualityoverstock.com>help@qualityoverstock.com</a>.
+                    	<a href="mailto:cs@qualityoverstock.com">cs@qualityoverstock.com</a>.
                     </p>
                     <h2>Call Us</h2>
                     <p>
                     	To place an order over the phone call <span class='boldNumber'>+1 (877) 740-3123</span> between 8:00 am to 5:00 pm PST.
                     	<br><br>You can also FAX us at +1 (845) 406-9148<br><br>
-						If you have a specific question about an existing product or order please email us at <a mailto:help@qualityoverstock.com>help@qualityoverstock.com</a>.
+						If you have a specific question about an existing product or order please email us at <a href="mailto:cs@qualityoverstock.com">cs@qualityoverstock.com</a>.
                     </p>
                     <h2>Location</h2>
                     <p>12 Swallow Avenue, Spring Valley, NY 10977</p>
