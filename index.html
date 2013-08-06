@@ -34,7 +34,7 @@ _gaq.push(['_trackPageview']);
 var myCreole;
 
 var app = {vars:{
-	"release":"201320.20130802142500",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+	"release":"201320.20130806090900",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 	"_clientid":"zmvc",
 	"baseURL":"", //used in non-local mode.
 	"checkoutAuthMode" : "active",//can be passive, active or required
@@ -224,7 +224,7 @@ app.u.loadScript(app.vars.baseURL+"_app-QualityOverstock-init.js");
                 <div class='montFont fontSize10PX'>WITH OUR NEWSLETTER</div>
             </div>
 
-            <form action='#' class='footerFormFrm' id='subscribeFrm' name='subscribeFrm' onSubmit="app.ext.store_crm.u.handleSubscribe('subscribeFrm'); return false">
+            <form action='#' class='footerFormFrm' id='subscribeFrm' name='subscribeFrm' onSubmit="app.ext.store_crm.u.handleSubscribe($(this)); return false">
                 <div class='stayUpdatedInputs floatLeft'><input type='text'  maxlength='50' size='30' name='fullname' class='form' placeholder='  Full Name' /></div>
                 <div class='stayUpdatedInputs floatLeft'><input type='email'  maxlength='50' size='30' name='login' class='form' placeholder='  E-mail Address' /></div>
                 <div class='stayUpdatedInputs floatLeft'><input type='submit' value='Sign Up' class='button smallcaps'></div>
