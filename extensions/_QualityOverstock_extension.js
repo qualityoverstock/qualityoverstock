@@ -61,7 +61,10 @@ var _QualityOverstock = function() {
 				}]);
 				
 				app.rq.push(['templateFunction','categoryTemplate','onCompletes',function(infoObj) {
-					var title = "Quality Overstock categories/products"; //app.data["appPageGet|"+infoObj.navcat]['%page'].page_title;
+					//var title = app.data["appPageGet|"+infoObj.navcat]['%page'].head_title;
+					//var title = app.data["appPageGet|"+infoObj.navcat]['%page'];
+					//app.u.dump('title is:'); app.u.dump(title);
+					var title = "Quality Overstock categories/products"; 
 					app.ext._QualityOverstock.u.setTitle(title);
 				}]);
 

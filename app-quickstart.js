@@ -2843,7 +2843,7 @@ app.templates[P.templateID].find('[data-bind]').each(function()	{
 				
 //if some attributes for this page have already been fetched, check to see if the attribute in focus in here or not set.
 // ** 201318 -> the changes below are to make the appGet more efficient (eliminates duplicate %page attribute requests)
-				if($.inArray(tmpAttr,myAttributes))	{} //attribute is already in the list of attributes to be fetched.
+				if($.inArray(tmpAttr,myAttributes) != -1)	{} //attribute is already in the list of attributes to be fetched.
 				else if(app.data['appPageGet|'+catSafeID] && app.data['appPageGet|'+catSafeID]['%page'])	{
 					if(app.data['appPageGet|'+catSafeID]['%page'][tmpAttr])	{} //already have value
 					else if(app.data['appPageGet|'+catSafeID]['%page'][tmpAttr] === null){} //value has been requested but is not set.
