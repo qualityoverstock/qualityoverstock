@@ -34,7 +34,7 @@ _gaq.push(['_trackPageview']);
 var myCreole;
 
 var app = {vars:{
-	"release":"201320.20140106115500",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+	"release":"201320.20140123110200",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 	"_clientid":"zmvc",
 	"baseURL":"", //used in non-local mode.
 	"checkoutAuthMode" : "active",//can be passive, active or required
@@ -382,14 +382,14 @@ the homepageTemplate template is loaded into mainContentArea by default when the
 
 	</div>
 	
-<!--	<div> --> <!-- THIS MUST BE COMMENTED OUT TO USE THE LINK DIV BELOW, AND THE LINK DIV BELOW MUST BE UNCOMMENTED -->
-	 <div class='pointer' onClick="return showContent('category',{'navcat':'.sale_items'});"> <!-- THIS MUST BE COMMENTED OUT TO REMOVE THE LINK FROM SPECIAL DEALS, AND THE DIV DIRECTLY ABOVE MUST BE UNCOMMENTED -->
+	<div>  <!-- THIS MUST BE COMMENTED OUT TO USE THE LINK DIV BELOW, AND THE LINK DIV BELOW MUST BE UNCOMMENTED -->
+	 <!-- <div class='pointer' onClick="return showContent('category',{'navcat':'.sale_items'});"> --><!-- THIS MUST BE COMMENTED OUT TO REMOVE THE LINK FROM SPECIAL DEALS, AND THE DIV DIRECTLY ABOVE MUST BE UNCOMMENTED -->
 		<div class='specialDealsContainer floatLeft'>
-			<img src='images/special-deals-bkgnd-250x220.jpg' /> <!-- QOSMinorBanner -->
+			<img src='images/flashsale220x250.jpg' /> <!-- QOSMinorBanner -->
 			<!-- THE THREE LINES OF CODE HOLD THE TEXT AND BLACK BAR UNDER THE GRAPHIC, DELETE THE END COMMENT TAG ON THE 
 			FIRST LINE, AND THE BEGINNING COMMENT TAG ON THE LINE AFTER TO HIDE THE CONTAINER. ADD THEM BACK TO SHOW IT AGAIN-->
 <!-- -->    <div class='catName catListTempLineAdjust descriptionBar blackBackground centerText playFont fontColorWhite fontSize18PX'>
-                Special Deals!
+                Flash SALE!
             </div> 
 <!-- -->
         </div>
